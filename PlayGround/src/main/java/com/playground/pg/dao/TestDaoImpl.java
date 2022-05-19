@@ -9,7 +9,7 @@ public class TestDaoImpl implements TestDao {
 	
 	@Autowired
 	private SqlSession session;
-	private static String namespace = "com.playground.pg.dao.TestMapper";
+	private static String namespace = "com.playground.pg.dao.TestMapper.";
 	
 	@Override
 	public String testMtd(String testStr) throws Exception {
