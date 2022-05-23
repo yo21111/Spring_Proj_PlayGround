@@ -21,7 +21,7 @@ public class InquiryController {
 	}
 	
 	// 문의보내기
-	@PutMapping("/board")
+	@PostMapping("/board")
 	public String insertIng(InquiryDto inquiryDto) {
 		// InquiryDTO db에 insert
 		// 카테고리, 작성자, 제목, 내용, 작성일자
@@ -77,7 +77,7 @@ public class InquiryController {
 	}
 	
 	//답변하기
-	@PutMapping("/adReply")
+	@PostMapping("/adReply")
 	public String insertReply(int no, String text) {
 		// 문의 게시글 번호, 답변내용 매개변수로 받기
 		// 해당 번호를 이용하여 InquiryDto 반환
