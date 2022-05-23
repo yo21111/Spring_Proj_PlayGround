@@ -117,10 +117,4 @@ public class PageHandler {
 		this.showPrev = showPrev;
 	}
 
-	@Override
-	public String toString() {
-		return "PageHandler{" + "sc=" + sc + ", totalCnt=" + totalCnt + ", showNext=" + showNext + ", beginPage="
-				+ beginPage + ", NAV_SIZE=" + NAV_SIZE + ", totalPage=" + totalPage + ", endPage=" + endPage
-				+ ", showPrev=" + showPrev + '}';
-	}
 }

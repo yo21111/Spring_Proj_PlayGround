@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.playground.pg.dao.FaqMapper">
+	<select id="selectTotalCnt" resultType="int">
+		Select count(*) from faq
+	</select>
+	
+	<select id="adminChk" parameterType="string">
+		Select grade from member
+		where id = #{id}
+	</select>
+	
+	<select id="selectList" parameterType="SearchCondition"
+		resultType="FaqDto">
+		Select * from faq
+		where
+		true
+		<choose>
+			<when test='option=="title"'>
+				AND title LIKE concat('%', #{keyword}, '%')
+			</when>
+			<when test='option=="content"'>
+				AND content LIKE concat('%', #{keyword}, '%')
+			</when>
+			<otherwise>
+				AND (title LIKE concat('%', #{keyword}, '%')
+				OR content
+				LIKE concat('%', #{keyword}, '%'))
+			</otherwise>
+		</choose>
+		ORDER BY writeDate DESC, no DESC
+		LIMIT #{offset}, #{pageSize}
+	</select>
+
+	<select id="selectListCategory" parameterType="map"
+		resultType="FaqDto">
+		Select * from faq
+		where category = #{category}
+		ORDER BY writeDate DESC, no DESC
+		LIMIT #{offset}, #{pageSize}
+	</select>
+	
+	<select id="selectFaq" parameterType="int" resultType="FaqDto">
+		Select * from faq
+		where no = #{no}
+	</select>
+	
+	<insert id="insertFaq" parameterType="FaqDto">
+		Insert into faq
+		(category, title, content, writer)
+		values
+		(#{category}, #{title}, #{content}, #{writer})
+	</insert>
+	
+	<select id="selectFaqNo" parameterType="FaqDto" resultType="int">
+		Select no from faq
+		where category = #{category}
+		and title = #{title}
+		and content = #{content}
+	</select>
+	
+	<delete id="deleteFaq" parameterType="int">
+		delete from faq where no = #{no}
+	</delete>
+</mapper>
