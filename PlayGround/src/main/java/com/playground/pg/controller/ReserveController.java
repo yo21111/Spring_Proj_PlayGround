@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.playground.pg.domain.ReserveDto;
+
 @Controller	//예약하기 컨트롤러
 @RequestMapping("/reserve")
 public class ReserveController {
@@ -38,18 +40,21 @@ public class ReserveController {
 	}
 	
 	// 결제하기
-	@PostMapping("/input") // 결제하기
-	public String order(int no, String date, String time1, String time2, int adult,
-			int child, int price, int point, String coupon) {
-		//작품번호, 선택날짜, 시작,종료시간, 어른매수, 아이매수, 가격, 포인트, 쿠폰 매개변수로 받기
-		// Map으로 받기?
+	@PostMapping("/pay") // 결제하기
+	public String order(ReserveDto reserveDto) {
+		//작품번호, 선택날짜, 시작,종료시간, 어른매수, 아이매수, 가격, 포인트, 쿠폰 매개변수로 받기(ReserveDTO로 변경 예정)
 		
 		// reserveDTO에 내용 넣은 후 DB에 insert하기
 		
 		return "redirect:결제완료 페이지";
 	}
 	
-	// 예매수정하기
+	
+	
+	
+	
+	
+	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@GetMapping("/update")
 	public String selectReserve(String id, int no) {
 		// 수정할 예매 번호 찾기 위해 아이디와 작품번호 전달 받기
@@ -57,7 +62,7 @@ public class ReserveController {
 		return "예매수정페이지";
 	}
 	
-	// 예매수정하기
+	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@PutMapping("/update")
 	public String updateReserve(String date) {
 		// 수정할 날짜, ReserveDTO 매개변수로 받기(아직 DTO생성 전이라 추가 안했습니다.)
@@ -65,12 +70,6 @@ public class ReserveController {
 		// 수정할날짜로 DTO 수정하기
 		return "redirect:/마이페이지/예매내역";		
 	}
-	
-	
-	
-	
-	
-	
 }
 
 
