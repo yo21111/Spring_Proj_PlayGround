@@ -5,5 +5,8 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="TestDto" type="com.playground.pg.domain.TestDto"/>
+		<typeAlias alias="FaqDto" type="com.playground.pg.domain.FaqDto"/>
+		<typeAlias alias="NoticeDto" type="com.playground.pg.domain.NoticeDto"/>
+		<typeAlias alias="SearchCondition" type="com.playground.pg.SearchCondition"/>
 	</typeAliases>
 </configuration>
