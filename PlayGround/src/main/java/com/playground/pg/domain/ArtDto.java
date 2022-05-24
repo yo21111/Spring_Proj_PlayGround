@@ -4,6 +4,7 @@ public class ArtDto {
 	private int exNo;
 	private String location;
 	private String exName;
+	private String exContent;
 	private int allowNum;
 	private int price1;
 	private int price2;
@@ -34,6 +35,12 @@ public class ArtDto {
 	}
 	public void setExName(String exName) {
 		this.exName = exName;
+	}
+	public String getExContent() {
+		return exContent;
+	}
+	public void setExContent(String exContent) {
+		this.exContent = exContent;
 	}
 	public int getAllowNum() {
 		return allowNum;
