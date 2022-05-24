@@ -1,5 +1,6 @@
 package com.playground.pg.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -7,11 +8,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.playground.pg.domain.NoticeDto;
 import com.playground.pg.domain.PageHandler;
@@ -70,9 +74,21 @@ public class NoticeController {
 	}
 
 	@PostMapping("/write")
-	public String createNotice(NoticeDto noticeDto) throws Exception {
+	public String createNotice(@RequestParam NoticeDto noticeDto, @RequestParam MultipartFile file, HttpSession session)
+			throws Exception {
 		// noticeDto 내용 DB에 insert하기
+		if (!file.isEmpty()) {
+
+			String fileName = file.getOriginalFilename();
+			String savePath = session.getServletContext().getRealPath("/resources/uploadFile/");
+
+			file.transferTo(new File(savePath + fileName));
+
+			noticeDto.setImg(fileName);
+		}
+
 		int no = noticeService.writeNotice(noticeDto);
+
 		// 작성한 게시글의 글번호 받아와서 url에 붙히기
 		return "redirect:/notice/board?no=" + no;
 	}
@@ -88,11 +104,22 @@ public class NoticeController {
 	}
 
 	@PutMapping("/update")
-	public String updateNotice(NoticeDto noticeDto) throws Exception {
+	public String updateNotice(@RequestParam NoticeDto noticeDto, @RequestParam MultipartFile file, HttpSession session)
+			throws Exception {
+		if (!file.isEmpty()) {
+
+			String fileName = file.getOriginalFilename();
+			String savePath = session.getServletContext().getRealPath("/resources/uploadFile/");
+
+			file.transferTo(new File(savePath + fileName));
+
+			noticeDto.setImg(fileName);
+		}
+		
 		// noticeDto 내용 DB에 update하기
-		int no = noticeService.updateNotice(noticeDto);	
+		int no = noticeService.updateNotice(noticeDto);
 		// 작성한 게시글의 글번호 받아와서 url에 붙히기
-		return "redirect:/notice/board?no=" +no ;
+		return "redirect:/notice/board?no=" + no;
 	}
 
 	@DeleteMapping("/bbs")
