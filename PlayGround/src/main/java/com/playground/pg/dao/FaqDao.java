@@ -2,8 +2,8 @@ package com.playground.pg.dao;
 
 import java.util.List;
 
-import com.playground.pg.SearchCondition;
 import com.playground.pg.domain.FaqDto;
+import com.playground.pg.domain.SearchCondition;
 
 public interface FaqDao {
 	// 전체 글 갯수 반환

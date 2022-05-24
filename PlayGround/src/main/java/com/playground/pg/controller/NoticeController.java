@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.playground.pg.SearchCondition;
 import com.playground.pg.domain.NoticeDto;
+import com.playground.pg.domain.SearchCondition;
 
 @RequestMapping("/notice")
 @Controller

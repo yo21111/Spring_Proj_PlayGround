@@ -37,5 +37,5 @@ acterEncoding=UTF-8" />
 	</bean>
 	<tx:annotation-driven />
 	<context:component-scan
-		base-package="com.playground.pg" />
+		base-package="com.playground.pg"/>
 </beans>

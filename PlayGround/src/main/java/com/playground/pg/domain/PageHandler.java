@@ -1,4 +1,4 @@
-package com.playground.pg;
+package com.playground.pg.domain;
 
 import org.springframework.web.util.UriComponentsBuilder;
 

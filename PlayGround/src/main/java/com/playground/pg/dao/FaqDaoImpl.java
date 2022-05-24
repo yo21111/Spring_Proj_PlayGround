@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.playground.pg.SearchCondition;
 import com.playground.pg.domain.FaqDto;
+import com.playground.pg.domain.SearchCondition;
 
 @Repository
 public class FaqDaoImpl implements FaqDao {

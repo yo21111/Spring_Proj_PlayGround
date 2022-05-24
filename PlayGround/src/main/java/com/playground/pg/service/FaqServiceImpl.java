@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.playground.pg.SearchCondition;
 import com.playground.pg.dao.FaqDao;
 import com.playground.pg.domain.FaqDto;
+import com.playground.pg.domain.SearchCondition;
 
 @Service
 public class FaqServiceImpl implements FaqService {

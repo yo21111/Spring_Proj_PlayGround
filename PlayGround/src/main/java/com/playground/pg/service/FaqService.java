@@ -2,8 +2,8 @@ package com.playground.pg.service;
 
 import java.util.List;
 
-import com.playground.pg.SearchCondition;
 import com.playground.pg.domain.FaqDto;
+import com.playground.pg.domain.SearchCondition;
 
 public interface FaqService {
 
