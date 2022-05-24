@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.playground.pg.dao.NoticeMapper">
+	<select id="selectTotalCnt" resultType="int">
+		Select count(*) from
+		notice
+	</select>
+
+	<select id="adminChk" parameterType="string" resultType="string">
+		Select grade from member
+		where id = #{id}
+	</select>
+
+	<select id="selectList" parameterType="SearchCondition"
+		resultType="NoticeDto">
+		Select * from notice
+		where
+		true
+		<choose>
+			<when test='option=="title"'>
+				AND title LIKE concat('%', #{keyword}, '%')
+			</when>
+			<when test='option=="content"'>
+				AND content LIKE concat('%', #{keyword}, '%')
+			</when>
+			<otherwise>
+				AND (title LIKE concat('%', #{keyword}, '%')
+				OR content
+				LIKE concat('%', #{keyword}, '%'))
+			</otherwise>
+		</choose>
+		ORDER BY writeDate DESC, no DESC
+		LIMIT #{offset}, #{pageSize}
+	</select>
+
+	<select id="selectNotice" parameterType="int"
+		resultType="NoticeDto">
+		Select * from notice
+		where no = #{no}
+	</select>
+
+	<select id="selectNoticeNo" parameterType="NoticeDto"
+		resultType="int">
+		Select Max(no) as no from notice
+		where category =
+		#{category}
+		and title = #{title}
+		and content = #{content}
+	</select>
+
+	<insert id="insertNotice" parameterType="NoticeDto">
+		Insert into notice
+		(category, title, content, writer, img)
+		values
+		(#{category}, #{title}, #{content}, #{writer}, #{img})
+	</insert>
+	
+	<update id="updateNotice" parameterType="NoticeDto">
+		Update Set
+		<if test='category!=null'>
+			category = #{category},
+		</if>
+		<if test='title!=null'>
+			title = #{title},
+		</if>
+		<if test='content!=null'>
+			content = #{content},
+		</if>
+		<if test='writer!=null'>
+			writer = #{writer},
+		</if>
+		<if test='img!=null'>
+			img = #{img},
+		</if>
+		modDate = now()
+		where no = #{no}
+	</update>
+	
+	<delete id="deleteNotice" parameterType="int">
+		delete from notice where no = #{no}
+	</delete>
+	
+	<update id="updateViewCnt" parameterType="int">
+		Update notice
+		Set viewCnt = viewCnt + 1
+		where no = #{no}
+	</update>
+</mapper>

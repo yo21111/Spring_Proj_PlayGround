@@ -7,8 +7,8 @@
 		Select count(*) from faq
 	</select>
 	
-	<select id="adminChk" parameterType="string">
-		Select count(*) from member
+	<select id="adminChk" parameterType="string" resultType="string">
+		Select grade from member
 		where id = #{id}
 	</select>
 	
@@ -55,7 +55,7 @@
 	</insert>
 	
 	<select id="selectFaqNo" parameterType="FaqDto" resultType="int">
-		Select no from faq
+		Select Max(no) as no from faq
 		where category = #{category}
 		and title = #{title}
 		and content = #{content}
