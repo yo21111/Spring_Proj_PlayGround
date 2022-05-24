@@ -20,4 +20,9 @@ public class FaqDaoImplTest {
 		System.out.println("rows : "+rows);
 		assertTrue(rows==0);
 	}
+	
+	@Test
+	public void insertFaq() throws Exception {
+		
+	}
 }
