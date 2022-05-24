@@ -44,5 +44,10 @@ public class FaqDto {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
+	@Override
+	public String toString() {
+		return "FaqDto [no=" + no + ", category=" + category + ", title=" + title + ", content=" + content + ", writer="
+				+ writer + ", writeDate=" + writeDate + "]";
+	}
 	
 }
