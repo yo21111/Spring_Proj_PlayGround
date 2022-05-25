@@ -13,4 +13,5 @@ public interface ReserveDao {
 	
 	// 예매정보 수정하기
 	public int updateReserve(ReserveDto reserveDto) throws Exception;
+	
 }

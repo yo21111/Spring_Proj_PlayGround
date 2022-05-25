@@ -26,7 +26,7 @@
 	</insert>
 	
 	<update id="updateReserve" parameterType="ReserveDto">
-		Update Set
+		Update reserve Set
 		reDate = #{date},
 		reTime1 = #{time1},
 		reTime2 = #{time2}

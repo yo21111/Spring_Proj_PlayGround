@@ -47,8 +47,8 @@ public class ReserveController {
 		m.addAttribute("artDto", artDto);
 		// 선택한 날짜, 시간 모델에 넣기
 		m.addAttribute("date",date);
-		m.addAttribute("date",time1);
-		m.addAttribute("date",time2);
+		m.addAttribute("time1",time1);
+		m.addAttribute("time2",time2);
 		
 		return "결제페이지";
 	}
@@ -61,6 +61,9 @@ public class ReserveController {
 		// reserveDTO에 내용 넣은 후 DB에 insert하기
 		boolean result = reserveService.insertReserve(reserveDto);
 		
+		if (result == false) {
+			return "redirect:에러페이지";
+		}
 		return "redirect:결제완료 페이지";
 	}
 	
