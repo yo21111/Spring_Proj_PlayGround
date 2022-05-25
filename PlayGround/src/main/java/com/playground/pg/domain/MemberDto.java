@@ -6,7 +6,7 @@ public class MemberDto {
 	private String pw;
 	private String email;
 	private String name;
-	private String gender;
+	private String birth; // 2022/05/25
 	private String phone;
 	private String address;
 	private String grade;
@@ -35,11 +35,11 @@ public class MemberDto {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getGender() {
-		return gender;
+	public String getBirth() {
+		return birth;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 	public String getPhone() {
 		return phone;

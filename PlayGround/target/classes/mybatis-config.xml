@@ -9,6 +9,8 @@
 		<typeAlias alias="ReserveDto" type="com.playground.pg.domain.ReserveDto"/>
 		<typeAlias alias="InquiryDto" type="com.playground.pg.domain.InquiryDto"/>
 		<typeAlias alias="ReportDto" type="com.playground.pg.domain.ReportDto"/>
+		<typeAlias alias="CouponDto" type="com.playground.pg.domain.CouponDto"/>
+		<typeAlias alias="CouponManageDto" type="com.playground.pg.domain.CouponManageDto"/>
 		<typeAlias alias="SearchCondition" type="com.playground.pg.domain.SearchCondition"/>
 	</typeAliases>
 </configuration>
