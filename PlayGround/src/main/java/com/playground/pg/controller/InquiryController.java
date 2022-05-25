@@ -67,60 +67,27 @@ public class InquiryController {
 		// 게시글 내용(빈) 모델에 넣기
 		m.addAttribute("inquiryDto", inquiryDto);
 		
-		return "/inquiry/detail?no="/*+no*/;
+		return "/inquiry/detail?no="+no;
 	}
 	
 
 	/***********관리자 영역 컨트롤러***************/
 	
 	//문의관리 페이지(리스트, 전체목록)
-	@GetMapping("/admin/Inq")
-	public String adminInq(Model m) throws Exception {
-
+	@GetMapping("/admin")
+	public String adminInq(String state, Model m) throws Exception {
+		// State 값 -> 전체목록 : All, 처리예정목록 : Not, 처리완료목록 : Fin
 
 		// 문의사항 List 출력
-		List<InquiryDto> list = inquiryService.getAdminInqList();
+		List<InquiryDto> list = inquiryService.getAdminInqList(state);
 		// 처리 해야할 문의 개수 표시
 		int inqCnt = inquiryService.getInqCnt();
 		
 		m.addAttribute("inqList", list);
 		m.addAttribute("inqCnt", inqCnt);
 		
-		return "관리자페이지(문의관리)";
+		return "/inquiry/admin?state="+state;
 	}
-	
-	//문의관리 페이지(리스트, 처리예정)
-	@GetMapping("/admin/InqN")
-	public String adminInqNot(Model m) throws Exception {
-
-
-		// 문의사항 List 출력
-		List<InquiryDto> list = inquiryService.getAdminInqListN();
-		// 처리 해야할 문의 개수 표시
-		int inqCnt = inquiryService.getInqCnt();
-		
-		m.addAttribute("inqList", list);
-		m.addAttribute("inqCnt", inqCnt);
-		
-		return "관리자페이지(문의관리)";
-	}
-	
-	//문의관리 페이지(리스트, 처리완료)
-	@GetMapping("/admin/InqF")
-	public String adminInqFin(Model m) throws Exception {
-
-
-		// 문의사항 List 출력
-		List<InquiryDto> list = inquiryService.getAdminInqListF();
-		// 처리 해야할 문의 개수 표시
-		int inqCnt = inquiryService.getInqCnt();
-		
-		m.addAttribute("inqList", list);
-		m.addAttribute("inqCnt", inqCnt);
-		
-		return "관리자페이지(문의관리)";
-	}
-	
 	
 	
 	//문의관리 페이지(상세)
@@ -136,7 +103,7 @@ public class InquiryController {
 		m.addAttribute("inquiryDto", inquiryDto);
 		m.addAttribute("inqCnt", inqCnt);
 		
-		return "/inquiry/admin?no="/*+no*/;
+		return "/inquiry/adDetail?no="+no;
 	}
 	
 	//문의관리 페이지(답변)
@@ -159,7 +126,7 @@ public class InquiryController {
 		// 해당 번호 게시글에 답변내용 update
 		boolean result = inquiryService.updateReply(no, text);
 		
-		return "/inquire/adInq?no="/*+no*/;
+		return "/inquire/adInq?no="+no;
 	}
 	
 	//문의관리 페이지(답변완료)

@@ -27,15 +27,9 @@ public interface InquiryService {
 	// 문의 게시글 번호로 해당 게시글 삭제
 	public boolean deleteInq(int no) throws Exception;
 
-	// 문의 게시글 리스트 가져오기(전체)
-	public List<InquiryDto> getAdminInqList() throws Exception;
+	// 문의 게시글 리스트 가져오기
+	public List<InquiryDto> getAdminInqList(String state) throws Exception;
 
-	// 문의 게시글 리스트 가져오기(처리예정)
-	public List<InquiryDto> getAdminInqListN() throws Exception;
-	
-	// 문의 게시글 리스트 가져오기(처리완료)
-	public List<InquiryDto> getAdminInqListF() throws Exception;
-	
 	// 답변 등록하기
 	public boolean updateReply(int no, String text) throws Exception;
 	

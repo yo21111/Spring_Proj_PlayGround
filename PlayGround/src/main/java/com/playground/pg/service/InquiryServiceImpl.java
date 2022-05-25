@@ -47,23 +47,18 @@ public class InquiryServiceImpl implements InquiryService {
 	}
 
 	@Override
-	public List<InquiryDto> getAdminInqList() throws Exception {
-		List<InquiryDto> list = inquiryDao.getAdminInqList();
+	public List<InquiryDto> getAdminInqList(String state) throws Exception {
+		List<InquiryDto> list = null;
+		if(state == "All") {
+			list = inquiryDao.getAdminInqList();			
+		} else if (state == "Not") {
+			list = inquiryDao.getAdminInqListN();
+		} else {
+			list = inquiryDao.getAdminInqListF();
+		}
 		return list;
 	}
 	
-	@Override
-	public List<InquiryDto> getAdminInqListN() throws Exception {
-		List<InquiryDto> list = inquiryDao.getAdminInqListN();
-		return list;
-	}
-	
-	@Override
-	public List<InquiryDto> getAdminInqListF() throws Exception {
-		List<InquiryDto> list = inquiryDao.getAdminInqListF();
-		return list;
-	}
-
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean updateReply(int no, String text) throws Exception {
