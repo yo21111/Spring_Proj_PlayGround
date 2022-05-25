@@ -71,24 +71,21 @@ public class ReserveController {
 	
 	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@GetMapping("/update")
-	public String selectReserve(String id, int no, Model m) throws Exception {
-		// 수정할 예매 번호 찾기 위해 아이디와 작품번호 전달 받기
+	public String selectReserve(ReserveDto reserveDto, Model m) throws Exception {		
+		// 마이페이지 예매 목록에서 예매 정보 매개변수로 받기
 		
-		
-		// 해당하는 reserveDTO 넣기
-		ReserveDto reserveDto = reserveService.getReserve(id, no);
-		//m.addAttribute("reserveDto", reserveDto);
+		// 모델에 예매 정보 넣기
+		m.addAttribute("reserveDto", reserveDto);
 		
 		return "예매수정페이지";
 	}
 	
-	
 	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@PutMapping("/update")
 	public String updateReserve(ReserveDto reserveDto) throws Exception {
-		// 예매 번호, 변경한 예매 정보 매개변수로 받기(reserveDto)
+		// 변경한 예매 정보 매개변수로 받기(reserveDto)
 		
-		// 해당 예매번호의 예매 정보 수정하기
+		// 해당 예매 정보로 예매 정보 수정하기
 		boolean result = reserveService.updateReserve(reserveDto);
 		
 		

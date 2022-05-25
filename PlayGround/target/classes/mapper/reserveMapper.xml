@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.ReserveMapper">
+	<select id="selectArt"  parameterType="int" resultType="ArtDto">
+		Select * from art
+		where exNo = #{no}
+	</select>
+
+	<insert id="insertReserve" parameterType="ReserveDto">
+		Insert into reserve
+		(id_FK, exNo_FK, reDate, reTime1, reTime2, adCnt, chCnt, 
+		payment, point, coupon_FK)
+		values
+		<choose>
+			<when test='chCnt!=null'>
+				(#{uId}, #{no}, #{date}, #{time1}, #{time2}, #{adCnt}, #{chCnt}, 
+				#{payment}, #{point}, #{coupon})
+			</when>
+			<otherwise>
+				(#{uId}, #{no}, #{date}, #{time1}, #{time2}, #{adCnt}, 0, 
+				#{payment}, #{point}, #{coupon})
+			</otherwise>
+		</choose>
+	</insert>
+	
+	<update id="updateReserve" parameterType="ReserveDto">
+		Update Set
+		reDate = #{date},
+		reTime1 = #{time1},
+		reTime2 = #{time2}
+		where no = #{no}
+	</update>
+	
+</mapper>
