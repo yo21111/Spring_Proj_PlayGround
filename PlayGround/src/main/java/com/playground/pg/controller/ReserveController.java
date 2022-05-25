@@ -3,7 +3,9 @@ package com.playground.pg.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.checkerframework.checker.units.qual.m;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.playground.pg.domain.ReserveDto;
+import com.playground.pg.service.ReserveService;
 
 @Controller	//예약하기 컨트롤러
 @RequestMapping("/reserve")
@@ -20,9 +23,11 @@ public class ReserveController {
 	
 	// 날짜 선택 페이지
 	@GetMapping("/select")	// 조회x 선택 select 헷갈릴시 selDay or day로 변경
-	public String selectDay(int no) {//작품번호 매개변수로 받기
+	public String selectDay(int no, Model m) {//작품번호 매개변수로 받기
 		
-		// 작품번호 이용하여 해당 작품관련 DTO 반환받기
+		// 작품번호 이용하여 해당 작품관련 DTO 반환받기(작품제목, 전시장소 표시용)
+		//ArtDto artDto = reserveService.getArt(no);
+		//m.addAttribute("artDto", artDto);
 		
 		return "예매화면(날짜선택)";
 		
@@ -30,11 +35,17 @@ public class ReserveController {
 	
 	// 결제 화면 페이지
 	@GetMapping("/pay")
-	public String payment(int no, String date, String time1, String time2) {
+	public String payment(int no, String date, String time1, String time2, Model m) {
 		// 작품번호, 선택한 날짜, 시간 매개변수로 받기
 		
-		// 작품번호 이용하여 해당 작품관련 DTO 반환받기
-		// 선택한 날짜, 시간 넣기
+
+		// 작품번호 이용하여 해당 작품관련 DTO 반환받기(작품정보 표시용)		
+		//ArtDto artDto = reserveService.getArt(no)
+		//m.addAttribute("artDto", artDto);
+		// 선택한 날짜, 시간 모델에 넣기
+		m.addAttribute("date",date);
+		m.addAttribute("date",time1);
+		m.addAttribute("date",time2);
 		
 		return "결제페이지";
 	}
@@ -42,9 +53,10 @@ public class ReserveController {
 	// 결제하기
 	@PostMapping("/pay") // 결제하기
 	public String order(ReserveDto reserveDto) {
-		//작품번호, 선택날짜, 시작,종료시간, 어른매수, 아이매수, 가격, 포인트, 쿠폰 매개변수로 받기(ReserveDTO로 변경 예정)
+		// ReserveDto에 작품번호, 선택날짜, 시작,종료시간, 어른매수, 아이매수, 가격, 포인트, 쿠폰 매개변수로 받기
 		
 		// reserveDTO에 내용 넣은 후 DB에 insert하기
+		//boolean result = reserveService.insertReserve(reserveDto);
 		
 		return "redirect:결제완료 페이지";
 	}
@@ -56,18 +68,27 @@ public class ReserveController {
 	
 	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@GetMapping("/update")
-	public String selectReserve(String id, int no) {
+	public String selectReserve(String id, int no, Model m) {
 		// 수정할 예매 번호 찾기 위해 아이디와 작품번호 전달 받기
-		// 해당하는 reserveDTO 넣기 
+		
+		
+		// 해당하는 reserveDTO 넣기
+		//ReserveDto reserveDto = reserveService.getReserve(id, no);
+		//m.addAttribute("reserveDto", reserveDto);
+		
 		return "예매수정페이지";
 	}
 	
+	
 	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@PutMapping("/update")
-	public String updateReserve(String date) {
-		// 수정할 날짜, ReserveDTO 매개변수로 받기(아직 DTO생성 전이라 추가 안했습니다.)
+	public String updateReserve(ReserveDto reserveDto) {
+		// ReserveDTO 매개변수로 받기(수정한 날짜 업데이트)
 		
 		// 수정할날짜로 DTO 수정하기
+		//boolean result = reserveService.updateReserve(resreveDto);
+		
+		
 		return "redirect:/마이페이지/예매내역";		
 	}
 }
