@@ -80,7 +80,7 @@ public class NoticeController {
 		if (!file.isEmpty()) {
 
 			String fileName = file.getOriginalFilename();
-			String savePath = session.getServletContext().getRealPath("/resources/uploadFile/");
+			String savePath = session.getServletContext().getRealPath("resources/uploadFile/");
 
 			file.transferTo(new File(savePath + fileName));
 
@@ -109,7 +109,7 @@ public class NoticeController {
 		if (!file.isEmpty()) {
 
 			String fileName = file.getOriginalFilename();
-			String savePath = session.getServletContext().getRealPath("/resources/uploadFile/");
+			String savePath = session.getServletContext().getRealPath("resources/uploadFile/");
 
 			file.transferTo(new File(savePath + fileName));
 
