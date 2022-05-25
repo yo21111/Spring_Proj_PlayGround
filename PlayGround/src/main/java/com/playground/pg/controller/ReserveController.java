@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ReserveDto;
 import com.playground.pg.service.ReserveService;
 
@@ -25,10 +26,10 @@ public class ReserveController {
 	
 	// 날짜 선택 페이지
 	@GetMapping("/select")	// 조회x 선택 select 헷갈릴시 selDay or day로 변경
-	public String selectDay(int no, Model m) {//작품번호 매개변수로 받기
+	public String selectDay(int no, Model m) throws Exception {//작품번호 매개변수로 받기
 		
 		// 작품번호 이용하여 해당 작품관련 DTO 반환받기(작품제목, 전시장소 표시용)
-		//ArtDto artDto = reserveService.getArt(no);
+		ArtDto artDto = reserveService.getArt(no);
 		//m.addAttribute("artDto", artDto);
 		
 		return "예매화면(날짜선택)";
@@ -37,13 +38,13 @@ public class ReserveController {
 	
 	// 결제 화면 페이지
 	@GetMapping("/pay")
-	public String payment(int no, String date, String time1, String time2, Model m) {
+	public String payment(int no, String date, String time1, String time2, Model m) throws Exception {
 		// 작품번호, 선택한 날짜, 시간 매개변수로 받기
 		
 
 		// 작품번호 이용하여 해당 작품관련 DTO 반환받기(작품정보 표시용)		
-		//ArtDto artDto = reserveService.getArt(no)
-		//m.addAttribute("artDto", artDto);
+		ArtDto artDto = reserveService.getArt(no);
+		m.addAttribute("artDto", artDto);
 		// 선택한 날짜, 시간 모델에 넣기
 		m.addAttribute("date",date);
 		m.addAttribute("date",time1);
@@ -85,9 +86,9 @@ public class ReserveController {
 	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@PutMapping("/update")
 	public String updateReserve(ReserveDto reserveDto) throws Exception {
-		// ReserveDTO 매개변수로 받기(수정한 날짜 업데이트)
+		// 예매 번호, 변경한 예매 정보 매개변수로 받기(reserveDto)
 		
-		// 수정할날짜로 DTO 수정하기
+		// 해당 예매번호의 예매 정보 수정하기
 		boolean result = reserveService.updateReserve(reserveDto);
 		
 		
