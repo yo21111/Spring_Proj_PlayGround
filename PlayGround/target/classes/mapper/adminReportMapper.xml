@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.playground.pg.dao.AdminReportMapper">
+	
+	<select id="selectReportList" resultType="ReportDto">
+		Select * from report
+		ORDER BY reportNo DESC
+	</select>
+
+	<delete id="deleteReport" parameterType="int">
+		delete from report where reportNo = #{reportList}
+	</delete>
+	
+	<select id="selectReview" parameterType="int" resultType="int">
+		select no_FK from report
+		where reportNo = #{reportList}
+	</select>
+
+	<delete id="deleteReview" parameterType="int">
+		delete from report where no_FK = #{reviewNo}
+	</delete>	
+	
+</mapper>

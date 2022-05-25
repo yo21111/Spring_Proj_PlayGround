@@ -5,7 +5,7 @@
 <mapper namespace="com.playground.pg.dao.ReserveMapper">
 	<select id="selectArt"  parameterType="int" resultType="ArtDto">
 		Select * from art
-		where exNo = #{no}
+		where exNo = #{exNo}
 	</select>
 
 	<insert id="insertReserve" parameterType="ReserveDto">
@@ -15,11 +15,11 @@
 		values
 		<choose>
 			<when test='chCnt!=null'>
-				(#{uId}, #{no}, #{date}, #{time1}, #{time2}, #{adCnt}, #{chCnt}, 
+				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
 				#{payment}, #{point}, #{coupon})
 			</when>
 			<otherwise>
-				(#{uId}, #{no}, #{date}, #{time1}, #{time2}, #{adCnt}, 0, 
+				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
 				#{payment}, #{point}, #{coupon})
 			</otherwise>
 		</choose>
@@ -27,9 +27,9 @@
 	
 	<update id="updateReserve" parameterType="ReserveDto">
 		Update reserve Set
-		reDate = #{date},
-		reTime1 = #{time1},
-		reTime2 = #{time2}
+		reDate = #{reDate},
+		reTime1 = #{reTime1},
+		reTime2 = #{reTime2}
 		where no = #{no}
 	</update>
 	
