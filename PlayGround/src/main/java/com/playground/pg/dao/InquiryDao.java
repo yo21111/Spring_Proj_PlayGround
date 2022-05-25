@@ -23,8 +23,14 @@ public interface InquiryDao {
 	// 문의내역 삭제하기
 	public int deleteInq(int no) throws Exception;
 	
-	// 문의내역 목록 가져오기
+	// 문의내역 목록(전체) 가져오기
 	public List<InquiryDto> getAdminInqList() throws Exception;
+	
+	// 문의내역 목록(처리예정) 가져오기
+	public List<InquiryDto> getAdminInqListN() throws Exception;
+	
+	// 문의내역 목록(처리완료) 가져오기
+	public List<InquiryDto> getAdminInqListF() throws Exception;
 	
 	// 답변내용 추가하기
 	public int updateReply(int no, String text) throws Exception;

@@ -33,11 +33,24 @@
 	
 	<select id="getAdminInqList" resultType="InquiryDto">
 		Select * from inquire
-	</select>	
+	</select>
+	
+	<select id="getAdminInqListN" resultType="InquiryDto">
+		Select * from inquire
+		where state = 'N'
+	</select>
+	
+	<select id="getAdminInqListF" resultType="InquiryDto">
+		Select * from inquire
+		where state = 'F'
+	</select>
+	
+		
 	
 	<update id="updateReply" parameterType="map">
 		Update inquire Set
-		context = #{text}
+		context = #{text},
+		state = 'F'
 		where no = #{no}
 	</update>
 	

@@ -45,6 +45,16 @@ public class InquiryDaoImpl implements InquiryDao {
 	public List<InquiryDto> getAdminInqList() throws Exception {
 		return session.selectList(namespace + "getAdminInqList");
 	}
+	
+	@Override
+	public List<InquiryDto> getAdminInqListN() throws Exception {
+		return session.selectList(namespace + "getAdminInqListN");
+	}
+	
+	@Override
+	public List<InquiryDto> getAdminInqListF() throws Exception {
+		return session.selectList(namespace + "getAdminInqListF");
+	}
 
 	@Override
 	public int updateReply(int no, String text) throws Exception {

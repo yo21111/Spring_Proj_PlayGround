@@ -51,6 +51,18 @@ public class InquiryServiceImpl implements InquiryService {
 		List<InquiryDto> list = inquiryDao.getAdminInqList();
 		return list;
 	}
+	
+	@Override
+	public List<InquiryDto> getAdminInqListN() throws Exception {
+		List<InquiryDto> list = inquiryDao.getAdminInqListN();
+		return list;
+	}
+	
+	@Override
+	public List<InquiryDto> getAdminInqListF() throws Exception {
+		List<InquiryDto> list = inquiryDao.getAdminInqListF();
+		return list;
+	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)

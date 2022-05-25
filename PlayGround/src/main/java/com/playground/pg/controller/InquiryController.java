@@ -73,13 +73,12 @@ public class InquiryController {
 
 	/***********관리자 영역 컨트롤러***************/
 	
-	//문의관리 페이지(리스트)
-	@GetMapping("/admin")
+	//문의관리 페이지(리스트, 전체목록)
+	@GetMapping("/admin/Inq")
 	public String adminInq(Model m) throws Exception {
 
 
 		// 문의사항 List 출력
-		// 메뉴 선택마다 상태 값 변경(자바 스크립트에서 처리)
 		List<InquiryDto> list = inquiryService.getAdminInqList();
 		// 처리 해야할 문의 개수 표시
 		int inqCnt = inquiryService.getInqCnt();
@@ -89,6 +88,40 @@ public class InquiryController {
 		
 		return "관리자페이지(문의관리)";
 	}
+	
+	//문의관리 페이지(리스트, 처리예정)
+	@GetMapping("/admin/InqN")
+	public String adminInqNot(Model m) throws Exception {
+
+
+		// 문의사항 List 출력
+		List<InquiryDto> list = inquiryService.getAdminInqListN();
+		// 처리 해야할 문의 개수 표시
+		int inqCnt = inquiryService.getInqCnt();
+		
+		m.addAttribute("inqList", list);
+		m.addAttribute("inqCnt", inqCnt);
+		
+		return "관리자페이지(문의관리)";
+	}
+	
+	//문의관리 페이지(리스트, 처리완료)
+	@GetMapping("/admin/InqF")
+	public String adminInqFin(Model m) throws Exception {
+
+
+		// 문의사항 List 출력
+		List<InquiryDto> list = inquiryService.getAdminInqListF();
+		// 처리 해야할 문의 개수 표시
+		int inqCnt = inquiryService.getInqCnt();
+		
+		m.addAttribute("inqList", list);
+		m.addAttribute("inqCnt", inqCnt);
+		
+		return "관리자페이지(문의관리)";
+	}
+	
+	
 	
 	//문의관리 페이지(상세)
 	@GetMapping("/adDetail")
