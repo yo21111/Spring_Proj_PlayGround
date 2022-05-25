@@ -4,28 +4,50 @@
 
 <mapper namespace="com.playground.pg.dao.AdCouponMapper">
 	<select id="selectCouponList" resultType="CouponDto">
-		select * from coupon order by no DESC
+		select * from coupon
+		order by no DESC
 	</select>
-	
+
 	<select id="selectAllIdList" resultType="string">
-		select id from member where grade = "M"
+		select id from member
+		where grade = "M"
 	</select>
-	
+
 	<insert id="insertCouponById" parameterType="CouponDto">
 		insert into coupon
 		(id_FK, coupon, disRate, couDate1, couDate2, couInfo)
 		values
-		(#{id_FK}, #{coupon}, #{disRate}, #{couDate1}, #{couDate2}, #{couInfo})
+		(#{id_FK},
+		#{coupon}, #{disRate}, #{couDate1}, #{couDate2}, #{couInfo})
 	</insert>
-	
-	<select id="selectIdList" parameterType="CouponManageDto" resultType="string">
+
+	<select id="selectIdListByBirth" parameterType="CouponManageDto"
+		resultType="string">
 		select id from member
 		where grade = "M"
-		
+		<if test="birth_month != null">
+			and birth = concat("_____", #{birth_month}, "___")
+		</if>
+		<if test="birth_day != null">
+			and birth = concat("________", #{birth_day})
+		</if>
+	</select>
+	
+	<select id="selectAccPrice" parameterType="string" resultType="int">
+		select sum(payment) from reserve where id_FK = #{id} group by id_FK
+	</select>
+	
+	<select id="selectadCnt" parameterType="string" resultType="int">
+		select sum(adCnt) from reserve where id_FK = #{id} group by id_FK
+	</select>
+	
+	<select id="selectchCnt" parameterType="string" resultType="int">
+		select sum(chCnt) from reserve where id_FK = #{id} group by id_FK
 	</select>
 	
 	<delete id="deleteCoupon" parameterType="int">
 		delete from coupon
-		where no = #{couponNo}
+		where
+		no = #{couponNo}
 	</delete>
 </mapper>

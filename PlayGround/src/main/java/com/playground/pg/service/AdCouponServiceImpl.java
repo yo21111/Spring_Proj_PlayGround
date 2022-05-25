@@ -1,5 +1,6 @@
 package com.playground.pg.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +40,17 @@ public class AdCouponServiceImpl implements AdCouponService {
 				return adcDao.addCouponById(cmDto.getId(), cDto);
 			}
 			
-			List<String> idList = adcDao.getID(cmDto);
-			for(int i = 0; i < idList.size(); i++) {
-				int res = adcDao.addCouponById(idList.get(i), cDto);
+			List<String> idList = adcDao.getIDBirth(cmDto);
+			List<String> idList2 = new ArrayList<>();
+			for (int i = 0; i < idList.size(); i++) {
+				String id = adcDao.getIDAcc(cmDto, idList.get(i));
+				if(!id.equals("")) {
+					idList2.add(id);
+				}
+			}
+			
+			for(int i = 0; i < idList2.size(); i++) {
+				int res = adcDao.addCouponById(idList2.get(i), cDto);
 				// insert가 성공할 때마다 result 1씩 증가
 				if (res==1) result++;
 			}

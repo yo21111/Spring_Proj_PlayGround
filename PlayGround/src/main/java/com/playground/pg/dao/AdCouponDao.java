@@ -16,7 +16,10 @@ public interface AdCouponDao {
 	public int addCouponById(String id, CouponDto cDto) throws Exception;
 	
 	// member 테이블의 특정 유저 아이디 가져오기
-	public List<String> getID(CouponManageDto cmDto) throws Exception;
+	public List<String> getIDBirth(CouponManageDto cmDto) throws Exception;
+	
+	// member 테이블의 특정 유저 아이디 가져오기
+	public String getIDAcc(CouponManageDto cmDto, String id) throws Exception;
 	
 	// 쿠폰 삭제하기
 	public int deleteCoupon(int couponNo) throws Exception;
