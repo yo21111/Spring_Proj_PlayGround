@@ -18,7 +18,11 @@
 		(#{id_FK}, #{coupon}, #{disRate}, #{couDate1}, #{couDate2}, #{couInfo})
 	</insert>
 	
-	<select id="selectIdList" parameterType="CouponManageDto" resultType="string"></select>
+	<select id="selectIdList" parameterType="CouponManageDto" resultType="string">
+		select id from member
+		where grade = "M"
+		
+	</select>
 	
 	<delete id="deleteCoupon" parameterType="int">
 		delete from coupon
