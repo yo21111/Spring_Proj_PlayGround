@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.checkerframework.checker.units.qual.m;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,8 @@ import com.playground.pg.service.ReserveService;
 @Controller	//예약하기 컨트롤러
 @RequestMapping("/reserve")
 public class ReserveController {
-
+	@Autowired
+    ReserveService reserveService;
 	
 	// 날짜 선택 페이지
 	@GetMapping("/select")	// 조회x 선택 select 헷갈릴시 selDay or day로 변경
@@ -52,11 +54,11 @@ public class ReserveController {
 	
 	// 결제하기
 	@PostMapping("/pay") // 결제하기
-	public String order(ReserveDto reserveDto) {
+	public String order(ReserveDto reserveDto) throws Exception {
 		// ReserveDto에 작품번호, 선택날짜, 시작,종료시간, 어른매수, 아이매수, 가격, 포인트, 쿠폰 매개변수로 받기
 		
 		// reserveDTO에 내용 넣은 후 DB에 insert하기
-		//boolean result = reserveService.insertReserve(reserveDto);
+		boolean result = reserveService.insertReserve(reserveDto);
 		
 		return "redirect:결제완료 페이지";
 	}
@@ -68,12 +70,12 @@ public class ReserveController {
 	
 	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@GetMapping("/update")
-	public String selectReserve(String id, int no, Model m) {
+	public String selectReserve(String id, int no, Model m) throws Exception {
 		// 수정할 예매 번호 찾기 위해 아이디와 작품번호 전달 받기
 		
 		
 		// 해당하는 reserveDTO 넣기
-		//ReserveDto reserveDto = reserveService.getReserve(id, no);
+		ReserveDto reserveDto = reserveService.getReserve(id, no);
 		//m.addAttribute("reserveDto", reserveDto);
 		
 		return "예매수정페이지";
@@ -82,11 +84,11 @@ public class ReserveController {
 	
 	// 예매수정하기(마이페이지 컨트롤러로 변경예정)
 	@PutMapping("/update")
-	public String updateReserve(ReserveDto reserveDto) {
+	public String updateReserve(ReserveDto reserveDto) throws Exception {
 		// ReserveDTO 매개변수로 받기(수정한 날짜 업데이트)
 		
 		// 수정할날짜로 DTO 수정하기
-		//boolean result = reserveService.updateReserve(resreveDto);
+		boolean result = reserveService.updateReserve(reserveDto);
 		
 		
 		return "redirect:/마이페이지/예매내역";		

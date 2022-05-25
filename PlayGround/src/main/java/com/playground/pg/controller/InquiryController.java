@@ -1,6 +1,8 @@
 package com.playground.pg.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,15 +10,23 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.playground.pg.domain.InquiryDto;
+import com.playground.pg.service.InquiryService;
 
 @Controller
 @RequestMapping("/inquiry")
 public class InquiryController {
+	@Autowired
+	InquiryService inquiryService;
+	
 	
 	// 1:1 문의 페이지
 	@GetMapping("/board")
-	public String updateInq(String uId) {
+	public String updateInq(String uId, Model m) {
 		// 작성자명 매개변수로 받기
+		
+		// 작성자명 모델에 넣기
+		m.addAttribute("uId", uId);
+		
 		return "1:1문의 페이지";
 	}
 	
@@ -25,6 +35,9 @@ public class InquiryController {
 	public String insertIng(InquiryDto inquiryDto) {
 		// InquiryDTO db에 insert
 		// 카테고리, 작성자, 제목, 내용, 작성일자
+		
+		//boolean result = inquiryService.insertInq(inquiryDto);
+		
 		return "redirect:/마이페이지/문의내역 or /메인페이지";
 	}
 	
