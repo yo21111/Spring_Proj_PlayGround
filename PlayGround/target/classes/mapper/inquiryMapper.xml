@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.playground.pg.dao.InquiryMapper">
+
+	<insert id="insertInq" parameterType="inquiryDto">
+		Insert into inquire
+		(category, title, content, writer, writeDate)
+		values
+		(#{category}, #{title}, #{content}, #{writer}, #{writeDate})
+	</insert>
+	
+	<select id="getInqList" parameterType="String" resultType="InquiryDto">
+		Select * from inquire
+		where writer = #{uId} 		
+	</select>
+	
+	<select id="getInqList" parameterType="int" resultType="InquiryDto">
+		Select * from inquire
+		where no = #{no} 		
+	</select>
+	
+	<select id="getInqCnt" resultType="int">
+		Select count(state) from inquire
+		where state = 'N' 
+	</select>
+	
+	<delete id="deleteInq" parameterType="int">
+		Delete from inquire
+		where no = #{no}
+	</delete>
+	
+	<select id="getAdminInqList" resultType="InquiryDto">
+		Select * from inquire
+	</select>	
+	
+	<update id="updateReply" parameterType="map">
+		Update inquire Set
+		context = #{text}
+		where no = #{no}
+	</update>
+	
+</mapper>

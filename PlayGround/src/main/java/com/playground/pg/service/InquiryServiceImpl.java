@@ -2,44 +2,61 @@ package com.playground.pg.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.playground.pg.dao.InquiryDao;
 import com.playground.pg.domain.InquiryDto;
 
 @Service
 public class InquiryServiceImpl implements InquiryService {
-
+	@Autowired
+	InquiryDao inquiryDao;
+	
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean insertInq(InquiryDto inquiryDto) throws Exception {
-		return false;
+		int result = inquiryDao.insertInq(inquiryDto);
+		return result == 1 ? true : false;
 	}
 
 	@Override
 	public List<InquiryDto> getInqList(String uId) throws Exception {
-		return null;
+		List<InquiryDto> list = inquiryDao.getInqList(uId);
+		return list;
 	}
 
 	@Override
 	public InquiryDto getInq(int no) throws Exception {
-		return null;
+		return inquiryDao.getInq(no);
 	}
 
+	
+	/*******관리자 영역*******/
+	
+	@Override
+	public int getInqCnt() throws Exception { 
+		return inquiryDao.getInqCnt();
+	}
+	
 	@Override
 	public boolean deleteInq(int no) throws Exception {
-		return false;
+		int result = inquiryDao.deleteInq(no);
+		return result == 1 ? true : false;
 	}
 
 	@Override
 	public List<InquiryDto> getAdminInqList() throws Exception {
-		return null;
+		List<InquiryDto> list = inquiryDao.getAdminInqList();
+		return list;
 	}
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean updateReply(int no, String text) throws Exception {
-		return false;
+		int result = inquiryDao.updateReply(no, text);
+		return result == 1 ? true : false;
 	}
 
 }

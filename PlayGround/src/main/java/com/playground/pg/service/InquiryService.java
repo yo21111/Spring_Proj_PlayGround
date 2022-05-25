@@ -20,6 +20,9 @@ public interface InquiryService {
 	
 	
 	/********관리자 영역 서비스************/
+	
+	// 처리 해야 할 문의 건수 가져오기
+	public int getInqCnt() throws Exception;
 
 	// 문의 게시글 번호로 해당 게시글 삭제
 	public boolean deleteInq(int no) throws Exception;
