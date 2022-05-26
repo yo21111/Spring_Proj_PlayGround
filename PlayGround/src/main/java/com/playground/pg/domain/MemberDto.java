@@ -6,7 +6,7 @@ public class MemberDto {
 	private String pw;
 	private String email;
 	private String name;
-	private String birth; // 2022/05/25
+	private String birth; // 2022-05-25
 	private String phone;
 	private String address;
 	private String grade;

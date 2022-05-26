@@ -8,7 +8,7 @@ public class ReserveDto {
 
 	private int no;
 	private int exNo;
-	@DateTimeFormat(pattern="yyyy/MM/dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date reDate;
 	private String reTime1;
 	private String reTime2;
