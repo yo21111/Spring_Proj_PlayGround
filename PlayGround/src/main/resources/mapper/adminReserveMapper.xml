@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.AdminReserveMapper">
+	<select id="getResList" resultType="ReserveDto" parameterType="map">
+		Select * from reserve
+		where reDate between #{date1} and #{date2}   
+		ORDER BY reDate
+	</select>
+	
+	<select id="getResDayList" resultType="ReserveDto" parameterType="map">
+		Select * from reserve
+		where reDate between #{date1} and #{date2}
+		group by reDate   
+		ORDER BY reDate
+	</select>
+	
+	<select id="getArtList" resultType="ArtDto">
+		Select * from art
+		where exState = 'N'
+	</select>
+</mapper>
