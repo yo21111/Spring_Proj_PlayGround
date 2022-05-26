@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.playground.pg.domain.ReportDto;
+import com.playground.pg.domain.ReviewDto;
 
 @Repository
 public class AdminReportDaoImpl implements AdminReportDao {
@@ -18,6 +19,11 @@ public class AdminReportDaoImpl implements AdminReportDao {
 	@Override
 	public List<ReportDto> selectReportList() throws Exception {
 		return session.selectList(namespace + "selectReportList");
+	}
+	
+	@Override
+	public ReviewDto selectReviewList(int no) throws Exception {
+		return session.selectOne(namespace + "selectReviewList", no);
 	}
 
 	@Override

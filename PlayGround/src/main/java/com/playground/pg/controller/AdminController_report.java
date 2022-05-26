@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.playground.pg.domain.ReportDto;
+import com.playground.pg.domain.ReviewDto;
 import com.playground.pg.service.AdminService_report;
 
 @Controller
@@ -26,8 +27,12 @@ public class AdminController_report {
 		// 리뷰 신고 최신 순으로 정렬해서 리스트 select
 		
 		// 모델에 리뷰 신고 리스트 담기
-		List<ReportDto> list = adminService.selectReportList();
-		m.addAttribute("reportList",list);
+		List<ReportDto> reportList = adminService.selectReportList();
+		// 모델에 리뷰 목록 담기
+		List<ReviewDto> reviewList = adminService.selectReviewList();
+		
+		m.addAttribute("reportList", reportList);
+		m.addAttribute("reviewList", reviewList);
 		
 		return "리뷰신고 페이지";
 	}

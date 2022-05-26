@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.playground.pg.dao.AdminReportDao;
 import com.playground.pg.domain.ReportDto;
+import com.playground.pg.domain.ReviewDto;
 
 @Service
 public class AdminService_reportImpl implements AdminService_report {
@@ -17,6 +18,19 @@ public class AdminService_reportImpl implements AdminService_report {
 	public List<ReportDto> selectReportList() throws Exception {
 		List<ReportDto> list = adminReportDao.selectReportList();
 		return list;
+	}
+	
+	@Override
+	public List<ReviewDto> selectReviewList() throws Exception {
+		List<ReportDto> reportList = adminReportDao.selectReportList();
+		List<ReviewDto> reviewList = null;
+		for (int i = 0; i < reportList.size(); i++) {
+			ReportDto reportDto = reportList.get(i);
+			int no = reportDto.getNo_FK();
+			reviewList.add(adminReportDao.selectReviewList(no)); 
+		}
+		
+		return reviewList;
 	}
 
 	@Override

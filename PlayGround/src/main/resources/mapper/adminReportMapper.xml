@@ -8,6 +8,10 @@
 		Select * from report
 		ORDER BY reportNo DESC
 	</select>
+	
+	<select id="selectReviewList" resultType="ReviewDto">
+		Select * from review
+	</select>
 
 	<delete id="deleteReport" parameterType="int">
 		delete from report where reportNo = #{reportList}

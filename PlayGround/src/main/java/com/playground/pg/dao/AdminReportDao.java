@@ -3,11 +3,15 @@ package com.playground.pg.dao;
 import java.util.List;
 
 import com.playground.pg.domain.ReportDto;
+import com.playground.pg.domain.ReviewDto;
 
 public interface AdminReportDao {
 
 	// 신고글 목록 가져오기
 	public List<ReportDto> selectReportList() throws Exception;
+	
+	// 리뷰글 목록 가져오기
+	public ReviewDto selectReviewList(int no) throws Exception;
 	
 	// 신고글 삭제하기
 	public int deleteReport(int reportList) throws Exception;
