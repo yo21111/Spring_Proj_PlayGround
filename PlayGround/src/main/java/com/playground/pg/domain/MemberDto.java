@@ -2,7 +2,7 @@ package com.playground.pg.domain;
 
 public class MemberDto {
 
-	private String uId;
+	private String id;
 	private String pw;
 	private String email;
 	private String name;
@@ -11,11 +11,12 @@ public class MemberDto {
 	private String address;
 	private String grade;
 	
-	public String getuId() {
-		return uId;
+
+	public String getId() {
+		return id;
 	}
-	public void setuId(String uId) {
-		this.uId = uId;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getPw() {
 		return pw;

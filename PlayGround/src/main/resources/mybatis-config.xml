@@ -4,6 +4,7 @@
 		"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias alias="MemberDto" type="com.playground.pg.domain.MemberDto"/>
 		<typeAlias alias="FaqDto" type="com.playground.pg.domain.FaqDto"/>
 		<typeAlias alias="NoticeDto" type="com.playground.pg.domain.NoticeDto"/>
 		<typeAlias alias="ReserveDto" type="com.playground.pg.domain.ReserveDto"/>
