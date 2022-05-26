@@ -6,6 +6,9 @@ import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
 
 public interface AdArtDao {
+	//가장 큰 MaxExNo 반환하기
+	public int getMaxExNo() throws Exception;
+	
 	// state로 artDto 리스트 반환하기 -> exNo DESC
 	public List<ArtDto> getArtDtoList(String state) throws Exception;
 	

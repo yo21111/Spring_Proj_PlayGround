@@ -3,5 +3,140 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
         
 <mapper namespace="com.playground.pg.dao.AdminArtMapper">
+	<select id="selectMaxExNo" resultType="int">
+		select max(exNo) from art
+	</select>
 	
+	<select id="selectArtDtoList" parameterType="string" resultType="ArtDto">
+		select * from art where exState = #{state} order by exNo DESC
+	</select>
+	
+	<select id="selectExNoList" parameterType="string" resultType="int">
+		select exNo from art where exState = #{state} order by exNo DESC
+	</select>
+	
+	<select id="selectArtTimeDto" parameterType="int" resultType="ArtTimeDto">
+		select * from arttime where exNo_FK = #{exNo}
+	</select>
+	
+	<update id="changeState" parameterType="map">
+		UPDATE art Set
+		exState = #{changeState}
+		where exNo = #{exNo}
+	</update>
+	
+	<select id="selectArtDto" parameterType="int" resultType="ArtDto">
+		select * from art where exNo = #{exNo}
+	</select>
+	
+	
+	<insert id="insertArtDto" parameterType="ArtDto">
+		insert into art
+		(location, exName, exContent, exhall, allowNum, price1, price2,
+		grade, genre, exState, thumbImg, mainImg, 
+		exContent1, exContent2, exContent3)
+		values
+		(#{location}, #{exName}, #{exContent}, #{exhall}, #{allowNum}, 
+		#{price1}, #{price2}, #{grade}, #{genre}, #{exState},
+		#{thumbImg}, #{mainImg}, #{exContent1}, #{exContent2}, #{exContent3})
+	</insert>
+	
+	<insert id="insertArtTimeDto" parameterType="ArtTimeDto">
+		insert into arttime
+		(exNo_FK, exDate1, exDate2, exTime1_1, exTime1_2,
+		exTime2_1, exTime2_2, exTime3_1, exTime3_2)
+		values
+		(#{exNo_FK}, #{exDate1}, #{exDate2}, #{exTime1_1}, 
+		#{exTime1_2}, #{exTime2_1}, #{exTime2_2}, #{exTime3_1}, 
+		#{exTime3_2})
+	</insert>
+	
+	
+	<update id="updateArtDto" parameterType="ArtDto">
+		Update art SET
+		<if test="location != null">
+			location = #{location}
+		</if>
+		<if test="exName != null">
+			exName = #{exName}
+		</if>
+		<if test="exContent != null">
+			exContent = #{exContent}
+		</if>
+		<if test="exhall != null">
+			exhall = #{exhall}
+		</if>
+		<if test="allowNum != null">
+			allowNum = #{allowNum}
+		</if>
+		<if test="price1 != null">
+			price1 = #{price1}
+		</if>
+		<if test="price2 != null">
+			price2 = #{price2}
+		</if>
+		<if test="grade != null">
+			grade = #{grade}
+		</if>
+		<if test="genre != null">
+			genre = #{genre}
+		</if>
+		<if test="exState != null">
+			exState = #{exState}
+		</if>
+		<if test="thumbImg != null">
+			thumbImg = #{thumbImg}
+		</if>
+		<if test="mainImg != null">
+			mainImg = #{mainImg}
+		</if>
+		<if test="exContent1 != null">
+			exContent1 = #{exContent1}
+		</if>
+		<if test="exContent2 != null">
+			exContent2 = #{exContent2}
+		</if>
+		<if test="exContent3 != null">
+			exContent3 = #{exContent3}
+		</if>
+		where exNo = #{exNo}
+	</update>
+	
+	<update id="updateArtTimeDto" parameterType="ArtTimeDto">
+		Update arttime SET
+		<if test="exDate1 != null">
+			exDate1 = #{exDate1}
+		</if>
+		<if test="exDate2 != null">
+			exDate2 = #{exDate2}
+		</if>
+		<if test="exTime1_1 != null">
+			exTime1_1 = #{exTime1_1}
+		</if>
+		<if test="exTime1_2 != null">
+			exTime1_2 = #{exTime1_2}
+		</if>
+		<if test="exTime2_1 != null">
+			exTime2_1 = #{exTime2_1}
+		</if>
+		<if test="exTime2_2 != null">
+			exTime2_2 = #{exTime2_2}
+		</if>
+		<if test="exTime3_1 != null">
+			exTime3_1 = #{exTime3_1}
+		</if>
+		<if test="exTime3_2 != null">
+			exTime3_2 = #{exTime3_2}
+		</if>
+		where exNo_FK = #{exNo}
+	</update>
+	
+	
+	<delete id="deleteArtDto" parameterType="int">
+		delete from art where exNo = #{exNo}
+	</delete>
+
+	<delete id="deleteArtTimeDto" parameterType="int">
+		delete from arttime where exNo_FK = #{exNo}
+	</delete>
 </mapper>
