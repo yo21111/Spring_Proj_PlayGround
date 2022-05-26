@@ -19,6 +19,9 @@ public class ReserveDto {
 	private String uId;
 	private int coupon;
 	
+	// 관리자 메인페이지용 변수 : 해당 작품 입장 가능 인원
+	private int allowNum;
+	
 	public int getNo() {
 		return no;
 	}
@@ -84,6 +87,12 @@ public class ReserveDto {
 	}
 	public void setCoupon(int coupon) {
 		this.coupon = coupon;
+	}
+	public int getAllowNum() {
+		return allowNum;
+	}
+	public void setAllowNum(int allowNum) {
+		this.allowNum = allowNum;
 	}
 	
 }

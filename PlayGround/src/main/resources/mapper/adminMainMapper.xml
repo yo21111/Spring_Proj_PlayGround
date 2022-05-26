@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.AdminMainMapper">
+	<select id="getAllowNum" parameterType="int" resultType="int">
+		select allowNum from art where exNo = ${exNo}
+	</select>
+	
+	<select id="selectReserveList" resultType="ReserveDto">
+		select sum(adCnt) as adCnt, sum(chCnt) as chCnt,
+				 sum(payment) as payment, reDate from reserve
+				 group by reDate order by reDate DESC limit 5
+	</select>
+	
+	<select id="selectReportList" resultType="ReportDto">
+		select * from report
+		order by reportNo DESC limit 10
+	</select>
+	
+	<select id="selectReportCnt" resultType="int">
+		select count(*) from report
+	</select>
+	
+	<select id="selectInquiryList" resultType="InquiryDto">
+		select * from inquire
+		order by no DESC limit 10
+	</select>
+
+	<select id="selectInquiryCnt" resultType="int">
+		select count(*) from inquire
+	</select>
+</mapper>
