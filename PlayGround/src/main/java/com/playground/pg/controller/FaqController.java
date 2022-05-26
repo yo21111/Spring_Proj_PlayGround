@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.playground.pg.domain.FaqDto;
+import com.playground.pg.domain.NoticeDto;
 import com.playground.pg.domain.PageHandler;
 import com.playground.pg.domain.SearchCondition;
 import com.playground.pg.service.FaqService;
