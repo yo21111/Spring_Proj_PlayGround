@@ -8,6 +8,7 @@ public class ArtTimeDto {
 	private int exNo_FK;
 	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private Date exDate1;
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private Date exDate2;
 	private String exTime1_1;
 	private String exTime1_2;

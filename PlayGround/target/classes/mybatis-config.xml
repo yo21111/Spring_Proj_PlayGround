@@ -13,6 +13,7 @@
 		<typeAlias alias="CouponDto" type="com.playground.pg.domain.CouponDto"/>
 		<typeAlias alias="ArtDto" type="com.playground.pg.domain.ArtDto"/>
 		<typeAlias alias="ArtTimeDto" type="com.playground.pg.domain.ArtTimeDto"/>
+		<typeAlias alias="ReviewDto" type="com.playground.pg.domain.ReviewDto"/>
 		<typeAlias alias="CouponManageDto" type="com.playground.pg.domain.CouponManageDto"/>
 		<typeAlias alias="SearchCondition" type="com.playground.pg.domain.SearchCondition"/>
 	</typeAliases>
