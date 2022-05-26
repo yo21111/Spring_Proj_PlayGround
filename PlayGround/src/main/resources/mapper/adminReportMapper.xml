@@ -9,8 +9,9 @@
 		ORDER BY reportNo DESC
 	</select>
 	
-	<select id="selectReviewList" resultType="ReviewDto">
+	<select id="selectReviewList" parameterType="int" resultType="ReviewDto">
 		Select * from review
+		where no = #{no}
 	</select>
 
 	<delete id="deleteReport" parameterType="int">

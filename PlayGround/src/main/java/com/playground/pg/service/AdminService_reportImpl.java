@@ -1,5 +1,6 @@
 package com.playground.pg.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class AdminService_reportImpl implements AdminService_report {
 	@Override
 	public List<ReviewDto> selectReviewList() throws Exception {
 		List<ReportDto> reportList = adminReportDao.selectReportList();
-		List<ReviewDto> reviewList = null;
+		List<ReviewDto> reviewList = new ArrayList<ReviewDto>();
 		for (int i = 0; i < reportList.size(); i++) {
 			ReportDto reportDto = reportList.get(i);
 			int no = reportDto.getNo_FK();
