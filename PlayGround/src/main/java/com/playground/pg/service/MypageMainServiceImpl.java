@@ -16,6 +16,11 @@ import com.playground.pg.domain.ReviewDto;
 public class MypageMainServiceImpl implements MypageMainService {
 	@Autowired
 	MypageMainDao mypageDao;
+	
+	@Override
+	public String getMyName(String uId) {
+		return mypageDao.getName(uId);
+	}
 
 	@Override
 	public int getCouponCnt(String uId) throws Exception {

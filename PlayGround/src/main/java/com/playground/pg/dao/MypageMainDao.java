@@ -8,6 +8,9 @@ import com.playground.pg.domain.ReviewDto;
 
 public interface MypageMainDao {
 
+	// 이름 조회
+	public String getName(String uId);
+	
 	// 쿠폰 개수 조회
 	public int getCouponCnt(String uId) throws Exception;
 
@@ -22,6 +25,7 @@ public interface MypageMainDao {
 
 	// 최근 3개월 리뷰 목록 조회
 	public List<ReviewDto> getRevList(String uId) throws Exception;
+
 
 
 

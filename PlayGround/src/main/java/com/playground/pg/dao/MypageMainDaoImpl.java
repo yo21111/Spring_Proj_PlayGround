@@ -17,6 +17,11 @@ public class MypageMainDaoImpl implements MypageMainDao {
 	private static String namespace = "com.playground.pg.dao.MyPageMainMapper.";
 
 	@Override
+	public String getName(String uId) {
+		return session.selectOne(namespace + "getName",uId);
+	}
+
+	@Override
 	public int getCouponCnt(String uId) throws Exception {
 		return session.selectOne(namespace + "getCouponCnt",uId);
 	}

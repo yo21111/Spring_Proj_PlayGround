@@ -8,6 +8,9 @@ import com.playground.pg.domain.ReviewDto;
 
 public interface MypageMainService {
 
+	// 나의 이름 가져오기
+	public String getMyName(String uId);
+	
 	// 나의 사용가능한 쿠폰 개수 가져오기
 	public int getCouponCnt(String uId) throws Exception;
 
@@ -22,6 +25,7 @@ public interface MypageMainService {
 	
 	// 3개월 이내 나의 리뷰 내역 리스트 가져오기
 	public List<ReviewDto> getRevList(String uId) throws Exception;
+
 
 
 }

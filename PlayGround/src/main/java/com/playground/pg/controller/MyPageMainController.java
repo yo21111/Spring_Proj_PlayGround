@@ -37,8 +37,11 @@ public class MyPageMainController {
 		// 유저 아이디 가져오기
 		String uId = (String) session.getAttribute("uId_Session");
 		
+		
+		// 이름 가져오기
+		String name = mypageService.getMyName(uId);
 		// 나의 사용가능한 쿠폰 개수 가져오기
-		int couponCtn = mypageService.getCouponCnt(uId);
+		int couponCnt = mypageService.getCouponCnt(uId);
 		
 		// 나의 적립금 금액 가져오기
 		int myPoint =mypageService.getMyPoint(uId);
@@ -51,7 +54,14 @@ public class MyPageMainController {
 		
 		// 3개월 이내 나의 리뷰 내역 리스트 가져오기
 		List<ReviewDto> revList = mypageService.getRevList(uId);
-
+		
+		m.addAttribute("name", name);
+		m.addAttribute("couponCnt", couponCnt);
+		m.addAttribute("myPoint", myPoint);
+		m.addAttribute("reserveList", resList);
+		m.addAttribute("artList", artList);
+		m.addAttribute("reviewList", revList);
+		
 		return "마이페이지메인페이지";
 	}
 }
