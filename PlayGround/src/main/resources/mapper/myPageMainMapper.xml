@@ -26,7 +26,7 @@
 		where reDate between DATE_ADD(NOW(), INTERVAL -3 MONTH) AND NOW();
 	</select>
 	
-	<select id="getPoint" resultType="ArtDto" parameterType="int">
+	<select id="getArtList" resultType="ArtDto" parameterType="int">
 		Select * from art
 		where exNo = #{exNo}
 	</select>	
