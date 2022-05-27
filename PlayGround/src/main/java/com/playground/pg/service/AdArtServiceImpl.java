@@ -112,7 +112,7 @@ public class AdArtServiceImpl implements AdArtService {
 			// todo가 insert이면 서비스로 각 Dto 보내서 insert 하기
 			result = aaDao.insertArtDto(aDto);
 			if(result == 0) return result;
-			atDto.setExNo_FK(aaDao.getMaxExNo() + 1);
+			atDto.setExNo_FK(aaDao.getMaxExNo());
 			result = aaDao.insertArtTimeDto(atDto);
 		} else if (todo.equals("update")) {
 			// todo가 update면 서비스로 각 Dto 보내서 update 하기
@@ -128,10 +128,9 @@ public class AdArtServiceImpl implements AdArtService {
 	@Override
 	public int deleteArt(int exNo) throws Exception {
 		int result = 0;
-		result = aaDao.deleteArtDto(exNo);
-		if(result == 0) return result;
 		result = aaDao.deleteArtTimeDto(exNo);
+		if(result == 0) return result;
+		result = aaDao.deleteArtDto(exNo);
 		return result;
 	}
-
 }

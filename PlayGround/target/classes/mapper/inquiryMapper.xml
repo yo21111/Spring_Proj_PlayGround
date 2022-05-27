@@ -16,7 +16,7 @@
 		where writer = #{uId} 		
 	</select>
 	
-	<select id="getInqList" parameterType="int" resultType="InquiryDto">
+	<select id="getInq" parameterType="int" resultType="InquiryDto">
 		Select * from inquire
 		where no = #{no} 		
 	</select>

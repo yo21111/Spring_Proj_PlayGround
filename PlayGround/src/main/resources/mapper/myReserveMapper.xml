@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.MyReserveMapper">
+	<select id="getResList" resultType="ReserveDto" parameterType="map">
+		Select * from reserve
+		where id_FK = #{uId} and 
+		reDate between #{date1} and #{date2}   
+		ORDER BY reDate
+	</select>
+	
+	<select id="getRes" resultType="ReserveDto" parameterType="int">
+		Select * from reserve
+		where no = #{reserveNo}
+	</select>
+	
+	<select id="getArtList" resultType="ArtDto" parameterType="int">
+		Select * from art
+		where exNo = #{exNo}
+	</select>
+	
+	<select id="getArt" resultType="ArtDto" parameterType="int">
+		Select * from art
+		where exNo = #{exNo}
+	</select>
+	
+	<select id="getTime" resultType="ArtTimeDto" parameterType="int">
+		Select * from arttime
+		where exNo_FK = #{exNo}
+	</select>
+	
+	<update id="reserveUpdate" parameterType="map">
+		UPDATE reserve Set
+		reDate = #{date},
+		reTime1 = #{time1},
+		reTime2 = #{time2}
+		where no = #{no}
+	</update>
+	
+</mapper>
