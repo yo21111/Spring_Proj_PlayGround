@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.MyPointMapper">
+	<select id="selectAllPoint" parameterType="string" resultType="int">
+		select sum(point) from point where id_FK = #{id}
+	</select>
+	
+	<select id="selectPointList" parameterType="string" resultType="PointDto">
+		select * from point where id_FK = #{id} order by pointDate DESC
+	</select>
+</mapper>

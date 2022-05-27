@@ -56,8 +56,8 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 		int nwReviewCnt = notWriteReviewList.size();
 		
 		map.put("writeReviewList", writeReviewList);
-		map.put("writeReviewCnt", wReviewCnt);
 		map.put("notWriteReviewList", notWriteReviewList);
+		map.put("writeReviewCnt", wReviewCnt);
 		map.put("notWriteReviewCnt", nwReviewCnt);
 		
 		return map;
