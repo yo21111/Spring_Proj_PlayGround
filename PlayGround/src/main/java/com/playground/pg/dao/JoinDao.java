@@ -12,4 +12,7 @@ public interface JoinDao {
 	
 	// 회원가입 감사 쿠폰 발급하기
 	public int insertCoupon(CouponDto cDto) throws Exception;
+	
+	public CouponDto selectCouponForTest(String id) throws Exception;
+	public int deleteCouponForTest(String id) throws Exception;
 }

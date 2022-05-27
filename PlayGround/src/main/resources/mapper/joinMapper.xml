@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-        
+
 <mapper namespace="com.playground.pg.dao.JoinMapper">
 	<select id="idCheck" parameterType="string" resultType="int">
-		select count(*) from member where id = #{id}
+		select
+		count(*) from member where id = #{id}
 	</select>
-	
+
 	<insert id="insertMember" parameterType="MemberDto">
 		insert into member
-		(id, pw, email, name, birth, phone, grade)
+		(id,
+		pw, email, name, birth, phone, grade)
 		values
-		(#{id}, #{pw}, #{email}, #{name}, #{birth}, 
-		#{phone}, #{grade})
+		(#{id}, #{pw}, #{email},
+		#{name}, #{birth}, #{phone}
+		<if test="grade == null">, "M"</if>
+		<if test="grade != null">, #{grade}</if>)
 	</insert>
-	
+
 	<insert id="insertCoupon" parameterType="CouponDto">
 		insert into coupon
 		(id_FK, coupon, disRate, couDate1, couDate2, couInfo)
 		values
-		(#{id_FK}, #{coupon}, #{disRate}, now(), #{couDate2}, #{couInfo})
+		(#{id_FK},
+		#{coupon}, #{disRate}, now(), #{couDate2}, #{couInfo})
 	</insert>
+
+	<select id="selectCouponForTest" parameterType="string"
+		resultType="CouponDto">
+		select * from coupon where id_FK = #{id} limit 1
+	</select>
+	<delete id="deleteCouponForTest" parameterType="string">
+		delete from
+		coupon where id_FK = #{id}
+	</delete>
 </mapper>

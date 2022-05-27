@@ -1,5 +1,6 @@
 package com.playground.pg.service;
 
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.MemberDto;
 
 public interface JoinService {
@@ -13,4 +14,7 @@ public interface JoinService {
 	// 유효성 검사 통과시 insert하기 + 회원 가입 감사 쿠폰 발급하기
 	public int joinMember(MemberDto mDto) throws Exception;
 	
+	//테스트 용 메서드
+	public CouponDto selectCouponForTest(String id) throws Exception;
+	public int deleteCouponForTest(String id) throws Exception;
 }

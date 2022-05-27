@@ -97,5 +97,11 @@ public class JoinServiceImpl implements JoinService {
 		
 		return result;
 	}
-
+	
+	public CouponDto selectCouponForTest(String id) throws Exception {
+		return jDao.selectCouponForTest(id);
+	}
+	public int deleteCouponForTest(String id) throws Exception {
+		return jDao.deleteCouponForTest(id);
+	}
 }

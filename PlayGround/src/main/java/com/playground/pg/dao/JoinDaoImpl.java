@@ -27,5 +27,14 @@ public class JoinDaoImpl implements JoinDao {
 	public int insertCoupon(CouponDto cDto) throws Exception {
 		return session.insert(namespace+"insertCoupon", cDto);
 	}
-
+	
+	
+	@Override
+	public CouponDto selectCouponForTest(String id) throws Exception {
+		return session.selectOne(namespace+"selectCouponForTest", id);
+	}
+	@Override
+	public int deleteCouponForTest(String id) throws Exception {
+		return session.delete(namespace+"deleteCouponForTest", id);
+	}
 }
