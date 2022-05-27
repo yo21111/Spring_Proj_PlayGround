@@ -40,8 +40,8 @@ public class ReserveDaoImple implements ReserveDao {
 	}
 
 	@Override
-	public int deleteCoupon(int coupon) throws Exception {
-		return session.delete(namespace + "deleteCoupon", coupon);
+	public int updateCoupon(int coupon) throws Exception {
+		return session.update(namespace + "deleteCoupon", coupon);
 	}
 
 	@Override

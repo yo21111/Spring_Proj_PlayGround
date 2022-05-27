@@ -35,9 +35,11 @@
 		</choose>
 	</insert>
 	
-	<delete id="deleteCoupon" parameterType="int">
-		delete from coupon where no = #{coupon}
-	</delete>
+	<update id="updateCoupon" parameterType="int">
+		Update coupon Set
+		state = 'N'
+		where no = #{coupon}
+	</update>
 	
 	<select id="selectPoint" resultType="int" parameterType="String">
 		Select point from point

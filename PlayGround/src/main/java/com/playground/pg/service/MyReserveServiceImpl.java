@@ -83,7 +83,7 @@ public class MyReserveServiceImpl implements MyReserveService {
 	}
 
 	@Override
-	public boolean deleteReserve(ReserveDto reserveDto, CouponDto couponDto) throws Exception {
+	public boolean deleteReserve(ReserveDto reserveDto) throws Exception {
 		int result = mypageDao.deleteReserve(reserveDto);
 		
 		// 포인트 환불하기
@@ -100,7 +100,7 @@ public class MyReserveServiceImpl implements MyReserveService {
 		// 쿠폰 환불하기
 		int coupon = reserveDto.getCoupon();
 		if(coupon != 0) {
-			int couponResult = mypageDao.insertCoupon(couponDto); 			
+			int couponResult = mypageDao.updateCoupon(coupon); 			
 		}
 		
 		return result == 1 ? true : false;

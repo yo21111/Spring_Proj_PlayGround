@@ -102,11 +102,11 @@ public class MypageController_reserve {
 
 		// 예매 환불 
 		@PostMapping("/refund")
-		public String Refund(ReserveDto reserveDto, CouponDto couponDto) throws Exception {
+		public String Refund(ReserveDto reserveDto) throws Exception {
 			
 			// 예매번호 매개변수로 이용
 			// ReserveDto에 delete
-			boolean result = mypageService.deleteReserve(reserveDto, couponDto);
+			boolean result = mypageService.deleteReserve(reserveDto);
 			
 			return "redirect:/마이페이지";
 		}

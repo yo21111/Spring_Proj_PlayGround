@@ -85,8 +85,8 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	}
 
 	@Override
-	public int insertCoupon(CouponDto couponDto) throws Exception {
-		return session.insert(namespace + "insertCoupon", couponDto);
+	public int updateCoupon(int coupon) throws Exception {
+		return session.update(namespace + "updateCoupon", coupon);
 	}
 	
 	

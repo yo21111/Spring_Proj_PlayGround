@@ -47,10 +47,10 @@ public class ReserveServiceImple implements ReserveService {
 	public boolean insertReserve(ReserveDto reserveDto) throws Exception {
 		int result = reserveDao.insertReserve(reserveDto);
 
-		// 결제시 사용한 쿠폰
+		// 결제시 사용한 쿠폰 상태 변경
 		int coupon = reserveDto.getCoupon();
 		if(coupon != 0) {
-			int couponResult = reserveDao.deleteCoupon(coupon);
+			int couponResult = reserveDao.updateCoupon(coupon);
 		}
 		
 		// 결제시 사용한 포인트

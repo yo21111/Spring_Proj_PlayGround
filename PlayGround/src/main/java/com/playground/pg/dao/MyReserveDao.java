@@ -40,7 +40,7 @@ public interface MyReserveDao {
 	public int updatePoint(String uId, int upPoint) throws Exception;
 
 	// 쿠폰 환불하기
-	public int insertCoupon(CouponDto couponDto) throws Exception;
+	public int updateCoupon(int coupon) throws Exception;
 
 	
 }

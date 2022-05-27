@@ -34,6 +34,6 @@ public interface MyReserveService {
 	public int getResCnt(int exNo) throws Exception;
 
 	// 예매 환불하기
-	public boolean deleteReserve(ReserveDto reserveDto, CouponDto couponDto) throws Exception;
+	public boolean deleteReserve(ReserveDto reserveDto) throws Exception;
 
 }

@@ -59,11 +59,10 @@
 		where id_FK = #{uId}
 	</update>
 	
-	<insert id="insertCoupon" parameterType="CouponDto">
-		Insert into coupon
-		(id_FK, coupon, disRate, couDate1, couDate2, couInfo)
-		values
-		(#{id_FK}, #{coupon}, #{disRate}, #{couDate1}, #{couDate2}, #{couInfo})
-	</insert>
+	<update id="insertCoupon" parameterType="int">
+		Update coupon Set
+		state = 'U'
+		where no = #{coupon}
+	</update>
 	
 </mapper>

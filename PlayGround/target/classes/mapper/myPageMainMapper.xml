@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.MyPageMainMapper">
+	<select id="getCouponCnt" resultType="int" parameterType="String">
+		Select count(no) from coupon
+		where 
+		id_FK = #{uId} and
+		state = 'U'
+	</select>
+	
+	<select id="getPoint" resultType="int" parameterType="String">
+		Select point from point
+		where id_FK = #{uId}
+	</select>
+	
+	<select id="getResList" resultType="ReserveDto" parameterType="String">
+		Select * from reserve 
+		where reDate between DATE_ADD(NOW(), INTERVAL -3 MONTH) AND NOW();
+	</select>
+	
+	<select id="getPoint" resultType="ArtDto" parameterType="int">
+		Select * from art
+		where exNo = #{exNo}
+	</select>	
+	
+	<select id="getRevList" resultType="ReviewDto" parameterType="String">
+		Select * from review
+		where writeDate between DATE_ADD(NOW(), INTERVAL -3 MONTH) AND NOW();
+	</select>
+
+</mapper>
