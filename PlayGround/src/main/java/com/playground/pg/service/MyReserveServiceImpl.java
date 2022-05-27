@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.playground.pg.dao.MyReserveDao;
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 @Service
@@ -82,8 +83,26 @@ public class MyReserveServiceImpl implements MyReserveService {
 	}
 
 	@Override
-	public boolean deleteReserve(ReserveDto reserveDto) throws Exception {
+	public boolean deleteReserve(ReserveDto reserveDto, CouponDto couponDto) throws Exception {
 		int result = mypageDao.deleteReserve(reserveDto);
+		
+		// 포인트 환불하기
+		int usePoint = reserveDto.getPoint();
+		if(usePoint != 0) {
+			// 현재 보유한 포인트
+			String uId = reserveDto.getuId();
+			int myPoint = mypageDao.getPoint(uId);
+			// 환불된 포인트
+			int upPoint = myPoint + usePoint;
+			// 보유한 포인트 수정
+			int pointResult = mypageDao.updatePoint(uId, upPoint);
+		}
+		// 쿠폰 환불하기
+		int coupon = reserveDto.getCoupon();
+		if(coupon != 0) {
+			int couponResult = mypageDao.insertCoupon(couponDto); 			
+		}
+		
 		return result == 1 ? true : false;
 	}
 

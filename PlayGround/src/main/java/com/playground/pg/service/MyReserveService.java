@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 public interface MyReserveService {
@@ -33,6 +34,6 @@ public interface MyReserveService {
 	public int getResCnt(int exNo) throws Exception;
 
 	// 예매 환불하기
-	public boolean deleteReserve(ReserveDto reserveDto) throws Exception;
+	public boolean deleteReserve(ReserveDto reserveDto, CouponDto couponDto) throws Exception;
 
 }

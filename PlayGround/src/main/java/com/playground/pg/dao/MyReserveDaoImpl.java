@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 @Repository
@@ -68,5 +69,26 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	public int deleteReserve(ReserveDto reserveDto) throws Exception {
 		return session.delete(namespace + "deleteReserve", reserveDto);
 	}
+
+	@Override
+	public int getPoint(String uId) throws Exception {
+		return session.selectOne(namespace + "getPoint", uId);
+	}
+
+	@Override
+	public int updatePoint(String uId, int upPoint) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("uId", uId);
+		map.put("upPoint", upPoint);
+		
+		return session.update(namespace + "updatePoint", map);
+	}
+
+	@Override
+	public int insertCoupon(CouponDto couponDto) throws Exception {
+		return session.insert(namespace + "insertCoupon", couponDto);
+	}
+	
+	
 
 }

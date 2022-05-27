@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.playground.pg.dao.ArtDao;
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 import com.playground.pg.domain.SearchCondition;
 import com.playground.pg.service.MyReserveService;
@@ -101,11 +102,11 @@ public class MypageController_reserve {
 
 		// 예매 환불 
 		@PostMapping("/refund")
-		public String Refund(ReserveDto reserveDto) throws Exception {
+		public String Refund(ReserveDto reserveDto, CouponDto couponDto) throws Exception {
 			
 			// 예매번호 매개변수로 이용
 			// ReserveDto에 delete
-			boolean result = mypageService.deleteReserve(reserveDto);
+			boolean result = mypageService.deleteReserve(reserveDto, couponDto);
 			
 			return "redirect:/마이페이지";
 		}

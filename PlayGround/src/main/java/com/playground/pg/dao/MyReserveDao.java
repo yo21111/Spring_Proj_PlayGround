@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 public interface MyReserveDao {
@@ -31,6 +32,15 @@ public interface MyReserveDao {
 
 	// 예매 환불하기
 	public int deleteReserve(ReserveDto reserveDto) throws Exception;
+
+	// 현재 보유한 포인트 조회
+	public int getPoint(String uId) throws Exception;
+
+	// 포인트 환불하기
+	public int updatePoint(String uId, int upPoint) throws Exception;
+
+	// 쿠폰 환불하기
+	public int insertCoupon(CouponDto couponDto) throws Exception;
 
 	
 }

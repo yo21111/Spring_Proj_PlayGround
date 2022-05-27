@@ -48,4 +48,22 @@
 		delete from reserve where no = #{no}
 	</delete>
 	
+	<select id="getPoint" resultType="int" parameterType="String">
+		Select point from point
+		where id_FK = #{uId}
+	</select>
+	
+	<update id="updatePoint" parameterType="map">
+		Update point Set
+		point = #{upPoint}
+		where id_FK = #{uId}
+	</update>
+	
+	<insert id="insertCoupon" parameterType="CouponDto">
+		Insert into coupon
+		(id_FK, coupon, disRate, couDate1, couDate2, couInfo)
+		values
+		(#{id_FK}, #{coupon}, #{disRate}, #{couDate1}, #{couDate2}, #{couInfo})
+	</insert>
+	
 </mapper>
