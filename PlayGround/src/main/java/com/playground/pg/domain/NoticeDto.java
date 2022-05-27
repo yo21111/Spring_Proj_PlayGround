@@ -12,9 +12,9 @@ public class NoticeDto {
 	private String writer;
 	private String img;
 	private int viewCnt;
-	@DateTimeFormat(pattern="yyyy/MM/dd hh:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date writeDate;
-	@DateTimeFormat(pattern="yyyy/MM/dd hh:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date modDate;
 	
 	

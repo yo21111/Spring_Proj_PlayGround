@@ -61,7 +61,7 @@ public class JoinController {
 	// 회원가입
 	@PostMapping("/page")
 	public String insertJoin(MemberDto memberDto) throws Exception {
-		// 들어오는 값 : 아이디, 비밀번호, 이름, 생년월일(2022/05/26), 휴대폰번호, 이메일, 등급
+		// 들어오는 값 : 아이디, 비밀번호, 이름, 생년월일(2022-05-26), 휴대폰번호, 이메일, 등급
 		// 1. 유효성 검사
 		// 2-1 검사 통과 못할 시 : 회원가입 페이지로 redirect
 		// 2-2. 검사 통과 시 : MemberDTO DB에 insert

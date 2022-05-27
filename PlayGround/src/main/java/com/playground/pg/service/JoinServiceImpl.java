@@ -62,7 +62,7 @@ public class JoinServiceImpl implements JoinService {
 	}
 	
 	// 유효성 검사 메서드
-	// 들어오는 값 : 아이디, 비밀번호, 이름, 생년월일(2022/05/26), 휴대폰번호, 이메일, 등급
+	// 들어오는 값 : 아이디, 비밀번호, 이름, 생년월일(2022-05-26), 휴대폰번호, 이메일, 등급
 	public boolean validationMember(MemberDto mDto) throws Exception {
 		boolean result = true;
 		

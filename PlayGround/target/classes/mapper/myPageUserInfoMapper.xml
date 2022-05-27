@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.UserInfoMapper">
+	<select id="isMember" parameterType="map" resultType="int">
+		select count(*) from member
+		where id =#{id} and pw = #{pw}
+	</select>
+	
+	<select id="findMember" parameterType="string" resultType="MemberDto">
+		Select * from member
+		where id = #{id}
+	</select>
+	
+	<update id="updateMember" parameterType="MemberDto">
+		update member set
+		<if test="pw != null">
+			pw = #{pw}
+		</if>
+		<if test="email != null">
+			email = #{email}
+		</if>
+		<if test="name != null">
+			name = #{name}
+		</if>
+		<if test="birth != null">
+			birth = #{birth}
+		</if>
+		<if test="phone != null">
+			phone = #{phone}
+		</if>
+		where id = #{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="string">
+		delete from member where id = #{id}
+	</delete>
+</mapper>

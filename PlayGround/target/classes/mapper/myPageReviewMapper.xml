@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.MyPageReviewMapper">
+	<select id="selectReserveList" parameterType="map" resultType="ReserveDto">
+		select * from reserve where id_FK = #{id}
+		and reDate between #{term1} and #{term2}
+		order by reDate DESC
+	</select>
+	
+	<select id="isWriteReview" parameterType="map" resultType="int">
+		select count(*) from review
+		where id_FK = #{id_FK} and exNo_FK = #{exNo_FK}
+	</select>
+	
+	<insert id="insertReview" parameterType="ReviewDto">
+		insert into review
+		(title, content, id_FK, exNo_FK, score, writeDate)
+		values
+		(#{title}, #{content}, #{id}, #{exNo}, 
+		#{score}, now())
+	</insert>
+</mapper>

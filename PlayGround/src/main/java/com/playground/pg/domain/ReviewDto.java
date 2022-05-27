@@ -13,7 +13,7 @@ public class ReviewDto {
 	private int exNo;
 	private int viewCnt;
 	private int score;
-	@DateTimeFormat(pattern="yyyy/MM/dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date writeDate;
 	
 

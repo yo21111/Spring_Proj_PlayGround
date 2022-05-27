@@ -12,7 +12,7 @@ public class InquiryDto {
 	private String title;
 	private String context;
 	private String writer;
-	@DateTimeFormat(pattern="yyyy/MM/dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date writeDate;
 	private String state;
 	private String reply;

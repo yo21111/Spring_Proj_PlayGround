@@ -9,7 +9,7 @@ public class ReportDto {
 	private 	String category;
 	private String content;
 	private String id_FK;
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date reportDate;
 	private 	int no_FK;
 	
