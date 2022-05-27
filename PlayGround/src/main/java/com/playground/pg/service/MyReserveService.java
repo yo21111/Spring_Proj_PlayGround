@@ -29,4 +29,10 @@ public interface MyReserveService {
 	// 예매 정보 수정하기
 	public boolean updateReserve(ReserveDto reserveDto, String date, String time1, String time2);
 
+	// 예매 인원 수 가져오기
+	public int getResCnt(int exNo) throws Exception;
+
+	// 예매 환불하기
+	public boolean deleteReserve(ReserveDto reserveDto) throws Exception;
+
 }

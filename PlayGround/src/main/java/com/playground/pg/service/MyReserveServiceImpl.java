@@ -59,13 +59,32 @@ public class MyReserveServiceImpl implements MyReserveService {
 		ArtTimeDto artTimeDto = mypageDao.updateTime(exNo);
 		return artTimeDto;
 	}
+	
+	@Override
+	public int getResCnt(int exNo) throws Exception {
+		List<ReserveDto> list = mypageDao.getResCnt(exNo);
+		int resCnt = 0;
+		int adCnt = 0;
+		int chCnt = 0;
+		for (int i = 0; i < list.size(); i++) {
+			ReserveDto reserveDto = list.get(i);
+			adCnt = reserveDto.getAdCnt();
+			chCnt = reserveDto.getChCnt();
+			resCnt = adCnt + chCnt;
+		}
+		return resCnt;
+	}
 
 	@Override
 	public boolean updateReserve(ReserveDto reserveDto, String date, String time1, String time2) {
 		int result = mypageDao.updateReserve(reserveDto, date, time1, time2);
 		return result == 1 ? true : false;
 	}
-	
-	
+
+	@Override
+	public boolean deleteReserve(ReserveDto reserveDto) throws Exception {
+		int result = mypageDao.deleteReserve(reserveDto);
+		return result == 1 ? true : false;
+	}
 
 }

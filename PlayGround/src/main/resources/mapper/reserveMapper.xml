@@ -7,6 +7,16 @@
 		Select * from art
 		where exNo = #{exNo}
 	</select>
+	
+	<select id="selectTime"  parameterType="int" resultType="ArtTimeDto">
+		Select * from arttime
+		where exNo_FK = #{exNo}
+	</select>
+	
+	<select id="selectResCnt"  parameterType="int" resultType="ReserveDto">
+		Select * from reserve
+		where exNo_FK = #{exNo}
+	</select>
 
 	<insert id="insertReserve" parameterType="ReserveDto">
 		Insert into reserve
@@ -24,13 +34,5 @@
 			</otherwise>
 		</choose>
 	</insert>
-	
-	<update id="updateReserve" parameterType="ReserveDto">
-		Update reserve Set
-		reDate = #{reDate},
-		reTime1 = #{reTime1},
-		reTime2 = #{reTime2}
-		where no = #{no}
-	</update>
-	
+
 </mapper>

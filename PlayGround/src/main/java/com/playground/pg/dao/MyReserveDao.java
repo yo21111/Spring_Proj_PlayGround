@@ -26,5 +26,11 @@ public interface MyReserveDao {
 	// 예매 정보 수정하기
 	public int updateReserve(ReserveDto reserveDto, String date, String time1, String time2);
 
+	// 예매 인원 수 확인용 예매 리스트 조회
+	public List<ReserveDto> getResCnt(int exNo) throws Exception;
+
+	// 예매 환불하기
+	public int deleteReserve(ReserveDto reserveDto) throws Exception;
+
 	
 }

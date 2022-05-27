@@ -49,6 +49,11 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	}
 
 	@Override
+	public List<ReserveDto> getResCnt(int exNo) throws Exception {
+		return session.selectList(namespace + "getResCnt", exNo);
+	}
+
+	@Override
 	public int updateReserve(ReserveDto reserveDto, String date, String time1, String time2) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("reserveDto", reserveDto);
@@ -59,6 +64,9 @@ public class MyReserveDaoImpl implements MyReserveDao {
 		return session.update(namespace + "resreveUpdate", map);
 	}
 
-	
-	
+	@Override
+	public int deleteReserve(ReserveDto reserveDto) throws Exception {
+		return session.delete(namespace + "deleteReserve", reserveDto);
+	}
+
 }

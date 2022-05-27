@@ -75,11 +75,15 @@ public class MypageController_reserve {
 			ArtDto artDto = mypageService.updateArt(exNo);
 			// 작품 시간(빈) 가져오기
 			ArtTimeDto artTimeDto = mypageService.updateTime(exNo);
+			// 예약 인원 수 가져오기
+			int resCnt = mypageService.getResCnt(exNo);
 			
 			// 모델에 작품 정보 넣기
 			m.addAttribute("artDto", artDto);
 			// 모델에 작품 시간 정보 넣기
 			m.addAttribute("artTimeDto", artTimeDto);
+			// 모델에 예약 인원 수 넣기
+			m.addAttribute("resCnt", resCnt);
 						
 			return "일정변경 페이지";
 		}
@@ -94,4 +98,16 @@ public class MypageController_reserve {
 			
 			return "redirect:/mypage/reList";
 		}
+
+		// 예매 환불 
+		@PostMapping("/refund")
+		public String Refund(ReserveDto reserveDto) throws Exception {
+			
+			// 예매번호 매개변수로 이용
+			// ReserveDto에 delete
+			boolean result = mypageService.deleteReserve(reserveDto);
+			
+			return "redirect:/마이페이지";
+		}
+		
 }

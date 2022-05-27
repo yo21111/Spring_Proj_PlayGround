@@ -30,6 +30,12 @@
 		where exNo_FK = #{exNo}
 	</select>
 	
+	<select id="getResCnt" resultType="ReserveDto" parameterType="int">
+		Select * from reserve
+		where exNo_FK = #{exNo}
+	</select>
+	
+	
 	<update id="reserveUpdate" parameterType="map">
 		UPDATE reserve Set
 		reDate = #{date},
@@ -37,5 +43,9 @@
 		reTime2 = #{time2}
 		where no = #{no}
 	</update>
+	
+	<delete id="deleteReserve" parameterType="ReserveDto">
+		delete from reserve where no = #{no}
+	</delete>
 	
 </mapper>
