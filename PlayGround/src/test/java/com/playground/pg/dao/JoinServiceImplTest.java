@@ -43,9 +43,9 @@ public class JoinServiceImplTest {
 		String cert = jService.certification();
 		System.out.println("cert : "+cert);
 		
-		//5. 회원 가입시 생성했던 쿠폰 삭제하기
-		int deleteCoupon = jService.deleteCouponForTest("tester123");
-		assertTrue(deleteCoupon == 1);
+		//5. 회원 가입시 생성했던 쿠폰 삭제하기 -> delete 유저에 포함
+//		int deleteCoupon = jService.deleteCouponForTest("tester123");
+//		assertTrue(deleteCoupon == 1);
 
 		//6. 생성했던 회원정보 삭제하기
 		int deleteRes = mpuiService.deleteMember("tester123");

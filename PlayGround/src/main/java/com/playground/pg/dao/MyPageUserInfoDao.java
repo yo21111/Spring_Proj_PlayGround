@@ -14,4 +14,11 @@ public interface MyPageUserInfoDao {
 
 	// 회원 탈퇴하기
 	public int deleteMember(String id) throws Exception;
+	public int deletePoint(String id) throws Exception;
+	public int deleteCoupon(String id) throws Exception;
+	public int deleteReview(String id) throws Exception;
+	public int deleteReport(String id) throws Exception;
+	public int deleteReserve(String id) throws Exception;
+	public int deleteWishList(String id) throws Exception;
+	
 }

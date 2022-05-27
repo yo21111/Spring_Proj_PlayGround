@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-        
+
 <mapper namespace="com.playground.pg.dao.UserInfoMapper">
 	<select id="isMember" parameterType="map" resultType="int">
-		select count(*) from member
+		select
+		count(*) from member
 		where id =#{id} and pw = #{pw}
 	</select>
-	
-	<select id="findMember" parameterType="string" resultType="MemberDto">
+
+	<select id="findMember" parameterType="string"
+		resultType="MemberDto">
 		Select * from member
 		where id = #{id}
 	</select>
-	
+
 	<update id="updateMember" parameterType="MemberDto">
 		update member set
 		<if test="pw != null">
@@ -32,8 +34,29 @@
 		</if>
 		where id = #{id}
 	</update>
-	
+
+	<delete id="deletePoint" parameterType="string">
+		delete from point where
+		id = #{id_FK}
+	</delete>
+	<delete id="deleteCoupon" parameterType="string">
+		delete from coupon where
+		id = #{id_FK}
+	</delete>
+	<delete id="deleteReview" parameterType="string">
+		delete from review where id = #{id_FK}
+	</delete>
+	<delete id="deleteReport" parameterType="string">
+		delete from report where id = #{id_FK}
+	</delete>
+	<delete id="deleteReserve" parameterType="string">
+		delete from reserve where id = #{id_FK}
+	</delete>
+	<delete id="deleteWishList" parameterType="string">
+		delete from wishList where id = #{id_FK}
+	</delete>
 	<delete id="deleteMember" parameterType="string">
-		delete from member where id = #{id}
+		delete from member where
+		id = #{id}
 	</delete>
 </mapper>

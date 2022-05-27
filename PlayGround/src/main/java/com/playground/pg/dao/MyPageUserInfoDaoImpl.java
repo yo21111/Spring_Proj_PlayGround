@@ -39,4 +39,34 @@ public class MyPageUserInfoDaoImpl implements MyPageUserInfoDao {
 		return session.delete(namespace+"deleteMember", id);
 	}
 
+	@Override
+	public int deletePoint(String id) throws Exception {
+		return session.delete(namespace+"deletePoint", id);
+	}
+
+	@Override
+	public int deleteCoupon(String id) throws Exception {
+		return session.delete(namespace+"deleteCoupon", id);
+	}
+
+	@Override
+	public int deleteReview(String id) throws Exception {
+		return session.delete(namespace+"deleteReview", id);
+	}
+
+	@Override
+	public int deleteReport(String id) throws Exception {
+		return session.delete(namespace+"deleteReport", id);
+	}
+
+	@Override
+	public int deleteReserve(String id) throws Exception {
+		return session.delete(namespace+"deleteReserve", id);
+	}
+
+	@Override
+	public int deleteWishList(String id) throws Exception {
+		return session.delete(namespace+"deleteWishList", id);
+	}
+	
 }
