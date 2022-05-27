@@ -20,4 +20,13 @@ public interface ReserveDao {
 	// 예매하기
 	public int insertReserve(ReserveDto reserveDto) throws Exception;
 
+	// 예매시 사용한 쿠폰 삭제
+	public int deleteCoupon(int coupon) throws Exception;
+
+	// 현재 보유한 전체 포인트 조회
+	public int getPoint(String uId) throws Exception;
+
+	// 현재 보유한 포인트 업데이트(사용한 포인트 만큼 감소)
+	public int updatePoint(String uId, int remPoint) throws Exception;
+
 }

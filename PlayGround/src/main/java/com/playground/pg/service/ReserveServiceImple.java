@@ -46,6 +46,24 @@ public class ReserveServiceImple implements ReserveService {
 	@Transactional(rollbackFor = Exception.class)
 	public boolean insertReserve(ReserveDto reserveDto) throws Exception {
 		int result = reserveDao.insertReserve(reserveDto);
+
+		// 결제시 사용한 쿠폰
+		int coupon = reserveDto.getCoupon();
+		if(coupon != 0) {
+			int couponResult = reserveDao.deleteCoupon(coupon);
+		}
+		
+		// 결제시 사용한 포인트
+		int usePoint = reserveDto.getPoint();
+		if(usePoint != 0) {
+			// 현재 보유한 포인트
+			String uId = reserveDto.getuId();
+			int myPoint = reserveDao.getPoint(uId);
+			// 남은 포인트
+			int remPoint = myPoint - usePoint;
+			// 보유한 포인트 수정
+			int pointResult = reserveDao.updatePoint(uId, remPoint);
+		}
 		return result == 1 ? true : false;
 	}
 

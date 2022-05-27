@@ -34,5 +34,20 @@
 			</otherwise>
 		</choose>
 	</insert>
+	
+	<delete id="deleteCoupon" parameterType="int">
+		delete from coupon where no = #{coupon}
+	</delete>
+	
+	<select id="selectPoint" resultType="int" parameterType="String">
+		Select point from point
+		where id_FK = #{uId}
+	</select>
+	
+	<update id="updatePoint" parameterType="map">
+		Update point Set
+		point = #{remPoint}
+		where id_FK = #{uId}
+	</update>
 
 </mapper>

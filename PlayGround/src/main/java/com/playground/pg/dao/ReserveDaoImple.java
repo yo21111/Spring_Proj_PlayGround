@@ -1,6 +1,8 @@
 package com.playground.pg.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +38,28 @@ public class ReserveDaoImple implements ReserveDao {
 	public int insertReserve(ReserveDto reserveDto) throws Exception {
 		return session.insert(namespace + "insertReserve", reserveDto);
 	}
+
+	@Override
+	public int deleteCoupon(int coupon) throws Exception {
+		return session.delete(namespace + "deleteCoupon", coupon);
+	}
+
+	@Override
+	public int getPoint(String uId) throws Exception {
+		return session.selectOne(namespace + "selectPoint", uId);
+	}
+
+	@Override
+	public int updatePoint(String uId, int remPoint) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("uId", uId);
+		map.put("remPoint", remPoint);
+		
+		return session.update(namespace + "updatePoint", map);
+	}
+	
+	
+	
+	
 
 }
