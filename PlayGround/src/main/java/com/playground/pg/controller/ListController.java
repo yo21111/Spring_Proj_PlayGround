@@ -1,13 +1,22 @@
 package com.playground.pg.controller;
 
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.playground.pg.domain.ArtDto;
+import com.playground.pg.service.AdArtService;
+
 @RequestMapping("/exhibit")
 @Controller
 public class ListController {
+	@Autowired
+	AdArtService adArtService;
 	
 	// 전시 상세페이지
 	@GetMapping("/listView") 
@@ -28,10 +37,13 @@ public class ListController {
 
 	// 전시 리스트페이지
 	@GetMapping("/list")
-	public String showExList(int exNo, String exState, Model m) {
+	public String showExList(int exNo, String exState, Model m) throws Exception {
 		// 작품제목(exName) 매개변수로 받음
 		// 전시상태(exState) 에서 B(before 지난), N(now 현재), A(after 예정)로 
 		// 전시상태별로 분류할 수 있는 값을 받아옴
+		// 전시상태별로 분류 하기 위한 값을 받음
+		Map<String, Object> map = adArtService.selectArtList(exState);
+		List<ArtDto> artList = (List<ArtDto>)map.get("artList");
 		return "전체목록";
 	}
 	
