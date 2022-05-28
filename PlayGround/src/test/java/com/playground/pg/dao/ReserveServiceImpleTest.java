@@ -25,6 +25,7 @@ import com.playground.pg.domain.ReserveDto;
 import com.playground.pg.service.AdArtService;
 import com.playground.pg.service.JoinService;
 import com.playground.pg.service.MyPagePointService;
+import com.playground.pg.service.MyPageUserInfoService;
 import com.playground.pg.service.ReserveService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -38,6 +39,12 @@ public class ReserveServiceImpleTest {
 
 	@Autowired
 	AdArtService artService;
+	
+	@Autowired
+	MyPageUserInfoService mpuiService;
+	
+	@Autowired
+	AdArtService adService;
 
 	@Test
 	public void serviceTset() throws Exception {
@@ -47,24 +54,32 @@ public class ReserveServiceImpleTest {
 		ArtTimeDto tDto = createArtTime();
 
 		
-//		 //1. 회원가입 확인 
-//		int insertRes = jService.joinMember(mDto);
-//		System.out.println("MemberDto : "+mDto); 
-//		assertTrue(insertRes == 1);
+		// 1. 회원가입 확인 
+		int insertRes = jService.joinMember(mDto);
+		System.out.println("MemberDto : "+mDto); 
+		assertTrue(insertRes == 1);
 		 
 
 		List<MultipartFile> list = new ArrayList<>();
 		HttpSession session = new MockHttpSession();
 
-//		// 2. 작품 등록하기 확인
-//		int artresult = artService.insOrUpdArt("insert", list, session, aDto, tDto);
-//		System.out.println("aDto : " + aDto);
-//		assertTrue("작품 등록하기", artresult == 1);
+		// 2. 작품 등록하기 확인
+		int artresult = artService.insOrUpdArt("insert", list, session, aDto, tDto);
+		System.out.println("aDto : " + aDto);
+		assertTrue("작품 등록하기", artresult == 1);
 
 		// 3. 일반 예약 확인
 		boolean insertRes2 = reserveService.insertReserve(resDto);
 		System.out.println("ReserveDto : " + resDto);
 		assertTrue("예약하기 실행", insertRes2 == true);
+
+		// 4. 생성했던 예약정보 삭제하기
+		int deleteRes = mpuiService.deleteMember("tester123");
+		assertTrue(deleteRes == 1);
+		
+		// 5. 생성했던 작품정보 삭제하기
+		int deleteArt = adService.deleteArt(1);
+		assertTrue(deleteArt == 1);
 
 	}
 
