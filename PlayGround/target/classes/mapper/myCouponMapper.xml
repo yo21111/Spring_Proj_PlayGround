@@ -4,7 +4,7 @@
         
 <mapper namespace="com.playground.pg.dao.MyCouponMapper">
 	<select id="selectAllCoupon" parameterType="string" resultType="int">
-		select sum(*) from coupon where id_FK = #{id}
+		select count(*) from coupon where id_FK = #{id}
 	</select>
 	
 	<select id="selectCouponList" parameterType="string" resultType="CouponDto">

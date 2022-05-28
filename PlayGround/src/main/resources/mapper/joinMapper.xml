@@ -16,15 +16,16 @@
 		(#{id}, #{pw}, #{email},
 		#{name}, #{birth}, #{phone}
 		<if test="grade == null">, "M"</if>
-		<if test="grade != null">, #{grade}</if>)
+		<if test="grade != null">, #{grade}</if>
+		)
 	</insert>
 
 	<insert id="insertCoupon" parameterType="CouponDto">
 		insert into coupon
-		(id_FK, coupon, disRate, couDate1, couDate2, couInfo)
+		(id_FK, coupon, disRate, couDate1, couDate2, couInfo, state)
 		values
 		(#{id_FK},
-		#{coupon}, #{disRate}, now(), #{couDate2}, #{couInfo})
+		#{coupon}, #{disRate}, now(), #{couDate2}, #{couInfo}, "U")
 	</insert>
 
 	<select id="selectCouponForTest" parameterType="string"

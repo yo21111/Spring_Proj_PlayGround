@@ -37,23 +37,23 @@
 
 	<delete id="deletePoint" parameterType="string">
 		delete from point where
-		id = #{id_FK}
+		id_FK = #{id_FK}
 	</delete>
 	<delete id="deleteCoupon" parameterType="string">
 		delete from coupon where
-		id = #{id_FK}
+		id_FK = #{id_FK}
 	</delete>
 	<delete id="deleteReview" parameterType="string">
-		delete from review where id = #{id_FK}
+		delete from review where id_FK = #{id_FK}
 	</delete>
 	<delete id="deleteReport" parameterType="string">
-		delete from report where id = #{id_FK}
+		delete from report where id_FK = #{id_FK}
 	</delete>
 	<delete id="deleteReserve" parameterType="string">
-		delete from reserve where id = #{id_FK}
+		delete from reserve where id_FK = #{id_FK}
 	</delete>
 	<delete id="deleteWishList" parameterType="string">
-		delete from wishList where id = #{id_FK}
+		delete from wishList where id_FK = #{id_FK}
 	</delete>
 	<delete id="deleteMember" parameterType="string">
 		delete from member where

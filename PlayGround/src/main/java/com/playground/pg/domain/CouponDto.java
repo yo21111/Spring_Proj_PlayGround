@@ -67,7 +67,7 @@ public class CouponDto {
 	}
 	@Override
 	public String toString() {
-		return "CouponDto [no=" + no + ", id_FK=" + id_FK + ", coupon=" + coupon + ", disRate=" + disRate
-				+ ", couDate1=" + couDate1 + ", couDate2=" + couDate2 + ", couInfo=" + couInfo + "]";
+		return "CouponDto [no=" + no + ", id_FK=" + id_FK + ", coupon=" + coupon + ", disRate=" + disRate + ", state="
+				+ state + ", couDate1=" + couDate1 + ", couDate2=" + couDate2 + ", couInfo=" + couInfo + "]";
 	}
 }
