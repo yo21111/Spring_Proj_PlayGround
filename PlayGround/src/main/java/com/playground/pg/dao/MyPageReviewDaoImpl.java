@@ -21,7 +21,7 @@ public class MyPageReviewDaoImpl implements MyPageReviewDao {
 	@Override
 	public List<ReserveDto> getReserveList(String id, Date term1, Date term2) throws Exception {
 		Map<String, Object> map = new HashMap<>();
-		map.put("id", id);
+		map.put("uId", id);
 		map.put("term1", term1);
 		map.put("term2", term2);
 
@@ -31,8 +31,8 @@ public class MyPageReviewDaoImpl implements MyPageReviewDao {
 	@Override
 	public int isWriteReview(String id_FK, int exNo_FK) throws Exception {
 		Map<String, Object> map = new HashMap<>();
-		map.put("id_FK", id_FK);
-		map.put("exNo_FK", exNo_FK);
+		map.put("id", id_FK);
+		map.put("exNo", exNo_FK);
 
 		return session.selectOne(namespace+"isWriteReview", map);
 	}

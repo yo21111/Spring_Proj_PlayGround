@@ -20,11 +20,15 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 	MyPageReviewDao mprDao;
 	
 	@Override
-	public Map<String, Object> reviewList(String id, String term) throws Exception {
+	public Map<String, Object> reviewList(String uId, String term) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		
 		Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
+        
+        if (term == null || term.equals("")) {
+        	term = "1W";
+        }
         
         int termNum = term.charAt(0) - '0';
         char termUnit = term.charAt(1);
@@ -38,13 +42,15 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
         Date term1 = cal.getTime();
         Date term2 = new Date();
 
-        List<ReserveDto> allList = mprDao.getReserveList(id, term1, term2);
+        List<ReserveDto> allList = mprDao.getReserveList(uId, term1, term2);
 		
 		List<ReserveDto> writeReviewList = new ArrayList<>();
 		List<ReserveDto> notWriteReviewList = new ArrayList<>();
 		
 		for (int i = 0; i < allList.size(); i++) {
-			int result = mprDao.isWriteReview(id, allList.get(i).getExNo());
+			ReserveDto reDto = allList.get(i);
+			System.out.println("reDto : " + reDto);
+			int result = mprDao.isWriteReview(uId, reDto.getExNo());
 			if (result == 0) {
 				notWriteReviewList.add(allList.get(i));
 			} else {

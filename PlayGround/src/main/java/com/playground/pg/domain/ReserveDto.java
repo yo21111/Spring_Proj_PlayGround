@@ -102,4 +102,11 @@ public class ReserveDto {
 	public void setPayDate(Date payDate) {
 		this.payDate = payDate;
 	}
+	@Override
+	public String toString() {
+		return "ReserveDto [no=" + no + ", exNo=" + exNo + ", reDate=" + reDate + ", reTime1=" + reTime1 + ", reTime2="
+				+ reTime2 + ", adCnt=" + adCnt + ", chCnt=" + chCnt + ", payment=" + payment + ", point=" + point
+				+ ", payDate=" + payDate + ", uId=" + uId + ", coupon=" + coupon + ", allowNum=" + allowNum + "]";
+	}
+	
 }
