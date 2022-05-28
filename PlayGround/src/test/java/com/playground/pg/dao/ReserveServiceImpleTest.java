@@ -75,7 +75,7 @@ public class ReserveServiceImpleTest {
 		// 어른매수, 아이매수(기본값 0), 결제금액, 결제날자(예약날짜), 예약번호
 		// 포인트 or 쿠폰사용시 일반 예약에 포인트, 쿠폰 추가
 
-		Date reDate = new Date(0152, 04, 13);
+		Date reDate = new Date(122, 04, 13);
 		resDto.setuId("tester123");
 		resDto.setExNo(1);
 		resDto.setReDate(reDate);
@@ -85,7 +85,7 @@ public class ReserveServiceImpleTest {
 		resDto.setChCnt(0);
 		resDto.setPayment(360000);
 		resDto.setPayDate(reDate);
-		resDto.setCoupon(0);
+		resDto.setCoupon(null);
 		resDto.setPoint(0);
 
 		return resDto;
@@ -133,8 +133,8 @@ public class ReserveServiceImpleTest {
 	public ArtTimeDto createArtTime() {
 		ArtTimeDto timeDto = new ArtTimeDto();
 		// 들어오는 값 : 작품번호, 전시기간(시작), 전시기간(끝), 전시시간1, 전시시간2, 전시시간3
-		Date exDate1 = new Date(0152, 04, 00);
-		Date exDate2 = new Date(0152, 04, 27);
+		Date exDate1 = new Date(122, 04, 01);
+		Date exDate2 = new Date(122, 04, 27);
 		timeDto.setExNo_FK(1);
 		timeDto.setExDate1(exDate1);
 		timeDto.setExDate2(exDate2);

@@ -48,8 +48,8 @@ public class ReserveServiceImple implements ReserveService {
 		int result = reserveDao.insertReserve(reserveDto);
 
 		// 결제시 사용한 쿠폰 상태 변경
-		int coupon = reserveDto.getCoupon();
-		if(coupon != 0) {
+		Integer coupon = reserveDto.getCoupon();
+		if(coupon != null) {
 			int couponResult = reserveDao.updateCoupon(coupon);
 		}
 		

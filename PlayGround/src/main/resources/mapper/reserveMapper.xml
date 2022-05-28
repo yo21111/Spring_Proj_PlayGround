@@ -28,14 +28,6 @@
 				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
 				#{payment}, #{payDate}, #{point}, #{coupon})
 			</when>
-			<when test='chCnt!=0 and coupon==0'>
-				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
-				#{payment}, #{payDate}, #{point}, 0)
-			</when>
-			<when test='chCnt==0 and coupon==0'>
-				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
-				#{payment}, #{payDate}, #{point}, 0)
-			</when>
 			<otherwise>
 				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
 				#{payment}, #{payDate}, #{point}, #{coupon})

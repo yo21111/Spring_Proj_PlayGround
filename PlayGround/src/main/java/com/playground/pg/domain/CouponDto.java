@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class CouponDto {
-	private Integer no;
+	private int no;
 	private String id_FK;
 	private String coupon;
 	private int disRate;
@@ -16,10 +16,10 @@ public class CouponDto {
 	private Date couDate2;
 	private String couInfo;
 	
-	public Integer getNo() {
+	public int getNo() {
 		return no;
 	}
-	public void setNo(Integer no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 	public String getId_FK() {

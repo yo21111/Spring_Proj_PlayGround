@@ -19,7 +19,7 @@ public class ReserveDto {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date payDate;
 	private String uId;
-	private int coupon;
+	private Integer coupon;
 	
 	// 관리자 메인페이지용 변수 : 해당 작품 입장 가능 인원
 	private int allowNum;
@@ -84,10 +84,10 @@ public class ReserveDto {
 	public void setuId(String uId) {
 		this.uId = uId;
 	}
-	public int getCoupon() {
+	public Integer getCoupon() {
 		return coupon;
 	}
-	public void setCoupon(int coupon) {
+	public void setCoupon(Integer coupon) {
 		this.coupon = coupon;
 	}
 	public int getAllowNum() {
