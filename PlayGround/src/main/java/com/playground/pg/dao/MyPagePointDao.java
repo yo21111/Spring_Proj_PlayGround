@@ -11,3 +11,4 @@ public interface MyPagePointDao {
 	// 적립금 리스트 보여주기 order by pointDate DESC
 	public List<PointDto> getPointList(String id) throws Exception;
 }
+

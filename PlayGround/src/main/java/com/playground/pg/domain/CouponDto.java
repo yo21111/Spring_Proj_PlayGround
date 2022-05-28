@@ -9,6 +9,7 @@ public class CouponDto {
 	private String id_FK;
 	private String coupon;
 	private int disRate;
+	private String state;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date couDate1;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -27,11 +28,11 @@ public class CouponDto {
 	public void setId_FK(String id_FK) {
 		this.id_FK = id_FK;
 	}
-	public String getCoupon() {
-		return coupon;
+	public String getState() {
+		return state;
 	}
-	public void setCoupon(String coupon) {
-		this.coupon = coupon;
+	public void setState(String state) {
+		this.state = state;
 	}
 	public int getDisRate() {
 		return disRate;
@@ -39,6 +40,13 @@ public class CouponDto {
 	public void setDisRate(int disRate) {
 		this.disRate = disRate;
 	}
+	public String getCoupon() {
+		return coupon;
+	}
+	public void setCoupon(String coupon) {
+		this.coupon = coupon;
+	}
+	
 	public Date getCouDate1() {
 		return couDate1;
 	}
