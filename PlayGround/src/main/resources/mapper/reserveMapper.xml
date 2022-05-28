@@ -10,12 +10,12 @@
 	
 	<select id="selectTime"  parameterType="int" resultType="ArtTimeDto">
 		Select * from arttime
-		where exNo_FK = #{exNo}
+		where exNo_FK = #{exNo_FK}
 	</select>
 	
 	<select id="selectResCnt"  parameterType="int" resultType="ReserveDto">
 		Select * from reserve
-		where exNo_FK = #{exNo}
+		where exNo_FK = #{exNo_FK}
 	</select>
 
 	<insert id="insertReserve" parameterType="ReserveDto">
@@ -25,12 +25,12 @@
 		values
 		<choose>
 			<when test='chCnt!=0'>
-				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
-				#{payment}, #{payDate}, #{point}, #{coupon})
+				(#{id_FK}, #{exNo_FK}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
+				#{payment}, #{payDate}, #{point}, #{coupon_FK})
 			</when>
 			<otherwise>
-				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
-				#{payment}, #{payDate}, #{point}, #{coupon})
+				(#{id_FK}, #{exNo_FK}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
+				#{payment}, #{payDate}, #{point}, #{coupon_FK})
 			</otherwise>
 		</choose>
 	</insert>
@@ -43,13 +43,13 @@
 	
 	<select id="selectPoint" resultType="int" parameterType="String">
 		Select point from point
-		where id_FK = #{uId}
+		where id_FK = #{id_FK}
 	</select>
 	
 	<update id="updatePoint" parameterType="map">
 		Update point Set
 		point = #{remPoint}
-		where id_FK = #{uId}
+		where id_FK = #{id_FK}
 	</update>
 
 </mapper>

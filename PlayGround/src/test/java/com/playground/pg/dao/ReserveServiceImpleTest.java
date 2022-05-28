@@ -45,10 +45,13 @@ public class ReserveServiceImpleTest {
 	
 	@Autowired
 	AdArtService adService;
-
+	
+	@Autowired
+	AdArtDao aaDao;
+	
+	
 	@Test
 	public void serviceTset() throws Exception {
-		ReserveDto resDto = createReserve();
 		MemberDto mDto = createMember();
 		ArtDto aDto = createArt();
 		ArtTimeDto tDto = createArtTime();
@@ -65,6 +68,8 @@ public class ReserveServiceImpleTest {
 
 		// 2. 작품 등록하기 확인
 		int artresult = artService.insOrUpdArt("insert", list, session, aDto, tDto);
+		int exNo = aaDao.getMaxExNo();
+		ReserveDto resDto = createReserve(exNo);
 		System.out.println("aDto : " + aDto);
 		assertTrue("작품 등록하기", artresult == 1);
 
@@ -78,21 +83,21 @@ public class ReserveServiceImpleTest {
 		assertTrue(deleteRes == 1);
 		
 		// 5. 생성했던 작품정보 삭제하기
-		int deleteArt = adService.deleteArt(1);
+		int deleteArt = adService.deleteArt(exNo);
 		assertTrue(deleteArt == 1);
 
 	}
 
 	// 예약정보 더미용
-	private ReserveDto createReserve() {
+	private ReserveDto createReserve(int exNo) {
 		ReserveDto resDto = new ReserveDto();
 		// 일반 예약(쿠폰, 포인트 사용x)시 : 아이디, 작품번호, 관람날짜, 관람시간(시작), 관람시간(끝),
 		// 어른매수, 아이매수(기본값 0), 결제금액, 결제날자(예약날짜), 예약번호
 		// 포인트 or 쿠폰사용시 일반 예약에 포인트, 쿠폰 추가
 
 		Date reDate = new Date(122, 04, 13);
-		resDto.setuId("tester123");
-		resDto.setExNo(1);
+		resDto.setId_FK("tester123");
+		resDto.setExNo_FK(exNo);
 		resDto.setReDate(reDate);
 		resDto.setReTime1("11:00");
 		resDto.setReTime2("13:00");
@@ -100,7 +105,7 @@ public class ReserveServiceImpleTest {
 		resDto.setChCnt(0);
 		resDto.setPayment(360000);
 		resDto.setPayDate(reDate);
-		resDto.setCoupon(null);
+		resDto.setCoupon_FK(null);
 		resDto.setPoint(0);
 
 		return resDto;
@@ -150,7 +155,6 @@ public class ReserveServiceImpleTest {
 		// 들어오는 값 : 작품번호, 전시기간(시작), 전시기간(끝), 전시시간1, 전시시간2, 전시시간3
 		Date exDate1 = new Date(122, 04, 01);
 		Date exDate2 = new Date(122, 04, 27);
-		timeDto.setExNo_FK(1);
 		timeDto.setExDate1(exDate1);
 		timeDto.setExDate2(exDate2);
 		timeDto.setExTime1_1("09:00");

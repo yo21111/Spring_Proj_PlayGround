@@ -48,7 +48,7 @@ public class ReserveServiceImple implements ReserveService {
 		int result = reserveDao.insertReserve(reserveDto);
 
 		// 결제시 사용한 쿠폰 상태 변경
-		Integer coupon = reserveDto.getCoupon();
+		Integer coupon = reserveDto.getCoupon_FK();
 		if(coupon != null) {
 			int couponResult = reserveDao.updateCoupon(coupon);
 		}
@@ -57,7 +57,7 @@ public class ReserveServiceImple implements ReserveService {
 		int usePoint = reserveDto.getPoint();
 		if(usePoint != 0) {
 			// 현재 보유한 포인트
-			String uId = reserveDto.getuId();
+			String uId = reserveDto.getId_FK();
 			int myPoint = reserveDao.getPoint(uId);
 			// 남은 포인트
 			int remPoint = myPoint - usePoint;

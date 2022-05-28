@@ -22,7 +22,7 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	@Override
 	public List<ReserveDto> getResList(String uId, String date1, String date2) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("uId", uId);
+		map.put("id_FK", uId);
 		map.put("date1", date1);
 		map.put("date2", date2);
 		
@@ -50,8 +50,8 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	}
 
 	@Override
-	public List<ReserveDto> getResCnt(int exNo) throws Exception {
-		return session.selectList(namespace + "getResCnt", exNo);
+	public List<ReserveDto> getResCnt(int exNo_FK) throws Exception {
+		return session.selectList(namespace + "getResCnt", exNo_FK);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	@Override
 	public int updatePoint(String uId, int upPoint) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("uId", uId);
+		map.put("id_FK", uId);
 		map.put("upPoint", upPoint);
 		
 		return session.update(namespace + "updatePoint", map);

@@ -45,7 +45,7 @@ public class MypageMainServiceImpl implements MypageMainService {
 		List<ArtDto> artList = new ArrayList<ArtDto>();
 		for (int i = 0; i < resList.size(); i++) {
 			ReserveDto reserveDto = resList.get(i);
-			int exNo = reserveDto.getExNo();
+			int exNo = reserveDto.getExNo_FK();
 			artList.add(mypageDao.getArtList(exNo));
 		}
 		

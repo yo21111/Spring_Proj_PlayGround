@@ -64,13 +64,13 @@ public class ReviewServiceImplTest {
 
 		// 3. 작품 예매 정보 생성
 		ReserveDto reDto = createReserve(exNo);
-		
 		boolean result = rService.insertReserve(reDto);
 		assertTrue(result);
-
+		
+		System.out.println("예매현황 : " + reDto);
+		
 		// 4. 작품의 리뷰 작성 여부 확인
 		Map<String, Object> map1 = mprService.reviewList("tester123", "");
-		System.out.println("map : " + map1);
 		int wrc1 = (int) map1.get("writeReviewCnt");
 		int nwrc1 = (int) map1.get("notWriteReviewCnt");
 		System.out.println("작성된 리뷰 갯수 : " + wrc1);
@@ -81,19 +81,18 @@ public class ReviewServiceImplTest {
 		// 5. 리뷰 dto 생성
 		// 부족한 정보 : 전시회 번호, 예매 일자
 		ReviewDto rDto = createReview();
-		rDto.setExNo(exNo);
+		rDto.setExNo_FK(exNo);
 		// 오늘 날짜 - 1일
 		Date now = Date.valueOf(LocalDate.now().minusDays(1));
 		rDto.setWriteDate(now);
 
 		// 6. 리뷰 작성하기
 		res = mprService.writeReview("tester123", rDto);
-		System.out.println("ReviewDto : " + rDto);
+		System.out.println("작성된 리뷰 정보 : " + rDto);
 		assertTrue(res == 1);
 
 		// 7. 작품의 리뷰 작성 여부 확인
 		Map<String, Object> map2 = mprService.reviewList("tester123", "");
-		System.out.println("map : " + map2);
 		int wrc2 = (int) map2.get("writeReviewCnt");
 		int nwrc2 = (int) map2.get("notWriteReviewCnt");
 		System.out.println("작성된 리뷰 갯수 : " + wrc2);
@@ -103,12 +102,13 @@ public class ReviewServiceImplTest {
 
 		// 8. 확인 기간별 매개변수 넣어서 작동 여부 확인
 		Map<String, Object> map3 = mprService.reviewList("tester123", "1M");
-		assertTrue(map3.size() == 1);
+		assertTrue((int)map3.get("writeReviewCnt") == 1);
 		Map<String, Object> map4 = mprService.reviewList("tester123", "3M");
-		assertTrue(map4.size() == 1);
+		assertTrue((int)map4.get("writeReviewCnt") == 1);
 		Map<String, Object> map5 = mprService.reviewList("tester123", "6M");
-		assertTrue(map5.size() == 1);
+		assertTrue((int)map5.get("writeReviewCnt") == 1);
 
+		
 		// 9. 멤버 삭제
 		mpuiService.deleteMember("tester123");
 
@@ -177,17 +177,16 @@ public class ReviewServiceImplTest {
 		// 포인트 or 쿠폰사용시 일반 예약에 포인트, 쿠폰 추가
 
 		Date reDate = Date.valueOf(LocalDate.now().minusDays(1));
-		resDto.setNo(1);
-		resDto.setuId("tester123");
-		resDto.setExNo(1);
+		resDto.setId_FK("tester123");
+		resDto.setExNo_FK(exNo);
 		resDto.setReDate(reDate);
 		resDto.setReTime1("11:00");
 		resDto.setReTime2("13:00");
-		resDto.setAdCnt(6);
+		resDto.setAdCnt(3);
 		resDto.setChCnt(0);
 		resDto.setPayment(360000);
 		resDto.setPayDate(reDate);
-		resDto.setCoupon(null);
+		resDto.setCoupon_FK(null);
 		resDto.setPoint(0);
 		
 		return resDto;

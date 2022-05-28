@@ -9,14 +9,14 @@ public class ReviewDto {
 	private int no;
 	private String title;
 	private String content;
-	private String id;
-	private int exNo;
+	private String id_FK;
+	private int exNo_FK;
 	private int viewCnt;
 	private int score;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date writeDate;
 	
-
+	
 	public int getNo() {
 		return no;
 	}
@@ -35,17 +35,17 @@ public class ReviewDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getId() {
-		return id;
+	public String getId_FK() {
+		return id_FK;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setId_FK(String id_FK) {
+		this.id_FK = id_FK;
 	}
-	public int getExNo() {
-		return exNo;
+	public int getExNo_FK() {
+		return exNo_FK;
 	}
-	public void setExNo(int exNo) {
-		this.exNo = exNo;
+	public void setExNo_FK(int exNo_FK) {
+		this.exNo_FK = exNo_FK;
 	}
 	public int getViewCnt() {
 		return viewCnt;
@@ -65,6 +65,11 @@ public class ReviewDto {
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "ReviewDto [no=" + no + ", title=" + title + ", content=" + content + ", id_FK=" + id_FK + ", exNo_FK="
+				+ exNo_FK + ", viewCnt=" + viewCnt + ", score=" + score + ", writeDate=" + writeDate + "]";
+	}
 	
 }

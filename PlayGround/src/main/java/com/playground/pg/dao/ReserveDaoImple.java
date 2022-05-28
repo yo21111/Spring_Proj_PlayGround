@@ -52,7 +52,7 @@ public class ReserveDaoImple implements ReserveDao {
 	@Override
 	public int updatePoint(String uId, int remPoint) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("uId", uId);
+		map.put("id_FK", uId);
 		map.put("remPoint", remPoint);
 		
 		return session.update(namespace + "updatePoint", map);

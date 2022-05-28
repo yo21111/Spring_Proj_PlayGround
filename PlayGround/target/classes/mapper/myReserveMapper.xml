@@ -5,7 +5,7 @@
 <mapper namespace="com.playground.pg.dao.MyReserveMapper">
 	<select id="getResList" resultType="ReserveDto" parameterType="map">
 		Select * from reserve
-		where id_FK = #{uId} and 
+		where id_FK = #{id_FK} and 
 		reDate between #{date1} and #{date2}   
 		ORDER BY reDate
 	</select>
@@ -32,7 +32,7 @@
 	
 	<select id="getResCnt" resultType="ReserveDto" parameterType="int">
 		Select * from reserve
-		where exNo_FK = #{exNo}
+		where exNo_FK = #{exNo_FK}
 	</select>
 	
 	
@@ -50,13 +50,13 @@
 	
 	<select id="getPoint" resultType="int" parameterType="String">
 		Select point from point
-		where id_FK = #{uId}
+		where id_FK = #{id_FK}
 	</select>
 	
 	<update id="updatePoint" parameterType="map">
 		Update point Set
 		point = #{upPoint}
-		where id_FK = #{uId}
+		where id_FK = #{id_FK}
 	</update>
 	
 	<update id="insertCoupon" parameterType="int">

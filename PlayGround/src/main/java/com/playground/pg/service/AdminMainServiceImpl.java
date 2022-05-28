@@ -19,7 +19,7 @@ public class AdminMainServiceImpl implements AdminMainService {
 	public List<ReserveDto> showReserveList() throws Exception {
 		List<ReserveDto> reserveList = amDao.showReserveList();
 		for (int i = 0; i < reserveList.size(); i++) {
-			int exNo = reserveList.get(i).getExNo();
+			int exNo = reserveList.get(i).getExNo_FK();
 			int allowNum = amDao.getAllowNum(exNo);
 			reserveList.get(i).setAllowNum(allowNum);
 		}

@@ -35,7 +35,7 @@ public class MyReserveServiceImpl implements MyReserveService {
 		List<ArtDto> artList = new ArrayList<ArtDto>();
 		for (int i = 0; i < artList.size(); i++) {
 			ReserveDto reserveDto = resList.get(i);
-			int exNo = reserveDto.getExNo();
+			int exNo = reserveDto.getExNo_FK();
 			artList.add(mypageDao.getArtList(exNo));
 		}
 		return artList;
@@ -44,7 +44,7 @@ public class MyReserveServiceImpl implements MyReserveService {
 	@Override
 	public ArtDto getArt(int reserveNo) throws Exception {
 		ReserveDto reserveDto = mypageDao.getRes(reserveNo);
-		int exNo = reserveDto.getExNo();
+		int exNo = reserveDto.getExNo_FK();
 		ArtDto artDto = mypageDao.getArtList(exNo);
 		return artDto;
 	}
@@ -90,7 +90,7 @@ public class MyReserveServiceImpl implements MyReserveService {
 		int usePoint = reserveDto.getPoint();
 		if(usePoint != 0) {
 			// 현재 보유한 포인트
-			String uId = reserveDto.getuId();
+			String uId = reserveDto.getId_FK();
 			int myPoint = mypageDao.getPoint(uId);
 			// 환불된 포인트
 			int upPoint = myPoint + usePoint;
@@ -98,7 +98,7 @@ public class MyReserveServiceImpl implements MyReserveService {
 			int pointResult = mypageDao.updatePoint(uId, upPoint);
 		}
 		// 쿠폰 환불하기
-		int coupon = reserveDto.getCoupon();
+		int coupon = reserveDto.getCoupon_FK();
 		if(coupon != 0) {
 			int couponResult = mypageDao.updateCoupon(coupon); 			
 		}

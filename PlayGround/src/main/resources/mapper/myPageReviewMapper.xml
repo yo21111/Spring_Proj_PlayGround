@@ -4,21 +4,21 @@
         
 <mapper namespace="com.playground.pg.dao.MyPageReviewMapper">
 	<select id="selectReserveList" parameterType="map" resultType="ReserveDto">
-		select * from reserve where id_FK = #{uId}
+		select * from reserve where id_FK = #{id_FK}
 		and reDate between #{term1} and #{term2}
 		order by reDate DESC
 	</select>
 	
 	<select id="isWriteReview" parameterType="map" resultType="int">
 		select count(*) from review
-		where id_FK = #{id} and exNo_FK = #{exNo}
+		where id_FK = #{id_FK} and exNo_FK = #{exNo_FK}
 	</select>
 	
 	<insert id="insertReview" parameterType="ReviewDto">
 		insert into review
 		(title, content, id_FK, exNo_FK, score, writeDate)
 		values
-		(#{title}, #{content}, #{id}, #{exNo}, 
+		(#{title}, #{content}, #{id_FK}, #{exNo_FK}, 
 		#{score}, now())
 	</insert>
 </mapper>

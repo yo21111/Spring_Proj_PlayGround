@@ -49,8 +49,8 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 		
 		for (int i = 0; i < allList.size(); i++) {
 			ReserveDto reDto = allList.get(i);
-			System.out.println("reDto : " + reDto);
-			int result = mprDao.isWriteReview(uId, reDto.getExNo());
+			
+			int result = mprDao.isWriteReview(uId, reDto.getExNo_FK());
 			if (result == 0) {
 				notWriteReviewList.add(allList.get(i));
 			} else {
@@ -73,7 +73,7 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 	public int writeReview(String id, ReviewDto rDto) throws Exception {
 		String title = rDto.getContent().substring(0, 10) + "...";
 		rDto.setTitle(title);
-		rDto.setId(id);
+		rDto.setId_FK(id);
 		return mprDao.insertReview(rDto);
 	}
 	
