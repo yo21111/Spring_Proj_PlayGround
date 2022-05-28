@@ -12,7 +12,6 @@ public class ArtTimeDto {
 	private Date exDate2;
 	private String exTime1_1;
 	private String exTime1_2;
-	private String exTime1_3;
 	private String exTime2_1;
 	private String exTime2_2;
 	private String exTime3_1;
@@ -46,12 +45,6 @@ public class ArtTimeDto {
 	}
 	public void setExTime1_2(String exTime1_2) {
 		this.exTime1_2 = exTime1_2;
-	}
-	public String getExTime1_3() {
-		return exTime1_3;
-	}
-	public void setExTime1_3(String exTime1_3) {
-		this.exTime1_3 = exTime1_3;
 	}
 	public String getExTime2_1() {
 		return exTime2_1;

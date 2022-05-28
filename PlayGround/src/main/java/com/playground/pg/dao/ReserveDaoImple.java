@@ -41,7 +41,7 @@ public class ReserveDaoImple implements ReserveDao {
 
 	@Override
 	public int updateCoupon(int coupon) throws Exception {
-		return session.update(namespace + "deleteCoupon", coupon);
+		return session.update(namespace + "updateCoupon", coupon);
 	}
 
 	@Override

@@ -21,16 +21,24 @@
 	<insert id="insertReserve" parameterType="ReserveDto">
 		Insert into reserve
 		(id_FK, exNo_FK, reDate, reTime1, reTime2, adCnt, chCnt, 
-		payment, point, coupon_FK)
+		payment, payDate, point, coupon_FK)
 		values
 		<choose>
-			<when test='chCnt!=null'>
+			<when test='chCnt!=0'>
 				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
-				#{payment}, #{point}, #{coupon})
+				#{payment}, #{payDate}, #{point}, #{coupon})
+			</when>
+			<when test='chCnt!=0 and coupon==0'>
+				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
+				#{payment}, #{payDate}, #{point}, 0)
+			</when>
+			<when test='chCnt==0 and coupon==0'>
+				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
+				#{payment}, #{payDate}, #{point}, 0)
 			</when>
 			<otherwise>
 				(#{uId}, #{exNo}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
-				#{payment}, #{point}, #{coupon})
+				#{payment}, #{payDate}, #{point}, #{coupon})
 			</otherwise>
 		</choose>
 	</insert>

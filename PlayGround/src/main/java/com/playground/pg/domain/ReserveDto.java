@@ -16,6 +16,8 @@ public class ReserveDto {
 	private int chCnt;
 	private int payment;
 	private int point;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date payDate;
 	private String uId;
 	private int coupon;
 	
@@ -94,5 +96,10 @@ public class ReserveDto {
 	public void setAllowNum(int allowNum) {
 		this.allowNum = allowNum;
 	}
-	
+	public Date getPayDate() {
+		return payDate;
+	}
+	public void setPayDate(Date payDate) {
+		this.payDate = payDate;
+	}
 }
