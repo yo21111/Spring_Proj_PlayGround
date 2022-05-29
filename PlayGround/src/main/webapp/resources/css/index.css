@@ -1,0 +1,281 @@
+#top_button {
+  z-index: 9999;
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 5%;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#top_button i {
+  line-height: 40px;
+}
+/* 서브페이지 헤더 */
+header {
+  z-index: 9999;
+  background-color:#fff;
+}
+header .gnb ul.sub_menu{
+  background-color:#fff;
+
+}
+header .quick_menu a,
+header .gnb li.main_list a{
+  color: #707070;
+}
+/* 서브페이지 헤더 끝 */
+.section01 .exhibition_box {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 80px;
+  padding-top: 50px;
+}
+
+.section01 .exhibition_img {
+  width: 25%;
+}
+
+.section01 .exhibition_img img {
+  width: 100%;
+}
+
+.section01 .exhibition_text {
+  position: relative;
+  width: 46%;
+  padding-top: 30px;
+}
+
+.section01 .good_button {
+  align-items: center;
+  display: flex;
+  /* float: right; */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+.section01 .good_button img{
+  /* padding: 10px; */
+  width: 40px;
+  margin-right: 15px;
+  height: 40px;
+}
+.section01 .exhibition_notice {
+  margin-top: 50px;
+  width: 95%;
+  background: rgb(236, 236, 236);
+  margin-top: 85px;
+  padding: 35px 10px;
+  border-radius: 15px;
+  line-height: 25px;
+}
+.section01 .exhibition_notice td:nth-child(1){
+  text-align: center;
+  font-weight: bold;
+}
+.section01 .exhibition_notice td:nth-child(2){
+  padding-left: 20px;
+}
+.section01 .advance_button {
+  bottom: 10px;
+  position: absolute;
+  width: 20%;
+  padding: 20px 10px;
+  text-align: center;
+  border-radius: 15px;
+  background-color:#9ABDA7;
+  right: 0px;
+}
+.section01 .advance_button:hover{
+  background-color:#3D725E;
+}
+.section01 .advance_button:hover a{
+  
+  color: #fff;
+}
+/* 탭 */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+
+ul.tabs {
+  z-index: 9000;
+  background-color: #fff;
+  position: sticky;
+  top: 80px;
+  /* width: 90%; */
+  margin: 0px auto;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+}
+
+ul.tabs li {
+  background: none;
+  color: #3D725E;
+  display: inline-block;
+  padding: 15px 30px;
+  cursor: pointer;
+}
+
+ul.tabs li.current {
+
+  color: #3D725E;
+  font-weight: bold;
+  border-bottom: 3px solid;
+}
+
+.tab-content {
+  display: none;
+  /* background: #ededed; */
+  padding: 15px 0px 95px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.tab-content.current {
+  display: inherit;
+}
+
+.section02 .container #tab-1 img {
+  width: 100%;
+}
+
+.section02 .container #tab-2 table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  /* 이부분 이해하고 넘어가기 */
+}
+
+.section02 .container #tab-2 tr {
+  position: relative;
+}
+
+.section02 .container #tab-2 td::after,
+.section02 .container #tab-2 td::before {
+  content: " ";
+  transform: rotate(50deg);
+  width: 12px;
+  height: 2px;
+  background-color: #222;
+  position: absolute;
+  left: 0;
+  top: 11px;
+  display: block;
+}
+
+.section02 .container #tab-2 td::before {
+  transform: rotate(-50deg);
+  left: 7px;
+}
+
+.section02 .container #tab-2 td:first-child {
+  margin-left: 25px;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 42px;
+}
+
+.section02 .container #tab-2 td:nth-child(2) {
+  margin-left: 22px;
+  font-size: 16px;
+}
+.section02 .container #tab-3 .reservation,
+.section02 .container #tab-3 .refund,
+.section02 .container #tab-3 .cancel,
+.section02 .container #tab-3 .sale{
+  border-bottom: 2px solid #333;
+  padding: 30px 0 100px;
+  display: flex;
+}
+.section02 .container #tab-3 .reservation_left{
+  width: 20%;
+  font-size: 27px;
+  /* background-color: antiquewhite; */
+text-align: center;
+}
+.section02 .container #tab-3 .reservation_right{
+  width: 80%;
+  color: #555555;
+  /* background-color:aquamarine; */
+  font-size: 14px;
+  
+}
+.section02 .container #tab-3 .reservation_right .right_text{
+  padding:10px 5px;
+  line-height: 25px;
+}
+.section02 .container #tab-3 .refund .reservation_right .right_table,
+.section02 .container #tab-3 .cancel .reservation_right .right_text{
+margin-top: 15px;
+}
+.section02 .container #tab-3 .reservation_right .red{
+ color: #f43142;
+ display: block;
+ margin-top: 20px;
+  }
+.section02 .container #tab-3 .sale .reservation_right .right_text strong{
+  display: inline-block;
+margin: 2px 0px 5px;
+}
+.section02 .container #tab-3 .reservation_right span.bottom_line{
+  border-bottom: 1px solid #555555;
+}
+.section02 .container #tab-3 .reservation_right .right_table{
+  margin-top: 100px;
+
+}
+.section02 .container #tab-3 .reservation_right .right_table table{
+  width: 100%;
+  /* background-color: aliceblue; */
+}
+.section02 .container #tab-3 .reservation_right .right_table tr{
+  width: 100%;
+  display: inline-flex;
+  border-bottom: 1px solid #8b8b8b;
+}
+.section02 .container #tab-3 .reservation_right .right_table td{
+width: 33%;
+text-align: center;
+padding: 10px 0px;
+
+}
+.section02 .container #tab-3 .reservation_right .right_table tr:nth-child(1){
+  font-weight: bold;
+  background-color: #9ABDA7;
+  font-size: 16px;
+}
+.section02 .container #tab-3 .reservation_right .right_table tr:nth-child(2){
+  font-size: 14px;
+}
+.section02 .container #tab-3 .cancel .reservation_right .right_table{
+  margin-top: 0px;
+}
+.section02 .container #tab-3 .cancel .reservation_right .right_table tr{
+  width: 70%;
+}
+.section02 .container #tab-3 .charge .reservation_right .right_table tr{
+  width: 100%;
+}
+
+.section02 .container #tab-3 .cancel .reservation_right .right_table td{
+  width: 50%;
+}
+.section02 .container #tab-3 .refund .reservation_right .right_table td:nth-child(1){
+width: 25%;
+}
+.section02 .container #tab-3 .refund .reservation_right .right_table td:nth-child(2){
+width: 75%;
+}
+.section02 .map img {
+  display: block;
+  margin: 20px auto;
+}
+

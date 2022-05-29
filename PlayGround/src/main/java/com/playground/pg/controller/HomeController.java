@@ -36,6 +36,6 @@ public class HomeController {
 		
 		m.addAttribute("artList", list);
 		
-		return "메인페이지";
+		return "index";
 	}
 }

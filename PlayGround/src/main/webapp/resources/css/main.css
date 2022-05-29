@@ -1,0 +1,451 @@
+#top_button {
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#top_button i {
+    line-height: 40px;
+}
+
+
+.main img.back {
+    filter: brightness(50%);
+    /* 이미지 어둡게 조절 */
+    width: 100%;
+    height: 100vh;
+}
+
+.main .slide_icon {
+    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main .slide_icon .slide_ball {
+    width: 50px;
+    height: 50px;
+    background-color: #3D725E;
+    border-radius: 100px;
+    position: absolute;
+    top: 93px;
+    right: 100px;
+    animation: green 2s alternate infinite linear;
+}
+
+@keyframes green {
+    0% {
+        top: 93px;
+        right: 100px;
+    }
+    50% {
+        top: 141px;
+        right: 56px;
+    }
+    75% {
+        top: 171px;
+        right: 27px;
+    }
+    100% {
+        top: 170px;
+        right: 10px;
+    }
+}
+
+
+/* 공 애니메이션 */
+
+
+/* 컨테이너 시작 */
+
+/* .container {
+    background-color: beige;
+} */
+
+
+
+/* 섹션별 공통 타이틀 css속성입니다!!!!!!!!!!!!!!!!!! */
+
+.title_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.title_box h2 {
+    font-family: 'NanumSquareEB';
+    padding: 8px 0;
+}
+
+.title_box span {
+    font-family: 'AppleSDGodicNeoM';
+    color: #5E5E5E;
+}
+
+
+/* 섹션별 공통 타이틀 css속성입니다!!!!!!!!!!!!!!!!!! */
+
+
+/*컨테이너 타이틀*/
+
+.container_title {
+    padding-top: 30px;
+    text-align: center;
+    font-family: 'NanumSquareRoundEB';
+    /* font-weight: bold; */
+}
+
+.container_title p {
+    font-family: 'AppleSDGodicNeoL';
+    color: #5E5E5E;
+    line-height: 2;
+}
+
+
+/*컨테이너 타이틀 끝*/
+
+
+/* 오늘의 전시 */
+
+.exhibition {
+    display: flex;
+    flex-direction: column;
+}
+
+.exhibition_wrap {
+    background-color: #F6F6F6;
+    padding: 20px 0;
+}
+
+.exhibition_wrap .center {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.exhibition_wrap .box {
+    display: inline-block;
+    width: 400px;
+    margin-right: 40px;
+    position: relative;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.exhibition_wrap .box:last-child {
+    margin-right: 0;
+}
+
+.exhibition_wrap .box img {
+    width: 100%;
+}
+
+.exhibition_wrap .box .info_box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.exhibition_wrap .box:hover .info_box {
+    opacity: 1;
+}
+
+.exhibition_wrap .box .info_box .info_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.exhibition_wrap .box .info_box .txt_box {
+    width: 330px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.exhibition_wrap .box .info_box .title {
+    display: block;
+    font-family: 'NanumSquareEB';
+    font-size: 24px;
+    line-height: 32px;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.exhibition_wrap .box .info_box p {
+    font-family: 'AppleSDGodicNeoL';
+    color: #fff;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 10px 0;
+}
+
+.exhibition_wrap .box .btn_box a {
+    font-family: 'AppleSDGodicNeoM';
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #fff;
+    color: #fff;
+    margin: 30px 0;
+    position: relative;
+    transition: all 0.35s;
+}
+
+.exhibition_wrap .box .btn_box a:hover {
+    background-color: #3d725e;
+}
+
+
+/* // 오늘의 전시 */
+
+
+/*큐레이터 시작*/
+
+.cur_con {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.cur_con_text {
+    text-align: left;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    font-family: 'NanumSquareRoundEB';
+}
+
+.cur_con_text h2 {
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+
+.cur_con_text p {
+    font-size: 20px;
+    font-family: 'NanumSquareRoundER';
+}
+
+.cur_con_pic {
+    width: 50%;
+    transform: translateX(100%);
+}
+
+.cur_con_pic img {
+    width: 85%;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+
+/*큐레이터 끝*/
+
+
+/* 스토어 */
+
+.container.store {
+    background-color: #cee4d9;
+}
+
+.store_con {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.store_con section {
+    width: 250px;
+    padding: 25px;
+    box-sizing: border-box;
+    font-family: 'NanumSquareRoundEB';
+    color: #5E5E5E;
+}
+
+.store_con section p {
+    font-family: 'NanumSquareRoundER';
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: translateX(16%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 5px 10px rgba(59, 59, 59, 0.3);
+}
+
+.circle img {
+    width: 45%;
+}
+
+.store_text {
+    margin-top: 20px;
+}
+
+.store_text h2 {
+    font-size: 20px;
+    line-height: 3;
+    color: black;
+}
+
+
+/* 스토어 끝 */
+
+
+/* 오시는 길 */
+
+.map .map_wrap {
+    background-color: #292824;
+}
+
+.map .map_wrap .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.map .map_wrap .center .txt_box {
+    width: 550px;
+    box-sizing: border-box;
+}
+
+.map .map_wrap .center .txt_box .line {
+    display: block;
+    width: 150px;
+    height: 3px;
+    background-color: #fff;
+}
+
+.map .map_wrap .center .txt_box .title {
+    display: block;
+    font-size: 18px;
+    padding: 15px 0;
+    color: #fff;
+    font-family: 'NanumSquareEB';
+}
+
+.map .map_wrap .center .txt_box .info {
+    display: flex;
+    padding: 10px 0;
+}
+
+.map .map_wrap .center .info .icon {
+    font-size: 20px;
+    color: #fff;
+    padding: 3px 0;
+}
+
+.map .map_wrap .center .info .text {
+    padding: 3px 0 3px 10px;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'AppleSDGodicNeoM';
+    line-height: 25px;
+}
+
+.map .map_wrap .center .txt_box .info .col {
+    display: flex;
+    padding: 3px 0;
+}
+
+.map .map_wrap .center .traffic .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.map .map_wrap .center .traffic .info li>span {
+    font-size: 14px;
+    color: #fff;
+    margin-left: 10px;
+    color: #FFF040;
+}
+
+.map .img_box {
+    width: 550px;
+    box-sizing: border-box;
+}
+
+.map .img_box img {
+    width: 100%;
+}
+
+.map .map_wrap .address {
+    margin-bottom: 15px;
+}
+
+
+/* //오시는 길 */
+
+
+/* 빈공간  */
+
+.contact {
+    width: 100%;
+    height: 250px;
+    /* background-color: aquamarine; */
+}
+
+.contact .center {
+    display: flex;
+}
+
+.contact .link {
+    text-align: center;
+    width: 33.3%;
+    height: 100%;
+    /* background-color: azure; */
+    color: #3D725E;
+    font-size: 17px;
+}
+
+.contact .link a {
+    /* float: left; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.contact .pic {
+    width: 15%;
+}
+
+.contact .pic .map {
+    width: 10%;
+}
+
+.contact .link_text {
+    line-height: 25px;
+}
