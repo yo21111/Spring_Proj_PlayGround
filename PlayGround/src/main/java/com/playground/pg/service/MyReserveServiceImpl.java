@@ -1,5 +1,6 @@
 package com.playground.pg.service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,8 +85,6 @@ public class MyReserveServiceImpl implements MyReserveService {
 
 	@Override
 	public boolean deleteReserve(ReserveDto reserveDto) throws Exception {
-		int result = mypageDao.deleteReserve(reserveDto);
-		
 		// 포인트 환불하기
 		int usePoint = reserveDto.getPoint();
 		if(usePoint != 0) {
@@ -98,10 +97,12 @@ public class MyReserveServiceImpl implements MyReserveService {
 			int pointResult = mypageDao.updatePoint(uId, upPoint);
 		}
 		// 쿠폰 환불하기
-		int coupon = reserveDto.getCoupon_FK();
-		if(coupon != 0) {
+		Integer coupon = reserveDto.getCoupon_FK();
+		if(coupon != null) {
 			int couponResult = mypageDao.updateCoupon(coupon); 			
 		}
+		// 예약 정보 삭제하기
+		int result = mypageDao.deleteReserve(reserveDto);
 		
 		return result == 1 ? true : false;
 	}

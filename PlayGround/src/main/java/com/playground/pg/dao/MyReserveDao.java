@@ -1,5 +1,6 @@
 package com.playground.pg.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.playground.pg.domain.ArtDto;

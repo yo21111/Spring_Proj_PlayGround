@@ -27,7 +27,7 @@
 	
 	<select id="getTime" resultType="ArtTimeDto" parameterType="int">
 		Select * from arttime
-		where exNo_FK = #{exNo}
+		where exNo_FK = #{exNo_FK}
 	</select>
 	
 	<select id="getResCnt" resultType="ReserveDto" parameterType="int">
@@ -38,10 +38,10 @@
 	
 	<update id="reserveUpdate" parameterType="map">
 		UPDATE reserve Set
-		reDate = #{date},
-		reTime1 = #{time1},
-		reTime2 = #{time2}
-		where no = #{no}
+		reDate = #{reDate},
+		reTime1 = #{reTime1},
+		reTime2 = #{reTime2}
+		where no = #{reserveDto.no}
 	</update>
 	
 	<delete id="deleteReserve" parameterType="ReserveDto">
@@ -59,10 +59,10 @@
 		where id_FK = #{id_FK}
 	</update>
 	
-	<update id="insertCoupon" parameterType="int">
+	<update id="updateCoupon" parameterType="int">
 		Update coupon Set
 		state = 'U'
-		where no = #{coupon}
+		where no = #{no}
 	</update>
 	
 </mapper>

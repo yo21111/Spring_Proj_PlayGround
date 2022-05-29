@@ -1,5 +1,6 @@
 package com.playground.pg.dao;
 
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,8 +31,8 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	}
 
 	@Override
-	public ReserveDto getRes(int reserveNo) throws Exception {
-		return session.selectOne(namespace + "getRes", reserveNo);
+	public ReserveDto getRes(int no) throws Exception {
+		return session.selectOne(namespace + "getRes", no);
 	}
 
 	@Override
@@ -45,8 +46,8 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	}
 
 	@Override
-	public ArtTimeDto updateTime(int exNo) {
-		return session.selectOne(namespace + "getTime", exNo);
+	public ArtTimeDto updateTime(int exNo_FK) {
+		return session.selectOne(namespace + "getTime", exNo_FK);
 	}
 
 	@Override
@@ -55,14 +56,14 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	}
 
 	@Override
-	public int updateReserve(ReserveDto reserveDto, String date, String time1, String time2) {
+	public int updateReserve(ReserveDto reserveDto, String reDate, String reTime1, String reTime2) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("reserveDto", reserveDto);
-		map.put("date", date);
-		map.put("time1", time1);
-		map.put("time2", time2);
+		map.put("reDate", reDate);
+		map.put("reTime1", reTime1);
+		map.put("reTime2", reTime2);
 		
-		return session.update(namespace + "resreveUpdate", map);
+		return session.update(namespace + "reserveUpdate", map);
 	}
 
 	@Override
@@ -85,8 +86,8 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	}
 
 	@Override
-	public int updateCoupon(int coupon) throws Exception {
-		return session.update(namespace + "updateCoupon", coupon);
+	public int updateCoupon(int no) throws Exception {
+		return session.update(namespace + "updateCoupon", no);
 	}
 	
 	
