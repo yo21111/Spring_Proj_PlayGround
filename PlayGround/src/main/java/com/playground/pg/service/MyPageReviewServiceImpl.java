@@ -77,5 +77,8 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 		return mprDao.insertReview(rDto);
 	}
 	
-	
+	@Override
+	public int selectReviewNo(String id_FK, int exNo_FK) {
+		return mprDao.selectReviewNo(id_FK, exNo_FK);
+	}
 }

@@ -24,7 +24,7 @@
 	</select>
 
 	<delete id="deleteReview" parameterType="int">
-		delete from report where no_FK = #{reviewNo}
+		delete from review where no = #{reviewNo}
 	</delete>	
 	
 </mapper>

@@ -43,7 +43,8 @@ public class AdminService_reportImpl implements AdminService_report {
 	@Override
 	public boolean deleteReview(int reportList) throws Exception {
 		int reviewNo = adminReportDao.selectReview(reportList);
-		int result = adminReportDao.deleteReview(reviewNo);
+		int result = adminReportDao.deleteReport(reportList);
+		result = adminReportDao.deleteReview(reviewNo);
 		return result == 1 ? true : false;
 	}
 

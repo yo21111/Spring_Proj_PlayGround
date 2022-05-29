@@ -21,4 +21,10 @@
 		(#{title}, #{content}, #{id_FK}, #{exNo_FK}, 
 		#{score}, now())
 	</insert>
+	
+	<select id="selectReviewNo" parameterType="map" resultType="int">
+		select no from review
+		where id_FK = #{id_FK}
+		and exNo_FK = #{exNo_FK}
+	</select>
 </mapper>

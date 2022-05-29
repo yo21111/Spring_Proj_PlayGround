@@ -41,5 +41,12 @@ public class MyPageReviewDaoImpl implements MyPageReviewDao {
 	public int insertReview(ReviewDto rDto) {
 		return session.insert(namespace+"insertReview", rDto);
 	}
-	
+
+	@Override
+	public int selectReviewNo(String id_FK, int exNo_FK) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("id_FK", id_FK);
+		map.put("exNo_FK", exNo_FK);
+		return session.selectOne(namespace+"selectReviewNo", map);
+	}
 }

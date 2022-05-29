@@ -14,4 +14,6 @@ public interface MyPageReviewService {
 	// 리뷰 작성하기
 	public int writeReview(String id, ReviewDto rDto) throws Exception;
 	
+	// 테스트용 작성된 리뷰 번호 찾기
+	public int selectReviewNo(String id_FK, int exNo_FK);
 }
