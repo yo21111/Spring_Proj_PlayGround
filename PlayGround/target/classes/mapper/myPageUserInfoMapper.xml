@@ -18,16 +18,16 @@
 	<update id="updateMember" parameterType="MemberDto">
 		update member set
 		<if test="pw != null">
-			pw = #{pw}
+			pw = #{pw},
 		</if>
 		<if test="email != null">
-			email = #{email}
+			email = #{email},
 		</if>
 		<if test="name != null">
-			name = #{name}
+			name = #{name},
 		</if>
 		<if test="birth != null">
-			birth = #{birth}
+			birth = #{birth},
 		</if>
 		<if test="phone != null">
 			phone = #{phone}
