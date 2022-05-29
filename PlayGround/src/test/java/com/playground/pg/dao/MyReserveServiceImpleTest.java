@@ -119,8 +119,8 @@ private ReserveDto createReserve(int exNo) {
 	resDto.setChCnt(0);
 	resDto.setPayment(360000);
 	resDto.setPayDate(reDate);
-	resDto.setCoupon_FK(1);
-	resDto.setPoint(150);
+	resDto.setCoupon_FK(null);
+	resDto.setPoint(0);
 
 	return resDto;
 }
