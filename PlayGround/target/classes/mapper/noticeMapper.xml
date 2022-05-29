@@ -58,7 +58,7 @@
 	</insert>
 	
 	<update id="updateNotice" parameterType="NoticeDto">
-		Update Set
+		Update notice Set
 		<if test='category!=null'>
 			category = #{category},
 		</if>
