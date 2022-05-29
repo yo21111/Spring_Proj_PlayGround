@@ -15,7 +15,7 @@ import com.playground.pg.service.InquiryService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/root-context.xml" })
-public class InquiryServiceImpl {
+public class InquiryServiceImplTest {
 	@Autowired
 	InquiryService inqService;
 
