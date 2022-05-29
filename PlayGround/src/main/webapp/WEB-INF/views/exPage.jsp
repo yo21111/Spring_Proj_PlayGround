@@ -14,11 +14,11 @@
   <title>PLAY GROUND</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- <link rel="stylesheet" href="css/default.css"> -->
-  <link rel="stylesheet" href="../css/default.css">
-  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="${urlInfo}css/default.css">
+  <link rel="stylesheet" href="${urlInfo}css/index.css">
   <!-- <link rel="stylesheet" href="css/index.css"> -->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
-  <script src="../script/script.js"></script>
+  <script src="${urlInfo}script/script.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
       <div class="center">
         <!-- <div class="header_fix"> -->
         <!-- <div class="logo"> -->
-        <a href="../index.html#container" class="logo">
+        <a href="/" class="logo">
           <span>PLAY</span>
           <span>GROUND</span>
         </a>
@@ -35,7 +35,7 @@
         <!-- </div> -->
         <nav class="gnb">
           <ul class="main_menu">
-            <li class="main_list"><a href="#">PLAY GROUND</a>
+            <li class="main_list"><a href="/">PLAY GROUND</a>
               <ul class="sub_menu">
                 <li class="sub_list"><a href="#">현재 전시</a></li>
                 <li class="sub_list"><a href="#">지난 전시</a></li>
@@ -67,7 +67,7 @@
       <div class="center">
         <div class="exhibition_box">
           <div class="exhibition_img">
-            <img src="../image/poster1.jpg" alt="exhibition_img01">
+            <img src="${urlInfo}image/poster1.jpg" alt="exhibition_img01">
           </div>
           <div class="exhibition_text">
             <div class="good_button">
@@ -121,8 +121,8 @@
           </ul>
 
           <div id="tab-1" class="tab-content current">
-            <!-- <img src="../image/tab_img02.jpg" alt="tab_img01"> -->
-            <img src="../image/tab_img02.jpg" alt="tab_img01">
+            <!-- <img src="${urlInfo}image/tab_img02.jpg" alt="tab_img01"> -->
+            <img src="${urlInfo}image/tab_img02.jpg" alt="tab_img01">
           </div>
           <div id="tab-2" class="tab-content">
             <table>
