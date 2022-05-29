@@ -22,8 +22,8 @@ public class InquiryDaoImpl implements InquiryDao {
 	}
 
 	@Override
-	public List<InquiryDto> getInqList(String uId) throws Exception {
-		return session.selectList(namespace + "getInqList" ,uId);
+	public List<InquiryDto> getInqList(String writer) throws Exception {
+		return session.selectList(namespace + "getInqList" ,writer);
 	}
 
 	@Override
@@ -57,10 +57,10 @@ public class InquiryDaoImpl implements InquiryDao {
 	}
 
 	@Override
-	public int updateReply(int no, String text) throws Exception {
+	public int updateReply(int no, String reply) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		map.put("no", no);
-		map.put("text", text);
+		map.put("reply", reply);
 		return session.update(namespace + "updateReply", map);
 	}
 

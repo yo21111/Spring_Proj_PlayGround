@@ -10,7 +10,7 @@ public class InquiryDto {
 	private int no;
 	private String category;
 	private String title;
-	private String context;
+	private String content;
 	private String writer;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date writeDate;
@@ -35,11 +35,11 @@ public class InquiryDto {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getContext() {
-		return context;
+	public String getContent() {
+		return content;
 	}
-	public void setContext(String context) {
-		this.context = context;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getWriter() {
 		return writer;

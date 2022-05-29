@@ -49,7 +49,7 @@
 	
 	<update id="updateReply" parameterType="map">
 		Update inquire Set
-		context = #{text},
+		reply = #{reply},
 		state = 'F'
 		where no = #{no}
 	</update>
