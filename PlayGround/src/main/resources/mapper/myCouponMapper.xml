@@ -8,6 +8,6 @@
 	</select>
 	
 	<select id="selectCouponList" parameterType="string" resultType="CouponDto">
-		select * from coupon where id_FK = #{id} order by couponDate1 DESC
+		select * from coupon where id_FK = #{id} order by couDate1 DESC
 	</select>
 </mapper>

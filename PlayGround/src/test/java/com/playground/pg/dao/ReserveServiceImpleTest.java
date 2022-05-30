@@ -73,16 +73,21 @@ public class ReserveServiceImpleTest {
 		System.out.println("aDto : " + aDto);
 		assertTrue("작품 등록하기", artresult == 1);
 
-		// 3. 일반 예약 확인
+		// 3. 작품, 시간, 예약인원수 조회 확인
+		ArtDto chkArt = reserveService.getArt(exNo);
+		ArtTimeDto chkTime = reserveService.getTime(exNo);
+		int chkCnt = reserveService.getResCnt(exNo);
+		
+		// 4. 일반 예약 확인
 		boolean insertRes2 = reserveService.insertReserve(resDto);
 		System.out.println("ReserveDto : " + resDto);
 		assertTrue("예약하기 실행", insertRes2 == true);
 
-		// 4. 생성했던 예약정보 삭제하기
+		// 5. 생성했던 예약정보 삭제하기
 		int deleteRes = mpuiService.deleteMember("tester123");
 		assertTrue(deleteRes == 1);
 		
-		// 5. 생성했던 작품정보 삭제하기
+		// 6. 생성했던 작품정보 삭제하기
 		int deleteArt = adService.deleteArt(exNo);
 		assertTrue(deleteArt == 1);
 

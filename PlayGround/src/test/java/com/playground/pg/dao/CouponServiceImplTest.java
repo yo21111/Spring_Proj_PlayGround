@@ -51,6 +51,9 @@ public class CouponServiceImplTest {
 	@Autowired
 	ReserveService reserveService;
 	
+	@Autowired
+	MyPageCouponService mpcService;
+	
 	@Test
 	public void serviceTest() throws Exception {
 		
@@ -107,10 +110,14 @@ public class CouponServiceImplTest {
 //		
 //		/****** 결제 많이한 유저 쿠폰 지급 용 *****/
 		
+		// 5. 나의 쿠폰 개수 확인
+		String id = mDto.getId();
+		int myCp = mpcService.getAllCouponById(id);
 		
+		// 6. 나의 쿠폰 목록 확인
+		List<CouponDto> mycpList = mpcService.getCouponList(id);
 		
-		
-		// 5. 쿠폰 삭제
+		// 7. 쿠폰 삭제
 		List<CouponDto> getCoupon = adcpService.getCouponList();
 		int[] cpNo = new int[getCoupon.size()];
 		for (int i = 0; i < getCoupon.size(); i++) {
@@ -120,7 +127,7 @@ public class CouponServiceImplTest {
 		int delCoupon = adcpService.deleteCoupon(cpNo);
 		assertTrue(delCoupon == cpNo.length);
 		
-		// 6. 생성했던 멤버 삭제하기
+		// 8. 생성했던 멤버 삭제하기
 		int deleteRes = mpuiService.deleteMember("tester123");
 		assertTrue(deleteRes == 1);
 		

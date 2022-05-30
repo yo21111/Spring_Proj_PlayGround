@@ -33,7 +33,7 @@ public class InquiryDaoImpl implements InquiryDao {
 	
 	@Override
 	public int getInqCnt() throws Exception {
-		return session.selectOne(namespace + "selectInqCnt");
+		return session.selectOne(namespace + "getInqCnt");
 	}
 
 	@Override

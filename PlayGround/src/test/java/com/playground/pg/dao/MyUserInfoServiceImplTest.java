@@ -36,12 +36,17 @@ public class MyUserInfoServiceImplTest {
 		boolean chkMem = mpuiService.isMember(id, pw);
 		assertTrue(chkMem);
 		
-		// 3. 회원정보 변경
+		// 3. 멤버 찾기 확인
+		MemberDto chkDto = mpuiService.findMember(id);
+		String chkId = chkDto.getId();
+		assertTrue(chkId.equals(id));
+		
+		// 4. 회원정보 변경
 		MemberDto updDto = updateMember();
 		int updMem = mpuiService.updateMember(updDto);
 		assertTrue(updMem == 1);
 		
-		// 4. 회원 탈퇴
+		// 5. 회원 탈퇴
 		int delMem = mpuiService.deleteMember(id);
 		assertTrue(delMem == 1);
 		

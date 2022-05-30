@@ -2,6 +2,8 @@ package com.playground.pg.dao;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.playground.pg.domain.MemberDto;
 import com.playground.pg.domain.NoticeDto;
+import com.playground.pg.domain.SearchCondition;
 import com.playground.pg.service.JoinService;
+import com.playground.pg.service.MyPageUserInfoService;
 import com.playground.pg.service.NoticeService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,6 +25,9 @@ public class NoticeServiceImplTest {
 	
 	@Autowired
 	NoticeService nService;
+	
+	@Autowired
+	MyPageUserInfoService mpuiService;
 	
 	@Test
 	public void serviceTest() throws Exception {
@@ -36,14 +43,32 @@ public class NoticeServiceImplTest {
 		int insNotice = nService.writeNotice(nDto);
 		assertTrue(insNotice == 1);
 		
-		// 3. 공지사항 수정
+		// 3. 전체글 갯수 확인, 관리자 여부 확인
+		int allCnt = nService.getTotalCnt();
+		String id = mDto.getId();
+		boolean adChk = nService.idAdmin(id);
+		assertTrue(allCnt == 1);
+		assertTrue(adChk);
+		
+//		// 4. 공지사항 리스트 가져오기 확인
+//		SearchCondition sc = ?;
+//		List<NoticeDto> list = nService.getNoticeList(sc);
+		
+		// 5. 공지사항 가져오기 + 조회수 증가
+		NoticeDto chkDto = nService.getNotice(insNotice);
+		
+		// 6. 공지사항 수정
 		nDto = nService.getNotice(1);
 		int updNotice = nService.updateNotice(nDto);
 		assertTrue(updNotice == 1);
 		
-		// 4. 공지사항 삭제
+		// 7. 공지사항 삭제
 		boolean delNotice = nService.deleteNotice(1);
 		assertTrue(delNotice);
+		
+		// 8. 멤버 삭제
+		int delMem = mpuiService.deleteMember(id);
+		assertTrue(delMem == 1);
 		
 	}
 	
