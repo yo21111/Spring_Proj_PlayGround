@@ -26,6 +26,7 @@ public interface MypageMainService {
 	// 3개월 이내 나의 리뷰 내역 리스트 가져오기
 	public List<ReviewDto> getRevList(String uId) throws Exception;
 
-
+	// 테스트용 적립금 추가
+	public boolean insPoint(String id) throws Exception; 
 
 }

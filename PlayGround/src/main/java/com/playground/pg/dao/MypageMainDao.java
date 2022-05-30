@@ -26,6 +26,9 @@ public interface MypageMainDao {
 	// 최근 3개월 리뷰 목록 조회
 	public List<ReviewDto> getRevList(String uId) throws Exception;
 
+	// 테스트용 포인트 추가
+	public int insPoint(String id) throws Exception;
+
 
 
 

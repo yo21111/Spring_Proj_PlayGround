@@ -111,14 +111,6 @@ public class AdMainServiceImplTest {
 		assertTrue(insInq);
 		
 		// 7. 예약 리스트 가져오기 확인
-		List<ReserveDto> reserveList = amDao.showReserveList();
-		for (int i = 0; i < reserveList.size(); i++) {
-			ReserveDto testDto = reserveList.get(i);
-			int testNo2 = testDto.getExNo_FK();
-			System.out.println(testNo2);
-			int testNo = reserveList.get(i).getExNo_FK();
-			System.out.println(testNo);
-		}
 		List<ReserveDto> selRes = admService.showReserveList();
 		
 		// 8. 리뷰 리스트 가져오기 확인

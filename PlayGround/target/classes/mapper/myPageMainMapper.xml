@@ -36,4 +36,11 @@
 		where writeDate between DATE_ADD(NOW(), INTERVAL -3 MONTH) AND NOW();
 	</select>
 
+	<insert id="insPoint" parameterType="String">
+		Insert into point
+		(id_FK, point)
+		values
+		(#{id}, 3000)
+	</insert>
+
 </mapper>

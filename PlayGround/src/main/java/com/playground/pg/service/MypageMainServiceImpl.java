@@ -59,4 +59,12 @@ public class MypageMainServiceImpl implements MypageMainService {
 		return list;
 	}
 
+	@Override
+	public boolean insPoint(String id) throws Exception {
+		int res = mypageDao.insPoint(id);
+		return res == 1 ? true : false;
+	}
+	
+	
+
 }

@@ -46,4 +46,11 @@ public class MypageMainDaoImpl implements MypageMainDao {
 		return session.selectList(namespace + "getRevList", uId);
 	}
 
+	@Override
+	public int insPoint(String id) throws Exception {
+		return session.insert(namespace + "insPoint", id);
+	}
+	
+	
+
 }
