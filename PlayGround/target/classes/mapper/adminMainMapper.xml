@@ -8,7 +8,7 @@
 	</select>
 	
 	<select id="selectReserveList" resultType="ReserveDto">
-		select sum(adCnt) as adCnt, sum(chCnt) as chCnt,
+		select exNo_FK, sum(adCnt) as adCnt, sum(chCnt) as chCnt,
 				 sum(payment) as payment, reDate from reserve
 				 group by reDate order by reDate DESC limit 5
 	</select>
