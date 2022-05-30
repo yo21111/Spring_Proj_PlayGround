@@ -11,27 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.service.AdArtService;
+import com.playground.pg.service.ListService;
 
 @RequestMapping("/exhibit")
 @Controller
 public class ListController {
 	@Autowired
 	AdArtService adArtService;
-	
+	@Autowired
+	ListService listService;
 	// 전시 상세페이지
 	@GetMapping("/listView") 
-	public String showEx(int exNo, Model m) {
+	public String showEx(int exNo, Model m) throws Exception{
 		// 작품제목(exName) 매개변수로 받음
 		//	전시제목, 전시 기간, 관람 시간, 가격, 할인 정보, 전시 문의 번호(임시)
 		// 가져올 정보
 		// 1. artDTO - 전시회 정보 가져옴
 		// 2. artTimeDTO - 전시회 시간 정보 가져옴
-		// 3. reviewDto - 리뷰 관련 정보 가져옴
+		// 3. reviewDto - 리뷰 관련 정보 가져옴 -> list로 변경해야함
 		// 4. 총 평균 평점 가져옴
-		m.addAttribute("artDto", exNo);
-		m.addAttribute("artTimeDto", exNo);
-		m.addAttribute("reviewDto", exNo);
-		m.addAttribute("aveScore", exNo);
+		
+		Map <String, Object> map  = listService.showPage(exNo);
+		
+		m.addAttribute("artDto", map.get("ArtDto"));
+		m.addAttribute("artTimeDto", map.get("ArtTimeDto"));
+		m.addAttribute("reviewDto", map.get("ReviewList"));
+		m.addAttribute("aveScore", map.get("aveScore"));
 		return "전시상품";
 	}
 
@@ -46,5 +51,6 @@ public class ListController {
 		List<ArtDto> artList = (List<ArtDto>)map.get("artList");
 		return "전체목록";
 	}
+	
 	
 }
