@@ -21,7 +21,7 @@ public class ReportController {
 	// 신고하기 페이지
 	// 작성자 아이디 매개변수로 받기, 시안에 리뷰 정보 있을경우 수정
 	@RequestMapping("/page")
-	public String showReport(Model m, HttpSession session) throws Exception {
+	public String showReport(int exNo, Model m, HttpSession session) throws Exception {
 		
 		// 작성자 아이디 화면 표시용
 		String uId = (String) session.getAttribute("uId_Session");

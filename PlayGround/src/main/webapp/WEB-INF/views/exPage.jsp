@@ -413,7 +413,7 @@
 													<div class="col-1 text-center">${reviewDto.no}</div>
 													<div class="col-4 text-center">${reviewDto.title}</div>
 													<div class="col-2 text-center">${reviewDto.id_FK}</div>
-													<div class="col-3 text-center">${reviewDto.writeDate}</div>
+													<div class="col-2 text-center">${reviewDto.writeDate}</div>
 													<div class="col-2 text-center">
 														<div class="star-ratings">
 															<div class="star-ratings-fill space-x-2 text-lg">
@@ -422,6 +422,10 @@
 																</c:forEach>
 															</div>
 														</div>
+													</div>
+													<div class="col-1">
+														<a class="btn btn-outline-success" href="/report/page?exNo=${reviewDto.exNo_FK}"
+															role="button">신고</a>
 													</div>
 												</button>
 												<div id="flush-collapse${reviewDto.no}"
