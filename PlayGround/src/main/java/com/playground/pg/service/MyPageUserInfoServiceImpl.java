@@ -33,8 +33,8 @@ public class MyPageUserInfoServiceImpl implements MyPageUserInfoService{
 		res = mpuiDao.deleteCoupon(id);
 		res = mpuiDao.deletePoint(id);
 		res = mpuiDao.deleteReserve(id);
-		res = mpuiDao.deleteReview(id);
 		res = mpuiDao.deleteReport(id);
+		res = mpuiDao.deleteReview(id);
 		res = mpuiDao.deleteWishList(id);
 		res = mpuiDao.deleteMember(id);
 		return res;
