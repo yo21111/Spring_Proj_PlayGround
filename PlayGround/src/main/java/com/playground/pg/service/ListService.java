@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.playground.pg.dao.ListReviewDao;
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
 import com.playground.pg.domain.ReviewDto;
 
+@Service
 public class ListService {
 	@Autowired
 	ListReviewDao listDao;
@@ -22,8 +24,13 @@ public class ListService {
 		ArtDto artDto = listDao.getArtDto(exNo);
 		ArtTimeDto artTimeDto = listDao.getArtTimeDto(exNo); 
 		List <ReviewDto> reviewListDto =listDao.getReviewList(exNo); 
-		int totalScore = listDao.viewAveScore(exNo);
 		
+		// 유효성 체크 (=null 체크) <- 중요한거
+		int totalScore = 0;
+		if(reviewListDto.size() != 0) {
+			totalScore = listDao.viewAveScore(exNo);
+		
+		}
 		
 		double aveScore = Math.floor((double)totalScore / reviewListDto.size()*10)/10;
 		
