@@ -389,12 +389,12 @@
 						<div class="container">
 
 							<div class="accordion accordion-flush">
-								<div class="row">
-									<div class="col-1 text-center"><b>번호</b></div>
-									<div class="col-4 text-center"><b>제목</b></div>
+								<div class="row text-left">
+									<div class="col-2 text-center"><b>번호</b></div>
+									<div class="col-3 text-center"><b>제목</b></div>
 									<div class="col-2 text-center"><b>작성자</b></div>
-									<div class="col-3 text-center"><b>작성일자</b></div>
-									<div class="col-2 text-lg"><b>평점</b></div>
+									<div class="col-2 text-center"><b>작성일자</b></div>
+									<div class="col-3 text-lg"><b>평점</b></div>
 								</div>
 								<hr class="text-success border-3 opacity-66">
 								<c:choose>
