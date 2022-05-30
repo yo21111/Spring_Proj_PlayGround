@@ -3,7 +3,7 @@ package com.playground.pg.domain;
 public class PointDto {
 	private int no;
 	private String id_FK;
-	private int point;
+	private Integer point;
 	private String pointDate;
 	private String pointContent = "전시 예매 적립금 적립";
 
@@ -20,10 +20,10 @@ public class PointDto {
 	public void setId_FK(String id_FK) {
 		this.id_FK = id_FK;
 	}
-	public int getPoint() {
+	public Integer getPoint() {
 		return point;
 	}
-	public void setPoint(int point) {
+	public void setPoint(Integer point) {
 		this.point = point;
 	}
 	public String getPointDate() {

@@ -24,9 +24,12 @@ public interface ReserveDao {
 	public int updateCoupon(Integer coupon) throws Exception;
 
 	// 현재 보유한 전체 포인트 조회
-	public int getPoint(String uId) throws Exception;
+	public Integer getPoint(String uId) throws Exception;
 
 	// 현재 보유한 포인트 업데이트(사용한 포인트 만큼 감소)
 	public int updatePoint(String uId, int remPoint) throws Exception;
+
+	// 포인트 테이블에 회원 정보 추가
+	public int insertPoint(String uId, int point) throws Exception;
 
 }

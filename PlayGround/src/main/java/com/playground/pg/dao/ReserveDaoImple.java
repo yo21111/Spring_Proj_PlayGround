@@ -45,7 +45,7 @@ public class ReserveDaoImple implements ReserveDao {
 	}
 
 	@Override
-	public int getPoint(String uId) throws Exception {
+	public Integer getPoint(String uId) throws Exception {
 		return session.selectOne(namespace + "selectPoint", uId);
 	}
 
@@ -57,9 +57,14 @@ public class ReserveDaoImple implements ReserveDao {
 		
 		return session.update(namespace + "updatePoint", map);
 	}
-	
-	
-	
-	
 
+	@Override
+	public int insertPoint(String uId, int point) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id_FK", uId);
+		map.put("point", point);
+		
+		return session.insert(namespace + "insertPoint", map);
+	}
+	
 }

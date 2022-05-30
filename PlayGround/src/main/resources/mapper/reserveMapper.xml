@@ -51,5 +51,12 @@
 		point = #{remPoint}
 		where id_FK = #{id_FK}
 	</update>
+	
+	<insert id="insertPoint" parameterType="map">
+		Insert into point
+		(id_FK, point)
+		values
+		(#{id_FK}, #{point})
+	</insert>
 
 </mapper>
