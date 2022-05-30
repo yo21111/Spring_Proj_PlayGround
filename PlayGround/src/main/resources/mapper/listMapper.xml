@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.playground.pg.dao.ListMapper">
+	<select id="selectReviewList" parameterType="int" resultType="ReviewDto">
+		select * from review where exNo_FK = #{exNo_Fk} order writeDate DESC
+	</select>
+	
+	<select id="getArtDto" parameterType="int" resultType="ArtDto">
+		select * from art where exNo = #{exNo}
+	</select>
+	
+	<select id="getArtTimeDto" parameterType="int" resultType="ArtTimeDto">
+		select * from arttime where exNo_FK = #{exNo_FK}
+	</select>
+	
+	<select id="viewAveScore" parameterType="int" resultType="int">
+		select sum(score) from review where exNo_FK = #{no}
+	</select>
+	
+</mapper>
