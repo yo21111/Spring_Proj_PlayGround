@@ -11,6 +11,7 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler
 	public String errorHandle(Exception ex) {
+		ex.printStackTrace();
 		return "page_error";
 	}
 }

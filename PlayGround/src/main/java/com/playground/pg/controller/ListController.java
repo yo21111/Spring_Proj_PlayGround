@@ -13,8 +13,8 @@ import com.playground.pg.domain.ArtDto;
 import com.playground.pg.service.AdArtService;
 import com.playground.pg.service.ListService;
 
-@RequestMapping("/exhibit")
 @Controller
+@RequestMapping("/exhibit")
 public class ListController {
 	@Autowired
 	AdArtService adArtService;
@@ -37,7 +37,10 @@ public class ListController {
 		m.addAttribute("artTimeDto", map.get("ArtTimeDto"));
 		m.addAttribute("reviewDto", map.get("ReviewList"));
 		m.addAttribute("aveScore", map.get("aveScore"));
-		return "전시상품";
+		
+		System.out.println(map.get("aveScore"));
+		
+		return "exPage";
 	}
 
 	// 전시 리스트페이지

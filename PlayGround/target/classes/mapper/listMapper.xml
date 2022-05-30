@@ -4,7 +4,7 @@
         
 <mapper namespace="com.playground.pg.dao.ListMapper">
 	<select id="selectReviewList" parameterType="int" resultType="ReviewDto">
-		select * from review where exNo_FK = #{exNo_Fk} order writeDate DESC
+		select * from review where exNo_FK = #{exNo_Fk} order by writeDate DESC
 	</select>
 	
 	<select id="getArtDto" parameterType="int" resultType="ArtDto">
