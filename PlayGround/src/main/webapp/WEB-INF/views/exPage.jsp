@@ -18,6 +18,41 @@
 <link rel="stylesheet" href="${urlInfo}css/default.css">
 <link rel="stylesheet" href="${urlInfo}css/index.css">
 <!-- <link rel="stylesheet" href="css/index.css"> -->
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+<style>
+.star-ratings {
+	color: #aaa9a9;
+	position: relative;
+	unicode-bidi: bidi-override;
+	width: max-content;
+	-webkit-text-fill-color: transparent;
+	/* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 1.3px;
+	-webkit-text-stroke-color: #2b2a29;
+}
+
+.star-ratings-fill {
+	color: #fff58c;
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+	display: flex;
+	top: -13px;
+	left: 0;
+	overflow: hidden;
+	-webkit-text-fill-color: gold;
+}
+</style>
+<!-- JavaScript Bundle with Popper -->
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+	crossorigin="anonymous"></script>
 <script
 	src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
 <script src="${urlInfo}script/script.js"></script>
@@ -53,15 +88,15 @@
 				<div class="quick_menu">
 					<ul>
 						<c:choose>
-								<c:when test="${loginId eq null}">
-									<li>회원가입</li>
-									<li>LOGIN</li>
-								</c:when>
-								<c:otherwise>
-									<li>LOGOUT</li>
-									<li>MY PAGE</li>
-								</c:otherwise>
-							</c:choose>
+							<c:when test="${loginId eq null}">
+								<li>회원가입</li>
+								<li>LOGIN</li>
+							</c:when>
+							<c:otherwise>
+								<li>LOGOUT</li>
+								<li>MY PAGE</li>
+							</c:otherwise>
+						</c:choose>
 					</ul>
 				</div>
 			</div>
@@ -82,8 +117,7 @@
 								<a href="#"><img src="  " alt="heart01"></a>
 							</div>
 							<div class="star">
-								<span> 
-								<c:choose>
+								<span> <c:choose>
 										<c:when test="${aveScore == null || aveScore == 'NaN'}">
                 							평점 : 0 / 5
                 						</c:when>
@@ -106,7 +140,7 @@
 								</tr>
 								<tr>
 									<td>등급</td>
-									<td>${artDto.grade}세이상관람 가능</td>
+									<td>${artDto.grade}세이상관람가능</td>
 								</tr>
 								<tr>
 									<td>전시 시간</td>
@@ -149,7 +183,7 @@
 							<tr>
 								<td>관람시간</td>
 								<td>
-									<p>${artTimeDto.exTime1_1}~${artTimeDto.exTime3_2} (입장마감 :
+									<p>${artTimeDto.exTime1_1}~${artTimeDto.exTime3_2}(입장마감:
 										${artDto.exContent1})</p>
 									<p>*매월 첫째 주 월요일 휴관 | 공휴일 정상개관</p>
 								</td>
@@ -351,7 +385,64 @@
 						</div>
 						<!--예약/취소 안내 끝 -->
 					</div>
-					<div id="tab-4" class="tab-content">tab content4</div>
+					<div id="tab-4" class="tab-content">
+						<div class="container">
+
+							<div class="accordion accordion-flush">
+								<div class="row text-left">
+									<div class="col-2 text-center"><b>번호</b></div>
+									<div class="col-3 text-center"><b>제목</b></div>
+									<div class="col-2 text-center"><b>작성자</b></div>
+									<div class="col-2 text-center"><b>작성일자</b></div>
+									<div class="col-3 text-lg"><b>평점</b></div>
+								</div>
+								<hr class="text-success border-3 opacity-66">
+								<c:choose>
+									<c:when test="${reviewDto.size() eq 0}">
+										<div class="text-center">아직 작성된 리뷰가 없습니다.</div>
+									</c:when>
+									<c:otherwise>
+										<!-- 반복 구역 시작 -->
+										<c:forEach var="reviewDto" items="${reviewDto}">
+											<div class="accordion-item">
+												<button class="accordion-button collapsed align-items-center" type="button"
+													data-bs-toggle="collapse"
+													data-bs-target="#flush-collapse${reviewDto.no}"
+													aria-expanded="false"
+													aria-controls="flush-collapse${reviewDto.no}">
+													<div class="col-1 text-center">${reviewDto.no}</div>
+													<div class="col-4 text-center">${reviewDto.title}</div>
+													<div class="col-2 text-center">${reviewDto.id_FK}</div>
+													<div class="col-2 text-center">${reviewDto.writeDate}</div>
+													<div class="col-2 text-center">
+														<div class="star-ratings">
+															<div class="star-ratings-fill space-x-2 text-lg">
+																<c:forEach begin="1" end="${reviewDto.score}">
+																	<span>★</span>
+																</c:forEach>
+															</div>
+														</div>
+													</div>
+													<div class="col-1">
+														<a class="btn btn-outline-success" href="/report/page?exNo=${reviewDto.exNo_FK}"
+															role="button">신고</a>
+													</div>
+												</button>
+												<div id="flush-collapse${reviewDto.no}"
+													class="accordion-collapse collapse"
+													aria-labelledby="flush-heading${reviewDto.no}"
+													data-bs-parent="#accordionFlushExample">
+													<div class="accordion-body">${reviewDto.content}</div>
+												</div>
+												<hr class="text-success border-3 opacity-99">
+											</div>
+										</c:forEach>
+										<!-- 반복 구역 끝 -->
+									</c:otherwise>
+								</c:choose>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

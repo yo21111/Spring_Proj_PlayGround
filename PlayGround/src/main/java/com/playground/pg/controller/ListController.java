@@ -38,8 +38,6 @@ public class ListController {
 		m.addAttribute("reviewDto", map.get("ReviewList"));
 		m.addAttribute("aveScore", map.get("aveScore"));
 		
-		System.out.println(map.get("aveScore"));
-		
 		return "exPage";
 	}
 
