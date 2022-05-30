@@ -58,9 +58,6 @@ public class MyReserveServiceImpleTest {
 		System.out.println("MemberDto : "+mDto); 
 		assertTrue(insertRes == 1);
 		 
-
-		
-
 		// 2. 작품 생성
 		ArtDto aDto = createArt();
 		ArtTimeDto tDto = createArtTime();
@@ -72,14 +69,11 @@ public class MyReserveServiceImpleTest {
 		System.out.println("aDto : " + aDto);
 		assertTrue("작품 등록하기", artresult == 1);
 
-		
-		
 		// 3. 작품 예매 정보 생성
 		ReserveDto resDto = createReserve(exNo);
 		boolean insertRes2 = reserveService.insertReserve(resDto);
 		System.out.println("ReserveDto : " + resDto);
 		assertTrue("예약하기 실행", insertRes2 == true);
-		
 		
 		// 4. 예매 정보 수정하기
 		// 수정할 예매 정보 가져오기
@@ -90,14 +84,28 @@ public class MyReserveServiceImpleTest {
 		boolean updReserve = myresService.updateReserve(getRes, upDate, upTime1, upTime2);
 		assertTrue(updReserve == true);
 		
-		// 5. 예매 환불하기
+		// 5. 검색 기간 사이의 예매목록 가져오기 확인
+		String id = mDto.getId();
+		String selDate1 = "20220501";
+		String selDate2 = "20220531";
+		List<ReserveDto> chkList = myresService.getResList(id, selDate1, selDate2);
+		
+		// 6. 예매한 작품 정보 가져오기 확인
+		List<ArtDto> chkArt = myresService.getArtList(id, selDate1, selDate2);
+		int resNo = getRes.getNo();
+		ArtDto chkArtDto = myresService.getArt(resNo);
+		chkArtDto = myresService.updateArt(exNo);
+		ArtTimeDto chkTime = myresService.updateTime(exNo);
+		int resCnt = myresService.getResCnt(exNo);
+		
+		// 7. 예매 환불하기
 		boolean delReserve = myresService.deleteReserve(getRes);
 		
-		// 6. 생성했던 멤버 삭제하기
+		// 8. 생성했던 멤버 삭제하기
 		int deleteRes = mpuiService.deleteMember("tester123");
 		assertTrue(deleteRes == 1);
 		
-		// 7. 생성했던 작품정보 삭제하기
+		// 9. 생성했던 작품정보 삭제하기
 		int deleteArt = aaService.deleteArt(exNo);
 		assertTrue(deleteArt == 1);
 	}

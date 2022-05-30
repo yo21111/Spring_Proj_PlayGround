@@ -3,6 +3,7 @@ package com.playground.pg.dao;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,8 +29,20 @@ public class InquiryServiceImplTest {
 		System.out.println("InquiryDto : " + inqDto);
 		assertTrue(insInq);
 		
+		// 2. 문의 내역 가져오기 확인
+		String id = inqDto.getWriter();
+		List<InquiryDto> chkInq = inqService.getInqList(id);
+		
 		/*******관리자 영역*******/
-		// 2. 문의 답변하기
+		// 3. 처리 해야할 문의 건수 확인
+		int chkCnt = inqService.getInqCnt();
+		assertTrue(chkCnt == 1);
+		
+		// 4. 문의글 리스트 확인
+		String state = "All"; // Not(처리예정), Fin(처리완료)
+		chkInq = inqService.getAdminInqList(state);
+		
+		// 5. 문의 답변하기
 		InquiryDto getInqDto = inqService.getInq(1);
 		getInqDto.setContent("답변입니다.");
 		String context = getInqDto.getContent();
@@ -37,7 +50,7 @@ public class InquiryServiceImplTest {
 		boolean replyRes = inqService.updateReply(inqNo, context);
 		assertTrue(replyRes);
 		
-		// 3. 문의 삭제하기
+		// 6. 문의 삭제하기
 		boolean delInq = inqService.deleteInq(inqNo);
 		assertTrue(delInq);
 	}
