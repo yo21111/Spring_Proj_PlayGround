@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/Login")
 public class LoginController {
+@Autowired  
+LoginService lService
 	
 	@GetMapping("/Login")
 	public String Login(String pn) {
@@ -20,12 +22,12 @@ public class LoginController {
 	
 	
 	@PostMapping("/isLogin")
-	public String isLogin(String id, String Pw,String pn)throws Exception {
-//	@오토와일드
+	public String isLogin(String id, String Pw, String pn)throws Exception {
+
 // 로그인관련 서비스 
 	 	
 	        
-	     boolean LoginCK=true; //"로그인서비스.로그인메서드(String id String Pw)";
+	     boolean LoginCK=lService.Login(String id, String pw) ; //"로그인서비스.로그인메서드(String id String Pw)";
       //메서드를 실행한 값을 boolean 으로 받는다
 	     
 		 if(LoginCK) {
@@ -79,14 +81,8 @@ public class LoginController {
 	public String FindPw(Model model) {
 	    //비밀번호 찾기 버튼 클릭시
 		String SearchPw = "로그인서비스.비밀번호찾기 메서드";
-		//메서드가 실행되어 비밀번호값을 반환 받는다.
-      String Pw= SearchPw.substring(0,SearchPw.length()-5);
-      //SearchPw를 잘라서 Pw대입
-      String star = "*****";
-     
-       Pw.concat(star);
-       //Pw에 star더하기
-       model.addAttribute("Pw", Pw);
+
+       model.addAttribute("SearchPw", SearchPw);
 		return"아이디/비밀번호 찾기 페이지";
 	}
      
@@ -102,9 +98,9 @@ public class LoginController {
 	
 	
 	  @PostMapping("/NewPw")
-	  public String NewPw(String NPw) {  //NowPw
+	  public String NewPw(String id, String NPw) {  //NewPw
 	     // 비밀번호 변경 클릭시
-	// String msg ="로그인서비스.비밀번호 변경메서드(String NPw)";
+	// boolean result = "로그인서비스.비밀번호 변경메서드(String id, String NPw)";
 		  //update sql을 사용하여 input에 있는 값으로 바꾼다.
 		  
 		//JSTL사용해서 아이디/비밀번호찾기에서 하겠습니다 

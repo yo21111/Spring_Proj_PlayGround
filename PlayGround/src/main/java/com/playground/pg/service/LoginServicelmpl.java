@@ -1,25 +1,24 @@
 package com.playground.pg.service;
 
+@Service
 public class LoginServicelmpl implements LoginService{
+@Autowired  	
+LoginDao lDao;
 
 	
-	
-	public boolean Login(String id ,String Pw)throws Exception{
-	    	
-	   boolean LoginOK = false;
-	   int result = 0;//DAO.method;
-	   if(result==1) {
-		   LoginOK= true;
-	   }
-		
-		return LoginOK;
+
+public boolean Login(String id ,String Pw)throws Exception{
+
+	   int result = lDao.LoginCnt(id,Pw);
+	   return result == 1 ? true : false;
 	}
 	//	로그인 메서드
 	
 	
 	public String SearchID_phone(String name,String phone)throws Exception{
 		  
-	  String SearchID = "DAO.메서드 반환값";
+	  String SearchID = lDao.ResultId(id,phone);
+	  
 		
 		return SearchID;
 	}
@@ -28,25 +27,33 @@ public class LoginServicelmpl implements LoginService{
 	
 	public String SearchID_email(String name, String email)throws Exception{
 		
-		 String SearchID = "DAO.메서드 반환값";
+		 String SearchID = lDao.ResultId2(id,email);
 		
 		
 		return SearchID;
 	}
 	//아이디 찾기 메서드
 	
-	public String SearchPW(String id, String email, String phone)throws Exception{
+	public String SearchPW(String id, String email,)throws Exception{
 		
-		String SearchPw = "DAO.메서드 반환값";
-		return"SearchPw";
+		String SearchPw = lDao.ResultPw(id,email);
+		return SearchPw;
 	}
 	//비밀번호 찾기 메서드
 	
 	
-	public void changePW(String NPw)throws Exception{
+	public String SearchPW2(String id, String phone)throws Exception{
 		
-		 // DAO.몌서드(String NPw);
-		
+		String SearchPw = lDao.ResultPw2(id,phone);
+		return SearchPw;
 	}
+	//비밀번호 찾기 메서드
 	
+	
+	public boolean changePW(String id, String NPw)throws Exception{
+		
+		int result =  lDao.ChangePw(id, NPw);
+		return result == 1 ? true : false;
+	}
+	//비밀번호 변경 메서드
 }
