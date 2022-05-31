@@ -1,17 +1,20 @@
 package com.playground.pg.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.playground.pg.service.LoginService;
+
 @Controller
 @RequestMapping("/Login")
 public class LoginController {
-@Autowired  
-LoginService lService
+	@Autowired  
+	LoginService lService;
 	
 	@GetMapping("/Login")
 	public String Login(String pn) {
@@ -27,8 +30,8 @@ LoginService lService
 // 로그인관련 서비스 
 	 	
 	        
-	     boolean LoginCK=lService.Login(String id, String pw) ; //"로그인서비스.로그인메서드(String id String Pw)";
-      //메서드를 실행한 값을 boolean 으로 받는다
+	     boolean LoginCK=lService.Login(id, Pw) ; //"로그인서비스.로그인메서드(String id String Pw)";
+	     //메서드를 실행한 값을 boolean 으로 받는다
 	     
 		 if(LoginCK) {
 			 

@@ -1,15 +1,20 @@
 package com.playground.pg.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.playground.pg.dao.LoginDao;
+
 @Service
 public class LoginServicelmpl implements LoginService{
-@Autowired  	
-LoginDao lDao;
+	@Autowired  	
+	LoginDao lDao;
 
 	
 
-public boolean Login(String id ,String Pw)throws Exception{
+	public boolean Login(String id ,String Pw)throws Exception{
 
-	   int result = lDao.LoginCnt(id,Pw);
+	   int result = lDao.LoginCnt(id, Pw);
 	   return result == 1 ? true : false;
 	}
 	//	로그인 메서드
@@ -17,7 +22,7 @@ public boolean Login(String id ,String Pw)throws Exception{
 	
 	public String SearchID_phone(String name,String phone)throws Exception{
 		  
-	  String SearchID = lDao.ResultId(id,phone);
+	  String SearchID = lDao.ResultId(name, phone);
 	  
 		
 		return SearchID;
@@ -27,14 +32,14 @@ public boolean Login(String id ,String Pw)throws Exception{
 	
 	public String SearchID_email(String name, String email)throws Exception{
 		
-		 String SearchID = lDao.ResultId2(id,email);
+		 String SearchID = lDao.ResultId2(name, email);
 		
 		
 		return SearchID;
 	}
 	//아이디 찾기 메서드
 	
-	public String SearchPW(String id, String email,)throws Exception{
+	public String SearchPW(String id, String email)throws Exception{
 		
 		String SearchPw = lDao.ResultPw(id,email);
 		return SearchPw;

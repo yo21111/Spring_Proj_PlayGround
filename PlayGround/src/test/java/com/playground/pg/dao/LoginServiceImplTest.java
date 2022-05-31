@@ -1,7 +1,16 @@
 package com.playground.pg.dao;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.playground.pg.domain.MemberDto;
+import com.playground.pg.service.JoinService;
+import com.playground.pg.service.LoginService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
@@ -23,34 +32,33 @@ public class LoginServiceImplTest {
         
 		// 2. 로그인 확인
 		String id = mDto.getId();
-		String Pw =mDto.getPw();
-		boolean LoginRes = lSerivce.Login(id,pw);
+		String pw =mDto.getPw();
+		boolean LoginRes = lService.Login(id,pw);
 		assertTrue(LoginRes);
 		
-		// 3. 아이디 찾기 확인(핸드폰)
+		 // 3. 아이디 찾기 확인(핸드폰)
 		 String name =mDto.getName();
 		 String phone = mDto.getPhone();
-		 String findId =lService.SearchID_ phone(name,phone);
-		asserTrue(findId.equals(tester123));
+		 String findId =lService.SearchID_phone(name, phone);
+		 assertTrue(findId.equals("tester123"));
 		
-		//4. 아이디 찾기 확인(이메일)
+		 //4. 아이디 찾기 확인(이메일)
 		 String email = mDto.getEmail();
-		 findId =lService.SearchID_ email(name,email);
-		  asserTrue(findId.equals(tester123));
+		 findId =lService.SearchID_email(name, email);
+		 assertTrue(findId.equals("tester123"));
 	  
-	   // 5. 비밀번호 찾기(이메일)
-		  
-		 String findPw = lService.SearchPw(id,email);
-		 asserTrue(findPw.equals(abcde12345));
+		 // 5. 비밀번호 찾기(이메일)
+		 String findPw = lService.SearchPW(id,email);
+		 assertTrue(findPw.equals("abcde12345"));
 		 
-	  // 	6. 비밀번호 찾기(핸드폰) 
-		 findPw = lService.SearchPw2(id,phone);
-		 asserTrue(findPw.equals(abcde12345));
+		 // 6. 비밀번호 찾기(핸드폰) 
+		 findPw = lService.SearchPW2(id,phone);
+		 assertTrue(findPw.equals("abcde12345"));
 		 
-		// 7. 비밀번호 변경
-		 String npw = "변경비밀번호12";
-		 String newPw = lService.changePw(id,npw);
-		 asserTrue(newPw);
+		 // 7. 비밀번호 변경
+		 String nPw = "변경비밀번호12";
+		 boolean newPw = lService.changePW(id,nPw);
+		 assertTrue(newPw);
 		 
 	}
 	
