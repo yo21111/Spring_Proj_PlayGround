@@ -57,20 +57,18 @@
 					</ul>
 				</nav>
 				<div class="top_header">
-					<a href="#">
 						<ul>
 							<c:choose>
 								<c:when test="${loginId eq null}">
-									<li>회원가입</li>
-									<li>LOGIN</li>
+									<a href="#" style="margin-right:20px;"><li>회원가입</li></a>
+									<a href="#"><li>LOGIN</li></a>
 								</c:when>
 								<c:otherwise>
-									<li>LOGOUT</li>
-									<li>MY PAGE</li>
+									<a href="#" style="margin-right:20px;"><li>LOGOUT</li></a>
+							<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
 								</c:otherwise>
 							</c:choose>
 						</ul>
-					</a>
 				</div>
 			</div>
 			<!-- </div> -->

@@ -28,7 +28,12 @@ public class MypageMainDaoImpl implements MypageMainDao {
 
 	@Override
 	public int getPoint(String uId) throws Exception {
-		return session.selectOne(namespace + "getPoint", uId);
+		Integer point = session.selectOne(namespace + "getPoint", uId);
+		if (point == null) {
+			return 0;
+		} else {
+			return point;
+		}
 	}
 
 	@Override

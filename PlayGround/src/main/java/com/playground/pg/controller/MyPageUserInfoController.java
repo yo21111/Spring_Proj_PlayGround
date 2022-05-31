@@ -23,7 +23,7 @@ public class MyPageUserInfoController {
 	// 개인정보 변경 : 비밀번호 확인 페이지
 	@GetMapping("/userpwchk")
 	public String userPwCheck() {
-		return "개인정보변경 비밀번호 확인 페이지";
+		return "mypage_userInfo_pwChk";
 	}
 	
 	// 개인정보 변경 : 비밀번호 확인
@@ -52,7 +52,7 @@ public class MyPageUserInfoController {
 		MemberDto mDto = mpuiService.findMember(id);
 		m.addAttribute("MemberDto", mDto);
 		
-		return "개인정보 변경 페이지";
+		return "mypage_userInfo_userUpdate";
 	}
 	
 	// 개인정보 업데이트
@@ -70,7 +70,7 @@ public class MyPageUserInfoController {
 	// 회원 탈퇴 페이지
 	@GetMapping("/userdelete")
 	public String showUserDelete() {
-		return "회원 탈퇴 페이지";
+		return "mypage_userInfo_userDelete";
 	}
 	
 	// 회원 탈퇴

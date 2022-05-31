@@ -43,14 +43,32 @@ public class ListController {
 
 	// 전시 리스트페이지
 	@GetMapping("/list")
-	public String showExList(int exNo, String exState, Model m) throws Exception {
+	public String showExList(String exState, Model m) throws Exception {
 		// 작품제목(exName) 매개변수로 받음
 		// 전시상태(exState) 에서 B(before 지난), N(now 현재), A(after 예정)로 
 		// 전시상태별로 분류할 수 있는 값을 받아옴
 		// 전시상태별로 분류 하기 위한 값을 받음
-		Map<String, Object> map = adArtService.selectArtList(exState);
-		List<ArtDto> artList = (List<ArtDto>)map.get("artList");
-		return "전체목록";
+		Map<String, Object> beforeMap = adArtService.selectArtList("B");
+		List<ArtDto> artList_B = (List<ArtDto>)beforeMap.get("artList");
+		List<ArtDto> artTimeList_B = (List<ArtDto>)beforeMap.get("artTimeList");
+
+		
+		Map<String, Object> nowMap = adArtService.selectArtList("N");
+		List<ArtDto> artList_N = (List<ArtDto>)nowMap.get("artList");
+		List<ArtDto> artTimeList_N = (List<ArtDto>)nowMap.get("artTimeList");
+		
+		
+		Map<String, Object> afterMap = adArtService.selectArtList("A");
+		List<ArtDto> artList_A = (List<ArtDto>)afterMap.get("artList");
+		List<ArtDto> artTimeList_A = (List<ArtDto>)afterMap.get("artTimeList");
+		
+		m.addAttribute("artList_B", artList_B);
+		m.addAttribute("artTimeList_B", artTimeList_B);
+		m.addAttribute("artList_N", artList_N);
+		m.addAttribute("artTimeList_N", artTimeList_N);
+		m.addAttribute("artList_A", artList_A);
+		m.addAttribute("artTimeList_A", artTimeList_A);
+		return "exList";
 	}
 	
 	

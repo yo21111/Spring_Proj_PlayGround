@@ -39,6 +39,6 @@ public class MyPageController_point {
 		m.addAttribute("pointList", list);
 		m.addAttribute("ph", ph);
 		
-		return "적립금 페이지";
+		return "mypage_point";
 	}
 }

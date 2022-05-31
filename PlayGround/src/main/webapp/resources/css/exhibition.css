@@ -1,0 +1,297 @@
+article {
+    margin-top: 250px;
+}
+
+
+/* exhibition */
+
+article.exhibition .tab_bar {
+    margin-bottom: 50px;
+}
+
+article.exhibition .tab_bar li {
+    float: left;
+    width: 170px;
+    padding: 8px 0;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: 'NanumSquareB';
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+article.exhibition .tab_bar li.tab_menu.on {
+    background-color: black;
+    color: #fff;
+}
+
+article.exhibition .tab_con.view {
+    display: block;
+    margin: 80px 0;
+}
+
+article.exhibition .tab_con {
+    display: none;
+}
+
+article.exhibition .tab_con:first-of-type {
+    background-color: #F6F6F6;
+}
+
+article.exhibition .today.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+article.exhibition .today .con_box {
+    display: flex;
+    width: 1200px;
+    border-radius: 0 600px 600px 0;
+    box-shadow: 3px 5px 10px rgb(59 59 59 / 5%);
+    overflow: hidden;
+    margin: 45px 0;
+}
+
+article.exhibition .today .con_box:nth-of-type(2) {
+    border-radius: 600px 0 0 600px;
+}
+
+article.exhibition .today .con_box .thumb img {
+    width: 100%;
+}
+
+article.exhibition .today .con_box .info_box {
+    width: 900px;
+    background-color: #fff;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+article.exhibition .today .con_box:nth-of-type(2) .info_wrap {
+    right: 50px;
+}
+
+article.exhibition .today .con_box .info_box .info_wrap {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+article.exhibition .today .con_box .info_box .title {
+    font-family: 'NanumSquareEB';
+    font-size: 18px;
+    padding: 5px;
+    background-color: #F0EDE8;
+}
+
+article.exhibition .today .con_box .info_box .btn {
+    display: inline-block;
+    width: 230px;
+    padding: 10px 0;
+    border: 1px solid #5e5e5e;
+    color: #000;
+    font-family: 'NanumSquareB';
+    text-align: center;
+    margin-right: 15px;
+    position: relative;
+    transition: 0.3s ease-out;
+    box-sizing: border-box;
+}
+
+article.exhibition .today .con_box .info_box .btn.two {
+    color: #fff;
+    background-color: #3d725e;
+}
+
+article.exhibition .today .con_box .info_box .name {
+    font-family: 'NanumSquareB';
+    font-size: 22px;
+    margin: 30px 0;
+}
+
+article.exhibition .today .con_box .info_box .exp {
+    font-family: 'AppleSDGodicNeoL';
+    font-size: 18px;
+    line-height: 26px;
+}
+
+article.exhibition .today .con_box .info_box .info {
+    display: flex;
+    margin: 20px 0;
+}
+
+article.exhibition .today .con_box .info_box .info .lable li {
+    width: 80px;
+    line-height: 28px;
+    font-family: 'AppleSDGodicNeoL';
+}
+
+article.exhibition .today .con_box .info_box .info .text_info li {
+    line-height: 28px;
+    font-family: 'AppleSDGodicNeoL';
+}
+
+article.exhibition .today .con_box .info_box .info .text_info li>span {
+    color: red;
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+
+/* // today */
+
+
+/* past */
+
+.past a {
+    line-height: 1px;
+}
+
+.past .thumb {
+    display: inline-block;
+    width: 630px;
+    position: relative;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.past .thumb img {
+    width: 100%;
+}
+
+.past .thumb .dark {
+    width: 630px;
+    height: 360px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.past .thumb .dark span {
+    font-family: 'NanumSquareEB';
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 1px 1px 1px #000;
+}
+
+.past .con_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.past .con_box li {
+    margin: 40px 0;
+}
+
+.past .info_box a span {
+    display: block;
+    line-height: 30px;
+    font-family: 'NanumSquareB';
+    color: #000;
+}
+
+.past .info_box a span.title {
+    font-size: 19px;
+}
+
+.past .info_box a span.priod {
+    font-family: 'AppleSDGodicNeoM';
+    color: #7c7c7c;
+}
+
+.past .pagenation {
+    font-family: 'NanumSquareB';
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.past .pagenation i {
+    font-size: 28px;
+}
+
+.past .pagenation ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+}
+
+.past .pagenation ul li:nth-of-type(1) a,
+.past .pagenation ul li:nth-of-type(2) a,
+.past .pagenation ul li:nth-of-type(5) a,
+.past .pagenation ul li:nth-of-type(6) a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.past .pagenation ul li:nth-of-type(1),
+.past .pagenation ul li:nth-of-type(2),
+.past .pagenation ul li:nth-of-type(5),
+.past .pagenation ul li:nth-of-type(6) {
+    margin: 0 20px;
+}
+
+.past .pagenation ul li:nth-of-type(3),
+.past .pagenation ul li:nth-of-type(4) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    box-sizing: border-box;
+    margin: 0 20px;
+}
+
+
+/* // past */
+
+.will.center .txt_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.will .logo {
+    margin-top: 100px;
+}
+
+.will .logo span {
+    font-family: 'NanumSquareRoundEB';
+    color: #fff;
+    font-size: 24px;
+    text-shadow: -2.5px 0 #d1d1d1, -1PX 1px #d1d1d1, 1px 0 #d1d1d1, 0 -1px #d1d1d1;
+}
+
+.will .txt_box .info span {
+    line-height: 44px;
+    display: block;
+    text-align: center;
+}
+
+.will .txt_box .txt {
+    font-family: 'NanumSquareB';
+    font-size: 20px;
+}
+
+.will .txt_box .today {
+    font-family: 'AppleSDGodicNeoM';
+    font-size: 18px;
+}

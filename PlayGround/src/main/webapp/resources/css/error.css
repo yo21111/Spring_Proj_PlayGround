@@ -1,86 +1,69 @@
-.container .logo ul {
-  display: flex;
-  justify-content: flex-end;
+.container {
+    margin-top: 150px;
 }
 
-.container .logo li {
-  padding-left: 30px;
+.error_page .logo {
+    display: block;
+    font-family: 'NanumSquareRoundEB';
+    color: #fff;
+    font-size: 30px;
+    padding-left: 10px;
 }
 
-.container .logo li a {
-  font-size: 14px;
-  font-family: 'NanumSquareRoundB';
-  color: rgb(0, 0, 0);
+.error_page .logo span {
+    text-shadow: -2.5px 0 #000, -1PX 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
-.container .logo {
-  text-align: left;
-  display: block;
-  font-family: 'NanumSquareRoundEB';
-  color: rgb(0, 0, 0);
-  font-size: 30px;
-  display: flex;
-  flex-direction: column;
-  /* position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%); */
-  padding-left: 10px;
+.error_page {
+    /* height: 87vh;*/
+    /* 센터 하이트 퍼센트로 할지 생각중 이건 얘기해보고 하기 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.error_page{
-  height: 87vh;
-  /* 센터 하이트 퍼센트로 할지 생각중 이건 얘기해보고 하기 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
+.error_title {
+    margin: 90px 0 40px 0;
 }
 
-.error_text{
-  padding: 30px 20px;
-  line-height: 22px;
-  background-color: #f0f0f0;
-  margin-top: 30px;
-  color: #888888;
-  text-align: left;
-  width: 550px;
-  border-radius: 20px;
-position: relative;
+.error_title span {
+    display: block;
+    font-family: 'NanumSquareRoundB';
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+    line-height: 50px;
 }
 
-.error_text p::before{
-  margin-top: 9px;
-  border-radius: 20px;
-  display: block;
-  content: " ";
-  width: 5px;
-  height: 5px;
-  position: absolute;
-  /* top: 10px; */
-  left: 10px;
-background-color: #888888;
+.error_title span:last-of-type {
+    font-size: 19px;
 }
-.error_button{
-  padding: 18px 13px;
-  /* width: 200px; */
-  font-weight: bold;
-  /* height: 100px; */
-  border-radius: 5px;
-    /* 9ABDA7 
-  3D725E
-  */
-  background-color: #9ABDA7;
+
+.error_text {
+    font-family: 'AppleSDGodicNeoM';
+    padding: 30px 20px;
+    line-height: 22px;
+    background-color: #f0f0f0;
+    color: #000;
+    text-align: left;
+    width: 550px;
+    border-radius: 20px;
+    position: relative;
 }
-.error_button:hover{
-  color: #fff;
-  background-color: #3D725E;
+
+.error_text p:first-of-type {
+    margin-bottom: 10px;
 }
-.error_button:hover a{
-  color: #fff;
-  /* background-color: #3D725E; */
-} 
-.error_button a{
-  color: #707070;
+
+.error_button {
+    margin-top: 80px;
+    display: inline-block;
+    width: 280px;
+    padding: 13px 0;
+    border-radius: 3px;
+    background-color: #3d725e;
+    color: #fff;
+    text-align: center;
+    font-family: 'NanumSquareB';
 }

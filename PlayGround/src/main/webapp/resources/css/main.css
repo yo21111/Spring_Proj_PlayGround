@@ -15,7 +15,6 @@
     line-height: 40px;
 }
 
-
 .main img.back {
     filter: brightness(50%);
     /* 이미지 어둡게 조절 */
@@ -67,10 +66,10 @@
 
 /* 컨테이너 시작 */
 
+
 /* .container {
     background-color: beige;
 } */
-
 
 
 /* 섹션별 공통 타이틀 css속성입니다!!!!!!!!!!!!!!!!!! */
@@ -79,7 +78,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 0;
+    padding: 80px 0 50px 0;
 }
 
 .title_box h2 {
@@ -136,10 +135,26 @@
 .exhibition_wrap .box {
     display: inline-block;
     width: 400px;
+    height: 600px;
     margin-right: 40px;
     position: relative;
     border-radius: 7px;
     overflow: hidden;
+}
+
+.exhibition_wrap .box:first-of-type {
+    background-image: url(../image/poster1.jpg);
+    background-size: cover;
+}
+
+.exhibition_wrap .box.two {
+    background-image: url(../image/poster2.jpg);
+    background-size: cover;
+}
+
+.exhibition_wrap .box.three {
+    background-image: url(../image/poster3.jpg);
+    background-size: cover;
 }
 
 .exhibition_wrap .box:last-child {
@@ -208,6 +223,7 @@
     box-sizing: border-box;
     text-align: center;
     border: 1px solid #fff;
+    border-radius: 3px;
     color: #fff;
     margin: 30px 0;
     position: relative;
@@ -276,7 +292,7 @@
     gap: 60px;
     justify-content: center;
     text-align: center;
-    padding: 40px;
+    padding: 0 40px 40px 40px;
 }
 
 .store_con section {
@@ -288,7 +304,7 @@
 }
 
 .store_con section p {
-    font-family: 'NanumSquareRoundER';
+    font-family: 'AppleSDGodicNeoM';
 }
 
 .circle {
@@ -448,4 +464,5 @@
 
 .contact .link_text {
     line-height: 25px;
+    font-family: 'AppleSDGodicNeoM';
 }

@@ -22,7 +22,7 @@ public class JoinController {
 	// 회원가입 페이지
 	@GetMapping("/page")
 	public String joinView() {
-		return "회원가입페이지";
+		return "join";
 	}
 
 	// 아이디 중복 체크 - ajax
@@ -70,7 +70,7 @@ public class JoinController {
 		
 		if (result == 0) {return "redirect:/Join/page";}
 		
-		return "메인페이지 or 로그인페이지";
+		return "join_success";
 	}
 
 }

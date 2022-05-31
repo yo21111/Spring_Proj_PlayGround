@@ -110,17 +110,17 @@
 				</nav>
 				<div class="quick_menu">
 					<ul>
-						<c:choose>
-							<c:when test="${loginId eq null}">
-								<li>회원가입</li>
-								<li>LOGIN</li>
-							</c:when>
-							<c:otherwise>
-								<li>LOGOUT</li>
-								<li>MY PAGE</li>
-							</c:otherwise>
-						</c:choose>
-					</ul>
+							<c:choose>
+								<c:when test="${loginId eq null}">
+									<a href="#" style="margin-right:20px;"><li>회원가입</li></a>
+									<a href="#"><li>LOGIN</li></a>
+								</c:when>
+								<c:otherwise>
+									<a href="#" style="margin-right:20px;"><li>LOGOUT</li></a>
+							<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
+								</c:otherwise>
+							</c:choose>
+						</ul>
 				</div>
 			</div>
 			<!-- </div> -->
@@ -137,7 +137,7 @@
 						<div class="good_button">
 							<!-- 평점이랑 찜하기 아이콘으로 변경할에정 -->
 							<div class="heart">
-								<a href="#"><img src="  " alt="heart01"></a>
+								<a href="#"><img src="${urlInfo}image/heart.png" alt="heart01"></a>
 							</div>
 							<div class="star">
 								<span> 

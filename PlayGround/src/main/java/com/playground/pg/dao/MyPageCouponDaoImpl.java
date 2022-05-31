@@ -17,7 +17,8 @@ public class MyPageCouponDaoImpl implements MyPageCouponDao {
 	
 	@Override
 	public int getAllCouponById(String id) throws Exception {
-		return session.selectOne(namespace+"selectAllCoupon", id);
+		Integer result = session.selectOne(namespace+"selectAllCoupon", id);
+		return result == null ? 0 : result;
 	}
 
 	@Override

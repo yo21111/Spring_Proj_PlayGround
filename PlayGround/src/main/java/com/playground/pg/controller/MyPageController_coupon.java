@@ -41,6 +41,6 @@ public class MyPageController_coupon {
 		m.addAttribute("CouponList", list);
 		m.addAttribute("ph", ph);
 		
-		return "쿠폰 페이지";
+		return "mypage_coupon";
 	}
 }

@@ -62,6 +62,6 @@ public class MyPageMainController {
 		m.addAttribute("artList", artList);
 		m.addAttribute("reviewList", revList);
 		
-		return "마이페이지메인페이지";
+		return "mypage_main";
 	}
 }

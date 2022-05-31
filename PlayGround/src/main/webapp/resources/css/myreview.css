@@ -1,0 +1,443 @@
+body {
+ overflow-x:hidden;
+  overflow-y:auto;
+}
+img {
+  vertical-align: top;
+}
+
+@font-face {
+  font-family: 'AppleSDGodicNeoL';
+  src: url(../font/AppleSDGothicNeoL.woff);
+}
+
+@font-face {
+  font-family: 'AppleSDGodicNeoM';
+  src: url(../font/AppleSDGothicNeoM.woff);
+}
+
+@font-face {
+  font-family: 'NanumSquareRoundEB';
+  src: url(../font/NanumSquareRoundEB.woff);
+}
+
+@font-face {
+  font-family: 'NanumSquareRoundB';
+  src: url(../font/NanumSquareRoundB.woff);
+}
+
+@font-face {
+  font-family: 'NanumSquareRoundR';
+  src: url(../font/NanumSquareRoundR.woff);
+}
+
+@font-face {
+  font-family: 'NanumSquareB';
+  src: url(../font/NanumSquareB.woff);
+}
+
+@font-face {
+  font-family: 'NanumSquareEB';
+  src: url(../font/NanumSquareEB.woff);
+}
+
+/* h2, a, span, p {
+  font-family: 'NanumSquareB';
+} */
+
+
+
+#top_button {
+  z-index: 9999;
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 5%;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#top_button i {
+  line-height: 40px;
+}
+
+header .gnb ul.sub_menu,
+header {
+  background-color: #fff;
+}
+
+header .quick_menu a,
+header .gnb li.main_list a {
+  color: #707070;
+}
+
+/* 서브페이지 헤더 끝 */
+/* GNB끝 */
+
+/* 마이페이지 시작 */
+.containts {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.myp {
+  padding-top: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+}
+
+/* 사이드메뉴바 */
+.menu_bar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+
+.menu_bar>.main_meun {
+  display: block;
+  font-size: 22px;
+  border-bottom: 2px solid #222;
+  margin-bottom: 10px;
+}
+
+.menu_bar>.main_meun a {
+  font-size: 30px;
+  color: #222;
+}
+
+.main_title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #ccc;
+  color: #222;
+}
+
+
+.main_list.myt {
+  padding-bottom: 40px
+}
+
+.sub_list {
+  padding: 5px;
+}
+
+.sub_list:hover a {
+  color: #3D725E;
+  font-weight: bold;
+}
+
+/* 사이드 메뉴바 끝 */
+
+
+/* 나의 리뷰 */
+.my_review {
+  width: 1100px;
+  /* background-color: aqua; */
+}
+
+.my_review .title {
+  color: #222;
+  font-size: 20px;
+  border-bottom: 2px solid #222;
+  padding-top: 5px;
+  padding-bottom: 6px;
+}
+
+.review_tabs {
+
+  width: 98%;
+  margin: 20px auto 0px;
+}
+
+ul.tabs {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  justify-content: space-between;
+}
+
+ul.tabs li {
+  border: 2px solid #3D725E;
+  /* font-weight: bold; */
+  border-radius: 5px;
+  text-align: center;
+  width: 40%;
+  background: none;
+  color: #222;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+ul.tabs li.current {
+  border: 2px solid #3D725E;
+  background: #3D725E;
+  /* font-weight: bold; */
+  color: rgb(255, 255, 255);
+}
+
+.tab-content {
+
+  display: none;
+
+  padding: 15px 0px;
+}
+
+.tab-content.current {
+  display: inherit;
+}
+
+.my_review .period li {
+  border: 2px solid #ccc;
+  float: left;
+  padding: 5px 15px;
+  margin-right: 4px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.my_review .period li:hover {
+  background-color: #ccc;
+}
+
+.my_review .review_date {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  align-items: center;
+}
+
+.my_review .review_date span {
+  font-size: 20px;
+  color: #707070;
+}
+
+.my_review .review_date #end,
+.my_review .review_date #start {
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  color: #222;
+  width: 170px;
+  padding: 6px 2px;
+}
+.review_list .list_table tr.list_content .two button,
+.my_review .search_button button {
+  padding: 5px 20px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  color: #707070;
+  font-weight: bold;
+}
+
+/* //나의 리뷰 */
+.review_list{
+  margin-top: 25px;
+}
+.review_list .list_table {
+  margin-top: 5px;
+}
+
+.review_list .list_table tr.list_title {
+  text-align: center;
+  background-color: #ccc;
+  font-size: 16px;
+
+}
+
+.review_list .list_table td.one {
+  padding: 9px 0px;
+  width: 40%;
+}
+.review_list .list_table td.two {
+width: 30%;
+}
+.review_list .list_table tr.list_content td.one {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+.review_list .list_table tr.list_content .ticket_text {
+  line-height: 40px;
+  margin-left: 10px;
+}
+
+.review_list .list_table tr.list_content .ticket_text p:first-child {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.review_list .list_table td.one .ticket_img {
+  width: 40%;
+}
+
+.review_list .list_table td.one .ticket_img img {
+  width: 100%;
+}
+
+.review_list .list_table tr.list_content .two{
+ text-align: center;
+}
+
+.review_list .list_table td.two .review_list .list_table .list_content {
+  padding-top: 5px;
+}
+/* 팝업창 */
+.popup_background{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+  background-color: rgba(204, 204, 204, 0.262);
+
+}
+.popup_background .popup_text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 40%;
+  height: 80%;
+  background-color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.popup_background .title{
+  position: relative;
+}
+.popup_background a.close::after,
+.popup_background a.close::before{
+content: "";
+display: block;
+width: 3px;
+height: 28px;
+background-color: #707070;
+position: absolute;
+top: 5px;
+right: 11px;
+border-radius: 5px;
+}
+.popup_background a.close::before{
+  transform: rotate(-45deg);
+
+}
+.popup_background a.close::after{
+  transform: rotate(45deg);
+}
+.popup_background .ticket_make{
+ padding: 20px 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+
+}
+.popup_background .ticket_make .img_text{
+  display: flex;
+  width: 85%;
+  align-items: center;
+}
+.popup_background .ticket_make .ticket_img{
+  width: 35%;
+}
+.popup_background .ticket_make .ticket_img img{
+  width: 100%;
+}
+.popup_background .ticket_make .ticket_text{
+  margin-left: 20px;
+  line-height: 40px;
+}
+.popup_background .ticket_make .ticket_text p:first-child{
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.popup_background  .evaluate{
+  padding: 7px 5px 10px;
+
+}
+.popup_background  .review_text{
+  border-bottom: 2px solid #ccc;
+}
+.popup_background  .evaluate span.red{
+  color: red;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.popup_background  .evaluate #review_letter{
+  width: 100%;
+}
+.popup_background  .evaluate #review_letter::placeholder{
+ color: #ccc;
+}
+.popup_background  .evaluate .sub_title{
+  margin-bottom: 15px;
+}
+.popup_background  .evaluate .picture_add{
+  /* margin-top: 5px; */
+  width: 60%;
+  margin: 15px auto;
+  /* background-color: aquamarine; */
+  display: flex;
+  justify-content: space-between;
+}
+.popup_background  .evaluate .grey{
+  color: #ccc;
+  font-size: 10px;
+  text-align: center;
+}
+.popup_background .attach_close{
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.popup_background .attach_close .attach,
+.popup_background .attach_close .close{
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+.popup_background .attach_close .attach:hover,
+.popup_background .attach_close .close:hover{
+background-color: #3D725E;
+}
+.popup_background .attach:hover a,
+.popup_background .close:hover a{
+color: #fff;
+
+}
+.next_page {
+  transform: translateX(40%);
+  margin-bottom: 50px;
+  }
+  
+  .next_page>a {
+    margin: 0 10px;
+  }
+  
+  .next_page_icon>img {
+    width: 12px;
+  }
+  .hidden{
+    overflow-y: scroll;
+    width: 608px;
+    height: 500px;
+  }
+  .picture_add img{
+    width: 75px;
+    height: 75px;
+  }

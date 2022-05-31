@@ -1,0 +1,311 @@
+h2 {
+    font-family: 'NanumSquareEB';
+}
+
+.login_page {
+    margin-top: 150px;
+}
+
+.login_page .title {
+    /* color: #717171; */
+    text-align: center;
+    border-bottom: 2px solid #707070;
+    padding: 40px 0px;
+    margin-bottom: 10px;
+}
+
+.login_center {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.id_find {
+    width: 50%;
+    border-right: 1px solid #d4d4d4;
+    padding: 20px;
+    margin-left: 30px;
+}
+
+.id_find h2,
+.pw_find h2 {
+    font-family: 'NanumSquareEB';
+    font-size: 20px;
+    padding: 20px 0;
+}
+
+.id_find input.name_form,
+.pw_find input.name_form {
+    padding: 4px 5px;
+    width: 200px;
+    box-sizing: border-box;
+    font-family: 'AppleSDGodicNeoM';
+    font-size: 14px;
+    border: 1px solid #D4D4D4;
+    border-radius: 3px;
+}
+
+.id_find .sel_form,
+.pw_find .sel_form {
+    font-family: 'AppleSDGodicNeoM';
+    font-size: 15px;
+    display: flex;
+    padding: 20px 0 10px 0;
+}
+
+.id_find .sel_form div,
+.pw_find .sel_form div {
+    margin-right: 25px;
+}
+
+.id_find #e_mail .id,
+.id_find #e_mail .address,
+.id_find #e_mail select,
+.pw_find #email .id,
+.pw_find #email .address,
+.pw_find #email select {
+    padding: 4px 5px;
+    width: 120px;
+    box-sizing: border-box;
+    font-family: 'AppleSDGodicNeoM';
+    font-size: 14px;
+    border: 1px solid #D4D4D4;
+    border-radius: 3px;
+}
+
+.id_find #e_mail span,
+.id_find #e_mail option,
+.pw_find #email span,
+.pw_find #email option {
+    font-family: 'AppleSDGodicNeoM';
+    font-size: 14px;
+}
+
+.id_find .form_box,
+.pw_find .form_box {
+    display: none;
+}
+
+.id_find .form_box.view,
+.pw_find .form_box.view {
+    display: block;
+}
+
+.id_find #ph .num,
+.pw_find #phone .num {
+    padding: 4px 5px;
+    width: 70px;
+    box-sizing: border-box;
+    font-family: 'AppleSDGodicNeoM';
+    font-size: 14px;
+    border: 1px solid #D4D4D4;
+    border-radius: 3px;
+}
+
+.id_find .btn,
+.pw_find .btn {
+    font-family: 'NanumSquareB';
+    display: block;
+    width: 200px;
+    padding: 7px 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #3d725e;
+    border-radius: 3px;
+    color: #fff;
+    margin-top: 50px;
+    position: relative;
+}
+
+.pw_find {
+    padding: 20px;
+    width: 50%;
+    margin-left: 30px;
+}
+
+
+/* 로그인 에러 */
+
+.login_page .login_container {
+    display: flex;
+    /* height: 51vh; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login_page .login_container .sns_text,
+.login_page .login_container .sub_container {
+    text-align: center;
+    line-height: 25px;
+    font-family: 'NanumSquareB';
+}
+
+.login_page .login_container .sub_container {
+    line-height: 30px;
+    margin-top: 100px;
+}
+
+.login_page .login_container .sns_wrap {
+    width: 480px;
+    margin-top: 40px;
+}
+
+.login_page .login_container .sns_text {
+    position: relative;
+    /* width: 35%; */
+}
+
+.login_page .login_container .sns_text span::after,
+.login_page .login_container .sns_text span::before {
+    content: "";
+    width: 125px;
+    height: 2px;
+    background-color: #707070;
+    display: block;
+}
+
+.login_page .login_container .sns_text span::after {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+}
+
+.login_page .login_container .sns_text span::before {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+}
+
+.login_page .join_btn {
+    display: block;
+    width: 480px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin-top: 100px;
+    transition: 0.4s;
+}
+
+.login_page .join_btn a {
+    color: #000;
+}
+
+.login_page .join_btn a:hover {
+    background-color: #3D725E;
+    color: #fff;
+}
+
+.login_page .login_container .sns_img {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.login_page .login_container .sns_img a {
+    width: 80px;
+}
+
+.login_page .login_container .sns_img img {
+    width: 100%;
+}
+
+.login_container .login_btn,
+.login_container .login_btn2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.login_container .login_btn a {
+    font-family: 'NanumSquareB';
+    font-size: 17px;
+    display: block;
+    width: 480px;
+    border: 1px solid #707070;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin: 10px 0;
+    transition: 0.4s;
+}
+
+.login_container .login_btn a.login.two {
+    background-color: #3d725e;
+    color: #fff;
+}
+
+.login_btn2 a {
+    font-family: 'NanumSquareB';
+    font-size: 17px;
+    display: block;
+    width: 480px;
+    border: 1px solid #707070;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin: 10px 0;
+    transition: 0.4s;
+}
+
+.login_container .join_btn a {
+    font-family: 'NanumSquareB';
+    font-size: 17px;
+    display: block;
+    width: 480px;
+    border: 1px solid #707070;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 15px 0;
+    margin: 10px 0;
+    transition: 0.4s;
+}
+
+.login_container .login_btn2 a.login {
+    background-color: #3D725E;
+    color: #fff;
+}
+
+.login_box .join_btn2 a.join {
+    background-color: #fff;
+    color: #000;
+}
+
+.login_container.two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_box {
+    margin-top: 80px;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_box a.find {
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: 14px;
+    font-family: 'AppleSDGodicNeoM';
+}
+
+.login_box input {
+    padding: 10px 5px;
+    width: 480px;
+    box-sizing: border-box;
+    font-family: 'AppleSDGodicNeoM';
+    font-size: 16px;
+    border: 1px solid #D4D4D4;
+    border-radius: 3px;
+    margin: 7px 0;
+}

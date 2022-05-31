@@ -76,6 +76,7 @@ header {
     z-index: 9999;
     position: fixed;
     top: 0px;
+    padding: 10px 0;
 }
 
 header .gnb li.main_list a {
@@ -93,12 +94,15 @@ header .gnb li.main_list a {
 }
 
 .down .top_header a,
-.down .gnb li.main_list a {
+.down .gnb li.main_list a,
+.down .quick_menu li a {
     color: #707070;
 }
-.down .gnb ul.sub_menu{
+
+.down .gnb ul.sub_menu {
     background-color: #fff;
 }
+
 
 /* 나래님, 예선님 .dowm은 스크롤 내리면 헤더 색 변경해주는 속성이에요 */
 
@@ -109,21 +113,24 @@ header .center {
     flex-direction: column;
     position: relative;
 }
+
 header .quick_menu {
     position: absolute;
     right: 0;
     top: 10px;
-  }
-  header .quick_menu a{
+}
+
+header .quick_menu a {
     color: #fff;
-  }
-  header .quick_menu li {
+}
+
+header .quick_menu li {
     font-family: 'NanumSquareRoundB';
     float: left;
     font-size: 14px;
     padding-left: 25px;
-  }
-  
+}
+
 header .logo ul {
     display: flex;
     justify-content: flex-end;
@@ -186,8 +193,9 @@ header .gnb li.sub_list a {
     font-size: 14px;
 }
 
+
 header .gnb li.sub_list:hover {
-    background-color: rgba(128, 128, 128, 0.3);
+    background-color: rgba(154, 189, 167, 0.3);
 }
 
 header .logo ul {
@@ -218,9 +226,11 @@ header .top_header ul {
     justify-content: flex-end;
 }
 
-header .top_header li {
+
+/*header .top_header li {
     padding-left: 30px;
-}
+    font-family: 'AppleSDGodicNeoM';
+} */
 
 header .top_header li a {
     font-size: 14px;
@@ -234,8 +244,13 @@ header .top_header li a {
     font-weight: normal;
 }
 
-header .logo span {
+
+/* header .logo span {
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+} */
+
+header .logo span {
+    text-shadow: -2.5px 0 #000, -1PX 1px #000, 1px 0 #000, 0 -1px #000;
 }
 
 .footer {
@@ -243,6 +258,7 @@ header .logo span {
     background-color: lightslategray;
     display: flex;
     align-items: center;
+    margin-top: 100px;
 }
 
 .footer .center {

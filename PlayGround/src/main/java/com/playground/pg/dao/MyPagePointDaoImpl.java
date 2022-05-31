@@ -17,7 +17,8 @@ public class MyPagePointDaoImpl implements MyPagePointDao {
 	
 	@Override
 	public int getAllPoinitById(String id) throws Exception {
-		return session.selectOne(namespace+"selectAllPoint", id);
+		Integer result = session.selectOne(namespace+"selectAllPoint", id);
+		return result == null ? 0 : result;
 	}
 
 	@Override
