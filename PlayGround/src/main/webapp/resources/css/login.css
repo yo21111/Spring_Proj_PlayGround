@@ -2,6 +2,10 @@ h2 {
     font-family: 'NanumSquareEB';
 }
 
+button {
+	cursor: pointer;
+}
+
 .login_page {
     margin-top: 150px;
 }
@@ -21,8 +25,9 @@ h2 {
     justify-content: center;
 }
 
+
 .id_find {
-    width: 50%;
+    width: 390px;
     border-right: 1px solid #d4d4d4;
     padding: 20px;
     margin-left: 30px;
@@ -120,8 +125,7 @@ h2 {
 
 .pw_find {
     padding: 20px;
-    width: 50%;
-    margin-left: 30px;
+    width: 390px;
 }
 
 
@@ -220,7 +224,7 @@ h2 {
     margin-top: 100px;
 }
 
-.login_container .login_btn button {
+.login_container .login_btn a {
     font-family: 'NanumSquareB';
     font-size: 17px;
     display: block;
@@ -234,7 +238,7 @@ h2 {
     transition: 0.4s;
 }
 
-.login_container .login_btn button {
+.login_container .login_btn a {
     font-family: 'NanumSquareB';
     font-size: 17px;
     display: block;

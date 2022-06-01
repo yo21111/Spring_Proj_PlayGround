@@ -60,15 +60,15 @@
 					</ul>
 				</nav>
 				<div class="quick_menu">
-					<ul>
+					<ul style="text-align: right;">
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="/Join/page" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="/Login/Login"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;">회원가입</a>
+								<a href="/Login/Login">LOGIN</a>
 							</c:when>
 							<c:otherwise>
-								<a href="/Login/Logout" style="margin-right: 20px;"><li>LOGOUT</li></a>
-								<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;">LOGOUT</a>
+								<a href="/myPage/myPageHome">MY PAGE</a>
 							</c:otherwise>
 						</c:choose>
 					</ul>
@@ -94,8 +94,8 @@
 						<form action="/Login/isLogin" method="post">
 							<input type="text" name="id" placeholder="아이디를 입력해주세요"> <input
 								type="password" name="Pw" placeholder="비밀번호를 입력해주세요"> <input
-								type="hidden" name="pn" value="${param.pn}"> <a href="/Login/Find"
-								class="find">아이디 | 비밀번호 찾기</a>
+								type="hidden" name="pn" value="${param.pn}"> <a
+								href="/Login/Find" class="find">아이디 | 비밀번호 찾기</a>
 							<div class="login_btn2">
 								<button type="submit" class="login">로그인</button>
 								<a href="/Join/page" class="join">회원이 아니신가요? 가입하기</a>
@@ -125,6 +125,7 @@
 					reserved.</span>
 			</div>
 		</footer>
+	</div>
 </body>
 <!-- <input type="button" value="중복 체크" id="id_button"> -->
 

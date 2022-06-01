@@ -58,15 +58,15 @@
 					</ul>
 				</nav>
 				<div class="quick_menu">
-					<ul>
+					<ul style="text-align:right;">
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="/Join/page" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="/Login/Login"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;">회원가입</a>
+								<a href="/Login/Login">LOGIN</a>
 							</c:when>
 							<c:otherwise>
-								<a href="/Login/Logout" style="margin-right: 20px;"><li>LOGOUT</li></a>
-								<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;">LOGOUT</a>
+								<a href="/myPage/myPageHome">MY PAGE</a>
 							</c:otherwise>
 						</c:choose>
 					</ul>

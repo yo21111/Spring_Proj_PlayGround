@@ -22,9 +22,10 @@
 <link rel="stylesheet" href="${urlInfo}css/login.css">
 <link rel="stylesheet" href="${urlInfo}css/join.css.css">
 <!-- js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="${urlInfo}script/sub_Query.js"></script>
-    <script src="${urlInfo}script/myQuery.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="${urlInfo}script/sub_Query.js"></script>
+<script src="${urlInfo}script/myQuery.js"></script>
 
 </head>
 
@@ -59,15 +60,15 @@
 					</ul>
 				</nav>
 				<div class="quick_menu">
-					<ul>
+					<ul style="text-align: right;">
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="/Join/page" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="/Login/Login"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;">회원가입</a>
+								<a href="/Login/Login">LOGIN</a>
 							</c:when>
 							<c:otherwise>
-								<a href="/Login/Logout" style="margin-right: 20px;"><li>LOGOUT</li></a>
-								<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;">LOGOUT</a>
+								<a href="/myPage/myPageHome">MY PAGE</a>
 							</c:otherwise>
 						</c:choose>
 					</ul>
@@ -84,38 +85,40 @@
 		</div>
 		<!-- 탑버튼 끝 -->
 		<div class="login_page">
-        <div class="center">
-            <div class="title">
-                <h2>로그인</h2>
-            </div>
-            <div class="login_container">
-                <div class="sub_container">
-                    죄송합니다. <br> 입력하신 정보를 찾을 수 없습니다. <br>
-                </div>
-                <div class="join_btn">
-                    <a href="join.html">회원이 아니신가요? 가입하기</a>
-                </div>
-                <!-- <div class="sns_login"> -->
-                <div class="sns_wrap">
-                    <div class="sns_text">
-                        <span>소설 계정으로 로그인</span>
-                    </div>
-                    <div class="sns_img">
-                        <a href="#"><img src="${urlInfo}image/kakao.png" alt="sns_img"></a>
-                        <a href="#"><img src="${urlInfo}image/naver.png" alt="sns_img"></a>
-                        <a href="#"><img src="${urlInfo}image/apple.png" alt="sns_img"></a>
-                        <a href="#"><img src="${urlInfo}image/google.png" alt="sns_img"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="center">
-                <span>본 페이지는 상업적 목적이 아닌 개인 포트폴리오로 제작되었습니다.</span>
-                <span class="copyright">Copyright ⓒ 2022.PLAY GROUND ALL rights reserved.</span>
-            </div>
-        </footer>
+			<div class="center">
+				<div class="title">
+					<h2>로그인</h2>
+				</div>
+				<div class="login_container">
+					<div class="sub_container">
+						죄송합니다. <br> 입력하신 정보를 찾을 수 없습니다. <br>
+					</div>
+					<div class="join_btn">
+						<a href="/Join/page">회원이 아니신가요? 가입하기</a>
+					</div>
+					<!-- <div class="sns_login"> -->
+					<div class="sns_wrap">
+						<div class="sns_text">
+							<span>소설 계정으로 로그인</span>
+						</div>
+						<div class="sns_img">
+							<a href="#"><img src="${urlInfo}image/kakao.png"
+								alt="sns_img"></a> <a href="#"><img
+								src="${urlInfo}image/naver.png" alt="sns_img"></a> <a href="#"><img
+								src="${urlInfo}image/apple.png" alt="sns_img"></a> <a href="#"><img
+								src="${urlInfo}image/google.png" alt="sns_img"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class="center">
+				<span>본 페이지는 상업적 목적이 아닌 개인 포트폴리오로 제작되었습니다.</span> <span
+					class="copyright">Copyright ⓒ 2022.PLAY GROUND ALL rights
+					reserved.</span>
+			</div>
+		</footer>
 </body>
 <!-- <input type="button" value="중복 체크" id="id_button"> -->
 
