@@ -18,7 +18,7 @@ public class JoinServiceImpl implements JoinService {
 	@Override
 	public boolean idCheck(String id) throws Exception {
 		int result = jDao.idCheck(id);
-		return result == 1 ? true : false;
+		return result == 1 ? true : false ;
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class JoinServiceImpl implements JoinService {
 	// 들어오는 값 : 아이디, 비밀번호, 이름, 생년월일(2022-05-26), 휴대폰번호, 이메일, 등급
 	public boolean validationMember(MemberDto mDto) throws Exception {
 		boolean result = true;
-		
+		System.out.println("member : " + mDto);
 		// 유효성 검사 작성
 		// 유효성 검사 작성
 				//1. 각 값들이 null이 아닌지 확인 + 2. 각 값들에 대한 유효성 검사

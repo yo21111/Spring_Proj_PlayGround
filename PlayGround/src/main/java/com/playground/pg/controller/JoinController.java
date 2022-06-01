@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.playground.pg.domain.MemberDto;
 import com.playground.pg.service.JoinService;
 
@@ -28,13 +29,13 @@ public class JoinController {
 	// 아이디 중복 체크 - ajax
 	@PostMapping("/idCheck")
 	@ResponseBody
-	public ResponseEntity<String> idCheck(@RequestBody String id) {
+	public ResponseEntity<String> idCheck(@RequestBody MemberDto member) {
 		try {
-			boolean check = jService.idCheck(id);
+			boolean check = jService.idCheck(member.getId());
 			// true : 이미 사용중인 아이디가 있음
 			String result = (check == true) ? "N" : "Y";
 			// 만약 중복 아이디가 있으면 "N" 없다면(사용 가능하면) "Y"
-			return new ResponseEntity<>(result, HttpStatus.OK);
+			return new ResponseEntity<String>(result, HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<String>("E", HttpStatus.BAD_REQUEST);
@@ -46,10 +47,7 @@ public class JoinController {
 	@ResponseBody
 	public ResponseEntity<String> certification() {
 		try {
-			String answer = "인증번호 : ";
-			
-			// 인증번호 만들어서 answer 뒤에 붙히기
-			answer += jService.certification();
+			String answer = jService.certification();
 			
 			return new ResponseEntity<>(answer, HttpStatus.OK);
 		} catch (Exception e) {

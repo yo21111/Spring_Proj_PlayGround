@@ -25,6 +25,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="${urlInfo}script/script.js"></script>
 <script src="${urlInfo}script/sub_Query.js"></script>
+<script src="${urlInfo}script/join.js"></script>
 
 </head>
 
@@ -34,35 +35,37 @@
 			<div class="center">
 				<!-- <div class="header_fix"> -->
 				<!-- <div class="logo"> -->
-				<a href="#" class="logo"> <span>PLAY</span> <span>GROUND</span>
+				<a href="/" class="logo"> <span>PLAY</span> <span>GROUND</span>
 				</a>
 				<!-- <a href="#"><img src="image/logo.png" alt="logo"></a> -->
 				<!-- </div> -->
 				<nav class="gnb">
 					<ul class="main_menu">
-						<li class="main_list"><a href="#">PLAY GROUND</a>
+						<li class="main_list">PLAY GROUND
 							<ul class="sub_menu">
-								<li class="sub_list"><a href="#">현재 전시</a></li>
-								<li class="sub_list"><a href="#">지난 전시</a></li>
-								<li class="sub_list"><a href="#">예정 전시</a></li>
-							</ul></li>
+								<li class="sub_list"><a href="/exhibit/list">현재 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list">지난 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list">예정 전시</a></li>
+							</ul>
+						</li>
 						<li class="main_list"><a href="#">STORE</a> <!-- <ul class="sub_menu">
                 <li class="sub_list"><a href="#"></a></li>
               </ul> --></li>
-						<li class="main_list"><a href="#">BOARD</a>
+						<li class="main_list">BOARD
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="#">공지사항</a></li>
 								<li class="sub_list"><a href="#">FAQ</a></li>
 								<li class="sub_list"><a href="#">1:1문의</a></li>
-							</ul></li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 				<div class="top_header">
 					<ul>
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="#" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="#"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;"><li>회원가입</li></a>
+								<a href="/Login/Login"><li>LOGIN</li></a>
 							</c:when>
 							<c:otherwise>
 								<a href="#" style="margin-right: 20px;"><li>LOGOUT</li></a>
@@ -89,147 +92,156 @@
 				</div>
 
 				<div class="join_center">
-					<div class="agree_wrap">
-						<h3>약관동의</h3>
-						<ul class="all">
-							<li>
-								<form>
-									<input type="checkbox" id="all"> <label for="all">모든
-										약관에 동의합니다.</label>
-								</form>
-
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<form>
-									<input type="checkbox" id="age"> <label for="age">[필수]
-										만 14세 이상 입니다.</label>
-								</form>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<form>
-									<input type="checkbox" id="use"> <label for="use">[필수]
-										이용약관 동의</label>
-								</form>
-
-							</li>
-							<li id="popup_1">[전문보기] ></li>
-						</ul>
-						<ul>
-							<li>
-								<form>
-									<input type="checkbox" id="persnal"> <label
-										for="persnal">[필수] 개인정보 수집 및 이용에 대한 동의</label>
-								</form>
-
-							</li>
-							<li id="popup_2">[전문보기] ></li>
-						</ul>
-					</div>
-
-					<div class="login_info_wrap">
-						<div class="title login">
-							<h3>로그인 정보</h3>
-							<span class="caution">* 표시는 필수 입력 항목입니다.</span>
-						</div>
-						<div class="login_wrap">
-							<ul class="label">
-								<li>아이디 <span style="color: #f30c0c;">*</span></li>
-
-								<li>비밀번호 <span style="color: #f30c0c;">*</span></li>
-
-								<li>비밀번호 확인 <span style="color: #f30c0c;">*</span></li>
+					<form id="joinForm" action="/Join/page" method="post">
+						<input type="hidden" id="idChk" value="false"> <input
+							type="hidden" id="pwChk" value="false"> <input
+							type="hidden" id="pwReChk" value="false"> <input
+							type="hidden" id="nameChk" value="false"> <input
+							type="hidden" id="phoneChk" value="false"> <input
+							type="hidden" id="certChk" value="false">
+						<div class="agree_wrap">
+							<h3>약관동의</h3>
+							<ul class="all">
+								<li><input type="checkbox" id="all"> <label
+									for="all">모든 약관에 동의합니다.</label></li>
 							</ul>
-							<ul class="txt_form">
-								<li><input type="text" placeholder="사용하실 아이디를 입력해 주세요.">
-									<button>중복확인</button>
-									<ul class="hint">
-										<li>6~12자의 영문 혹은 영문과 숫자를 조합하여 입력해 주세요.</li>
-									</ul></li>
-								<li><input type="text" placeholder="사용하실 비밀번호를 입력해 주세요.">
-									<ul class="hint">
-										<li>10~14자 이상 영문, 숫자, 특수문자를 조합하여 입력해 주세요.</li>
-									</ul></li>
-								<li><input type="text" placeholder="비밀번호를 재입력해 주세요.">
-									<ul class="hint">
-										<li>10~14자 이상 영문, 숫자, 특수문자를 조합하여 입력해 주세요.</li>
-									</ul></li>
+							<ul>
+								<li><input type="checkbox" class="chkbox_group" id="age">
+									<label for="age">[필수] 만 14세 이상 입니다.</label></li>
 							</ul>
-						</div>
-					</div>
-					<div class="persnal_info_wrap">
-						<div class="title login">
-							<h3>개인 정보</h3>
-							<span class="caution">* 표시는 필수 입력 항목입니다.</span>
-						</div>
-						<div class="persnal_wrap">
-							<ul class="label">
-								<li>이름 <span style="color: #f30c0c;">*</span></li>
-
-								<li>생년월일 <span style="color: #f30c0c;">*</span></li>
-
-								<li>휴대폰 번호 <span style="color: #f30c0c;">*</span></li>
-								<li>이메일 <span style="color: #f30c0c;">*</span></li>
+							<ul>
+								<li><input type="checkbox" class="chkbox_group" id="use">
+									<label for="use">[필수] 이용약관 동의</label></li>
+								<li id="popup_1">[전문보기] ></li>
 							</ul>
-							<ul class="txt_form">
-								<li><input class="name" type="text"
-									placeholder="이름을 입력해 주세요."></li>
-								<li class="birth"><select name="" id="" class="year">
-										<c:forEach var="i" begin="1930" end="2022">
-											<option value="${i}">${i}년</option>
-										</c:forEach>
-								</select> <select name="" id="" class="month">
-										<c:forEach var="i" begin="1" end="12">
-											<option value="${i}">${i}월</option>
-										</c:forEach>
-								</select> <select name="" id="" class="day">
-										<c:forEach var="i" begin="1" end="31">
-											<option value="${i}">${i}일</option>
-										</c:forEach>
-								</select></li>
-								<li class="phone"><input type="text" class="ph"
-									placeholder="010"> <span>-</span> <input type="text"
-									class="ph" placeholder="0000"> <span>-</span> <input
-									type="text" class="ph" placeholder="0000">
-									<button>인증번호 발송</button>
-									<ul class="code">
-										<li><input type="text" class="code"
-											placeholder="인증번호를 입력해주세요.">
-											<button>인증확인</button></li>
-									</ul></li>
-								<li class="email"><input type="text" class="id"
-									placeholder="이메일"> <span>@</span> <input type="text"
-									class="address"> <select name="" id="">
-										<option value="">직접입력</option>
-										<option value="">naver.com</option>
-										<option value="">nate.com</option>
-								</select></li>
+							<ul>
+								<li><input type="checkbox" class="chkbox_group"
+									id="persnal"> <label for="persnal">[필수] 개인정보 수집
+										및 이용에 대한 동의</label></li>
+								<li id="popup_2">[전문보기] ></li>
 							</ul>
 						</div>
 
-					</div>
-					<div class="add_info_wrap">
-						<span class="title">추가정보 입력 (선택)</span> <span class="sub_title">마케팅
-							수신 동의</span>
-						<p class="txt">
-							* 마케팅 정보 수신 및 활용 동의를 하시면 미술관에 관한 소식을 뉴스레터로 받아 보실 수 있습니다.</span>
-						<div class="check_box">
-							<form action="">
-								<input type="checkbox" id="agree"> <label for="agree">[선택]
-									마케팅 목적에 따른 개인정보 수집 및 이용 동의</label>
-							</form>
-							<span id="popup_3">[전문보기] ></span>
+						<div class="login_info_wrap">
+							<div class="title login">
+								<h3>로그인 정보</h3>
+								<span class="caution">* 표시는 필수 입력 항목입니다.</span>
+							</div>
+							<div class="login_wrap">
+								<ul class="label">
+									<li>아이디 <span style="color: #f30c0c;">*</span></li>
+
+									<li>비밀번호 <span style="color: #f30c0c;">*</span></li>
+
+									<li>비밀번호 확인 <span style="color: #f30c0c;">*</span></li>
+								</ul>
+								<ul class="txt_form">
+									<li><input type="text" placeholder="사용하실 아이디를 입력해 주세요."
+										name="id" id="idInput">
+										<button id="idChkBtn" type="button">중복확인</button>
+										<ul class="hint">
+											<li>6~12자의 영문 혹은 영문과 숫자를 조합하여 입력해 주세요.</li>
+											<li id="idChkMent"></li>
+										</ul></li>
+									<li><input type="password"
+										placeholder="사용하실 비밀번호를 입력해 주세요." name="pw" id="pwInput">
+										<ul class="hint">
+											<li>10~14자 이상 영문, 숫자, 특수문자를 조합하여 입력해 주세요.</li>
+											<li id="pwChkMent"></li>
+										</ul></li>
+									<li><input type="password" placeholder="비밀번호를 재입력해 주세요."
+										id="pwChkInput">
+										<ul class="hint">
+											<li>10~14자 이상 영문, 숫자, 특수문자를 조합하여 입력해 주세요.</li>
+											<li id="pwReChkMent"></li>
+										</ul></li>
+								</ul>
+							</div>
 						</div>
-					</div>
-					<div class="btn_wrap">
-						<!-- 취소하기 눌렀을 때 어디로 이동할 것?-->
-						<a href="" class="cencel">취소하기</a>
-						<!-- 오류페이지처럼 가입을 축하합니다 페이지-->
-						<a href="" class="confirm">가입하기</a>
-					</div>
+						<div class="persnal_info_wrap">
+							<div class="title login">
+								<h3>개인 정보</h3>
+								<span class="caution">* 표시는 필수 입력 항목입니다.</span>
+							</div>
+							<div class="persnal_wrap">
+								<ul class="label">
+									<li>이름 <span style="color: #f30c0c;">*</span></li>
+
+									<li>생년월일 <span style="color: #f30c0c;">*</span></li>
+
+									<li>휴대폰 번호 <span style="color: #f30c0c;">*</span></li>
+									<li>이메일 <span style="color: #f30c0c;">*</span></li>
+								</ul>
+								<ul class="txt_form">
+									<li><input class="name" type="text"
+										placeholder="이름을 입력해 주세요." name="name" id="nameInput">
+										<span id="nameChkMent"></span></li>
+
+
+									<li class="birth"><input type="hidden" name="birth"
+										id="birthInput"> <select id="birth_yearInput"
+										class="year">
+											<c:forEach var="i" begin="1930" end="2022">
+												<option value="${i}">${i}년</option>
+											</c:forEach>
+									</select> <select id="birth_monthInput" class="month">
+											<c:forEach var="i" begin="1" end="12">
+												<option value="${i}">${i}월</option>
+											</c:forEach>
+									</select> <select id="birth_dayInput" class="day">
+											<c:forEach var="i" begin="1" end="31">
+												<option value="${i}">${i}일</option>
+											</c:forEach>
+									</select></li>
+
+									<li class="phone"><input type="hidden" name="phone"
+										id="phoneInput"> <input type="hidden"
+										id="certification"> <input type="text" class="ph"
+										id="ph0" placeholder="010"> <span>-</span> <input
+										type="text" class="ph" id="ph1" placeholder="0000"> <span>-</span>
+										<input type="text" class="ph" id="ph2" placeholder="0000">
+										<button type="button" id="certBtn">인증번호 발송</button>
+
+										<ul class="code">
+											<li><input type="text" class="code" id="certCode"
+												placeholder="인증번호를 입력해주세요.">
+												<button type="button" id="certChkBtn">인증확인</button></li>
+										</ul></li>
+
+									<li class="email"><input type="hidden" name="email"
+										id="emailInput"> <input type="text" class="id"
+										id="email1" placeholder="이메일"> <span>@</span> <input
+										type="text" class="address" id="email2"> <select
+										name="" id="emailDomain">
+											<option value="">직접입력</option>
+											<option value="naver.com">naver.com</option>
+											<option value="nate.com">nate.com</option>
+											<option value="google.com">google.com</option>
+											<option value="daum.net">daum.net</option>
+									</select></li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="add_info_wrap">
+							<span class="title">추가정보 입력 (선택)</span> <span class="sub_title">마케팅
+								수신 동의</span>
+							<p class="txt">
+								* 마케팅 정보 수신 및 활용 동의를 하시면 미술관에 관한 소식을 뉴스레터로 받아 보실 수 있습니다.</span>
+							<div class="check_box">
+								<label for="agree"><input type="checkbox" id="agree">
+									[선택] 마케팅 목적에 따른 개인정보 수집 및 이용 동의</label> <span id="popup_3">[전문보기]
+									></span>
+							</div>
+						</div>
+						<div class="btn_wrap">
+							<!-- 취소하기 눌렀을 때 어디로 이동할 것?-->
+							<button type="button" id="cancelBtn" class="cencel">취소하기</button>
+							<!-- 오류페이지처럼 가입을 축하합니다 페이지-->
+							<button type="button" id="confirmBtn" class="confirm">가입하기</button>
+						</div>
+					</form>
+					<!-- 회원 가입 폼 끝 -->
 				</div>
 			</div>
 		</div>
@@ -1368,6 +1380,7 @@
 					reserved.</span>
 			</div>
 		</footer>
+	</div>
 </body>
 
 
