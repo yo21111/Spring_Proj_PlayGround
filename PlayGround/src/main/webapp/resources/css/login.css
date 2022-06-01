@@ -220,7 +220,7 @@ h2 {
     margin-top: 100px;
 }
 
-.login_container .login_btn a {
+.login_container .login_btn button {
     font-family: 'NanumSquareB';
     font-size: 17px;
     display: block;
@@ -234,9 +234,37 @@ h2 {
     transition: 0.4s;
 }
 
-.login_container .login_btn a.login.two {
+.login_container .login_btn button {
+    font-family: 'NanumSquareB';
+    font-size: 17px;
+    display: block;
+    width: 480px;
+    border: 1px solid #707070;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin: 10px 0;
+    transition: 0.4s;
+}
+
+.login_container .login_btn button.login.two {
     background-color: #3d725e;
     color: #fff;
+}
+
+.login_btn2 button {
+    font-family: 'NanumSquareB';
+    font-size: 17px;
+    display: block;
+    width: 480px;
+    border: 1px solid #707070;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 10px 0;
+    margin: 10px 0;
+    transition: 0.4s;
 }
 
 .login_btn2 a {
@@ -267,7 +295,7 @@ h2 {
     transition: 0.4s;
 }
 
-.login_container .login_btn2 a.login {
+.login_container .login_btn2 button.login {
     background-color: #3D725E;
     color: #fff;
 }

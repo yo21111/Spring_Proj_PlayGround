@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="loginId" value="${sessionScope.id}" />
+<c:set var="loginId" value="${sessionScope.uId_Session}" />
 <c:set var="urlInfo" value="/resources/" />
 <!DOCTYPE html>
 <html lang="ko">

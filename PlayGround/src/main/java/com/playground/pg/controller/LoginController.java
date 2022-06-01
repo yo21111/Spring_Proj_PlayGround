@@ -27,22 +27,21 @@ public class LoginController {
 	@PostMapping("/isLogin")
 	public String isLogin(String id, String Pw, String pn, HttpServletRequest request) throws Exception {
 
-// 로그인관련 서비스 
+		// 로그인관련 서비스 
 		boolean loginCk = lService.Login(id, Pw); // "로그인서비스.로그인메서드(String id String Pw)";
 		// 메서드를 실행한 값을 boolean 으로 받는다
-
+		
 		if (loginCk) {
-			
 			HttpSession session = request.getSession();
-			
 			session.setAttribute("uId_Session", id);
-			if (pn != null) {
+			
+			if (pn.equals("") || pn == null) {
+				// 값이 true일 경우 메인페이지 이동
+				return "redirect:/";
+			} else {
 				String refer = request.getHeader("REFERER");
 				return "redirect:"+refer;
 			}
-			return "redirect:/";
-			// 값이 true일 경우 메인페이지 이동
-
 		} else {
 			return "login_error";
 			// 값이 false 일경우 로그인페이지로 메세지 출력

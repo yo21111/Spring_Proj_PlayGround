@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="loginId" value="${sessionScope.id}" />
+<c:set var="loginId" value="${sessionScope.uId_Session}" />
 <c:set var="urlInfo" value="/resources/" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -69,7 +69,7 @@
 								<a href="/Login/Login"><li>LOGIN</li></a>
 							</c:when>
 							<c:otherwise>
-								<a href="#" style="margin-right: 20px;"><li>LOGOUT</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;"><li>LOGOUT</li></a>
 								<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
 							</c:otherwise>
 						</c:choose>

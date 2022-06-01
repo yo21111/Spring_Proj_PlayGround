@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="loginId" value="${sessionScope.id}" />
+<c:set var="loginId" value="${sessionScope.uId_Session}" />
 <c:set var="urlInfo" value="/resources/" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,13 +33,13 @@
 			<div class="center">
 				<!-- <div class="header_fix"> -->
 				<!-- <div class="logo"> -->
-				<a href="#" class="logo"> <span>PLAY</span> <span>GROUND</span>
+				<a href="/" class="logo"> <span>PLAY</span> <span>GROUND</span>
 				</a>
 				<!-- <a href="#"><img src="image/logo.png" alt="logo"></a> -->
 				<!-- </div> -->
 				<nav class="gnb">
 					<ul class="main_menu">
-						<li class="main_list"><a href="#">PLAY GROUND</a>
+						<li class="main_list"><a href="/">PLAY GROUND</a>
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="/exhibit/list?exState=N">현재
 										전시</a></li>
@@ -48,9 +48,7 @@
 								<li class="sub_list"><a href="/exhibit/list?exState=A">예정
 										전시</a></li>
 							</ul></li>
-						<li class="main_list"><a href="#">STORE</a> <!-- <ul class="sub_menu">
-                <li class="sub_list"><a href="#"></a></li>
-              </ul> --></li>
+						<li class="main_list"><a href="#">STORE</a></li>
 						<li class="main_list"><a href="#">BOARD</a>
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="#">공지사항</a></li>
@@ -59,15 +57,15 @@
 							</ul></li>
 					</ul>
 				</nav>
-				<div class="top_header">
-						<ul>
+				<div class="quick_menu">
+					<ul>
 							<c:choose>
 								<c:when test="${loginId eq null}">
-									<a href="#" style="margin-right:20px;"><li>회원가입</li></a>
-									<a href="#"><li>LOGIN</li></a>
+									<a href="/Join/page" style="margin-right:20px;"><li>회원가입</li></a>
+									<a href="/Login/Login"><li>LOGIN</li></a>
 								</c:when>
 								<c:otherwise>
-									<a href="#" style="margin-right:20px;"><li>LOGOUT</li></a>
+									<a href="/Login/Logout" style="margin-right:20px;"><li>LOGOUT</li></a>
 							<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
 								</c:otherwise>
 							</c:choose>
