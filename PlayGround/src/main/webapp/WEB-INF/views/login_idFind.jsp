@@ -66,7 +66,7 @@
 							</c:when>
 							<c:otherwise>
 								<a href="/Login/Logout" style="margin-right: 20px;">LOGOUT</a>
-								<a href="/myPage/myPageHome">MY PAGE</a>
+								<a href="/mypage/myPageHome">MY PAGE</a>
 							</c:otherwise>
 						</c:choose>
 					</ul>

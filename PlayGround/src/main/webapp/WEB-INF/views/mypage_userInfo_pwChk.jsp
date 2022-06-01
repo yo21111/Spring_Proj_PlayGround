@@ -58,18 +58,18 @@
 					</ul>
 				</nav>
 				<div class="quick_menu">
-					<ul>
-							<c:choose>
-								<c:when test="${loginId eq null}">
-									<a href="/Join/page" style="margin-right:20px;"><li>회원가입</li></a>
-									<a href="/Login/Login"><li>LOGIN</li></a>
-								</c:when>
-								<c:otherwise>
-									<a href="#" style="margin-right:20px;"><li>LOGOUT</li></a>
-							<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
-								</c:otherwise>
-							</c:choose>
-						</ul>
+					<ul style="text-align: right;">
+						<c:choose>
+							<c:when test="${loginId eq null}">
+								<a href="/Join/page" style="margin-right: 20px;">회원가입</a>
+								<a href="/Login/Login">LOGIN</a>
+							</c:when>
+							<c:otherwise>
+								<a href="/Login/Logout" style="margin-right: 20px;">LOGOUT</a>
+								<a href="/mypage/myPageHome">MY PAGE</a>
+							</c:otherwise>
+						</c:choose>
+					</ul>
 				</div>
 			</div>
 			<!-- </div> -->
@@ -86,7 +86,7 @@
 			<div class="center myp">
 				<div class="menu_bar">
 					<ul class="main_meun">
-						<a href="MY PAGE">MY PAGE</a>
+						<a href="/mypage/myPageHome">MY PAGE</a>
 					</ul>
 					<ul class="main_list myt">
 						<a class="main_title" href="mypage2.html">MY TICKETS</a>
@@ -110,7 +110,7 @@
 							<li><input type="password" name="pw"
 								placeholder="비밀번호를 입력해주세요."></li>
 						</ul>
-						<div>${msg}</div>
+						<div style="color:red;font-weight:bold;">${param.msg}</div>
 						<div class="btn">
 							<button type="submit">확인</button>
 						</div>

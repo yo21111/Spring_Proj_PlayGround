@@ -2,6 +2,10 @@ img {
     vertical-align: top;
 }
 
+button {
+	cursor: pointer;
+}
+
 @font-face {
     font-family: 'AppleSDGodicNeoL';
     src: url(../font/AppleSDGothicNeoL.woff);
@@ -789,6 +793,16 @@ li.agree p {
 }
 
 .btn_2 a {
+    width: 200px;
+    background-color: #3D725E;
+    border-radius: 3px;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin: 50px;
+}
+
+.btn_2 button {
     width: 200px;
     background-color: #3D725E;
     border-radius: 3px;

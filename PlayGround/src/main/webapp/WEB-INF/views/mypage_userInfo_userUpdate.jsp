@@ -33,21 +33,22 @@
 			<div class="center">
 				<!-- <div class="header_fix"> -->
 				<!-- <div class="logo"> -->
-				<a href="#" class="logo"> <span>PLAY</span> <span>GROUND</span>
+				<a href="/" class="logo"> <span>PLAY</span> <span>GROUND</span>
 				</a>
 				<!-- <a href="#"><img src="image/logo.png" alt="logo"></a> -->
 				<!-- </div> -->
 				<nav class="gnb">
 					<ul class="main_menu">
-						<li class="main_list"><a href="#">PLAY GROUND</a>
+						<li class="main_list"><a href="/">PLAY GROUND</a>
 							<ul class="sub_menu">
-								<li class="sub_list"><a href="#">현재 전시</a></li>
-								<li class="sub_list"><a href="#">지난 전시</a></li>
-								<li class="sub_list"><a href="#">예정 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=N">현재
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=B">지난
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=A">예정
+										전시</a></li>
 							</ul></li>
-						<li class="main_list"><a href="#">STORE</a> <!-- <ul class="sub_menu">
-                <li class="sub_list"><a href="#"></a></li>
-              </ul> --></li>
+						<li class="main_list"><a href="#">STORE</a></li>
 						<li class="main_list"><a href="#">BOARD</a>
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="#">공지사항</a></li>
@@ -56,16 +57,16 @@
 							</ul></li>
 					</ul>
 				</nav>
-				<div class="top_header">
-					<ul>
+				<div class="quick_menu">
+					<ul style="text-align: right;">
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="#" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="#"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;">회원가입</a>
+								<a href="/Login/Login">LOGIN</a>
 							</c:when>
 							<c:otherwise>
-								<a href="#" style="margin-right: 20px;"><li>LOGOUT</li></a>
-								<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;">LOGOUT</a>
+								<a href="/mypage/myPageHome">MY PAGE</a>
 							</c:otherwise>
 						</c:choose>
 					</ul>
@@ -85,7 +86,7 @@
 			<div class="center myp">
 				<div class="menu_bar">
 					<ul class="main_meun">
-						<a href="MY PAGE">MY PAGE</a>
+						<a href="/mypage/myPageHome">MY PAGE</a>
 					</ul>
 					<ul class="main_list myt">
 						<a class="main_title" href="mypage2.html">MY TICKETS</a>
@@ -96,7 +97,7 @@
 						<li class="sub_list"><a href="mypage4.html">나의 쿠폰</a></li>
 						<li class="sub_list"><a href="mypage8.html">적립금</a></li>
 						<li class="sub_list"><a href="my_review.html">나의 리뷰</a></li>
-						<li class="sub_list"><a href="mypage5.html">개인정보변경/탈퇴</a></li>
+						<li class="sub_list"><a href="/mypage/userpwchk">개인정보변경/탈퇴</a></li>
 					</ul>
 				</div>
 				
@@ -185,7 +186,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="mypage7.html" class="reset">회원탈퇴</a>
+                    <a href="/mypage/userdelete" class="reset">회원탈퇴</a>
                     <div class="btn_2">
                         <a href="">돌아가기</a>
                         <a href="">변경하기</a>
