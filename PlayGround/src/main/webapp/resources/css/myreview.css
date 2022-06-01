@@ -194,7 +194,6 @@ ul.tabs li.current {
 .tab-content.current {
   display: inherit;
 }
-
 .my_review .period li {
   border: 2px solid #ccc;
   float: left;
@@ -236,6 +235,11 @@ ul.tabs li.current {
   width: 170px;
   padding: 6px 2px;
 }
+.review_list p.introText {
+	text-align: left;
+	padding-top: 12px;
+}
+
 .review_list .list_table tr.list_content .two button,
 .my_review .search_button button {
   padding: 5px 20px;

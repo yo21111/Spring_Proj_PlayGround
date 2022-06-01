@@ -1,32 +1,14 @@
 $(function(){
 	
-	window.onload = function() {
+	
+	$(document).ready(function(){
 		
-		// 오늘날짜 계산
-		var today = new Date();
+		var paydate = $(".payDate").val();
+		var deadline = new Date(paydate.setMonth(paydate.getMonth() + 1)); 
+		deadline = deadline.toISOString().slice(0,10);
 		
-		today = today.toISOString().slice(0, 10);
 		
-		var start = document.getElementById("start");
-		var start2 = document.getElementById("start2");
-		
-		start.value = today;	
-		start2.value = today;
-		
-		// 7일뒤 날짜 계산
-		var last = new Date();
-		
-		var lastDay = new Date(last.setDate(last.getDate() + 7));
-		
-		lastDay = lastDay.toISOString().slice(0,10);
-		
-		var end = document.getElementById("end");
-		var end2 = document.getElementById("end2");
-		
-		end.value = lastDay;
-		end2.value = lastDay;
-		
-	};
+	});
 	
 	$(".1W").click(function(){
 		// 7일뒤 날짜 계산
@@ -104,7 +86,7 @@ $(function(){
 		end2.value = lastDay;
 	});
 	
-	$("#searchBtn1").click(function(){
+/*	$("#searchBtn1").click(function(){
 		
 		var date1 = $("#start").val();
 		var date2 = $("#end").val();
@@ -150,7 +132,7 @@ $(function(){
 			
 		}
 		
-	});
+	});*/
 	
 	
 });

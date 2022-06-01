@@ -66,42 +66,39 @@ public class MyPageReviewController {
 		return "mypage_review";
 	}
 	
-	// 날짜를 검색할 경우
-	@GetMapping("/search")
-	public String searchMyReview(int page, Model m, HttpSession session, String tripstart, String tripend) throws Exception {
-		String id = (String)session.getAttribute("uId_Session");
-		
-		Map<String, Object> map = mprService.searchList(id, tripstart, tripend);
-		
-		// 검색한 기간 리뷰 조회(작성 가능)
-		List<ReserveDto> searchNotWriteList = (List<ReserveDto>)map.get("notWriteReviewList");
-		// 작성 가능한 리뷰 작품정보(썸네일 용)
-		List<ArtDto> notWriteArtList = (List<ArtDto>)map.get("notWriteArtList");
-		// 검색한 기간 리뷰 조회(작성 완료)
-		List<ReserveDto> searchWriteList = (List<ReserveDto>)map.get("writeReviewList"); 
-		// 작성 완료한 리뷰 작품정보(썸네일 용)
-		List<ArtDto> writeArtList = (List<ArtDto>)map.get("writeArtList");
-		
-		
-		int writeReviewCnt = (int)map.get("writeReviewCnt");
-		int notWriteReviewCnt = (int)map.get("notWriteReviewCnt");
-		SearchCondition sc = new SearchCondition(page, 10);
-		PageHandler writePh = new PageHandler(writeReviewCnt, sc);
-		PageHandler notWritePh = new PageHandler(notWriteReviewCnt, sc);
-		
-		String viewDate = "검색기간";
-		
-		// 모델에 담기
-		m.addAttribute("searchWriteList", searchWriteList);
-		m.addAttribute("searchNotWriteList", searchNotWriteList);
-		m.addAttribute("writePh", writePh);
-		m.addAttribute("notWritePh", notWritePh);
-		m.addAttribute("viewDate", viewDate);
-		m.addAttribute("notWriteArtList", notWriteArtList);
-		m.addAttribute("writeArtList", writeArtList);
-		
-		return "mypage_review";
-	}
+	/*
+	 * // 날짜를 검색할 경우
+	 * 
+	 * @GetMapping("/search") public String searchMyReview(int page, Model m,
+	 * HttpSession session, String tripstart, String tripend) throws Exception {
+	 * String id = (String)session.getAttribute("uId_Session");
+	 * 
+	 * Map<String, Object> map = mprService.searchList(id, tripstart, tripend);
+	 * 
+	 * // 검색한 기간 리뷰 조회(작성 가능) List<ReserveDto> searchNotWriteList =
+	 * (List<ReserveDto>)map.get("notWriteReviewList"); // 작성 가능한 리뷰 작품정보(썸네일 용)
+	 * List<ArtDto> notWriteArtList = (List<ArtDto>)map.get("notWriteArtList"); //
+	 * 검색한 기간 리뷰 조회(작성 완료) List<ReserveDto> searchWriteList =
+	 * (List<ReserveDto>)map.get("writeReviewList"); // 작성 완료한 리뷰 작품정보(썸네일 용)
+	 * List<ArtDto> writeArtList = (List<ArtDto>)map.get("writeArtList");
+	 * 
+	 * 
+	 * int writeReviewCnt = (int)map.get("writeReviewCnt"); int notWriteReviewCnt =
+	 * (int)map.get("notWriteReviewCnt"); SearchCondition sc = new
+	 * SearchCondition(page, 10); PageHandler writePh = new
+	 * PageHandler(writeReviewCnt, sc); PageHandler notWritePh = new
+	 * PageHandler(notWriteReviewCnt, sc);
+	 * 
+	 * String viewDate = "검색기간";
+	 * 
+	 * // 모델에 담기 m.addAttribute("searchWriteList", searchWriteList);
+	 * m.addAttribute("searchNotWriteList", searchNotWriteList);
+	 * m.addAttribute("writePh", writePh); m.addAttribute("notWritePh", notWritePh);
+	 * m.addAttribute("viewDate", viewDate); m.addAttribute("notWriteArtList",
+	 * notWriteArtList); m.addAttribute("writeArtList", writeArtList);
+	 * 
+	 * return "mypage_review"; }
+	 */
 	
 	
 	//리뷰작성

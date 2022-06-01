@@ -104,7 +104,7 @@
                     <li class="6M"><a href="/mypage/myreview?page=1&term=6M">6개월</a></li>
                   </ul>
                 </div>
-                <form action="/mypage/search" name="search" method="get">
+<!-- 				   <form action="/mypage/search" name="search" method="get">
 	                <div class="review_date">
 	                  <div class="start_date">
 	                    <input type="date" id="start" name="tripstart" value="" min="2017-01-01"
@@ -119,38 +119,188 @@
 	                    <button id="searchBtn1" type="button">검색</button>
 	                  </div>
 	                </div>
-                </form>
+                </form> -->
               </div>
-              <div class="review_list">
-                최근 <span>${viewDate}</span>의 작성 리뷰 입니다.
-                <div class="list_table">
-                  <table>
-                    <tr class="list_title">
-                      <td class="one">티켓정보</td>
-                      <td class="two">작성기간</td>
-                      <td class="two">리뷰작성</td>
-                    </tr>
-                    <tr class="list_content">
-                      <td class="one">
-                        <div class="ticket_img">
-                          <img src="${urlInfo}/image/poster2_02.jpg" alt="poster2">
-                        </div>
-                        <div class="ticket_text">
-                          <p>우연히 웨스 앤더스</p>
-                          <p>플레이그라운드 </p>
-                          <p>2022-05-17 | 1매 </p>
-                        </div>
-                      </td>
-                      <td class="two deadline">2022-06-17</td>
-                      <td class="two">
-                        <button class="open">리뷰작성</button>
-                      </td>
-                    </tr>
-                  </table>
+			  <c:choose>
+	           <c:when test="${notWriteReviewList.size() eq 0}">
+	               <p>해당 기간내에 작성가능한 리뷰가 없습니다.</p>
+	           </c:when>
+	           <c:otherwise>
+	                <p class="introText">최근 <span>${viewDate}</span>의 작성 가능한 리뷰 입니다.</p>
+				<c:forEach var="resDto" items="${notWriteReviewList}" varStatus="status" >      							          
+		        <c:forEach var="artDto" items="${notWriteArtList}">
+	              <div class="review_list">
+	                <div class="list_table">
+		                  <table>
+		                    <tr class="list_title">
+		                      <td class="one">티켓정보</td>
+		                      <td class="two">작성기간</td>
+		                      <td class="two">리뷰작성</td>
+		                    </tr>
+		                    <tr class="list_content">
+		                      <td class="one">
+			                        <div class="ticket_img">
+			                          <img src="${urlInfo}/image/${artDto.thumbImg}" alt="poster2">
+			                        </div>
+		                        <div class="ticket_text">
+		                          <p>${artDto.exName}</p>
+		                          <p>${artDto.location}</p>
+		                         
+		                          <c:set var="totalCnt" value="${resDto.adCnt + resDto.chCnt}" />
+		                          <p><span class="payDate">${resDto.payDate}</span> | <c:out value="${totalCnt}매" /></p>
+		                        </div>
+		                      </td>
+		                      <td class="two deadline">2022-06-17</td>
+		                      <td class="two">
+		                        <button class="open">리뷰작성</button>
+		                      </td>
+		                    </tr>
+		                  </table>
+
                 </div>
               </div>
+
               <!-- 팝업창 -->
               <form name=review action="/mypage/myreview" method="post">
+	              <div class="popup_background">
+	                <div class="popup_text">
+	                  <div class="title">
+	                    나의 리뷰
+	                    <a href="#" class="close"></a>
+	                  </div>
+	                  <div class="hidden">
+	                  <div class="ticket_make">
+	                    <div class="img_text">
+	                      <div class="ticket_img">
+	                        <img src="${urlInfo}image/poster2_02.jpg" alt="poster">
+	
+	                      </div>
+	                      <div class="ticket_text">
+	                        <p>${notWriteArtList[status.current].exName}</p>
+	                        <p>${notWriteArtList[status.current].location}</p>
+	                        <c:set var="totalCnt" value="${notWriteArtList[status.current].adCnt + notWriteArtList[status.current].chCnt}" />
+	                        <p>${notWriteArtList[status.current].payDate} | <c:out value="${totalCnt}매" /></p>
+	                      </div>
+	                    </div>
+	                    <div class="ticket_date">
+	                      2022-06-17
+	                    </div>
+	                  </div>
+	                  <div class="evaluate review_text">
+	                    <span class="red">*</span><span>전시는 어떠섰나요?</span>
+	                    <img class="score" src="${urlInfo}image/empty.png" alt="empty">
+	                    <img class="score" src="${urlInfo}image/empty.png" alt="empty">
+	                    <img class="score" src="${urlInfo}image/empty.png" alt="empty">
+	                    <img class="score" src="${urlInfo}image/empty.png" alt="empty">
+	                    <img class="score" src="${urlInfo}image/empty.png" alt="empty">
+	                    <input type="text" value="" readonly="readonly">
+	                  </div>
+	                  <div class="evaluate">
+	                    <div class="sub_title">
+	                      <span class="red">*</span><span>솔직한 상품 리뷰를 남겨주세요.</span>
+	                    </div>
+	                    <textarea name="content" id="review_letter" cols="30" rows="14" placeholder="특정인의 명예를 훼손하거나 저작권을 침해한 경우 개인정보를 호함한 경우 (연락처, 이메일, SNS, 주소 등) 상업적 목적이 담긴 경우는 블라인드처리 될 수 있습니다."></textarea>
+	                 	<input type="hidden" name="exNo_FK" value=""> 
+	                  </div>
+	                  <div class="evaluate picture">
+	                    <span class="red">*</span><span>사진파일 첨부하기</span>
+	                    <div class="picture_add">
+	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
+	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
+	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
+	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
+	                    </div>
+	                    <div class="grey">사진은 10MB이하의 PNG, GIF, JPG 파일만 등록 가능합니다.</div>
+	                  </div>
+	                </div>
+	                  <div class="attach_close">
+	                    <div class="attach">
+	                      <button type="button">리뷰 등록</button>
+	                    </div>
+	                    <div class="close">
+	                      <a href="#">닫기</a>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+              </form>
+              <!-- //팝업창 -->
+             	</c:forEach>
+             	</c:forEach>
+              </c:otherwise>                	
+            </c:choose>
+
+            </div>
+            <div id="tab-2" class="tab-content">
+              <div class="all_date">
+                <div class="period">
+                  <ul>
+                    <li class="1W"><a href="/mypage/myreview?page=1&term=1W">1주일</a></li>
+                    <li class="1M"><a href="/mypage/myreview?page=1&term=1M">1개월</a></li>
+                    <li class="3M"><a href="/mypage/myreview?page=1&term=3M">3개월</a></li>
+                    <li class="6M"><a href="/mypage/myreview?page=1&term=6M">6개월</a></li>
+                  </ul>
+                </div>
+      <!--           <form action="/mypage/search" name="search2" method="get">
+	                <div class="review_date">
+	                  <div class="start_date">
+	                    <input type="date" id="start2" name="tripstart" value="" min="2017-01-01"
+	                      max="2022-12-31">
+	                    <input type="hidden" name=page value="1">
+	                  </div>
+	                  <span> ~ </span>
+	                  <div class="end_date">
+	                    <input type="date" id="end2" name="tripend" value="" min="2017-01-01" max="2022-12-31">
+	                  </div>
+	                  <div class="search_button">
+	                    <button id="searchBtn2" type="button">검색</button>
+	                  </div>
+	                </div>
+                </form> -->
+              </div>
+              <div class="review_list">
+                <p class="introText">최근 <span>${viewDate}</span>의 작성 리뷰 입니다.</p>
+                <div class="list_table">
+                	<c:choose>
+                		<c:when test="${writeReviewList.size() eq 0}">
+                			<p>해당 기간내에 작성한 리뷰가 없습니다.</p>
+                		</c:when>
+                		<c:otherwise>
+                			<c:forEach var="resDto" items="writeReviewList">
+			                  <table>
+			                    <tr class="list_title">
+			                      <td class="one">티켓정보</td>
+			                      <td class="two">작성기간</td>
+			                      <td class="two">리뷰작성</td>
+			                    </tr>
+			                    <tr class="list_content">
+			                      <td class="one">
+			                      	<c:forEach var="artDto" items="${writeArtList}">
+				                        <div class="ticket_img">
+				                          <img src="${urlInfo}image/${artDto.thumbImg}" alt="poster2">
+				                        </div>
+				                        <div class="ticket_text">
+				                          <p>${artDto.exName}</p>
+				                          <p>${artDto.location}</p>
+				                          <c:set var="totalCnt" value="${resDto.adCnt + resDto.chCnt}" />
+				                          <p><span class="payDate">${resDto.payDate}</span> | <c:out value="${totalCnt}매" /></p>
+				                        </div>
+			                      	</c:forEach>
+			                      </td>
+			                      <td class="two deadline">2022-06-17</td>
+			                      <td class="two">
+			                        <button>리뷰보기</button>
+			                      </td>
+			                    </tr>
+			                  </table>
+                          	</c:forEach>
+                		</c:otherwise>
+                	</c:choose>
+                </div>
+              </div>
+              
+<%--       <!-- 리뷰 확인/삭제용 팝업창 -->
+              <form name=review action="/mypage/delete" method="post">
 	              <div class="popup_background">
 	                <div class="popup_text">
 	                  <div class="title">
@@ -184,20 +334,10 @@
 	                    <textarea name="content" id="review_letter" cols="30" rows="14" placeholder="특정인의 명예를 훼손하거나 저작권을 침해한 경우 개인정보를 호함한 경우 (연락처, 이메일, SNS, 주소 등) 상업적 목적이 담긴 경우는 블라인드처리 될 수 있습니다."></textarea>
 	                 	<input type="hidden" name="exNo_FK" value=""> 
 	                  </div>
-	                  <div class="evaluate picture">
-	                    <span class="red">*</span><span>사진파일 첨부하기</span>
-	                    <div class="picture_add">
-	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
-	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
-	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
-	                      <a href="#"><img src="${urlInfo}image/picture_add.png" alt="picture_add"></a>
-	                    </div>
-	                    <div class="grey">사진은 10MB이하의 PNG, GIF, JPG 파일만 등록 가능합니다.</div>
-	                  </div>
 	                </div>
 	                  <div class="attach_close">
 	                    <div class="attach">
-	                      <button type="button">리뷰 등록</button>
+	                      <button type="button">리뷰 삭제</button>
 	                    </div>
 	                    <div class="close">
 	                      <a href="#">닫기</a>
@@ -206,64 +346,8 @@
 	                </div>
 	              </div>
               </form>
-              <!-- //팝업창 -->
-
-            </div>
-            <div id="tab-2" class="tab-content">
-              <div class="all_date">
-                <div class="period">
-                  <ul>
-                    <li class="1W"><a href="/mypage/myreview?page=1&term=1W">1주일</a></li>
-                    <li class="1M"><a href="/mypage/myreview?page=1&term=1M">1개월</a></li>
-                    <li class="3M"><a href="/mypage/myreview?page=1&term=3M">3개월</a></li>
-                    <li class="6M"><a href="/mypage/myreview?page=1&term=6M">6개월</a></li>
-                  </ul>
-                </div>
-                <form action="/mypage/search" name="search2" method="get">
-	                <div class="review_date">
-	                  <div class="start_date">
-	                    <input type="date" id="start2" name="tripstart" value="" min="2017-01-01"
-	                      max="2022-12-31">
-	                    <input type="hidden" name=page value="1">
-	                  </div>
-	                  <span> ~ </span>
-	                  <div class="end_date">
-	                    <input type="date" id="end2" name="tripend" value="" min="2017-01-01" max="2022-12-31">
-	                  </div>
-	                  <div class="search_button">
-	                    <button id="searchBtn2" type="button">검색</button>
-	                  </div>
-	                </div>
-                </form>
-              </div>
-              <div class="review_list">
-                최근 <span>${viewDate}</span>의 작성 리뷰 입니다.
-                <div class="list_table">
-                  <table>
-                    <tr class="list_title">
-                      <td class="one">티켓정보</td>
-                      <td class="two">작성기간</td>
-                      <td class="two">리뷰작성</td>
-                    </tr>
-                    <tr class="list_content">
-                      <td class="one">
-                        <div class="ticket_img">
-                          <img src="${urlInfo}image/poster2_02.jpg" alt="poster2">
-                        </div>
-                        <div class="ticket_text">
-                          <p>우연히 웨스 앤더스 </p>
-                          <p>플레이그라운드 </p>
-                          <p>2022-05-17 | 1매 </p>
-                        </div>
-                      </td>
-                      <td class="two">2022-06-17</td>
-                      <td class="two">
-                        <button>리뷰보기</button>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
+              <!-- //팝업창 --> --%>
+              
             </div>
 
           </div>
