@@ -88,11 +88,10 @@
             </div>
             <div class="login_container">
                 <div class="sub_container">
-                    고객님의 아이디는 ${id} 입니다.
+                    고객님의 비밀번호는 ${SearchPw} 입니다.
                 </div>
                 <div class="login_btn">
-                    <a href="/Login/Login" class="login two">로그인</a>
-                    <a href="/Login/Find" class="pw">비밀번호 찾기</a>
+                    <a href="login.html" class="login two">로그인</a>
                 </div>
             </div>
         </div>
