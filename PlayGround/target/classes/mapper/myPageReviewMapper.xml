@@ -27,4 +27,16 @@
 		where id_FK = #{id_FK}
 		and exNo_FK = #{exNo_FK}
 	</select>
+	
+	<select id="searchList" parameterType="map" resultType="ReserveDto">
+		select * from reserve where id_FK = #{id_FK}
+		and reDate between #{tripstart} and #{tripend}
+		order by reDate DESC
+	</select>
+	
+	<select id="searchArt" parameterType="int" resultType="ArtDto">
+		select * from art
+		where exNo = #{exNo}
+	</select>
+	
 </mapper>

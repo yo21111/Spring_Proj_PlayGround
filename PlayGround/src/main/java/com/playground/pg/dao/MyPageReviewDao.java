@@ -3,6 +3,7 @@ package com.playground.pg.dao;
 import java.util.Date;
 import java.util.List;
 
+import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ReserveDto;
 import com.playground.pg.domain.ReviewDto;
 
@@ -20,4 +21,10 @@ public interface MyPageReviewDao {
 	
 	// 테스트용 작성한 리뷰 번호 찾기
 	public int selectReviewNo(String id_FK, int exNo_FK);
+	
+	// 검색한 기간내 예약리스트
+	public List<ReserveDto> getSearchList(String id, String tripstart, String tripend);
+
+	// 예약한 작품 정보 가져오기(썸네일)
+	public ArtDto seachrArt(int exNo) throws Exception;
 }

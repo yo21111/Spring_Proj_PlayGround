@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.PageHandler;
 import com.playground.pg.domain.ReserveDto;
 import com.playground.pg.domain.ReviewDto;
@@ -35,9 +36,12 @@ public class MyPageReviewController {
 		
 		// 작성 가능한 리뷰 : 예매 테이블에서 리뷰 작성 안한 작품 리스트
 		List<ReserveDto> notWriteReviewList = (List<ReserveDto>)map.get("notWriteReviewList");
-		
+		// 작성 가능한 리뷰 작품정보(썸네일 용)
+		List<ArtDto> notWriteArtList = (List<ArtDto>)map.get("notWriteArtList");
 		// 작성 완료한 리뷰 : 예매 테이블에서 리뷰 작성 완료한 작품 리스트
 		List<ReserveDto> writeReviewList = (List<ReserveDto>)map.get("writeReviewList");
+		// 작성 완료한 리뷰 작품정보(썸네일 용)
+		List<ArtDto> writeArtList = (List<ArtDto>)map.get("writeArtList");
 		
 		int writeReviewCnt = (int)map.get("writeReviewCnt");
 		int notWriteReviewCnt = (int)map.get("notWriteReviewCnt");
@@ -45,16 +49,60 @@ public class MyPageReviewController {
 		PageHandler writePh = new PageHandler(writeReviewCnt, sc);
 		PageHandler notWritePh = new PageHandler(notWriteReviewCnt, sc);
 		
+		// 날짜 표시용(1W = 1주일, 1M = 1달, 3M = 3달, 6M = 6달)
+		String viewDate = mprService.getViewDate(term);
+		
 		//모델에 담기
 		m.addAttribute("notWriteReviewList", notWriteReviewList);
 		m.addAttribute("writeReviewList", writeReviewList);
 		m.addAttribute("writePh", writePh);
 		m.addAttribute("notWritePh", notWritePh);
+		m.addAttribute("viewDate", viewDate);
+		m.addAttribute("notWriteArtList", notWriteArtList);
+		m.addAttribute("writeArtList", writeArtList);
 		
 		// 작성기간은 reDate의 한달 뒤로 자바스크립트로 계산할 것
 		
 		return "나의리뷰페이지";
 	}
+	
+	// 날짜를 검색할 경우
+	@GetMapping("/search")
+	public String searchMyReview(int page, Model m, HttpSession session, String tripstart, String tripend) throws Exception {
+		String id = (String)session.getAttribute("uId_Session");
+		
+		Map<String, Object> map = mprService.searchList(id, tripstart, tripend);
+		
+		// 검색한 기간 리뷰 조회(작성 가능)
+		List<ReserveDto> searchNotWriteList = (List<ReserveDto>)map.get("notWriteReviewList");
+		// 작성 가능한 리뷰 작품정보(썸네일 용)
+		List<ArtDto> notWriteArtList = (List<ArtDto>)map.get("notWriteArtList");
+		// 검색한 기간 리뷰 조회(작성 완료)
+		List<ReserveDto> searchWriteList = (List<ReserveDto>)map.get("writeReviewList"); 
+		// 작성 완료한 리뷰 작품정보(썸네일 용)
+		List<ArtDto> writeArtList = (List<ArtDto>)map.get("writeArtList");
+		
+		
+		int writeReviewCnt = (int)map.get("writeReviewCnt");
+		int notWriteReviewCnt = (int)map.get("notWriteReviewCnt");
+		SearchCondition sc = new SearchCondition(page, 10);
+		PageHandler writePh = new PageHandler(writeReviewCnt, sc);
+		PageHandler notWritePh = new PageHandler(notWriteReviewCnt, sc);
+		
+		String viewDate = "검색기간";
+		
+		// 모델에 담기
+		m.addAttribute("searchWriteList", searchWriteList);
+		m.addAttribute("searchNotWriteList", searchNotWriteList);
+		m.addAttribute("writePh", writePh);
+		m.addAttribute("notWritePh", notWritePh);
+		m.addAttribute("viewDate", viewDate);
+		m.addAttribute("notWriteArtList", notWriteArtList);
+		m.addAttribute("writeArtList", writeArtList);
+		
+		return "mypage_review";
+	}
+	
 	
 	//리뷰작성
 	@PostMapping("/myreview")

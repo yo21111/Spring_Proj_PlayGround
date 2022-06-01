@@ -411,11 +411,15 @@ border-radius: 5px;
   border-radius: 5px;
   border: 2px solid #ccc;
 }
+.popup_background .attach_close .attach button {
+	background: none;
+	border: none;
+}
 .popup_background .attach_close .attach:hover,
 .popup_background .attach_close .close:hover{
 background-color: #3D725E;
 }
-.popup_background .attach:hover a,
+.popup_background .attach:hover button,
 .popup_background .close:hover a{
 color: #fff;
 

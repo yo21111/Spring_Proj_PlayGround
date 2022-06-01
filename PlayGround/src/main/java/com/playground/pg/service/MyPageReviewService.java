@@ -16,4 +16,10 @@ public interface MyPageReviewService {
 	
 	// 테스트용 작성된 리뷰 번호 찾기
 	public int selectReviewNo(String id_FK, int exNo_FK);
+	
+	// 검색한 기간내 작성 가능한, 작성한 리뷰
+	public Map<String, Object> searchList(String id, String tripstart, String tripend) throws Exception;
+
+	// term에 따른 글자 반환
+	public String getViewDate(String term) throws Exception;
 }

@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ReserveDto;
 import com.playground.pg.domain.ReviewDto;
 
@@ -49,5 +50,20 @@ public class MyPageReviewDaoImpl implements MyPageReviewDao {
 		map.put("id_FK", id_FK);
 		map.put("exNo_FK", exNo_FK);
 		return session.selectOne(namespace+"selectReviewNo", map);
+	}
+	
+	@Override
+	public List<ReserveDto> getSearchList(String id, String tripstart, String tripend) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id_FK", id);
+		map.put("tripstart", tripstart);
+		map.put("tripend", tripend);
+		
+		return session.selectList(namespace + "searchList", map);
+	}
+	
+	@Override
+	public ArtDto seachrArt(int exNo) throws Exception {
+		return session.selectOne(namespace + "searchArt", exNo);
 	}
 }
