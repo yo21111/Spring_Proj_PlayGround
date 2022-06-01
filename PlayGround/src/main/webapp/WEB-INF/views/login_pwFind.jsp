@@ -92,7 +92,7 @@
                     고객님의 비밀번호는 ${SearchPw} 입니다.
                 </div>
                 <div class="login_btn">
-                    <a href="login.html" class="login two">로그인</a>
+                    <a href="/Login/Login" class="login two">로그인</a>
                 </div>
             </div>
         </div>

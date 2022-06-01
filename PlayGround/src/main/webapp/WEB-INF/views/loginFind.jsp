@@ -112,9 +112,9 @@
 								</div>
 
 								<div class="form_box view" id="e_mail">
-									<input class="id" type="text" placeholder="이메일"> <span>@</span>
-									<input class="address" type="text"> 
-									<select id="email_address">
+									<input class="id" id="id1" type="text" placeholder="이메일"> <span>@</span>
+									<input class="address" id="address1" type="text"> 
+									<select id="email_address1">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
 										<option value="nate.com">nate.com</option>
@@ -124,9 +124,9 @@
 								</div>
 
 								<div class="form_box" id="ph">
-									<input class="num" type="text" placeholder="010"> <span>-</span>
-									<input class="num" type="text" placeholder="0000"> <span>-</span>
-									<input class="num" type="text" placeholder="0000">
+									<input class="num" id="ph1" type="text" placeholder="010" maxlength="3"> <span>-</span>
+									<input class="num" id="ph2" type="text" placeholder="0000"maxlength="4"> <span>-</span>
+									<input class="num" id="ph3" type="text" placeholder="0000" maxlength="4">
 								</div>
 							</div>
 							<button type="button" class="btn">아이디 찾기</button>
@@ -152,9 +152,9 @@
 								</div>
 
 								<div class="form_box view" id="email">
-									<input class="id" type="text" placeholder="이메일"> <span>@</span>
-									<input class="address" type="text"> <select name=""
-										id="">
+									<input class="id" id="id2" type="text" placeholder="이메일"> <span>@</span>
+									<input class="address" id="address2" type="text"> 
+									<select id="email_address2">
 										<option value="">직접입력</option>
 										<option value="naver.com">naver.com</option>
 										<option value="nate.com">nate.com</option>
@@ -163,9 +163,9 @@
 									</select>
 								</div>
 								<div class="form_box" id="phone">
-									<input class="num" type="text" placeholder="010"> <span>-</span>
-									<input class="num" type="text" placeholder="0000"> <span>-</span>
-									<input class="num" type="text" placeholder="0000">
+									<input class="num" id="phone1" type="text" placeholder="010" maxlength="3"> <span>-</span>
+									<input class="num" id="phone2" type="text" placeholder="0000" maxlength="4"> <span>-</span>
+									<input class="num" id="phone3" type="text" placeholder="0000" maxlength="4">
 								</div>
 							</div>
 							<!--성공/오류시 페이지 걸어야합니다.-->

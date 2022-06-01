@@ -71,6 +71,9 @@ public class LoginController {
 		// 아이디 찾기 버튼 클릭시
 		String id = lService.SearchID_phone(name, phone);
 		// sql에서 select에 사용하여 받는 아이디
+		if(id == null) {
+			return "login_error";
+		}
 		model.addAttribute("id", id);
 		return "login_idFind";
 	}
@@ -80,6 +83,9 @@ public class LoginController {
 		// 아이디 찾기 버튼 클릭시
 		String id = lService.SearchID_email(name, email);
 		// sql에서 select에 사용하여 받는 아이디
+		if(id == null) {
+			return "login_error";
+		}
 		model.addAttribute("id", id);
 		return "login_idFind";
 	}
@@ -88,7 +94,9 @@ public class LoginController {
 	public String FindPw_email(Model model, String id, String email) throws Exception {
 		// 비밀번호 찾기 버튼 클릭시
 		String SearchPw = lService.SearchPW(id, email);
-
+		if(SearchPw == null) {
+			return "login_error";
+		}
 		model.addAttribute("SearchPw", SearchPw);
 		return "login_pwFind";
 	}
@@ -97,7 +105,9 @@ public class LoginController {
 	public String FindPw_phone(Model model, String id, String phone) throws Exception {
 		// 비밀번호 찾기 버튼 클릭시
 		String SearchPw = lService.SearchPW2(id, phone);
-
+		if(SearchPw == null) {
+			return "login_error";
+		}
 		model.addAttribute("SearchPw", SearchPw);
 		return "login_pwFind";
 
