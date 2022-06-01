@@ -31,7 +31,8 @@ public class MyPageUserInfoDaoImpl implements MyPageUserInfoDao {
 
 	@Override
 	public int updateMember(MemberDto mDto) throws Exception {
-		return session.update(namespace+"updateMember", mDto);
+		int result = session.update(namespace+"updateMember", mDto); 
+		return result;
 	}
 
 	@Override

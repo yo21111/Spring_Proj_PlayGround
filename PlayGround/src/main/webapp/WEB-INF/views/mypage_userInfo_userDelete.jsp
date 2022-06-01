@@ -24,7 +24,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="${urlInfo}script/script.js"></script>
-<script src="${urlInfo}mypage_userinfo.js"></script>
+<script src="${urlInfo}script/mypage_userinfo.js"></script>
 
 </head>
 
@@ -117,8 +117,6 @@
 					</div>
 					<ul class="pw_wrap">
 						<li class="title">회원탈퇴</li>
-						<li><input type="password"
-							placeholder="본인 확인을 위하여 비밀번호를 입력해주세요."></li>
 					</ul>
 					<div class="check_wrap">
 						<label for="ok" class="ok">안내사항을 확인했으며 이에 동의합니다.</label>
@@ -141,7 +139,7 @@
 								</p>
 								<div class="btn_2">
 									<a href="" id="back" class="close">돌아가기</a> <button type="button" id="deleteUser">탈퇴하기</button>
-
+									<form id="deleteFrm" action="/mypage/userdelete" method="post"></form>
 								</div>
 							</div>
 						</div>

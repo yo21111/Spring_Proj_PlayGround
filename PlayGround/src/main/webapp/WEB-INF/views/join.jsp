@@ -211,14 +211,15 @@
 									<li class="email"><input type="hidden" name="email"
 										id="emailInput"> <input type="text" class="id"
 										id="email1" placeholder="이메일"> <span>@</span> <input
-										type="text" class="address" id="email2"> <select
-										name="" id="emailDomain">
+										type="text" class="address" id="email2"> 
+										<select name="" id="emailDomain">
 											<option value="">직접입력</option>
 											<option value="naver.com">naver.com</option>
 											<option value="nate.com">nate.com</option>
 											<option value="google.com">google.com</option>
 											<option value="daum.net">daum.net</option>
-									</select></li>
+										</select>
+									</li>
 								</ul>
 							</div>
 

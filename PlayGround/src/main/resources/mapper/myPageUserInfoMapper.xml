@@ -17,19 +17,20 @@
 
 	<update id="updateMember" parameterType="MemberDto">
 		update member set
-		<if test="pw != null">
+			grade = "M",
+		<if test="pw != ''">
 			pw = #{pw},
 		</if>
-		<if test="email != null">
+		<if test='email != "@"'>
 			email = #{email},
 		</if>
-		<if test="name != null">
+		<if test="name != ''">
 			name = #{name},
 		</if>
-		<if test="birth != null">
+		<if test='birth != "--"'>
 			birth = #{birth},
 		</if>
-		<if test="phone != null">
+		<if test="phone != ''">
 			phone = #{phone}
 		</if>
 		where id = #{id}

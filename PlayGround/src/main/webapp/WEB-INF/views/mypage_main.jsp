@@ -106,7 +106,7 @@
 							<h2>
 								${name}님의<br>마이페이지 입니다.
 							</h2>
-							<a class="button" href="mypage5.html">개인정보수정</a>
+							<a class="button" href="/mypage/userpwchk">개인정보수정</a>
 						</article>
 						<article class="right_menu">
 							<div class="r_cop">
@@ -166,7 +166,7 @@
 									</div>
 								</c:when>
 								<c:otherwise>
-									<c:forEach var="ReviewDto" items="${reviewList}">
+									<c:forEach begin="0" end="10" var="ReviewDto" items="${reviewList}">
 										<div>
 											<p>${ReviewDto.writeDate}</p>
 											<p>${ReviewDto.title}</p>
