@@ -104,12 +104,10 @@ $(function(){
 		end2.value = lastDay;
 	});
 	
-	$(".search_button").click(function(){
+	$("#searchBtn1").click(function(){
 		
 		var date1 = $("#start").val();
 		var date2 = $("#end").val();
-		var date3 = $("#start2").val();
-		var date4 = $("#end2").val();
 		
 		if(date1 != "" && date2 != "") {
 			var startDate = date1.split('-');
@@ -123,10 +121,17 @@ $(function(){
 				
 				return;
 			}
-			
-			$(".search_button>button").submit();
+		
+			$("#searchBtn1").submit();				
 			
 		}
+		
+	});
+		
+	$("#searchBtn2").click(function(){
+		
+		var date3 = $("#start2").val();
+		var date4 = $("#end2").val();
 		
 		if(date3 != "" && date4 != "") {
 			var startDate = date3.split('-');
@@ -141,7 +146,8 @@ $(function(){
 				return;
 			}
 			
-			$(".search_button>button").submit();
+			$("#searchBtn2").submit();				
+			
 		}
 		
 	});

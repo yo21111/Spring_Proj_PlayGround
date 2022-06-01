@@ -116,7 +116,7 @@
 	                    <input type="date" id="end" name="tripend" value="" min="2017-01-01" max="2022-12-31">
 	                  </div>
 	                  <div class="search_button">
-	                    <button type="button">검색</button>
+	                    <button id="searchBtn1" type="button">검색</button>
 	                  </div>
 	                </div>
                 </form>
@@ -219,19 +219,22 @@
                     <li class="6M"><a href="/mypage/myreview?page=1&term=6M">6개월</a></li>
                   </ul>
                 </div>
-                <div class="review_date">
-                  <div class="start_date">
-                    <input type="date" id="start2" name="trip-start" value="" min="2017-01-01"
-                      max="2022-12-31">
-                  </div>
-                  <span> ~ </span>
-                  <div class="end_date">
-                    <input type="date" id="end2" name="trip-end" value="" min="2017-01-01" max="2022-12-31">
-                  </div>
-                  <div class="search_button">
-                    <button>검색</button>
-                  </div>
-                </div>
+                <form action="/mypage/search" name="search2" method="get">
+	                <div class="review_date">
+	                  <div class="start_date">
+	                    <input type="date" id="start2" name="tripstart" value="" min="2017-01-01"
+	                      max="2022-12-31">
+	                    <input type="hidden" name=page value="1">
+	                  </div>
+	                  <span> ~ </span>
+	                  <div class="end_date">
+	                    <input type="date" id="end2" name="tripend" value="" min="2017-01-01" max="2022-12-31">
+	                  </div>
+	                  <div class="search_button">
+	                    <button id="searchBtn2" type="button">검색</button>
+	                  </div>
+	                </div>
+                </form>
               </div>
               <div class="review_list">
                 최근 <span>${viewDate}</span>의 작성 리뷰 입니다.
