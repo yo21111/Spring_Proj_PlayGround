@@ -35,7 +35,7 @@
 			<div class="center">
 				<!-- <div class="header_fix"> -->
 				<!-- <div class="logo"> -->
-				<a href="#" class="logo"> <span>PLAY</span> <span>GROUND</span>
+				<a href="/" class="logo"> <span>PLAY</span> <span>GROUND</span>
 				</a>
 				<!-- <a href="#"><img src="image/logo.png" alt="logo"></a> -->
 				<!-- </div> -->
@@ -43,9 +43,12 @@
 					<ul class="main_menu">
 						<li class="main_list"><a href="#">PLAY GROUND</a>
 							<ul class="sub_menu">
-								<li class="sub_list"><a href="#">현재 전시</a></li>
-								<li class="sub_list"><a href="#">지난 전시</a></li>
-								<li class="sub_list"><a href="#">예정 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=N">현재
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=B">지난
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=A">예정
+										전시</a></li>
 							</ul></li>
 						<li class="main_list"><a href="#">STORE</a> <!-- <ul class="sub_menu">
                 <li class="sub_list"><a href="#"></a></li>
@@ -62,8 +65,8 @@
 					<ul>
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="#" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="#"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;"><li>회원가입</li></a>
+								<a href="/Login/Login"><li>LOGIN</li></a>
 							</c:when>
 							<c:otherwise>
 								<a href="#" style="margin-right: 20px;"><li>LOGOUT</li></a>
@@ -87,15 +90,33 @@
 		<article class="exhibition">
 			<!-- 탭 -->
 			<div class="center">
-				<ul class="tab_bar">
-					<li class="tab_menu on">오늘의 전시</li>
-					<li class="tab_menu">지난 전시</li>
-					<li class="tab_menu">예정 전시</li>
-				</ul>
+				<c:choose>
+					<c:when test="${param.exState eq 'N' }">
+						<ul class="tab_bar">
+							<li class="tab_menu on">오늘의 전시</li>
+							<li class="tab_menu">지난 전시</li>
+							<li class="tab_menu">예정 전시</li>
+						</ul>
+					</c:when>
+					<c:when test="${param.exState eq 'B' }">
+						<ul class="tab_bar">
+							<li class="tab_menu">오늘의 전시</li>
+							<li class="tab_menu on">지난 전시</li>
+							<li class="tab_menu">예정 전시</li>
+						</ul>
+					</c:when>
+					<c:when test="${param.exState eq 'A' }">
+						<ul class="tab_bar">
+							<li class="tab_menu">오늘의 전시</li>
+							<li class="tab_menu">지난 전시</li>
+							<li class="tab_menu on">예정 전시</li>
+						</ul>
+					</c:when>
+				</c:choose>
 			</div>
 			<!-- // 탭 -->
 			<!-- 오늘의 전시 -->
-			<section class="tab_con view">
+			<section class="tab_con ${view_N}">
 				<div class="today center">
 
 					<c:choose>
@@ -162,7 +183,7 @@
 
 			</section>
 			<!-- 지난 전시 1page-->
-			<section class="tab_con">
+			<section class="tab_con ${view_B}">
 				<div class="past center">
 					<ul class="con_box">
 						<c:choose>
@@ -187,16 +208,15 @@
 											</div>
 									</a>
 										<div class="info_box">
-											<a href="#"> <span class="title">${artDto_B.exName}</span>
+											<span class="title">${artDto_B.exName}</span>
 												<span class="priod">${artTimeList_B[status.index].exDate1}
 													~ ${artTimeList_B[status.index].exDate2}</span>
-											</a>
 										</div></li>
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
 					</ul>
-					<div class="pagenation">
+					<!-- <div class="pagenation">
 						<ul>
 							<li><a href="#"><i class="fa fa-angle-double-left"></i></a>
 							</li>
@@ -208,12 +228,12 @@
 							<li><a href="exhibition_2_1.html"><i
 									class="fa fa-angle-double-right"></i></a></li>
 						</ul>
-					</div>
+					</div> -->
 				</div>
 			</section>
 
 
-			<section class="tab_con">
+			<section class="tab_con ${view_A}">
 				<div class="will center">
 					<div class="txt_box">
 						<c:choose>

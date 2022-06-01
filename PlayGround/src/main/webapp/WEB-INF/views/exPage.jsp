@@ -42,7 +42,7 @@
 	position: absolute;
 	z-index: 1;
 	display: flex;
-	top: -13px;
+	top: 0;
 	left: 0;
 	overflow: hidden;
 	-webkit-text-fill-color: gold;
@@ -79,6 +79,7 @@
 <script
 	src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
 <script src="${urlInfo}script/script.js"></script>
+<script src="${urlInfo}script/exPage.js"></script>
 </head>
 
 <body>
@@ -95,9 +96,12 @@
 					<ul class="main_menu">
 						<li class="main_list"><a href="/">PLAY GROUND</a>
 							<ul class="sub_menu">
-								<li class="sub_list"><a href="#">현재 전시</a></li>
-								<li class="sub_list"><a href="#">지난 전시</a></li>
-								<li class="sub_list"><a href="#">예정 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=N">현재
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=B">지난
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=A">예정
+										전시</a></li>
 							</ul></li>
 						<li class="main_list"><a href="#">STORE</a></li>
 						<li class="main_list"><a href="#">BOARD</a>
@@ -112,8 +116,8 @@
 					<ul>
 							<c:choose>
 								<c:when test="${loginId eq null}">
-									<a href="#" style="margin-right:20px;"><li>회원가입</li></a>
-									<a href="#"><li>LOGIN</li></a>
+									<a href="/Join/page" style="margin-right:20px;"><li>회원가입</li></a>
+									<a href="/Login/Login"><li>LOGIN</li></a>
 								</c:when>
 								<c:otherwise>
 									<a href="#" style="margin-right:20px;"><li>LOGOUT</li></a>
@@ -137,6 +141,8 @@
 						<div class="good_button">
 							<!-- 평점이랑 찜하기 아이콘으로 변경할에정 -->
 							<div class="heart">
+								<input type="hidden" id="loginInfo" value="${loginId}">
+								<input type="hidden" id="exNo" value="${artDto.exNo}">
 								<a href="#"><img src="${urlInfo}image/heart.png" alt="heart01"></a>
 							</div>
 							<div class="star">
@@ -190,7 +196,7 @@
 							</table>
 						</div>
 						<div class="advance_button">
-							<a href="#">예매 하기</a>
+							<a href="/reserve/select?no=${artDto.exNo}">예매 하기</a>
 						</div>
 					</div>
 				</div>
@@ -467,8 +473,8 @@
 													<div class="col-2 text-center">${reviewDto.id_FK}</div>
 													<div class="col-2 text-center">${reviewDto.writeDate}</div>
 													<div class="col-2 text-center">
-														<div class="star-ratings">
-															<div class="star-ratings-fill space-x-2 text-lg">
+														<div class="star-ratings  align-items-center">
+															<div class=" align-items-center star-ratings-fill space-x-2 text-lg">
 																<c:forEach begin="1" end="${reviewDto.score}">
 																	<span>★</span>
 																</c:forEach>
@@ -476,9 +482,6 @@
 														</div>
 													</div>
 													<div class="col-1">
-														<a class="btn btn-outline-success"
-															href="/report/page?exNo=${reviewDto.exNo_FK}"
-															role="button">신고</a>
 													</div>
 												</button>
 												<div id="flush-collapse${reviewDto.no}"
@@ -486,6 +489,8 @@
 													aria-labelledby="flush-heading${reviewDto.no}"
 													data-bs-parent="#accordionFlushExample">
 													<div class="accordion-body">${reviewDto.content}</div>
+													<a style="display:block" class="btn btn-outline-success"
+													href="/report/page?exNo=${reviewDto.exNo_FK}" role="button">신고</a>
 												</div>
 												<hr class="text-success border-3 opacity-99">
 											</div>

@@ -1,6 +1,8 @@
 package com.playground.pg.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +37,29 @@ public class ListReviewDaoImpl implements ListReviewDao {
 	public int viewAveScore(int no) throws Exception {
 		return session.selectOne(namespace + "viewAveScore", no);
 	}
-
+	
+	// 위시 리스트 확인
+	@Override
+	public int isWish(String id, int exNo) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		map.put("id_FK", id);
+		map.put("exNo_FK", exNo);
+		return session.selectOne(namespace+"isWish", map);
+	}
+	
+	@Override
+	public int insertWish(String id, int exNo) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		map.put("id_FK", id);
+		map.put("exNo_FK", exNo);
+		return session.insert(namespace+"insertWish", map);
+	}
+	
+	@Override
+	public int deleteWish(String id, int exNo) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		map.put("id_FK", id);
+		map.put("exNo_FK", exNo);
+		return session.delete(namespace+"deleteWish", map);
+	}
 }

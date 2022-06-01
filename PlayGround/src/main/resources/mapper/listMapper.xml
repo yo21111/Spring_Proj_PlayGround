@@ -19,4 +19,16 @@
 		select sum(score) from review where exNo_FK = #{no}
 	</select>
 	
+	<select id="isWish" parameterType="map" resultType="int">
+		select count(*) from wishList where id_FK = #{id_FK} and exNo_FK = #{exNo_FK}
+	</select>
+	
+	<insert id="insertWish" parameterType="map">
+		insert into wishList
+		values(#{id_FK}, #{exNo_FK})
+	</insert>
+	
+	<delete id="deleteWish" parameterType="map">
+		delete from wishList where id_FK = #{id_FK} and exNo_FK = #{exNo_FK}
+	</delete>
 </mapper>

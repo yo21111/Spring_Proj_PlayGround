@@ -1,6 +1,8 @@
 package com.playground.pg.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
@@ -19,4 +21,10 @@ public interface ListReviewDao {
 	// 전체 평균 평점 보여주기
 	public int viewAveScore(int no) throws Exception;
 	
+	// 위시 리스트 확인
+	public int isWish(String id, int exNo) throws Exception;
+	
+	public int insertWish(String id, int exNo) throws Exception;
+	
+	public int deleteWish(String id, int exNo) throws Exception;
 }

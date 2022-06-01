@@ -49,7 +49,17 @@ public class ListService {
 	// 3. exState(전시상태) 기준으로 리스트(artDto, artTimeDto) 가져오기
 	public Map<String, Object> showState(String exState){
 		return null;
-		
+	}
+	
+	// 위시리스트에 있는지 확인
+	public int isWishList(String id, int exNo) throws Exception {
+		int res = listDao.isWish(id, exNo);
+		if(res == 0) {
+			listDao.insertWish(id, exNo);
+		} else {
+			listDao.deleteWish(id, exNo);
+		}
+		return res;
 	}
 }
 

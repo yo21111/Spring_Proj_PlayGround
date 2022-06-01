@@ -41,9 +41,12 @@
 					<ul class="main_menu">
 						<li class="main_list"><a href="#">PLAY GROUND</a>
 							<ul class="sub_menu">
-								<li class="sub_list"><a href="#">현재 전시</a></li>
-								<li class="sub_list"><a href="#">지난 전시</a></li>
-								<li class="sub_list"><a href="#">예정 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=N">현재
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=B">지난
+										전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=A">예정
+										전시</a></li>
 							</ul></li>
 						<li class="main_list"><a href="#">STORE</a> <!-- <ul class="sub_menu">
                 <li class="sub_list"><a href="#"></a></li>
