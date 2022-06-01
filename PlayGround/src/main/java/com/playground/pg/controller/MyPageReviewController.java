@@ -63,7 +63,7 @@ public class MyPageReviewController {
 		
 		// 작성기간은 reDate의 한달 뒤로 자바스크립트로 계산할 것
 		
-		return "나의리뷰페이지";
+		return "mypage_review";
 	}
 	
 	// 날짜를 검색할 경우
