@@ -1,6 +1,6 @@
 package com.playground.pg.dao;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,6 +89,17 @@ public class MyReserveDaoImpl implements MyReserveDao {
 	public int updateCoupon(int no) throws Exception {
 		return session.update(namespace + "updateCoupon", no);
 	}
+
+	@Override
+	public List<ReserveDto> getMainList(String uId, Date date11, Date date21) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id_FK", uId);
+		map.put("date11", date11);
+		map.put("date21", date21);
+		
+		return session.selectList(namespace + "getMainList", map);
+	}
+	
 	
 	
 

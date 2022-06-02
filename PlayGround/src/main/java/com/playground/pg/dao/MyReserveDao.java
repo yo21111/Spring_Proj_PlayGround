@@ -1,6 +1,6 @@
 package com.playground.pg.dao;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import com.playground.pg.domain.ArtDto;
@@ -42,6 +42,9 @@ public interface MyReserveDao {
 
 	// 쿠폰 환불하기
 	public int updateCoupon(int coupon) throws Exception;
+
+	// 검색기간 없을때
+	public List<ReserveDto> getMainList(String uId, Date date11, Date date21) throws Exception;
 
 	
 }

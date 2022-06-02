@@ -65,4 +65,11 @@
 		where no = #{no}
 	</update>
 	
+	<select id="getMainList" resultType="ReserveDto" parameterType="map">
+		Select * from reserve
+		where id_FK = #{id_FK} and 
+		reDate between #{date11} and #{date21}   
+		ORDER BY reDate
+	</select>
+	
 </mapper>

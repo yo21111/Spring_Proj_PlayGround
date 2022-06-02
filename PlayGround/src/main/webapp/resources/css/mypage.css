@@ -361,9 +361,8 @@ header .gnb li.main_list a {
   border-radius: 5px;
 }
 
-
 .normal_button.con2 {
-  padding: 20px;
+	padding: 20px;
 }
 
 button {
@@ -387,6 +386,14 @@ button {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-top: 15px;
+}
+
+.con2 img {
+	width: 100px;
+}
+
+.con2>a {
+	border: 1px solid #000;
 }
 
 .con2_button {

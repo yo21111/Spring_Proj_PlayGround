@@ -1,7 +1,8 @@
 package com.playground.pg.service;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 import com.playground.pg.dao.MyReserveDao;
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
-import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 @Service
@@ -20,7 +20,25 @@ public class MyReserveServiceImpl implements MyReserveService {
 	
 	@Override
 	public List<ReserveDto> getResList(String uId, String date1, String date2) throws Exception {
+		if (date1 == null || date2 == null) {
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(new Date());
+			
+			cal.add(Calendar.DATE, -7);
+			
+			Date date11 = cal.getTime();
+			Date date21 = new Date();
+			
+			List<ReserveDto> list = mypageDao.getMainList(uId, date11, date21);
+			
+			return list;
+		}
+		
+		
 		List<ReserveDto> list = mypageDao.getResList(uId, date1, date2);
+		
+		
 		return list;
 	}
 
@@ -32,12 +50,29 @@ public class MyReserveServiceImpl implements MyReserveService {
 
 	@Override
 	public List<ArtDto> getArtList(String uId, String date1, String date2) throws Exception {
-		List<ReserveDto> resList = mypageDao.getResList(uId, date1, date2);
+		
+		List<ReserveDto> resList = new ArrayList<>();
+		if (date1 == null || date2 == null) {
+			
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(new Date());
+			
+			cal.add(Calendar.DATE, -7);
+			
+			Date date11 = cal.getTime();
+			Date date21 = new Date();
+			
+			resList = mypageDao.getMainList(uId, date11, date21);
+			
+		} else {			
+			resList = mypageDao.getResList(uId, date1, date2);
+		}
 		List<ArtDto> artList = new ArrayList<ArtDto>();
-		for (int i = 0; i < artList.size(); i++) {
+		for (int i = 0; i < resList.size(); i++) {
 			ReserveDto reserveDto = resList.get(i);
 			int exNo = reserveDto.getExNo_FK();
 			artList.add(mypageDao.getArtList(exNo));
+			System.out.println(exNo);
 		}
 		return artList;
 	}
