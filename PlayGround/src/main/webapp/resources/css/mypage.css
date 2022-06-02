@@ -80,6 +80,16 @@ header .gnb li.main_list a {
 
 /* 마이페이지 시작 */
 
+#recentRev {
+	cursor: pointer;
+}
+
+.myRevView:hover {
+	cursor: pointer;
+	color: #3D725E;
+	
+}
+
 .containts {
     max-width: 1400px;
     margin: 0 auto;
@@ -294,6 +304,11 @@ header .gnb li.main_list a {
 
 .view.tic {
   border: 1px solid #707070;
+}
+.tic img {
+	border: 1px solid #000;
+	width: 200px;
+	height: 100%;
 }
 
 .view_in {

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="loginId" value="${sessionScope.uId_Session}" />
 <c:set var="urlInfo" value="/resources/" />
 <!DOCTYPE html>
@@ -24,6 +25,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="${urlInfo}script/script.js"></script>
+<script src="${urlInfo}script/mypage_main.js"></script>
 
 </head>
 
@@ -86,11 +88,11 @@
 			<div class="center myp">
 				<div class="menu_bar">
 					<ul class="main_meun">
-						<a href="MY PAGE">MY PAGE</a>
+						<a href="/mypage/myPageHome">MY PAGE</a>
 					</ul>
 					<ul class="main_list myt">
-						<a class="main_title" href="mypage2.html">MY TICKETS</a>
-						<li class="sub_list"><a href="mypage2.html">티켓예매목록</a></li>
+						<a class="main_title" href="/mypage/reList">MY TICKETS</a>
+						<li class="sub_list"><a href="/mypage/reList">티켓예매목록</a></li>
 					</ul>
 					<ul class="main_list">
 						<a class="main_title" href="">MY INFO</a>
@@ -121,7 +123,7 @@
 					</section>
 					<section class="myp_view">
 						<article class="article1">
-							<a class="article1_next" href="#"> <strong>최근 예매 내역</strong>
+							<a class="article1_next" id="recentRev"> <strong>최근 예매 내역</strong>
 							</a>
 							<p class="line">${name}님의지난3개월간의티켓예매내역입니다.</p>
 							<c:choose>
@@ -134,13 +136,14 @@
 									<!-- 반복 구역 시작 -->
 									<c:forEach var="ReserveDto" items="${reserveList}" varStatus="status">
 										<h2 class="t_sub">
-											예매완료<span>${ReserveDto.reDate}***</span>
+											<fmt:formatDate var="reNo" value="${ReserveDto.reDate }" pattern="yyyyMM"/>
+											예매완료<span>${reNo}****</span>
 										</h2>
 										<div class="view tic">
-											<a href="mypage2.html"><img
+											<a href="/mypage/reList_Detail?reserveNo=${ReserveDto.no}"><img
 												src="${urlInfo}image/${artList[status.index].thumbImg}" alt="view"></a>
 											<div class="view_in">
-												<a class="view_in_title" href="mypage2.html">${artList[status.index].exName}</a>
+												<a class="view_in_title" href="/mypage/reList_Detail?reserveNo=${ReserveDto.no}">${artList[status.index].exName}</a>
 												<p>PlayGround - ${artList[status.index].location}</p>
 												<p>
 													${ReserveDto.reDate}<span>${ReserveDto.adCnt + ReserveDto.chCnt}매</span>
@@ -167,10 +170,11 @@
 								</c:when>
 								<c:otherwise>
 									<c:forEach begin="0" end="10" var="ReviewDto" items="${reviewList}">
-										<div>
+										<div class="myRevView">
 											<p>${ReviewDto.writeDate}</p>
 											<p>${ReviewDto.title}</p>
-											<hr>
+											<hr>						
+											<input type="hidden" value="${ReviewDto.exNo_FK }" />					
 										</div>
 									</c:forEach>
 								</c:otherwise>
