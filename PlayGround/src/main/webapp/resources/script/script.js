@@ -56,7 +56,7 @@ $("#month  > option[value="+mon+"]").attr("selected", "true");
 $("#day  > option[value="+day+"]").attr("selected", "true");    
 // 팝업
 $(".open").click(function(){
-	$(".popup_background").show();
+	$(this).parent().parent().parent().parent().parent().parent().next().children().show();
 });
 $(".close").click(function(){
 	$(".popup_background").hide();

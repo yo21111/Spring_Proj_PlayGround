@@ -15,6 +15,7 @@ public class ReviewDto {
 	private int score;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date writeDate;
+	private String reDate_FK;
 	
 	
 	public int getNo() {
@@ -64,6 +65,12 @@ public class ReviewDto {
 	}
 	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
+	}
+	public String getReDate_FK() {
+		return reDate_FK;
+	}
+	public void setReDate_FK(String reDate_FK) {
+		this.reDate_FK = reDate_FK;
 	}
 	
 	@Override

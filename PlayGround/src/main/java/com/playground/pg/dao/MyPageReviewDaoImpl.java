@@ -31,10 +31,11 @@ public class MyPageReviewDaoImpl implements MyPageReviewDao {
 	}
 
 	@Override
-	public int isWriteReview(String id_FK, int exNo_FK) throws Exception {
+	public int isWriteReview(String id_FK, int exNo_FK, Date reDate) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		map.put("id_FK", id_FK);
 		map.put("exNo_FK", exNo_FK);
+		map.put("reDate_FK", reDate);
 
 		return session.selectOne(namespace+"isWriteReview", map);
 	}
@@ -50,16 +51,6 @@ public class MyPageReviewDaoImpl implements MyPageReviewDao {
 		map.put("id_FK", id_FK);
 		map.put("exNo_FK", exNo_FK);
 		return session.selectOne(namespace+"selectReviewNo", map);
-	}
-	
-	@Override
-	public List<ReserveDto> getSearchList(String id, String tripstart, String tripend) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("id_FK", id);
-		map.put("tripstart", tripstart);
-		map.put("tripend", tripend);
-		
-		return session.selectList(namespace + "searchList", map);
 	}
 	
 	@Override

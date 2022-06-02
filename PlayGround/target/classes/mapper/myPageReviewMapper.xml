@@ -11,27 +11,21 @@
 	
 	<select id="isWriteReview" parameterType="map" resultType="int">
 		select count(*) from review
-		where id_FK = #{id_FK} and exNo_FK = #{exNo_FK}
+		where id_FK = #{id_FK} and exNo_FK = #{exNo_FK} and reDate_FK = #{reDate_FK}
 	</select>
 	
 	<insert id="insertReview" parameterType="ReviewDto">
 		insert into review
-		(title, content, id_FK, exNo_FK, score, writeDate)
+		(title, content, id_FK, exNo_FK, score, writeDate, reDate_FK)
 		values
 		(#{title}, #{content}, #{id_FK}, #{exNo_FK}, 
-		#{score}, now())
+		#{score}, now(), #{reDate_FK})
 	</insert>
 	
 	<select id="selectReviewNo" parameterType="map" resultType="int">
 		select no from review
 		where id_FK = #{id_FK}
 		and exNo_FK = #{exNo_FK}
-	</select>
-	
-	<select id="searchList" parameterType="map" resultType="ReserveDto">
-		select * from reserve where id_FK = #{id_FK}
-		and reDate between #{tripstart} and #{tripend}
-		order by reDate DESC
 	</select>
 	
 	<select id="searchArt" parameterType="int" resultType="ArtDto">

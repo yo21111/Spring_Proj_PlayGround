@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
 import com.playground.pg.dao.MyPageReviewDao;
@@ -40,11 +41,13 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
         	cal.add(Calendar.MONTH, -termNum);
         }
 
+       
         Date term1 = cal.getTime();
         Date term2 = new Date();
 
         List<ReserveDto> allList = mprDao.getReserveList(uId, term1, term2);
-		
+        System.out.println(allList.size());
+        
 		List<ReserveDto> writeReviewList = new ArrayList<>();
 		List<ReserveDto> notWriteReviewList = new ArrayList<>();
 		List<ArtDto> writeArtList = new ArrayList<>();
@@ -55,13 +58,13 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 			int exNo = reDto.getExNo_FK();
 			
 			ArtDto artDto = mprDao.seachrArt(exNo);		
-			int result = mprDao.isWriteReview(uId, reDto.getExNo_FK());
+			int result = mprDao.isWriteReview(uId, reDto.getExNo_FK(), reDto.getReDate());
 			if (result == 0) {
 				notWriteReviewList.add(allList.get(i));
-				notWriteArtList.add(artDto);
+				notWriteArtList.add(mprDao.seachrArt(exNo));
 			} else {
 				writeReviewList.add(allList.get(i));
-				writeArtList.add(artDto);
+				writeArtList.add(mprDao.seachrArt(exNo));
 			}
 		}
 		
@@ -80,8 +83,11 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 
 	@Override
 	public int writeReview(String id, ReviewDto rDto) throws Exception {
-		String title = rDto.getContent().substring(0, 10) + "...";
-		rDto.setTitle(title);
+		int titleLen = rDto.getTitle().length();
+		if(titleLen > 10) {
+			String title = rDto.getTitle().substring(0, 10) + "...";
+			rDto.setTitle(title);			
+		}
 		rDto.setId_FK(id);
 		return mprDao.insertReview(rDto);
 	}
@@ -89,48 +95,6 @@ public class MyPageReviewServiceImpl implements MyPageReviewService {
 	@Override
 	public int selectReviewNo(String id_FK, int exNo_FK) {
 		return mprDao.selectReviewNo(id_FK, exNo_FK);
-	}
-	
-	@Override
-	public Map<String, Object> searchList(String id, String tripstart, String tripend) throws Exception {
-		Map<String, Object> map = new HashMap<>();
-		
-		tripstart = tripstart.replaceAll("[^0-9]", "");
-		tripend = tripend.replaceAll("[^0-9]", "");
-		List<ReserveDto> searchList = mprDao.getSearchList(id, tripstart, tripend);
-		
-		List<ReserveDto> writeReviewList = new ArrayList<>();
-		List<ReserveDto> notWriteReviewList = new ArrayList<>();
-		List<ArtDto> writeArtList = new ArrayList<>();
-		List<ArtDto> notWriteArtList = new ArrayList<>();
-		
-		
-		for (int i = 0; i < searchList.size(); i++) {
-			ReserveDto reDto = searchList.get(i);
-			int exNo = reDto.getExNo_FK();
-			
-			ArtDto artDto = mprDao.seachrArt(exNo);
-			int result = mprDao.isWriteReview(id, reDto.getExNo_FK());
-			if (result == 0) {
-				notWriteReviewList.add(searchList.get(i));
-				notWriteArtList.add(artDto);
-			} else {
-				writeReviewList.add(searchList.get(i));
-				writeArtList.add(artDto);
-			}
-		}
-		
-		int wReviewCnt = writeReviewList.size();
-		int nwReviewCnt = notWriteReviewList.size();
-		
-		map.put("writeReviewList", writeReviewList);
-		map.put("notWriteReviewList", notWriteReviewList);
-		map.put("writeReviewCnt", wReviewCnt);
-		map.put("notWriteReviewCnt", nwReviewCnt);
-		map.put("writeArtList", writeArtList);
-		map.put("notWriteArtList", notWriteArtList);
-		
-		return map;
 	}
 
 	@Override

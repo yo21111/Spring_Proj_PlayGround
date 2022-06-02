@@ -394,6 +394,17 @@ border-radius: 5px;
   font-size: 18px;
   margin-right: 5px;
 }
+.revTitle{
+	border: 1px solid #000;
+	width: 100%;
+	font-size: 15px;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.revTitle::placeholder {
+	color: #ccc;
+	font-size: 12px;
+}
 .popup_background  .evaluate #review_letter{
   width: 100%;
 }

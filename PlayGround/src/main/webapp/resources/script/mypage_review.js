@@ -1,15 +1,5 @@
 $(function(){
 	
-	
-	$(document).ready(function(){
-		
-		var paydate = $(".payDate").val();
-		var deadline = new Date(paydate.setMonth(paydate.getMonth() + 1)); 
-		deadline = deadline.toISOString().slice(0,10);
-		
-		
-	});
-	
 	$(".1W").click(function(){
 		// 7일뒤 날짜 계산
 		var last = new Date();
@@ -86,53 +76,93 @@ $(function(){
 		end2.value = lastDay;
 	});
 	
-/*	$("#searchBtn1").click(function(){
-		
-		var date1 = $("#start").val();
-		var date2 = $("#end").val();
-		
-		if(date1 != "" && date2 != "") {
-			var startDate = date1.split('-');
-			var endDate = date2.split('-');
-			
-			var startComp = new Date(startDate[0], parseInt(startDate[1])-1, startDate[2]);
-			var endComp = new Date(endDate[0], parseInt(endDate[1])-1, endDate[2]);
-			
-			if(startComp.getTime() > endComp.getTime()) {
-				alert("시작날짜와 종료날짜를 확인해 주세요.");
+	$(".score1").click(function(){
+		$(".score").val(1);
+		$(".score1").attr("src", "/resources/image/full.png");
+		$(".score2").attr("src", "/resources/image/empty.png");
+		$(".score3").attr("src", "/resources/image/empty.png");
+		$(".score4").attr("src", "/resources/image/empty.png");
+		$(".score5").attr("src", "/resources/image/empty.png");
+	});
+	
+	$(".score2").click(function(){
+		$(".score").val(2);
+		$(".score1").attr("src", "/resources/image/full.png");
+		$(".score2").attr("src", "/resources/image/full.png");
+		$(".score3").attr("src", "/resources/image/empty.png");
+		$(".score4").attr("src", "/resources/image/empty.png");
+		$(".score5").attr("src", "/resources/image/empty.png");
+	});
+	
+	$(".score3").click(function(){
+		$(".score").val(3);
+		$(".score1").attr("src", "/resources/image/full.png");
+		$(".score2").attr("src", "/resources/image/full.png");
+		$(".score3").attr("src", "/resources/image/full.png");
+		$(".score4").attr("src", "/resources/image/empty.png");
+		$(".score5").attr("src", "/resources/image/empty.png");
+	});
+	
+	$(".score4").click(function(){
+		$(".score").val(4);
+		$(".score1").attr("src", "/resources/image/full.png");
+		$(".score2").attr("src", "/resources/image/full.png");
+		$(".score3").attr("src", "/resources/image/full.png");
+		$(".score4").attr("src", "/resources/image/full.png");
+		$(".score5").attr("src", "/resources/image/empty.png");
+	});
+	
+	$(".score5").click(function(){
+		$(".score").val(5);
+		$(".score1").attr("src", "/resources/image/full.png");
+		$(".score2").attr("src", "/resources/image/full.png");
+		$(".score3").attr("src", "/resources/image/full.png");
+		$(".score4").attr("src", "/resources/image/full.png");
+		$(".score5").attr("src", "/resources/image/full.png");
+	});
+	
+	$(".revIns").click(function(){
 				
-				return;
-			}
-		
-			$("#searchBtn1").submit();				
-			
+		var src = $(".score1").attr("src");
+		var empty = "/resources/image/empty.png";
+		if(src == empty) {
+			alert("평점을 선택해주세요");
+			return;
 		}
+		
+		var title = $(this).parent().parent().prev().children().next().next().children().eq(1).val();
+		if(title.trim() == "" ) {
+			alert("제목을 입력해주세요");
+			$(".revTitle").focus();
+			return;
+		}
+		$(".insTitle").val(title);
+		
+		var content = $(this).parent().parent().prev().children().next().next().children().eq(2).val();
+		if(content.trim() == "") {
+			alert("내용을 입력해주세요");
+			$("#review_letter").focus();
+			return;
+		}
+		$(".insContent").val(content);
+		
+		var reDate = $(this).parent().parent().prev().children().children().next().children().val();
+		$(".reDate").val(reDate);
+		
+		var exNo = $(this).parent().parent().prev().children().next().next().children().eq(5).val();
+		$(".exNo").val(exNo);
+	
+		
+		$(".review").submit();
 		
 	});
-		
-	$("#searchBtn2").click(function(){
-		
-		var date3 = $("#start2").val();
-		var date4 = $("#end2").val();
-		
-		if(date3 != "" && date4 != "") {
-			var startDate = date3.split('-');
-			var endDate = date4.split('-');
-			
-			var startComp = new Date(startDate[0], parseInt(startDate[1])-1, startDate[2]);
-			var endComp = new Date(endDate[0], parseInt(endDate[1])-1, endDate[2]);
-			
-			if(startComp.getTime() > endComp.getTime()) {
-				alert("시작날짜와 종료날짜를 확인해 주세요.");
-				
-				return;
-			}
-			
-			$("#searchBtn2").submit();				
-			
-		}
-		
-	});*/
 	
+	$(".viewBtn").click(function(){
+		var exNo = $(this).next().val();
+		alert(exNo);
+		location.href = "/exhibit/listView?exNo=" + exNo;
+	});
+	
+
 	
 });
