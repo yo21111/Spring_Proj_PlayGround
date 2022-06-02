@@ -10,4 +10,17 @@
 	<select id="selectCouponList" parameterType="string" resultType="CouponDto">
 		select * from coupon where id_FK = #{id} order by couDate1 DESC
 	</select>
+	
+	<select id="selectPoCouponList" parameterType="string" resultType="CouponDto">
+		select * from coupon 
+		where id_FK = #{id} and state = 'U' 
+		order by couDate1 DESC
+	</select>
+	
+	<select id="selectImpoCouponList" parameterType="string" resultType="CouponDto">
+		select * from coupon 
+		where id_FK = #{id} and state = 'N' 
+		order by couDate1 DESC
+	</select>	
+	
 </mapper>

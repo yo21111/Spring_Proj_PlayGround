@@ -118,7 +118,7 @@
               </div>
 			  <c:choose>
 	           <c:when test="${notWriteReviewList.size() eq 0}">
-	               <p>해당 기간내에 작성가능한 리뷰가 없습니다.</p>
+	               <p class="introMent">해당 기간내에 작성가능한 리뷰가 없습니다.</p>
 	           </c:when>
 	           <c:otherwise>
 	                <p class="introText">최근 <span>${viewDate}</span>의 작성 가능한 리뷰 입니다.</p>
@@ -262,7 +262,7 @@
               <div class="review_list">
              	<c:choose>
 	               <c:when test="${writeReviewList.size() eq 0}">
-                			<p>해당 기간내에 작성한 리뷰가 없습니다.</p>
+                			<p class="introMent">해당 기간내에 작성한 리뷰가 없습니다.</p>
                    </c:when>
                    <c:otherwise>
             	      <div class="list_table">

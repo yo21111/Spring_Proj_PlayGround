@@ -159,7 +159,6 @@ $(function(){
 	
 	$(".viewBtn").click(function(){
 		var exNo = $(this).next().val();
-		alert(exNo);
 		location.href = "/exhibit/listView?exNo=" + exNo;
 	});
 	

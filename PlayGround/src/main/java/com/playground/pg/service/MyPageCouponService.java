@@ -13,4 +13,10 @@ public interface MyPageCouponService {
 	// order by CouponDate1 where state = N
 	//state U : 사용 가능, state : N 이미 사용된
 	public List<CouponDto> getCouponList(String id) throws Exception;
+
+	// 사용가능한 쿠폰 리스트
+	public List<CouponDto> getPoCouponList(String id) throws Exception;
+
+	// 사용완료한 쿠폰 리스트
+	public List<CouponDto> getImpoCouponList(String id) throws Exception;
 }

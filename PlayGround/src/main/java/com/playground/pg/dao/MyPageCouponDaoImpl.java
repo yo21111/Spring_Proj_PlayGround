@@ -26,4 +26,16 @@ public class MyPageCouponDaoImpl implements MyPageCouponDao {
 		return session.selectList(namespace+"selectCouponList", id);
 	}
 
+	@Override
+	public List<CouponDto> getPoCouponList(String id) throws Exception {
+		return session.selectList(namespace + "selectPoCouponList", id);
+	}
+
+	@Override
+	public List<CouponDto> getimpoCouponList(String id) throws Exception {
+		return session.selectList(namespace + "selectImpoCouponList", id);
+	}
+	
+	
+
 }

@@ -235,6 +235,10 @@ ul.tabs li.current {
   width: 170px;
   padding: 6px 2px;
 }
+.introMent {
+	padding-top: 60px;
+}
+
 .review_list p.introText {
 	text-align: left;
 	padding-top: 12px;

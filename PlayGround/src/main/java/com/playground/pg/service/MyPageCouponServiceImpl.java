@@ -23,4 +23,17 @@ public class MyPageCouponServiceImpl implements MyPageCouponService {
 		return mppDao.getCouponList(id);
 	}
 
+	@Override
+	public List<CouponDto> getPoCouponList(String id) throws Exception {
+		List<CouponDto> poCouponList = mppDao.getPoCouponList(id); 
+		return poCouponList;
+	}
+
+	@Override
+	public List<CouponDto> getImpoCouponList(String id) throws Exception {
+		List<CouponDto> impoCouponList = mppDao.getimpoCouponList(id);
+		return impoCouponList;
+	}
+
+	
 }
