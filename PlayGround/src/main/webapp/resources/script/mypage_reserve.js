@@ -56,6 +56,22 @@ $(function(){
 	
 	});
 	
+	$("#searchBtn").click(function(){
+		var date1 = $(this).prev().prev().prev().val();
+		var date2 = $(this).prev().val();
+		if(date1 == "" || date2 == "") {
+			alert("검색할 날짜를 선택해 주세요");
+			return;
+		}
+		if(date1 > date2) {
+			alert("시작날짜는 종료날짜 보다 클 수 없습니다.");
+			return;
+		}
+		
+		$("#searchFrm").submit();
+				
+	});
+	
 	
 	
 	

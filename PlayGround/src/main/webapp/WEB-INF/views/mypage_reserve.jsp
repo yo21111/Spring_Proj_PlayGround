@@ -110,11 +110,13 @@
 							<li class="on"><button type="button" id="3M">3개월</button></li>
 							<li class="on"><button type="button" id="6M">6개월</button></li>
 						</ul>
-						<div class="date-group">
-							<input type="date" name="date1" class="input-date" /> <span>~</span>
-							<input type="date" name="date2" class="input-date" />
-							<button type="button">확인</button>
-						</div>
+						<form action="/mypage/reList" id="searchFrm">
+							<div class="date-group">
+								<input type="date" name="date1" class="input-date" /> <span>~</span>
+								<input type="date" name="date2" class="input-date" />
+								<button type="button" id="searchBtn">확인</button>
+							</div>
+						</form>
 					</div>
 
 					<c:choose>

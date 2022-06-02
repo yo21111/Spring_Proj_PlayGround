@@ -295,6 +295,10 @@ header .gnb li.main_list a {
 
 
 /* mypage2 */
+#searchBtn {
+	width: 50px;
+}
+
 .view {
   width: 500px;
   display: flex;
