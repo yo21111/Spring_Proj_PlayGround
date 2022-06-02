@@ -1,5 +1,6 @@
 package com.playground.pg.controller;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,9 +33,13 @@ public class MyPageController_point {
 		// 적립금 리스트 보여주기 order by pointDate DESC
 		List<PointDto> list = mppService.getPointList(id);
 		
+		// 적립금 유효기간 보여주기
+		List<Date> lastDay = mppService.getDayList(id);
+		
 		SearchCondition sc = new SearchCondition(page, 10);
 		PageHandler ph = new PageHandler(list.size(), sc);
 		
+		m.addAttribute("lastDay", lastDay);
 		m.addAttribute("allPoint", allPoint);
 		m.addAttribute("pointList", list);
 		m.addAttribute("ph", ph);

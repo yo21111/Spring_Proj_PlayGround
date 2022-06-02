@@ -10,4 +10,10 @@
 	<select id="selectPointList" parameterType="string" resultType="PointDto">
 		select * from point where id_FK = #{id} order by pointDate DESC
 	</select>
+	
+	<select id="selectDayList" parameterType="string" resultType="Date">
+		select DATE_ADD(pointDate, Interval 1 YEAR) from point 
+		where id_FK = #{id_FK};
+	</select>
+	
 </mapper>

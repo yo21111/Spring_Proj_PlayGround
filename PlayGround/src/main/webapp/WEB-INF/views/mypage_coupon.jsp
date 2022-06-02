@@ -47,7 +47,7 @@
 			<div class="center">
 				<!-- <div class="header_fix"> -->
 				<!-- <div class="logo"> -->
-				<a href="/" class="logo"> <span>PLAY</span> <span>GROUND</span>
+				<a href="/#container" class="logo"> <span>PLAY</span> <span>GROUND</span>
 				</a>
 				<!-- <a href="#"><img src="image/logo.png" alt="logo"></a> -->
 				<!-- </div> -->

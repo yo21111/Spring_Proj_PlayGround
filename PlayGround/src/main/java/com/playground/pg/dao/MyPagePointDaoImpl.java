@@ -1,5 +1,6 @@
 package com.playground.pg.dao;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -25,5 +26,12 @@ public class MyPagePointDaoImpl implements MyPagePointDao {
 	public List<PointDto> getPointList(String id) throws Exception {
 		return session.selectList(namespace+"selectPointList", id);
 	}
+
+	@Override
+	public List<Date> getDayList(String id_FK) throws Exception {
+		return session.selectList(namespace + "selectDayList", id_FK);
+	}
+	
+	
 
 }

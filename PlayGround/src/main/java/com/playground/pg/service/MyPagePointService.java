@@ -1,5 +1,6 @@
 package com.playground.pg.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.playground.pg.domain.PointDto;
@@ -10,4 +11,7 @@ public interface MyPagePointService {
 	
 	// 적립금 리스트 보여주기 order by pointDate DESC
 	public List<PointDto> getPointList(String id) throws Exception;
+
+	// 적립금 유효기간 계산용
+	public List<Date> getDayList(String id) throws Exception;
 }

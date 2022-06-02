@@ -1,5 +1,6 @@
 package com.playground.pg.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,15 @@ public class MyPagePointServiceImpl implements MyPagePointService {
 
 	@Override
 	public List<PointDto> getPointList(String id) throws Exception {
-		// TODO Auto-generated method stub
 		return mppDao.getPointList(id);
 	}
+
+	@Override
+	public List<Date> getDayList(String id) throws Exception {
+		List<Date> dayList =mppDao.getDayList(id); 
+		return dayList;
+	}
+	
+	
 
 }

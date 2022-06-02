@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="loginId" value="${sessionScope.uId_Session}" />
 <c:set var="urlInfo" value="/resources/" />
 <!DOCTYPE html>
@@ -47,17 +48,17 @@
 			<div class="center">
 				<!-- <div class="header_fix"> -->
 				<!-- <div class="logo"> -->
-				<a href="#" class="logo"> <span>PLAY</span> <span>GROUND</span>
+				<a href="/#container" class="logo"> <span>PLAY</span> <span>GROUND</span>
 				</a>
 				<!-- <a href="#"><img src="image/logo.png" alt="logo"></a> -->
 				<!-- </div> -->
 				<nav class="gnb">
 					<ul class="main_menu">
-						<li class="main_list"><a href="#">PLAY GROUND</a>
+						<li class="main_list"><a href="/">PLAY GROUND</a>
 							<ul class="sub_menu">
-								<li class="sub_list"><a href="#">현재 전시</a></li>
-								<li class="sub_list"><a href="#">지난 전시</a></li>
-								<li class="sub_list"><a href="#">예정 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=N">현재 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=B">지난 전시</a></li>
+								<li class="sub_list"><a href="/exhibit/list?exState=A">예정 전시</a></li>
 							</ul></li>
 						<li class="main_list"><a href="#">STORE</a> <!-- <ul class="sub_menu">
                 <li class="sub_list"><a href="#"></a></li>
@@ -74,11 +75,11 @@
 					<ul>
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="#" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="#"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;"><li>회원가입</li></a>
+								<a href="/Login/Login"><li>LOGIN</li></a>
 							</c:when>
 							<c:otherwise>
-								<a href="#" style="margin-right: 20px;"><li>LOGOUT</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;"><li>LOGOUT</li></a>
 								<a href="/myPage/myPageHome"><li>MY PAGE</li></a>
 							</c:otherwise>
 						</c:choose>
@@ -99,18 +100,18 @@
 			<div class="center myp">
 				<div class="menu_bar">
 					<ul class="main_meun">
-						<a href="MY PAGE">MY PAGE</a>
+						<a href="/mypage/myPageHome">MY PAGE</a>
 					</ul>
 					<ul class="main_list myt">
-						<a class="main_title" href="mypage2.html">MY TICKETS</a>
-						<li class="sub_list"><a href="mypage2.html">티켓예매목록</a></li>
+						<a class="main_title" href="/mypage/reList">MY TICKETS</a>
+						<li class="sub_list"><a href="/mypage/reList">티켓예매목록</a></li>
 					</ul>
 					<ul class="main_list">
 						<a class="main_title" href="">MY INFO</a>
-						<li class="sub_list"><a href="mypage4.html">나의 쿠폰</a></li>
-						<li class="sub_list"><a href="mypage8.html">적립금</a></li>
+						<li class="sub_list"><a href="/mypage/mycoupon?page=1">나의 쿠폰</a></li>
+						<li class="sub_list"><a href="/mypage/mypoint?page=1">적립금</a></li>
 						<li class="sub_list"><a href="/mypage/myreview?page=1">나의 리뷰</a></li>
-						<li class="sub_list"><a href="mypage5.html">개인정보변경/탈퇴</a></li>
+						<li class="sub_list"><a href="/mypage/userpwchk">개인정보변경/탈퇴</a></li>
 					</ul>
 				</div>
 				<div class="contents4">
@@ -146,12 +147,13 @@
 											</tr>
 										</c:when>
 										<c:otherwise>
-											<c:forEach var="Point" items="${pointList}">
+											<c:forEach var="Point" items="${pointList}" varStatus="status">
 												<tr>
-													<th>${Point.pointDate}</th>
+													<th>${Point.pointDate }</th>
 													<th>적립</th>
-													<th>신규회원 가입</th>
-													<th>2022-05-17~2023-05-17</th>
+													<th>${Point.pointContent}</th>
+													<fmt:formatDate var="end" value="${lastDay[status.index]}" pattern="yyyy-MM-dd"/>
+													<th>${Point.pointDate}~${end}</th>
 													<th>${Point.point}원</th>
 												</tr>
 											</c:forEach>
