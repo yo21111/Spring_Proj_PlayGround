@@ -96,7 +96,7 @@
 						<a class="main_title" href="">MY INFO</a>
 						<li class="sub_list"><a href="mypage4.html">나의 쿠폰</a></li>
 						<li class="sub_list"><a href="mypage8.html">적립금</a></li>
-						<li class="sub_list"><a href="my_review.html">나의 리뷰</a></li>
+						<li class="sub_list"><a href="/mypage/myreview?page=1">나의 리뷰</a></li>
 						<li class="sub_list"><a href="/mypage/userpwchk">개인정보변경/탈퇴</a></li>
 					</ul>
 				</div>
@@ -155,7 +155,7 @@
 
 						</article>
 						<article class="article1 review">
-							<a class="article1_next" href="my_review.html"> <strong>최근
+							<a class="article1_next" href="/mypage/myreview?page=1&term=3M"> <strong>최근
 									작성 리뷰 </strong>
 							</a>
 							<p class="line">${name}님의 지난 3개월간의 작성 리뷰 입니다</p>

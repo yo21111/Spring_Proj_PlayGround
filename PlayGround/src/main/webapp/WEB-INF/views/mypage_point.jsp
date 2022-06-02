@@ -109,7 +109,7 @@
 						<a class="main_title" href="">MY INFO</a>
 						<li class="sub_list"><a href="mypage4.html">나의 쿠폰</a></li>
 						<li class="sub_list"><a href="mypage8.html">적립금</a></li>
-						<li class="sub_list"><a href="my_review.html">나의 리뷰</a></li>
+						<li class="sub_list"><a href="/mypage/myreview?page=1">나의 리뷰</a></li>
 						<li class="sub_list"><a href="mypage5.html">개인정보변경/탈퇴</a></li>
 					</ul>
 				</div>
