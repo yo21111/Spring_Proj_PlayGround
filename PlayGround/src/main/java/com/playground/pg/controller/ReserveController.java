@@ -65,7 +65,7 @@ public class ReserveController {
 		boolean result = reserveService.insertReserve(reserveDto);
 		
 		if (result == false) {
-			return "redirect:에러페이지";
+			return "page_error";
 		}
 		return "redirect:결제완료 페이지";
 	}
