@@ -58,8 +58,6 @@ public class ListController2 {
 		// 전시상태별로 분류 하기 위한 값을 받음
 		
 		String view = "";
-//		String view_B = "";
-//		String view_A = "";
 		if (exState.equals("N")) {
 			view = "N";
 		} else if (exState.equals("B")) {
@@ -68,31 +66,16 @@ public class ListController2 {
 			view = "A";
 		}
 		m.addAttribute("view", view);
-//		m.addAttribute("view_B", view_B);
-//		m.addAttribute("view_A", view_A);
 
-		Map<String, Object> beforeMap = adArtService.selectArtList(view);
-		List<ArtDto> artList_B = (List<ArtDto>) beforeMap.get("artList");
-		List<ArtDto> artTimeList_B = (List<ArtDto>) beforeMap.get("artTimeList");
+		Map<String, Object> stateMap = adArtService.selectArtList(view);
+		List<ArtDto> artList = (List<ArtDto>) stateMap.get("artList");
+		List<ArtDto> artTimeList = (List<ArtDto>) stateMap.get("artTimeList");
 		
+		m.addAttribute("artList", artList);
+		m.addAttribute("artTimeList", artTimeList);
 		
-		
-//		Map<String, Object> nowMap = adArtService.selectArtList(view);
-//		List<ArtDto> artList_N = (List<ArtDto>) nowMap.get("artList");
-//		List<ArtDto> artTimeList_N = (List<ArtDto>) nowMap.get("artTimeList");
-//
-//		Map<String, Object> afterMap = adArtService.selectArtList(view);
-//		List<ArtDto> artList_A = (List<ArtDto>) afterMap.get("artList");
-//		List<ArtDto> artTimeList_A = (List<ArtDto>) afterMap.get("artTimeList");
-
-		m.addAttribute("artList_B", artList_B);
-		m.addAttribute("artTimeList_B", artTimeList_B);
-		m.addAttribute("artList_N", artList_N);
-		m.addAttribute("artTimeList_N", artTimeList_N);
-		m.addAttribute("artList_A", artList_A);
-		m.addAttribute("artTimeList_A", artTimeList_A);
 		return "exList";
-	}
+		}
 
 	// 찜하기 클릭 - ajax
 	@PostMapping("/wishList")
