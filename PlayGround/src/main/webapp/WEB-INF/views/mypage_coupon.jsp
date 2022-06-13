@@ -107,7 +107,7 @@
 					</ul>
 					<ul class="main_list">
 						<a class="main_title" href="">MY INFO</a>
-						<li class="sub_list"><a href="/mypage/mycoupon?page=1">나의 쿠폰</a></li>
+						<li class="sub_list"><a href="/mypage/mycoupon?page=1&state=U">나의 쿠폰</a></li>
 						<li class="sub_list"><a href="/mypage/mypoint?page=1">적립금</a></li>
 						<li class="sub_list"><a href="/mypage/myreview?page=1">나의 리뷰</a></li>
 						<li class="sub_list"><a href="/mypage/userpwchk">개인정보변경/탈퇴</a></li>

@@ -1,6 +1,8 @@
 package com.playground.pg.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +29,20 @@ public class MyPageCouponDaoImpl implements MyPageCouponDao {
 	}
 
 	@Override
-	public List<CouponDto> getPoCouponList(String id) throws Exception {
+	public List<CouponDto> getPoCouponList(String id) throws Exception {		
 		return session.selectList(namespace + "selectPoCouponList", id);
 	}
-
+	
 	@Override
 	public List<CouponDto> getimpoCouponList(String id) throws Exception {
 		return session.selectList(namespace + "selectImpoCouponList", id);
 	}
-	
-	
 
+	@Override
+	public int updStateTest(String id) throws Exception {
+		return session.update(namespace + "updStateTest", id);
+	}		
+
+	
+	
 }

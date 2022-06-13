@@ -14,7 +14,10 @@ public interface MyPageCouponDao {
 
 	// 사용가능한 쿠폰 리스트
 	public List<CouponDto> getPoCouponList(String id) throws Exception;
-
+	
 	// 사용완료한 쿠폰 리스트
 	public List<CouponDto> getimpoCouponList(String id) throws Exception;
+
+	public int updStateTest(String id) throws Exception;
+
 }

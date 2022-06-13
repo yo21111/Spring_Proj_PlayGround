@@ -31,8 +31,8 @@ public class MyPageController_coupon {
 		// 해당 아이디가 가지고 있는 총 쿠폰 갯수 보여주기
 		int allCoupon = mppService.getAllCouponById(id);
 		
-		// 사용가능한 쿠폰 리스트
-		List<CouponDto> poCouponList = mppService.getPoCouponList(id);
+		// 사용가능한 쿠폰 리스트 (
+		List<CouponDto> couponList = mppService.getPoCouponList(id);
 		
 		// 사용완료한 쿠폰 리스트
 		List<CouponDto> impoCouponList = mppService.getImpoCouponList(id);
@@ -43,7 +43,7 @@ public class MyPageController_coupon {
 		SearchCondition sc = new SearchCondition(page, 10);
 		PageHandler ph = new PageHandler(list.size(), sc);
 		
-		m.addAttribute("poCouponList", poCouponList);
+		m.addAttribute("poCouponList", couponList);
 		m.addAttribute("ImpoCouponList", impoCouponList);
 		m.addAttribute("allCoupon", allCoupon);
 		m.addAttribute("CouponList", list);

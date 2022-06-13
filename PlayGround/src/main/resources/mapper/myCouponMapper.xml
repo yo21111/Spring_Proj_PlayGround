@@ -13,7 +13,7 @@
 	
 	<select id="selectPoCouponList" parameterType="string" resultType="CouponDto">
 		select * from coupon 
-		where id_FK = #{id} and state = 'U' 
+		where id_FK = #{id_FK} and state = 'U' 
 		order by couDate1 DESC
 	</select>
 	
@@ -22,5 +22,10 @@
 		where id_FK = #{id} and state = 'N' 
 		order by couDate1 DESC
 	</select>	
+	
+	<update id="updStateTest" parameterType="String">
+		update coupon set state = 'N'
+		where id_FK = #{id}
+	</update>
 	
 </mapper>

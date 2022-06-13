@@ -60,7 +60,6 @@ public class CouponServiceImplTest {
 		// 1. 멤버 생성
 		MemberDto mDto = createMember();
 		int insertRes = jService.joinMember(mDto);
-		System.out.println("MemberDto : "+mDto); 
 		assertTrue(insertRes == 1);
 		
 		// 2. 쿠폰 생성
@@ -69,6 +68,47 @@ public class CouponServiceImplTest {
 		CouponManageDto cmDto = manageCoupon();
 		int insRes = adcpService.addCoupon(criteria, cDto, cmDto);
 		assertTrue(insRes == 1);
+		
+		// 3. 나의 쿠폰 개수 확인
+		String id = mDto.getId();
+		int myCp = mpcService.getAllCouponById(id);
+		assertTrue(myCp == 2);
+		
+		// 4. 나의 쿠폰 목록 확인(전체)
+		List<CouponDto> mycpList = mpcService.getCouponList(id);
+		int testChk = mycpList.size(); 
+		assertTrue(testChk == myCp);
+		
+		// 5. 나의 쿠폰 목록 확인(사용전)
+		mycpList = mpcService.getPoCouponList(id);
+		testChk = mycpList.size();
+		assertTrue(testChk == myCp);
+		
+		// 6. 쿠폰 상태 변경
+		int updState = mpcService.updStateTest(id);
+		assertTrue(updState == myCp);
+		
+		// 7. 나의 쿠폰 목록 확인(사용후)
+		mycpList = mpcService.getImpoCouponList(id);
+		testChk = mycpList.size();
+		assertTrue(testChk == myCp);
+		
+		// 8. 쿠폰 삭제
+		List<CouponDto> getCoupon = adcpService.getCouponList();
+		int[] cpNo = new int[getCoupon.size()];
+		for (int i = 0; i < getCoupon.size(); i++) {
+			CouponDto cpDto = getCoupon.get(i);
+			cpNo[i] = cpDto.getNo();
+		}
+		int delCoupon = adcpService.deleteCoupon(cpNo);
+		assertTrue(delCoupon == cpNo.length);
+		
+		// 9. 생성했던 멤버 삭제하기
+		int deleteRes = mpuiService.deleteMember("tester123");
+		assertTrue(deleteRes == 1);
+		
+		
+		
 		
 //		// 3. 쿠폰 생성(특정 유저만)
 //		criteria = "";
@@ -110,26 +150,6 @@ public class CouponServiceImplTest {
 //		
 //		/****** 결제 많이한 유저 쿠폰 지급 용 *****/
 		
-		// 5. 나의 쿠폰 개수 확인
-		String id = mDto.getId();
-		int myCp = mpcService.getAllCouponById(id);
-		
-		// 6. 나의 쿠폰 목록 확인
-		List<CouponDto> mycpList = mpcService.getCouponList(id);
-		
-		// 7. 쿠폰 삭제
-		List<CouponDto> getCoupon = adcpService.getCouponList();
-		int[] cpNo = new int[getCoupon.size()];
-		for (int i = 0; i < getCoupon.size(); i++) {
-			CouponDto cpDto = getCoupon.get(i);
-			cpNo[i] = cpDto.getNo();
-		}
-		int delCoupon = adcpService.deleteCoupon(cpNo);
-		assertTrue(delCoupon == cpNo.length);
-		
-		// 8. 생성했던 멤버 삭제하기
-		int deleteRes = mpuiService.deleteMember("tester123");
-		assertTrue(deleteRes == 1);
 		
 
 	}

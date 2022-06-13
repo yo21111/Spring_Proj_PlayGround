@@ -35,5 +35,9 @@ public class MyPageCouponServiceImpl implements MyPageCouponService {
 		return impoCouponList;
 	}
 
+	@Override
+	public int updStateTest(String id) throws Exception {
+		return mppDao.updStateTest(id);
+	}
 	
 }
