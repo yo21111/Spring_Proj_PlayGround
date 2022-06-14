@@ -131,20 +131,20 @@
 								varStatus="status">
 								<div class="con2_inside">
 									<p>
-										<fmt:formatDate var="reNo" value="${ReserveDto.reDate }" pattern="yyyyMM"/>
+										<fmt:formatDate var="reNo" value="${ReserveDto.payDate}" pattern="yyyyMM"/>
 										예매일시 : ${ReserveDto.reDate}<span>예매번호 : ${reNo}****</span>
 									</p>
 									<div class="view con2">
 										<a href="/mypage/reList_Detail?reserveNo=${ReserveDto.no}"><img src="${urlInfo}image/${artList[status.index].thumbImg}" alt="view"></a>
 										<div class="view_in">
-											<a class="view_in_title" href="mypage3.html">${artList[status.index].exName}</a>
+											<a class="view_in_title" href="/mypage/reList_Detail?reserveNo=${ReserveDto.no}">${artList[status.index].exName}</a>
 											<p>PlayGround - ${artList[status.index].location}</p>
 											<p>
 												${ReserveDto.reDate}<span>${ReserveDto.adCnt + ReserveDto.chCnt}매</span>
 											</p>
 										</div>
 										<div class="normal_button con2">
-											<a href="mypage3.html">일정변경</a> <a href="mypage9.html">예매취소</a>
+											<a href="mypage3.html">일정변경</a> <a href="/mypage/reList_delete?reserveNo=${ReserveDto.no}">예매취소</a>
 										</div>
 									</div>
 								</div>

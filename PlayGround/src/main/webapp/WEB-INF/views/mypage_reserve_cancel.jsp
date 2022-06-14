@@ -161,11 +161,12 @@
                 <div class="board_list in">
                   <table>
                     <tr>
-                      <th>220517000***</th>
-                      <th>1매</th>
-                      <th>2022.06.15</th>
-                      <th>취소</th>
-                      <th>15,000원</th>
+                      <fmt:formatDate var="reNo" value="${reserveDto.payDate}" pattern="yyyyMM"/>
+                      <th>${reNo}****</th>
+                      <th>${reserveDto.adCnt + reserveDto.chCnt}매</th>
+                      <th>${reserveDto.reDate}</th>
+                      <th>사용가능</th>
+                      <th>${artDto.price1 * reserveDto.adCnt + artDto.price2 * reserveDto.chCnt}원</th>
                     </tr>
                   </table>
                 </div>

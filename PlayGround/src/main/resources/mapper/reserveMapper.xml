@@ -58,5 +58,15 @@
 		values
 		(#{id_FK}, #{point})
 	</insert>
+	
+	<select id="selectAllPoint" parameterType="string" resultType="int">
+		select sum(point) from point where id_FK = #{id}
+	</select>
+	
+	<select id="selectPoCouponList" parameterType="string" resultType="CouponDto">
+		select * from coupon 
+		where id_FK = #{id_FK} and state = 'U' 
+		order by couDate1 DESC
+	</select>
 
 </mapper>

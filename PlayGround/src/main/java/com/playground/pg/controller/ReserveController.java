@@ -1,5 +1,11 @@
 package com.playground.pg.controller;
 
+
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 import com.playground.pg.service.ReserveService;
 
@@ -35,14 +42,21 @@ public class ReserveController {
 		m.addAttribute("artTimeDto", artTimeDto);
 		m.addAttribute("resCnt", resCnt);
 		
-		return "예매화면(날짜선택)";
+		return "reserve";
 		
 	}
 	
 	// 결제 화면 페이지
 	@GetMapping("/pay")
-	public String payment(int no, String date, String time1, String time2, Model m) throws Exception {
+	public String payment(int no, String date, String time1, String time2, HttpSession session, Model m) throws Exception {
 		// 작품번호, 선택한 날짜, 시간 매개변수로 받기
+		
+		String id = (String)session.getAttribute("uId_Session");
+		// 해당 아이디가 가지고 있는 총 적립금 보여주기
+		int allPoint = reserveService.getAllPoinitById(id);
+		
+		// 사용가능한 쿠폰 리스트 (
+		List<CouponDto> couponList = reserveService.getPoCouponList(id);
 		
 
 		// 작품번호 이용하여 해당 작품관련 DTO 반환받기(작품정보 표시용)		
@@ -52,8 +66,10 @@ public class ReserveController {
 		m.addAttribute("date",date);
 		m.addAttribute("time1",time1);
 		m.addAttribute("time2",time2);
+		m.addAttribute("point", allPoint);
+		m.addAttribute("couponList", couponList);
 		
-		return "결제페이지";
+		return "reserve_pay";
 	}
 	
 	// 결제하기
@@ -67,7 +83,7 @@ public class ReserveController {
 		if (result == false) {
 			return "page_error";
 		}
-		return "redirect:결제완료 페이지";
+		return "redirect:mypage_main";
 	}
 	
 }

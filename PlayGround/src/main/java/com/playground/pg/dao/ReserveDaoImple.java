@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 @Repository
@@ -66,5 +67,18 @@ public class ReserveDaoImple implements ReserveDao {
 		
 		return session.insert(namespace + "insertPoint", map);
 	}
+
+	@Override
+	public int getAllPoinitById(String id) {
+		Integer result = session.selectOne(namespace+"selectAllPoint", id);
+		return result == null ? 0 : result;
+	}
+	
+	@Override
+	public List<CouponDto> getPoCouponList(String id) throws Exception {		
+		return session.selectList(namespace + "selectPoCouponList", id);
+	}
+	
+	
 	
 }

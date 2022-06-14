@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 public interface ReserveDao {
@@ -31,5 +32,11 @@ public interface ReserveDao {
 
 	// 포인트 테이블에 회원 정보 추가
 	public int insertPoint(String uId, int point) throws Exception;
+
+	// 해당 아이디가 가지고 있는 총 적립금 보여주기
+	public int getAllPoinitById(String id) throws Exception;
+	
+	// 해당 아이디가 가지고 있는 쿠폰 보여주기
+	public List<CouponDto> getPoCouponList(String id) throws Exception;
 
 }

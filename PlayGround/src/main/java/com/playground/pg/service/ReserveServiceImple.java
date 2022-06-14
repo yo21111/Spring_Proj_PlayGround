@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.playground.pg.dao.ReserveDao;
 import com.playground.pg.domain.ArtDto;
 import com.playground.pg.domain.ArtTimeDto;
+import com.playground.pg.domain.CouponDto;
 import com.playground.pg.domain.ReserveDto;
 
 @Service
@@ -88,6 +89,24 @@ public class ReserveServiceImple implements ReserveService {
 		
 		return result == 1 ? true : false;
 	}
+
+
+
+	@Override
+	public int getAllPoinitById(String id) throws Exception {
+		return reserveDao.getAllPoinitById(id);
+	}
+
+
+
+	@Override
+	public List<CouponDto> getPoCouponList(String id) throws Exception {
+		List<CouponDto> poCouponList = reserveDao.getPoCouponList(id); 
+		return poCouponList;
+	}
+	
+	
+	
 
 
 }

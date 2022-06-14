@@ -8,12 +8,12 @@ $(document).ready(function(){
 
 		$(this).addClass('current');
 		$("#"+tab_id).addClass('current');
-	})
+	});
 	$(".main_list").hover(function(){
 		$(".sub_menu" ,this).stop().slideDown(500);
 		},function(){
 			$(".sub_menu" ,this).stop().slideUp(500);
-		})
+		});
 		// 탑버튼
 		
 $(window).scroll(function() {
@@ -61,4 +61,4 @@ $(".open").click(function(){
 $(".close").click(function(){
 	$(".popup_background").hide();
 });
-})
+});

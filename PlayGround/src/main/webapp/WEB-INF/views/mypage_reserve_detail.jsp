@@ -167,7 +167,8 @@
                 <table>
                   <tr>
                     <!-- <input type="checkbox" name="chk_info" value="information" id="on"> -->
-                    <th>${reserveDto.reDate}***</th>
+                    <fmt:formatDate var="reNo" value="${reserveDto.payDate}" pattern="yyyyMM"/>
+                    <th>${reNo}****</th>
                     <th>${reserveDto.adCnt + reserveDto.chCnt}매</th>
                     <th>${reserveDto.reDate}</th>
                     <th>사용가능</th>

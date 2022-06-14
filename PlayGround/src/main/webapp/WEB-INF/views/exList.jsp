@@ -168,7 +168,8 @@
 											</div>
 											<div class="btn_wrap">
 												<a href="/exhibit/listView?exNo=${artDto_N.exNo}"
-													class="btn one"><span>자세히 보기</span></a> <a href="#"
+													class="btn one"><span>자세히 보기</span></a> 
+												<a href="/reserve/select?no=${artDto_N.exNo}"
 													class="btn two"><span>예매하기</span></a>
 											</div>
 										</div>
