@@ -26,6 +26,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="${urlInfo}script/script.js"></script>
 <script src="${urlInfo}script/sub_Query.js"></script>
+<script src="${urlInfo}script/idChk.js"></script>
 
 </head>
 
@@ -170,8 +171,9 @@
 												<a href="/exhibit/listView?exNo=${artDto_N.exNo}"
 													class="btn one"><span>자세히 보기</span></a> 
 												<a href="/reserve/select?no=${artDto_N.exNo}"
-													class="btn two"><span>예매하기</span></a>
+													class="btn two idChk"><span>예매하기</span></a>
 											</div>
+											<input type="hidden" id="idChk2" value="${loginId}" />
 										</div>
 									</div>
 								</div>

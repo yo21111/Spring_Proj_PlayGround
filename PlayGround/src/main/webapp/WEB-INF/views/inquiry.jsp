@@ -152,7 +152,7 @@
                                     	</c:set>
                                         <li><input type="text" id="writeDate" name="writeDate" readonly="readonly" value="${date}" /></li>
                                     </ul>
-                                    <input type="hidden" name="writer" value="loginId" />
+                                    <input type="hidden" name="writer" id="writer" value="${loginId}" />
                                 </div>
                             </div>
 <!--                             <div class="row three">

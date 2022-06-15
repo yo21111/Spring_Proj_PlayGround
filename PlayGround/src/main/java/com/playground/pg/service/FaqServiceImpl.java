@@ -24,6 +24,9 @@ public class FaqServiceImpl implements FaqService {
 	public boolean adminChk(String id) throws Exception {
 		boolean result = false;
 		String grade = faqDao.adminChk(id);
+		if(grade == null) {
+			grade = "M";
+		}  
 		
 		if(grade.equals("A")) {
 			result = true;

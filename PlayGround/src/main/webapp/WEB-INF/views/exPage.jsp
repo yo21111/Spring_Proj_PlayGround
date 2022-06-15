@@ -80,6 +80,7 @@
 	src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'></script>
 <script src="${urlInfo}script/script.js"></script>
 <script src="${urlInfo}script/exPage.js"></script>
+<script src="${urlInfo}script/idChk.js"></script>
 </head>
 
 <body>
@@ -196,8 +197,9 @@
 							</table>
 						</div>
 						<div class="advance_button">
-							<a href="/reserve/select?no=${artDto.exNo}">예매 하기</a>
+							<a href="/reserve/select?no=${artDto.exNo}" class="idChk">예매 하기</a>
 						</div>
+						<input type="hidden" id="idChk2" value="${loginId }" />
 					</div>
 				</div>
 			</div>

@@ -24,6 +24,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="${urlInfo}script/myQuery.js"></script>
+<script src="${urlInfo}script/idChk.js"></script>
 
 </head>
 
@@ -52,7 +53,7 @@
 						<li class="main_list"><a href="#">BOARD</a>
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="#">공지사항</a></li>
-								<li class="sub_list"><a href="#">FAQ</a></li>
+								<li class="sub_list"><a href="/faq/bbs">FAQ</a></li>
 								<li class="sub_list"><a href="/inquiry/board">1:1문의</a></li>
 							</ul></li>
 					</ul>
@@ -120,7 +121,7 @@
 											<p>${artDto.exContent}</p>
 										</div>
 										<div class="btn_box">
-											<a href="/reserve/select?no=${artDto.exNo }">바로 예매</a> <a href="/exhibit/listView?exNo=${artDto.exNo}">자세히
+											<a href="/reserve/select?no=${artDto.exNo }" class="idChk">바로 예매</a> <a href="/exhibit/listView?exNo=${artDto.exNo}">자세히
 												보기</a>
 										</div>
 									</div>
@@ -131,7 +132,7 @@
 					</div>
 				</div>
 			</div>
-
+			<input type="hidden" id="idChk2" value="${loginId }" />
 		</article>
 		<!-- //오늘의 전시 -->
 		<!-- 큐레이터 -->

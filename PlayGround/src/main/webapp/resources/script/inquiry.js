@@ -2,6 +2,12 @@ $(function(){
 	
 	$("#write").click(function(){
 		
+		var id = $("#writer").val();
+		if(id==null || id=="") {
+			alert("로그인이 필요한 서비스 입니다.");
+			return;
+		}
+		
 		var category = $("#category").val();
 		var content = $("#content").val();
 		var title = $("#title").val();
