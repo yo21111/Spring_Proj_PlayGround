@@ -90,13 +90,13 @@
 						<a href="/mypage/myPageHome">MY PAGE</a>
 					</ul>
 					<ul class="main_list myt">
-						<a class="main_title" href="mypage2.html">MY TICKETS</a>
-						<li class="sub_list"><a href="mypage2.html">티켓예매목록</a></li>
+						<a class="main_title" href="/mypage/reList">MY TICKETS</a>
+						<li class="sub_list"><a href="/mypage/reList">티켓예매목록</a></li>
 					</ul>
 					<ul class="main_list">
 						<a class="main_title" href="">MY INFO</a>
-						<li class="sub_list"><a href="mypage4.html">나의 쿠폰</a></li>
-						<li class="sub_list"><a href="mypage8.html">적립금</a></li>
+						<li class="sub_list"><a href="/mypage/mycoupon?page=1">나의 쿠폰</a></li>
+						<li class="sub_list"><a href="/mypage/mypoint?page=1">적립금</a></li>
 						<li class="sub_list"><a href="/mypage/myreview?page=1">나의 리뷰</a></li>
 						<li class="sub_list"><a href="/mypage/userpwchk">개인정보변경/탈퇴</a></li>
 					</ul>

@@ -90,8 +90,8 @@
 						<a href="/mypage/myPageHome">MY PAGE</a>
 					</ul>
 					<ul class="main_list myt">
-						<a class="main_title" href="mypage2.html">MY TICKETS</a>
-						<li class="sub_list"><a href="mypage2.html">티켓예매목록</a></li>
+						<a class="main_title" href="/mypage/reList">MY TICKETS</a>
+						<li class="sub_list"><a href="/mypage/reList">티켓예매목록</a></li>
 					</ul>
 					<ul class="main_list">
 						<a class="main_title" href="">MY INFO</a>
