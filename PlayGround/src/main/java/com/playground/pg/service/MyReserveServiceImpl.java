@@ -120,17 +120,32 @@ public class MyReserveServiceImpl implements MyReserveService {
 	}
 
 	@Override
-	public boolean deleteReserve(ReserveDto reserveDto) throws Exception {
+	public boolean deleteReserve(ReserveDto reserveDto, String uId) throws Exception {
 		// 포인트 환불하기
-		int usePoint = reserveDto.getPoint();
-		if(usePoint != 0) {
+		int no = reserveDto.getNo();
+		
+		// 사용한 포인트 가져오기
+		reserveDto = mypageDao.getReserve(no);
+		Integer usePoint = reserveDto.getPoint();
+		
+		// 적립된 포인트
+		int accPoint = reserveDto.getPayment();
+		accPoint *= 0.05;
+		
+		if(usePoint != null) {
 			// 현재 보유한 포인트
-			String uId = reserveDto.getId_FK();
 			int myPoint = mypageDao.getPoint(uId);
 			// 환불된 포인트
-			int upPoint = myPoint + usePoint;
+			int upPoint = myPoint + usePoint - accPoint;
 			// 보유한 포인트 수정
 			int pointResult = mypageDao.updatePoint(uId, upPoint);
+		} else {
+			// 현재 보유한 포인트
+			int myPoint = mypageDao.getPoint(uId);
+			// 환불된 포인트
+			int upPoint = myPoint - accPoint;
+			// 보유한 포인트 수정
+			int pointResult = mypageDao.updatePoint(uId, upPoint);			
 		}
 		// 쿠폰 환불하기
 		Integer coupon = reserveDto.getCoupon_FK();

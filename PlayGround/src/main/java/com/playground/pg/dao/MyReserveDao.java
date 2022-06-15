@@ -46,5 +46,7 @@ public interface MyReserveDao {
 	// 검색기간 없을때
 	public List<ReserveDto> getMainList(String uId, Date date11, Date date21) throws Exception;
 
+	public ReserveDto getReserve(int no) throws Exception;
+
 	
 }

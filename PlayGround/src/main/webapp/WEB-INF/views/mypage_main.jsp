@@ -136,7 +136,8 @@
 									<!-- 반복 구역 시작 -->
 									<c:forEach var="ReserveDto" items="${reserveList}" varStatus="status">
 										<h2 class="t_sub">
-											<fmt:formatDate var="reNo" value="${ReserveDto.payDate }" pattern="yyyyMM"/>
+											<fmt:parseDate var="payday" value="${ReserveDto.payDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+											<fmt:formatDate var="reNo" value="${payday }" pattern="yyyyMM"/>
 											예매완료<span>${reNo}****</span>
 										</h2>
 										<div class="view tic">
@@ -146,7 +147,9 @@
 												<a class="view_in_title" href="/mypage/reList_Detail?reserveNo=${ReserveDto.no}">${artList[status.index].exName}</a>
 												<p>PlayGround - ${artList[status.index].location}</p>
 												<p>
-													${ReserveDto.reDate}<span>${ReserveDto.adCnt + ReserveDto.chCnt}매</span>
+				  									<fmt:parseDate var="reserveday" value="${ReserveDto.reDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			      									<fmt:formatDate var="reserveDate" value="${reserveday}" pattern="yyyy-MM-dd"/>												
+													${reserveDate}<span>${ReserveDto.adCnt + ReserveDto.chCnt}매</span>
 												</p>
 											</div>
 										</div>

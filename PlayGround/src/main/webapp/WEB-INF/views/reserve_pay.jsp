@@ -96,7 +96,7 @@
         <div class="right">
           <table>
             <tr>
-              <td rowspan="5" class="image">${artDto.thumbImg }</td>
+              <td rowspan="5" class="image"><img src="${urlInfo}image/${artDto.thumbImg}" alt="썸네일" /></td>
               <td class="one">장소 명</td>
               <td>
               	<span>${artDto.location }</span>

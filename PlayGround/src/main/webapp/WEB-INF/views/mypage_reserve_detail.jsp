@@ -102,7 +102,8 @@
 				</div>
 				<div class="contents3">
           <h2 class="con_title">예매상세내역</h2>
-          <fmt:formatDate var="reNo" value="${reserveDto.reDate }" pattern="yyyyMM"/>
+		  <fmt:parseDate var="payday" value="${reserveDto.payDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+          <fmt:formatDate var="reNo" value="${payday}" pattern="yyyyMM"/>
           <p>예매번호 : ${reNo}****</p>
           <div class="con3_box">
             <div class="con3_box_thum">
@@ -112,7 +113,9 @@
               <h3>${artDto.exName}</h3>
               <ul>
                 <li><strong>예매일시 :</strong>
-                  <p>${reserveDto.reDate}</p>
+				  <fmt:parseDate var="reserveday" value="${reserveDto.reDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			      <fmt:formatDate var="reserveDate" value="${reserveday}" pattern="yyyy-MM-dd"/>                
+                  <p>${reserveDate}</p>
                 </li>
                 <li><strong>예약매수 :</strong>
                   <p>${reserveDto.adCnt + reserveDto.chCnt}매</p>
@@ -140,7 +143,9 @@
               </li>
               <li><strong>영수증</strong>
                 <p class="in_t"><span>카드(현대/일시불)
-                    결제일: ${reserveDto.payDate}</span></p>
+					<fmt:parseDate var="payday" value="${reserveDto.payDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			        <fmt:formatDate var="paydate" value="${payday}" pattern="yyyy-MM-dd"/>
+                    결제일: ${paydate}</span></p>
               </li>
             </ul>
           </div>
@@ -167,10 +172,13 @@
                 <table>
                   <tr>
                     <!-- <input type="checkbox" name="chk_info" value="information" id="on"> -->
-                    <fmt:formatDate var="reNo" value="${reserveDto.payDate}" pattern="yyyyMM"/>
+					<fmt:parseDate var="payday" value="${reserveDto.payDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			        <fmt:formatDate var="reNo" value="${payday}" pattern="yyyyMM"/>
                     <th>${reNo}****</th>
                     <th>${reserveDto.adCnt + reserveDto.chCnt}매</th>
-                    <th>${reserveDto.reDate}</th>
+				    <fmt:parseDate var="reserveday" value="${reserveDto.reDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			        <fmt:formatDate var="reserveDate" value="${reserveday}" pattern="yyyy-MM-dd"/>                      
+                    <th>${reserveDate}</th>
                     <th>사용가능</th>
                     <th>${artDto.price1 * reserveDto.adCnt + artDto.price2 * reserveDto.chCnt}원</th>
                   </tr>

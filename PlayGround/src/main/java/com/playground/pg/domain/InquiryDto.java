@@ -13,7 +13,7 @@ public class InquiryDto {
 	private String content;
 	private String writer;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date writeDate;
+	private String writeDate;
 	private String state;
 	private String reply;
 	
@@ -47,10 +47,10 @@ public class InquiryDto {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Date getWriteDate() {
+	public String getWriteDate() {
 		return writeDate;
 	}
-	public void setWriteDate(Date writeDate) {
+	public void setWriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
 	public String getState() {

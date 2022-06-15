@@ -370,7 +370,7 @@ article.notice .server_btn a {
     display: none;
 }
 
-.question .btn label.submit {
+.question .btn label.write {
     font-family: 'AppleSDGodicNeoM';
     font-size: 15px;
     padding: 4px 0;
@@ -386,7 +386,7 @@ article.notice .server_btn a {
     margin-left: 30px;
 }
 
-.question .btn form:nth-of-type(2) label.submit {
+.question .btn form:nth-of-type(2) label.write {
     background-color: #A24F4F;
 }
 
@@ -433,6 +433,6 @@ article.notice .server_btn a {
     margin-left: 20px;
 }
 
-.btn form:first-of-type label.submit {
+.btn form:first-of-type label.write {
     background-color: #000;
 }

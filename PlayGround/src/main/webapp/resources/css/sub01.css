@@ -249,3 +249,7 @@ tr, td,
 .popup_background .popup_text .title{
   font-weight: bold;
 }
+
+img {
+	width: 100%;
+}

@@ -25,7 +25,7 @@
     <!-- js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="${urlInfo}script/script.js"></script>
-    <script src="${urlInfo}script/sub_Query.js"></script>
+    <%-- <script src="${urlInfo}script/sub_Query.js"></script> --%>
 
 </head>
 
@@ -59,7 +59,7 @@
                         <li class="main_list"><a href="#">BOARD</a>
                             <ul class="sub_menu">
                                 <li class="sub_list"><a href="#">공지사항</a></li>
-                                <li class="sub_list"><a href="#">FAQ</a></li>
+                                <li class="sub_list"><a href="/faq/bbs">FAQ</a></li>
                                 <li class="sub_list"><a href="/inquiry/board">1:1문의</a></li>
                             </ul>
                         </li>
@@ -104,7 +104,7 @@
                 <ul class="tab_bar">
                     <li class="tab_btn">공지사항</li>
                     <li class="tab_btn on">FAQ</li>
-                    <li class="tab_btn"><a href="/inquiry/board"></a>1:1 문의</li>
+                    <li class="tab_btn"><a href="/inquiry/board">1:1 문의</a></li>
                 </ul>
                 <!-- // 탭 -->
                 <!-- FAQ-->

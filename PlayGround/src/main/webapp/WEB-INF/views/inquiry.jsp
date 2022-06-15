@@ -26,7 +26,7 @@
     <!-- js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="${urlInfo}script/script.js"></script>
-    <script src="${urlInfo}script/sub_Query.js"></script>
+<%--     <script src="${urlInfo}script/sub_Query.js"></script> --%>
     <script src="${urlInfo}script/inquiry.js"></script>
 
 </head>
@@ -61,7 +61,7 @@
                         <li class="main_list"><a href="#">BOARD</a>
                             <ul class="sub_menu">
                                 <li class="sub_list"><a href="#">공지사항</a></li>
-                                <li class="sub_list"><a href="#">FAQ</a></li>
+                                <li class="sub_list"><a href="/faq/bbs">FAQ</a></li>
                                 <li class="sub_list"><a href="/inquiry/board">1:1문의</a></li>
                             </ul>
                         </li>
@@ -104,8 +104,8 @@
 
             <div class="center">
 				<ul class="tab_bar">
-                    <li class="tab_btn"><a href="#">공지사항</a></li>
-                    <li class="tab_btn"><a href="#">FAQ</a></li>
+					<li class="tab_btn"><a href="#">공지사항</a></li>
+                    <li class="tab_btn"><a href="/faq/bbs">FAQ</a></li>
                     <li class="tab_btn on">1:1 문의</li>
                 </ul>
                 <!-- // 탭 -->
@@ -114,15 +114,15 @@
                 <section class="tab_con view">
                     <div class="question">
                         <div class="form_wrap">
-                        <form action="/inquiry/board" method="post">
+                        <form action="/inquiry/board" id="inqFrm" method="post">
                             <div class="row">
                                 <ul class="label">
                                     <li>카테고리</li>
                                 </ul>
                                 <ul class="txt">
                                     <li>
-                                        <select name="category" id="">
-	                                        <option value="기타">- 선택 -</option>
+                                        <select name="category" id="category">
+	                                        <option value="0">- 선택 -</option>
 	                                        <option value="전시·프로그램">전시·프로그램</option>
 	                                        <option value="회원안내">회원안내</option>
 	                                        <option value="위치·시설안내">위치·시설안내</option>
@@ -138,7 +138,7 @@
                                     </ul>
                                     <ul class="txt">
                                         <li>
-                                            <input type="text" name="title" placeholder="제목을 입력해 주세요.">
+                                            <input type="text" id="title" name="title" placeholder="제목을 입력해 주세요.">
                                         </li>
                                     </ul>
                                 </div>
@@ -169,12 +169,12 @@
                                 </ul>
                             </div> -->
 
-                                <textarea name="content" cols="175" rows="15"></textarea>
+                                <textarea name="content" cols="175" rows="15" id="content"></textarea>
                             <div class="btn">
                                 <!-- 등록하기, 다시쓰기 버튼을 input="submit"으로 만들어보았습니다,,, -->
-                                    <label for="submit" class="submit">등록하기</label>
-                                    <input type="submit" id="submit">
-                                    <label for="cancel" class="submit">다시쓰기</label>
+									<label for="write" class="write">등록하기</label>
+                                    <input type="text" id="write">
+                                    <label for="cancel" class="write">다시쓰기</label>
                                     <input type="reset" id="cancel"> 
                             </div>
 						</form>

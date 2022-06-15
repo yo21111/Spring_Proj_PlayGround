@@ -50,7 +50,7 @@
 	
 	<select id="getPoint" resultType="int" parameterType="String">
 		Select point from point
-		where id_FK = #{id_FK}
+		where id_FK = #{uId}
 	</select>
 	
 	<update id="updatePoint" parameterType="map">
@@ -71,5 +71,11 @@
 		reDate between #{date11} and #{date21}   
 		ORDER BY reDate
 	</select>
+	
+	<select id="getReserve" resultType="ReserveDto" parameterType="int">
+		Select * from reserve
+		where no = #{no}
+	</select>
+	
 	
 </mapper>

@@ -117,11 +117,13 @@ public class MypageController_reserve {
 
 	// 예매 환불
 	@PostMapping("/refund")
-	public String Refund(ReserveDto reserveDto) throws Exception {
+	public String Refund(HttpSession session, ReserveDto reserveDto) throws Exception {
 
 		// 예매번호 매개변수로 이용
 		// ReserveDto에 delete
-		boolean result = mypageService.deleteReserve(reserveDto);
+		String uId = (String) session.getAttribute("uId_Session");
+		
+		boolean result = mypageService.deleteReserve(reserveDto, uId);
 
 		return "redirect:/마이페이지";
 	}

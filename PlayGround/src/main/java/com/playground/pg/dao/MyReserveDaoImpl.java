@@ -99,6 +99,12 @@ public class MyReserveDaoImpl implements MyReserveDao {
 		
 		return session.selectList(namespace + "getMainList", map);
 	}
+
+	@Override
+	public ReserveDto getReserve(int no) throws Exception {
+		return session.selectOne(namespace + "getReserve", no);
+	}
+	
 	
 	
 	

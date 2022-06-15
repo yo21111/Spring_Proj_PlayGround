@@ -141,12 +141,17 @@
 		                          <p>${notWriteArtList[status.index].location}</p>
 		                         
 		                          <c:set var="totalCnt" value="${resDto.adCnt + resDto.chCnt}" />
-		                          <p><span class="payDate">${resDto.payDate}</span> | <c:out value="${totalCnt}매" /></p>
+		                          <p>
+		                          	<fmt:parseDate var="payday" value="${resDto.payDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+		  							<fmt:formatDate var="payDate" value="${payday}" pattern="yyyyMM"/>
+		                          	<span class="payDate">${payDate}</span> | <c:out value="${totalCnt}매" />
+		                          </p>
 		                        </div>
 		                      </td>
 		                      <td class="two deadline">
 		                      	<fmt:parseNumber var="nowTime" value="${today.time / (1000*60*60*24) }" integerOnly="true" />
-		                      	<c:set var="startDate" value="${resDto.reDate}" />
+								<fmt:parseDate var="reserveday" value="${resDto.reDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+		                      	<c:set var="startDate" value="${reserveday}" />
 		                      	<fmt:parseNumber var="lastTime" value="${startDate.time / (1000*60*60*24) +31 }" integerOnly="true" />
 			                    <c:set var="endWrite" value="${lastTime - nowTime }" />
 		                      	<c:if test="${endWrite < 0}">

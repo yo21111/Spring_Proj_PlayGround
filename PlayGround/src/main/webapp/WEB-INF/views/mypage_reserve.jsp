@@ -131,8 +131,11 @@
 								varStatus="status">
 								<div class="con2_inside">
 									<p>
-										<fmt:formatDate var="reNo" value="${ReserveDto.payDate}" pattern="yyyyMM"/>
-										예매일시 : ${ReserveDto.reDate}<span>예매번호 : ${reNo}****</span>
+										<fmt:parseDate var="payday" value="${ReserveDto.payDate}" pattern="yyyy-MM-dd HH:mm:ss" />
+										<fmt:formatDate var="reNo" value="${payday}" pattern="yyyyMM"/>
+										<fmt:parseDate var="reserveday" value="${ReserveDto.reDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			      						<fmt:formatDate var="reserveDate" value="${reserveday}" pattern="yyyy-MM-dd"/>
+										예매일시 : ${reserveDate}<span>예매번호 : ${reNo}****</span>
 									</p>
 									<div class="view con2">
 										<a href="/mypage/reList_Detail?reserveNo=${ReserveDto.no}"><img src="${urlInfo}image/${artList[status.index].thumbImg}" alt="view"></a>
@@ -140,7 +143,9 @@
 											<a class="view_in_title" href="/mypage/reList_Detail?reserveNo=${ReserveDto.no}">${artList[status.index].exName}</a>
 											<p>PlayGround - ${artList[status.index].location}</p>
 											<p>
-												${ReserveDto.reDate}<span>${ReserveDto.adCnt + ReserveDto.chCnt}매</span>
+												<fmt:parseDate var="reserveday" value="${ReserveDto.reDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			      								<fmt:formatDate var="reserveDate" value="${reserveday}" pattern="yyyy-MM-dd"/>											
+												${reserveDate}<span>${ReserveDto.adCnt + ReserveDto.chCnt}매</span>
 											</p>
 										</div>
 										<div class="normal_button con2">
