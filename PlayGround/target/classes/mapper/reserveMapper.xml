@@ -35,6 +35,23 @@
 		</choose>
 	</insert>
 	
+	<insert id="insertNotCoupon" parameterType="ReserveDto">
+		Insert into reserve
+		(id_FK, exNo_FK, reDate, reTime1, reTime2, adCnt, chCnt, 
+		payment, payDate, point)
+		values
+		<choose>
+			<when test='chCnt!=0'>
+				(#{id_FK}, #{exNo_FK}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, #{chCnt}, 
+				#{payment}, #{payDate}, #{point})
+			</when>
+			<otherwise>
+				(#{id_FK}, #{exNo_FK}, #{reDate}, #{reTime1}, #{reTime2}, #{adCnt}, 0, 
+				#{payment}, #{payDate}, #{point})
+			</otherwise>
+		</choose>
+	</insert>
+	
 	<update id="updateCoupon" parameterType="int">
 		Update coupon Set
 		state = 'N'

@@ -49,6 +49,7 @@ public class ListServiceTest {
 		// 전시회 데이터 넣기
 	}
 	
+	
 	@After
 	public void deleteMember() {
 		// 해당 멤버 삭제 코드

@@ -20,7 +20,9 @@ public interface ReserveDao {
 	
 	// 예매하기
 	public int insertReserve(ReserveDto reserveDto) throws Exception;
-
+	
+	public int insertNotCoupon(ReserveDto reserveDto) throws Exception;
+	
 	// 예매시 사용한 쿠폰 상태 변경
 	public int updateCoupon(Integer coupon) throws Exception;
 

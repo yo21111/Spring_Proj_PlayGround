@@ -187,7 +187,7 @@
 		<input type="hidden" name="reTime1" value="${time1}" />
 		<input type="hidden" name="reTime2" value="${time2}" />
 		<input type="hidden" id="payDate" name="payDate" value="" />
-		<input type="hidden" name="id_FK" value="loginId" />
+		<input type="hidden" name="id_FK" value="${sessionScope.uId_Session}" />
       </div>
       <div class="popup_background">
         <div class="popup_text">

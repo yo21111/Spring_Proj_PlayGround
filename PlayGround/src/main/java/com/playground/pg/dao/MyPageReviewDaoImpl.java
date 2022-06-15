@@ -31,7 +31,7 @@ public class MyPageReviewDaoImpl implements MyPageReviewDao {
 	}
 
 	@Override
-	public int isWriteReview(String id_FK, int exNo_FK, Date reDate) throws Exception {
+	public int isWriteReview(String id_FK, int exNo_FK, String reDate) throws Exception {
 		Map<String, Object> map = new HashMap<>();
 		map.put("id_FK", id_FK);
 		map.put("exNo_FK", exNo_FK);

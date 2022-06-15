@@ -80,10 +80,11 @@ public class ReserveController {
 		// reserveDTO에 내용 넣은 후 DB에 insert하기
 		boolean result = reserveService.insertReserve(reserveDto);
 		
+		
 		if (result == false) {
 			return "page_error";
 		}
-		return "redirect:mypage_main";
+		return "redirect:/mypage/myPageHome";
 	}
 	
 }

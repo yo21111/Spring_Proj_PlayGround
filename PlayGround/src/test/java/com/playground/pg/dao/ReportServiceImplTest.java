@@ -171,7 +171,7 @@ public class ReportServiceImplTest {
 		// 어른매수, 아이매수(기본값 0), 결제금액, 결제날자(예약날짜), 예약번호
 		// 포인트 or 쿠폰사용시 일반 예약에 포인트, 쿠폰 추가
 
-		Date reDate = Date.valueOf(LocalDate.now().minusDays(1));
+		String reDate = Date.valueOf(LocalDate.now().minusDays(1)).toLocaleString();
 		resDto.setId_FK("tester123");
 		resDto.setExNo_FK(exNo);
 		resDto.setReDate(reDate);

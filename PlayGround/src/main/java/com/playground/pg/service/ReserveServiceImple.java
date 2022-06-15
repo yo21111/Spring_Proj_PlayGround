@@ -46,16 +46,22 @@ public class ReserveServiceImple implements ReserveService {
 	@Override
 	@Transactional(rollbackFor = Exception.class)
 	public boolean insertReserve(ReserveDto reserveDto) throws Exception {
-		int result = reserveDao.insertReserve(reserveDto);
-
-		// 결제시 사용한 쿠폰 상태 변경
-		Integer coupon = reserveDto.getCoupon_FK();
-		if(coupon != null) {
-			int couponResult = reserveDao.updateCoupon(coupon);
+		int result = 0;
+		
+		if(reserveDto.getCoupon_FK() == 0) {
+			result = reserveDao.insertNotCoupon(reserveDto);
+		} else {
+			result = reserveDao.insertReserve(reserveDto);
+			
+			// 결제시 사용한 쿠폰 상태 변경
+			Integer coupon = reserveDto.getCoupon_FK();
+			if(coupon != null) {
+				int couponResult = reserveDao.updateCoupon(coupon);
+			}
 		}
 		
 		// 결제시 사용한 포인트
-		int usePoint = reserveDto.getPoint();
+		Integer usePoint = reserveDto.getPoint();
 		// 유저 아이디
 		String uId = reserveDto.getId_FK();
 		// 최종 포인트
@@ -64,7 +70,7 @@ public class ReserveServiceImple implements ReserveService {
 		Integer myPoint = 0;
 				
 		// 사용한 포인트가 있을경우
-		if(usePoint != 0) {
+		if(usePoint != null && usePoint > 0) {
 			// 현재 보유한 포인트
 			myPoint = reserveDao.getPoint(uId);
 			// 남은 포인트

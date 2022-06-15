@@ -39,7 +39,12 @@ public class ReserveDaoImple implements ReserveDao {
 	public int insertReserve(ReserveDto reserveDto) throws Exception {
 		return session.insert(namespace + "insertReserve", reserveDto);
 	}
-
+	
+	@Override
+	public int insertNotCoupon(ReserveDto reserveDto) throws Exception {
+		return session.insert(namespace + "insertNotCoupon", reserveDto);
+	}
+	
 	@Override
 	public int updateCoupon(Integer coupon) throws Exception {
 		return session.update(namespace + "updateCoupon", coupon);

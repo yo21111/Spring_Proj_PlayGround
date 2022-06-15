@@ -14,7 +14,7 @@ public interface MyPageReviewDao {
 	public List<ReserveDto> getReserveList(String id, Date term1, Date term2) throws Exception;
 	
 	// 해당 ReserveDto에 대한 리뷰를 작성했는지에 대한 여부
-	public int isWriteReview(String id_FK, int exNo_FK, Date reDate) throws Exception;
+	public int isWriteReview(String id_FK, int exNo_FK, String string) throws Exception;
 	
 	// 리뷰 작성하기
 	public int insertReview(ReviewDto rDto);

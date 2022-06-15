@@ -8,16 +8,16 @@ public class ReserveDto {
 
 	private int no;
 	private int exNo_FK;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date reDate;
+	@DateTimeFormat(pattern = "yyyyMMdd")
+	private String reDate;
 	private String reTime1;
 	private String reTime2;
 	private int adCnt;
 	private int chCnt;
 	private int payment;
-	private int point;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date payDate;
+	private Integer point;
+	@DateTimeFormat(pattern = "yyyyMMdd")
+	private String payDate;
 	private String id_FK;
 	private Integer coupon_FK;
 
@@ -40,11 +40,11 @@ public class ReserveDto {
 		this.exNo_FK = exNo_FK;
 	}
 
-	public Date getReDate() {
+	public String getReDate() {
 		return reDate;
 	}
 
-	public void setReDate(Date reDate) {
+	public void setReDate(String reDate) {
 		this.reDate = reDate;
 	}
 
@@ -88,19 +88,19 @@ public class ReserveDto {
 		this.payment = payment;
 	}
 
-	public int getPoint() {
+	public Integer getPoint() {
 		return point;
 	}
 
-	public void setPoint(int point) {
+	public void setPoint(Integer point) {
 		this.point = point;
 	}
 
-	public Date getPayDate() {
+	public String getPayDate() {
 		return payDate;
 	}
 
-	public void setPayDate(Date payDate) {
+	public void setPayDate(String payDate) {
 		this.payDate = payDate;
 	}
 

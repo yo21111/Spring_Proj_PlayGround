@@ -29,7 +29,9 @@ public class MyPageUserInfoServiceImpl implements MyPageUserInfoService{
 
 	@Override
 	public int deleteMember(String id) throws Exception {
+		//res는 그냥 있어보이려고 작성하였음 별거 없음
 		int res = 0;
+		// 쿠폰 해당 아이디 관련 삭제
 		res = mpuiDao.deleteCoupon(id);
 		res = mpuiDao.deletePoint(id);
 		res = mpuiDao.deleteReserve(id);

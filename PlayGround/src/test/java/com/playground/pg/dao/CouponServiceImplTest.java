@@ -211,8 +211,7 @@ public class CouponServiceImplTest {
 		// 일반 예약(쿠폰, 포인트 사용x)시 : 아이디, 작품번호, 관람날짜, 관람시간(시작), 관람시간(끝),
 		// 어른매수, 아이매수(기본값 0), 결제금액, 결제날자(예약날짜), 예약번호
 		// 포인트 or 쿠폰사용시 일반 예약에 포인트, 쿠폰 추가
-
-		Date reDate = new Date(122, 04, 13);
+		String reDate = "20220422";
 		resDto.setId_FK("tester123");
 		resDto.setExNo_FK(exNo);
 		resDto.setReDate(reDate);
