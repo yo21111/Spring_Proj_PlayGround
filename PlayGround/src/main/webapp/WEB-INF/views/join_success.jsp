@@ -34,7 +34,7 @@
 			<div class="center">
 				<!-- <div class="header_fix"> -->
 				<!-- <div class="logo"> -->
-				<a href="#" class="logo"> <span>PLAY</span> <span>GROUND</span>
+				<a href="/" class="logo"> <span>PLAY</span> <span>GROUND</span>
 				</a>
 				<!-- <a href="#"><img src="image/logo.png" alt="logo"></a> -->
 				<!-- </div> -->
@@ -42,9 +42,9 @@
 					<ul class="main_menu">
 						<li class="main_list"><a href="#">PLAY GROUND</a>
 							<ul class="sub_menu">
-								<li class="sub_list"><a href="#">현재 전시</a></li>
-								<li class="sub_list"><a href="#">지난 전시</a></li>
-								<li class="sub_list"><a href="#">예정 전시</a></li>
+                                <li class="sub_list"><a href="/exhibit/list?exState=N">오늘의 전시</a></li>
+                                <li class="sub_list"><a href="/exhibit/list?exState=B">지난 전시</a></li>
+                                <li class="sub_list"><a href="/exhibit/list?exState=A">예정 전시</a></li>
 							</ul></li>
 						<li class="main_list"><a href="#">STORE</a> <!-- <ul class="sub_menu">
                 <li class="sub_list"><a href="#"></a></li>
@@ -52,8 +52,8 @@
 						<li class="main_list"><a href="#">BOARD</a>
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="#">공지사항</a></li>
-								<li class="sub_list"><a href="#">FAQ</a></li>
-								<li class="sub_list"><a href="#">1:1문의</a></li>
+								<li class="sub_list"><a href="/faq/bbs">FAQ</a></li>
+								<li class="sub_list"><a href="/inquiry/board">1:1문의</a></li>
 							</ul></li>
 					</ul>
 				</nav>
@@ -61,12 +61,12 @@
 					<ul>
 						<c:choose>
 							<c:when test="${loginId eq null}">
-								<a href="#" style="margin-right: 20px;"><li>회원가입</li></a>
-								<a href="#"><li>LOGIN</li></a>
+								<a href="/Join/page" style="margin-right: 20px;">회원가입</a>
+								<a href="/Login/Login">LOGIN</a>
 							</c:when>
 							<c:otherwise>
-								<a href="#" style="margin-right: 20px;"><li>LOGOUT</li></a>
-								<a href="/mypage/myPageHome"><li>MY PAGE</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;">LOGOUT</a>
+								<a href="/mypage/myPageHome">MY PAGE</a>
 							</c:otherwise>
 						</c:choose>
 					</ul>

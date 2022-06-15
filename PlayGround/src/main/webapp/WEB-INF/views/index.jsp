@@ -120,7 +120,7 @@
 											<p>${artDto.exContent}</p>
 										</div>
 										<div class="btn_box">
-											<a href="#">바로 예매</a> <a href="/exhibit/listView?exNo=${artDto.exNo}">자세히
+											<a href="/reserve/select?no=${artDto.exNo }">바로 예매</a> <a href="/exhibit/listView?exNo=${artDto.exNo}">자세히
 												보기</a>
 										</div>
 									</div>

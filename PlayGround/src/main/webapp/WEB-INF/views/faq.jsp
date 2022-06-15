@@ -43,7 +43,7 @@
                 <!-- </div> -->
                 <nav class="gnb">
                     <ul class="main_menu">
-                        <li class="main_list"><a href="/">PLAY GROUND</a>
+                        <li class="main_list"><a href="#">PLAY GROUND</a>
                             <ul class="sub_menu">
                                 <li class="sub_list"><a href="/exhibit/list?exState=N">오늘의 전시</a></li>
                                 <li class="sub_list"><a href="/exhibit/list?exState=B">지난 전시</a></li>

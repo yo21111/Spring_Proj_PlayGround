@@ -54,8 +54,8 @@
 						<li class="main_list">BOARD
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="#">공지사항</a></li>
-								<li class="sub_list"><a href="#">FAQ</a></li>
-								<li class="sub_list"><a href="#">1:1문의</a></li>
+                                <li class="sub_list"><a href="/faq/bbs">FAQ</a></li>
+                                <li class="sub_list"><a href="/inquiry/board">1:1문의</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -68,7 +68,7 @@
 								<a href="/Login/Login"><li>LOGIN</li></a>
 							</c:when>
 							<c:otherwise>
-								<a href="#" style="margin-right: 20px;"><li>LOGOUT</li></a>
+								<a href="/Login/Logout" style="margin-right: 20px;"><li>LOGOUT</li></a>
 								<a href="/mypage/myPageHome"><li>MY PAGE</li></a>
 							</c:otherwise>
 						</c:choose>

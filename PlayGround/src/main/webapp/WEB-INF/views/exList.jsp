@@ -56,8 +56,8 @@
 						<li class="main_list"><a href="#">BOARD</a>
 							<ul class="sub_menu">
 								<li class="sub_list"><a href="#">공지사항</a></li>
-								<li class="sub_list"><a href="#">FAQ</a></li>
-								<li class="sub_list"><a href="#">1:1문의</a></li>
+								<li class="sub_list"><a href="/faq/bbs">FAQ</a></li>
+								<li class="sub_list"><a href="/inquiry/board">1:1문의</a></li>
 							</ul></li>
 					</ul>
 				</nav>
