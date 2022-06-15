@@ -234,12 +234,11 @@ public class AdMainServiceImplTest {
 	public InquiryDto createInquiry() {
 		InquiryDto inqDto = new InquiryDto();
 		// 들어오는 값 : 문의번호, 카테고리, 제목, 내용, 작성자(아이디), 작성날짜, 처리상태, 답변
-		Date writeDate = new Date(122, 04, 16);
 		inqDto.setCategory("환불문의");
 		inqDto.setTitle("제목입니다.");
 		inqDto.setContent("내용입니다.");
 		inqDto.setWriter("tester123");
-		inqDto.setWriteDate(writeDate);
+		inqDto.setWriteDate("2022-06-15");
 		
 		return inqDto;
 	}

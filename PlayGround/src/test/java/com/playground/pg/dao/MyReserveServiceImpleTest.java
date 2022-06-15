@@ -99,7 +99,7 @@ public class MyReserveServiceImpleTest {
 		int resCnt = myresService.getResCnt(exNo);
 		
 		// 7. 예매 환불하기
-		boolean delReserve = myresService.deleteReserve(getRes);
+		boolean delReserve = myresService.deleteReserve(getRes, id);
 		
 		// 8. 생성했던 멤버 삭제하기
 		int deleteRes = mpuiService.deleteMember("tester123");
