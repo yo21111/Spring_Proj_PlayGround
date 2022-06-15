@@ -62,4 +62,26 @@ $(document).ready(function() {
     $("#back").click(function() {
         $("#pop_bg").hide();
     });
+    
+    //공지사항 탭
+    $("li.tab_btn").click(function() {
+        $(this).addClass("on");
+        $(this).siblings().removeClass("on");
+        let idx3 = $(this).index();
+        console.log(idx3);
+        $(this).parent().siblings().removeClass("view");
+        $(this).parent().siblings().eq(idx3).addClass("view");
+
+    });
+    //faq 필터
+    $("li.fitter_menu").click(function() {
+        $(this).addClass("on");
+        $(this).siblings().removeClass("on");
+        let idx4 = $(this).index();
+        console.log(idx4);
+        $(this).parent().parent().siblings(".notice_con").removeClass("view");
+        $(this).parent().parent().siblings(".notice_con").eq(idx4).addClass("view");
+
+    });
+    
 }); //.ready() end

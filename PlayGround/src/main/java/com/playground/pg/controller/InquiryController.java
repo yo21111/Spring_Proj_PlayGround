@@ -2,6 +2,8 @@ package com.playground.pg.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,13 +25,14 @@ public class InquiryController {
 	
 	// 1:1 문의 페이지
 	@GetMapping("/board")
-	public String updateInq(String uId, Model m) {
+	public String updateInq(HttpSession session, Model m) {
 		// 작성자명 매개변수로 받기
 		
+		String uId = (String) session.getAttribute("uId_Session");
 		// 작성자명 모델에 넣기
 		m.addAttribute("uId", uId);
 		
-		return "1:1문의 페이지";
+		return "inquiry";
 	}
 	
 	// 문의보내기
@@ -41,7 +44,7 @@ public class InquiryController {
 		// 문의 정보(빈) insert 하는 서비스
 		boolean result = inquiryService.insertInq(inquiryDto);
 		
-		return "redirect:/마이페이지/문의내역 or /메인페이지";
+		return "redirect:/";
 	}
 	
 	// 1:1 문의 페이지(내가 쓴글 목록)

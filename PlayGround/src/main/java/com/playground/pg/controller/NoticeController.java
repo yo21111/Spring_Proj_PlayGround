@@ -43,7 +43,7 @@ public class NoticeController {
 		m.addAttribute("adminChk", adminChk);
 		m.addAttribute("ph", ph);
 
-		return "공지사항리스트";
+		return "notice";
 	}
 
 	@GetMapping("/board")
