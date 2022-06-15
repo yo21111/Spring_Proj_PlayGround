@@ -39,7 +39,6 @@
 		Select * from faq
 		where category = #{category}
 		ORDER BY writeDate DESC, no DESC
-		LIMIT #{offset}, #{pageSize}
 	</select>
 	
 	<select id="selectFaq" parameterType="int" resultType="FaqDto">

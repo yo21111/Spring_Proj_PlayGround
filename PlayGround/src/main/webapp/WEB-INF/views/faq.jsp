@@ -112,11 +112,11 @@
                     <div class="faq">
                         <div class="fitter_bar">
                             <ul class="fitter">
-                                <li class="fitter_menu on">전체</li>
-                                <li class="fitter_menu">전시·프로그램</li>
-                                <li class="fitter_menu">회원안내</li>
-                                <li class="fitter_menu">위치·시설안내</li>
-                                <li class="fitter_menu">기타</li>
+                                <li class="fitter_menu on"><a href="/faq/bbs">전체</a></li>
+                                <li class="fitter_menu"><a href="/faq/bbs?category=전시·프로그램">전시·프로그램</a></li>
+                                <li class="fitter_menu"><a href="/faq/bbs?category=회원안내">회원안내</a></li>
+                                <li class="fitter_menu"><a href="/faq/bbs?category=위치·시설안내">위치·시설안내</a></li>
+                                <li class="fitter_menu"><a href="/faq/bbs?category=기타">기타</a></li>
                             </ul>
                         </div>
                         <div class="search_bar">
@@ -139,64 +139,18 @@
                                 <span class="cate">구분</span>
                                 <span class="title">제목</span>
                                 <span class="update">게시일</span>
-                                <span class="view">조회수</span>
+                                <span class="view">작성자</span>
                             </div>
-                            <div class="notice_txt">
-                                <span class="num">16</span>
-                                <span class="cate">전시·프로그램</span>
-                                <span class="title">단체 관람 전 미술관 답사를 하고 싶습니다. 어떻게 신청할 수 있나요?</span>
-                                <span class="update">2022-05-24</span>
-                                <span class="view">55</span>
-                            </div>
-                            <div class="notice_txt">
-                                <span class="num">15</span>
-                                <span class="cate">전시·프로그램</span>
-                                <span class="title">전시장에서 사진촬영이 가능한가요?</span>
-                                <span class="update">2022-05-16</span>
-                                <span class="view">95</span>
-                            </div>
-                            <div class="notice_txt">
-                                <span class="num">14</span>
-                                <span class="cate">전시·프로그램</span>
-                                <span class="title">코로나 19로 인한 큐레이팅 서비스를 일시 중단합니다.</span>
-                                <span class="update">2022-02-11</span>
-                                <span class="view">122</span>
-                            </div>
-                            <div class="notice_txt">
-                                <span class="num">00</span>
-                                <span class="cate">위치·시설안내</span>
-                                <span class="title">플레이 그라운드는 주차가 가능한가요?</span>
-                                <span class="update">0000-00-00</span>
-                                <span class="view">00</span>
-                            </div>
-                            <div class="notice_txt">
-                                <span class="num">00</span>
-                                <span class="cate">위치·시설안내</span>
-                                <span class="title">플레이 그라운드에 휠체어로 입장이 가능한가요?</span>
-                                <span class="update">0000-00-00</span>
-                                <span class="view">00</span>
-                            </div>
-                            <div class="notice_txt">
-                                <span class="num">00</span>
-                                <span class="cate">회원안내</span>
-                                <span class="title">아이디·비밀번호를 잊어버렸어요.</span>
-                                <span class="update">0000-00-00</span>
-                                <span class="view">00</span>
-                            </div>
-                            <div class="notice_txt">
-                                <span class="num">00</span>
-                                <span class="cate">회원안내</span>
-                                <span class="title">휴면 계정으로 전환됐어요. 어떻게 해야 하나요?</span>
-                                <span class="update">0000-00-00</span>
-                                <span class="view">00</span>
-                            </div>
-                            <div class="notice_txt">
-                                <span class="num">00</span>
-                                <span class="cate">기타</span>
-                                <span class="title">신용카드나 현금영수증 발급이 가능한가요?</span>
-                                <span class="update">0000-00-00</span>
-                                <span class="view">00</span>
-                            </div>
+                            <c:forEach var="faqDto" items="${faqList}">
+	                            <div class="notice_txt">
+	                                <span class="num">${faqDto.no }</span>
+	                                <span class="cate">${faqDto.category }</span>
+	                                <span class="title">${faqDto.title }</span>
+	                                <fmt:formatDate var="writeDate" value="${faqDto.writeDate }" pattern="yyyy-MM-dd"/>
+	                                <span class="update">${writeDate}</span>
+	                                <span class="view">${faqDto.writer }</span>
+	                            </div>
+                            </c:forEach>
                             <div class="pagenation">
                                 <ul>
                                     <li>
