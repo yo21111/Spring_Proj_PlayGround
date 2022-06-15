@@ -198,11 +198,15 @@
 	                      <div class="ticket_text">
 	                        <p>${notWriteArtList[status.index].exName}</p>
 	                        <p>${notWriteArtList[status.index].location}</p>
-	                        <p>${resDto.payDate} | <c:out value="${totalCnt}매" /></p>
+				          	<fmt:parseDate var="payday" value="${resDto.payDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+		  					<fmt:formatDate var="payDate" value="${payday}" pattern="yyyy-MM-dd"/>	                        
+	                        <p>${payDate} | <c:out value="${totalCnt}매" /></p>
 	                      </div>
 	                    </div>
 	                    <div class="ticket_date">
-	                      <c:out value="${resDto.reDate }" />
+				  		  <fmt:parseDate var="reserveday" value="${resDto.reDate}" pattern="yyyy-MM-dd HH:mm:ss" />          
+			      		  <fmt:formatDate var="reserveDate" value="${reserveday}" pattern="yyyy-MM-dd"/>	                    
+	                      <c:out value="${reserveDate}" />
 	                      <input type="hidden" name="reDate_FK" value="${resDto.reDate}" class="reDate"/>
 	                    </div>
 	                  </div>
